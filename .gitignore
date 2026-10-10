@@ -1,3 +1,22 @@
+# Dependencies
 node_modules/
-.DS_Store
+.pnp
+.pnp.js
+
+# Testing and Scratch Scripts
+*.py
+*.txt
+*.jsonl
 *.log
+screenshot_*.png
+extracted_*
+parsed_*
+*formatted*.json
+
+# OS and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+add_diorama_levels_19_28.js

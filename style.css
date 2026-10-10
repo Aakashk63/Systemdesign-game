@@ -285,17 +285,41 @@ body {
 /* ==========================================================================
    SCREEN 1: LANDING START SCREEN (LOST LEGENDS / FANTASY GATEWAY)
    ========================================================================== */
+#screen-landing {
+  min-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body:has(#screen-landing:not(.hidden)) {
+  overflow: hidden !important;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+body:has(#screen-landing:not(.hidden)) .main-content {
+  padding-top: 0.25rem;
+  padding-bottom: 0;
+}
+
 .landing-hero {
   max-width: 960px;
-  margin: 2.5rem auto;
+  width: 100%;
+  margin: 0 auto;
   text-align: center;
   background: var(--bg-parchment);
   border: 4px solid var(--wood-mid);
   border-radius: var(--radius-lg);
-  padding: 3.5rem 2.5rem;
+  padding: 1.75rem 2.25rem 1.6rem;
   box-shadow: var(--shadow-diorama), inset 0 0 40px rgba(216, 185, 138, 0.25);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .landing-hero::before {
@@ -312,40 +336,40 @@ body {
   color: #7a4f21;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.4rem 1.25rem;
+  font-size: 0.88rem;
+  padding: 0.35rem 1.15rem;
   border-radius: var(--radius-pill);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: 3.8rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--wood-dark);
   letter-spacing: -0.5px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.4rem;
   text-shadow: 2px 3px 0 #eed9b7, 0 8px 16px rgba(60, 30, 10, 0.1);
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--ink-secondary);
   max-width: 680px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 1.5rem;
   font-weight: 500;
   font-style: italic;
 }
 
 .hero-cta-btn {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 700;
   background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
   color: #fff9ea;
   border: 3px solid #ffde7a;
-  padding: 1rem 3rem;
+  padding: 0.85rem 2.5rem;
   border-radius: var(--radius-pill);
   cursor: pointer;
   box-shadow: 0 6px 0 #8c4a04, 0 12px 24px rgba(217, 119, 6, 0.35);
@@ -369,8 +393,8 @@ body {
 .feature-cards-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3.5rem;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
   text-align: left;
 }
 
@@ -378,7 +402,7 @@ body {
   background: var(--bg-parchment-card);
   border: 2px solid #e2d1b0;
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1.15rem 1.25rem;
   box-shadow: var(--shadow-parchment);
   transition: transform 0.2s ease;
 }
@@ -389,22 +413,22 @@ body {
 }
 
 .feat-icon {
-  font-size: 2.2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .feat-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--wood-dark);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
 .feat-desc {
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   color: var(--ink-secondary);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -4382,4 +4406,282 @@ body {
 .packet-pulse-anim {
   animation: packetPulseHop 1.4s infinite ease-in-out;
 }
+
+/* ==========================================================================
+   VIDEO LESSON SCREEN (YOUTUBE EMBED & STRICT COMPLETION UNLOCK)
+   ========================================================================== */
+.video-lesson-container {
+  max-width: 1040px;
+  margin: 1.5rem auto 3rem;
+  background: var(--bg-parchment);
+  border: 4px solid var(--wood-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-diorama);
+  position: relative;
+}
+
+.video-lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed #e2d1b0;
+  gap: 1rem;
+}
+
+.video-lesson-meta {
+  flex: 1;
+}
+
+.video-level-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fdf5e6;
+  border: 1.5px solid #e0c28c;
+  color: #7a4f21;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.5rem;
+}
+
+.video-lesson-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--wood-dark);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.video-concept-tag {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--water-blue);
+  font-weight: 700;
+}
+
+.video-player-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #090d16;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 2px #334155;
+  margin-bottom: 1.5rem;
+}
+
+.video-player-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-parchment-card);
+  border: 1.5px solid #e2d1b0;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.video-completion-banner {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.2));
+  border: 2px solid #22c55e;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.video-completion-icon {
+  width: 48px;
+  height: 48px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.video-completion-text h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #14532d;
+  font-weight: 800;
+}
+
+.video-completion-text p {
+  color: #166534;
+  font-size: 0.92rem;
+  margin-top: 0.15rem;
+}
+
+.video-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-video-next {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  color: #fff9ea;
+  border: 3px solid #ffde7a;
+  padding: 0.9rem 2.5rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 5px 0 #8c4a04, 0 10px 20px rgba(217, 119, 6, 0.35);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-video-next:hover:not(:disabled) {
+  background: linear-gradient(180deg, #fbbf24 0%, #e08307 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #8c4a04, 0 14px 24px rgba(217, 119, 6, 0.4);
+}
+
+.btn-video-next:disabled,
+.btn-video-next.btn-locked {
+  background: #64748b;
+  border-color: #94a3b8;
+  color: #cbd5e1;
+  box-shadow: 0 4px 0 #334155;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.75;
+}
+
+.btn-fallback-complete {
+  background: none;
+  border: 1px dashed #9e6438;
+  color: #784826;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-fallback-complete:hover {
+  background: #fdf5e6;
+  border-color: #784826;
+  color: #3e2413;
+}
+
+/* ==========================================================================
+   CONCEPT EXPLANATION POPUP (7 REQUIRED SECTIONS)
+   ========================================================================== */
+.disc-section-box {
+  background: var(--bg-parchment-card);
+  border: 2px solid #e2d1b0;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-parchment);
+}
+
+.disc-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--wood-mid);
+  margin-bottom: 0.5rem;
+}
+
+.disc-section-content {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--ink-primary);
+}
+
+.disc-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.step-card {
+  background: #ffffff;
+  border-left: 4px solid var(--water-blue);
+  border-top: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+.disc-visual-diagram-box {
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btn-continue-video {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: 3px solid #6ee7b7;
+  padding: 0.95rem 2.8rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 5px 0 #064e3b, 0 10px 20px rgba(5, 150, 105, 0.35);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-continue-video:hover {
+  background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #064e3b, 0 14px 24px rgba(5, 150, 105, 0.4);
+}
+
 
