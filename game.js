@@ -1,10 +1,15 @@
 /**
- * RideQuest - Core Game State & Controller
- * Story-Driven 3D System Design Learning Game for First-Year Students
+ * System Design Learning Game - Core Game State & Controller
+ * Ola Cab Booking Architecture Edition for First-Year Students
  * 
- * Strict Learning Flow for Every Level:
- * Story -> Problem Question -> 2-3 Options -> Answer Feedback -> 
- * Concept Explanation Popup -> Continue -> YouTube Lesson -> Video Completed -> Next Level Unlocked
+ * Strict 7-Step Learning Flow for Every Topic:
+ * STEP 1: Story Introduction (Ola Cab scenario in simple English)
+ * STEP 2: Think and Choose (3 balanced options: A, B, C)
+ * STEP 3: Show the Result (Outcome explanation + retry on wrong choice)
+ * STEP 4: Teach the Concept (Name, Simple Definition, Why Needed, Analogy)
+ * STEP 5: Visual Explanation (Labeled component flow diagram)
+ * STEP 6: Knowledge Check (Brand new distinct question with hints & retry)
+ * STEP 7: Completion (Gated progression: unlocks next topic only after Knowledge Check is passed)
  */
 
 class GameController {
@@ -12,12 +17,10 @@ class GameController {
     this.currentLevelIndex = 0;
     this.xp = 0;
     this.completedLevelIds = new Set();
-    this.completedVideoLevelIds = new Set();
+    this.learningProgress = {}; // Tracks: storyViewed, firstDecisionCompleted, conceptExplanationViewed, knowledgeCheckCompleted, attempts, isCompleted
     this.selectedChoice = null;
     this.isEvaluating = false;
     this.simulationEngine = null;
-    this.ytPlayer = null;
-    this.isVideoCompleted = false;
     this.isTeacherModeOpen = false;
     this.isCodexOpen = false;
 
@@ -38,45 +41,25 @@ class GameController {
     this.loadState();
     this.simulationEngine = new window.SimulationEngine('sim-viewport');
 
-    // Attach global YouTube message listener for iframe completion events
-    this.setupYouTubeMessageListener();
-
     // Pre-render current level
     this.loadLevel(this.currentLevelIndex);
 
     if (this.currentLevelIndex > 0 || this.completedLevelIds.size > 0) {
       const startBtn = document.getElementById('btn-start-journey');
-      if (startBtn) startBtn.innerText = "CONTINUE YOUR ADVENTURE →";
+      if (startBtn) startBtn.innerText = "CONTINUE YOUR MISSION →";
     }
-  }
-
-  setupYouTubeMessageListener() {
-    window.addEventListener('message', (event) => {
-      try {
-        let data = event.data;
-        if (typeof data === 'string') {
-          data = JSON.parse(data);
-        }
-        // YouTube Player postMessage ended event has info === 0 or event === "onStateChange" & info === 0
-        if (data && (data.info === 0 || (data.event === 'onStateChange' && data.info === 0))) {
-          console.log('YouTube iframe reported video ENDED state!');
-          this.handleVideoEnded();
-        }
-      } catch (e) {
-        // Not a JSON message or unrelated iframe
-      }
-    });
   }
 
   loadState() {
     try {
-      const saved = localStorage.getItem('ridequest_save');
+      const saved = localStorage.getItem('ola_sysdesign_save') || localStorage.getItem('ridequest_save') || localStorage.getItem('pubg_sysdesign_save');
       if (saved) {
         const data = JSON.parse(saved);
-        this.currentLevelIndex = typeof data.currentLevelIndex === 'number' ? Math.min(data.currentLevelIndex, (window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27)) : 0;
+        const maxIdx = window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27;
+        this.currentLevelIndex = typeof data.currentLevelIndex === 'number' ? Math.min(data.currentLevelIndex, maxIdx) : 0;
         this.xp = data.xp || 0;
         this.completedLevelIds = new Set(data.completedLevelIds || []);
-        this.completedVideoLevelIds = new Set(data.completedVideoLevelIds || []);
+        this.learningProgress = data.learningProgress || {};
       }
     } catch (e) {
       console.warn('Failed to load save state:', e);
@@ -89,19 +72,23 @@ class GameController {
         currentLevelIndex: this.currentLevelIndex,
         xp: this.xp,
         completedLevelIds: Array.from(this.completedLevelIds),
-        completedVideoLevelIds: Array.from(this.completedVideoLevelIds)
+        learningProgress: this.learningProgress || {}
       };
-      localStorage.setItem('ridequest_save', JSON.stringify(data));
+      localStorage.setItem('ola_sysdesign_save', JSON.stringify(data));
+      localStorage.setItem('pubg_sysdesign_save', JSON.stringify(data));
+      localStorage.setItem('ridequest_save', JSON.stringify(data)); // backward compatibility
     } catch (e) {}
   }
 
   resetProgress() {
     if (confirm("Reset all learning progress back to Level 1?")) {
+      localStorage.removeItem('ola_sysdesign_save');
+      localStorage.removeItem('pubg_sysdesign_save');
       localStorage.removeItem('ridequest_save');
       this.currentLevelIndex = 0;
       this.xp = 0;
       this.completedLevelIds.clear();
-      this.completedVideoLevelIds.clear();
+      this.learningProgress = {};
       window.location.reload();
     }
   }
@@ -137,10 +124,24 @@ class GameController {
     }
     this.currentLevelIndex = index;
     this.selectedChoice = null;
-    this.isVideoCompleted = false;
-    this.saveState();
 
     const level = window.GAME_LEVELS[this.currentLevelIndex];
+
+    // Initialize or update learning progress for this level (Step 1: Story Viewed)
+    if (!this.learningProgress) this.learningProgress = {};
+    if (!this.learningProgress[level.id]) {
+      this.learningProgress[level.id] = {
+        storyViewed: true,
+        firstDecisionCompleted: false,
+        conceptExplanationViewed: false,
+        knowledgeCheckCompleted: false,
+        attempts: 0,
+        isCompleted: false
+      };
+    } else {
+      this.learningProgress[level.id].storyViewed = true;
+    }
+    this.saveState();
 
     // Ensure standard gameplay screen is visible only when not on landing screen
     const landing = document.getElementById('screen-landing');
@@ -150,7 +151,7 @@ class GameController {
     } else {
       document.getElementById('screen-gameplay')?.classList.add('hidden');
     }
-    document.getElementById('screen-video-lesson')?.classList.add('hidden');
+
     document.getElementById('discovery-modal')?.classList.add('hidden');
     document.getElementById('screen-victory')?.classList.add('hidden');
 
@@ -161,12 +162,12 @@ class GameController {
 
   updateTopBar(level) {
     const stage = window.GAME_STAGES?.find(s => s.id === level.stage);
-    this.setElementText('stage-badge-text', stage ? stage.name.toUpperCase() : 'SYSTEM FOUNDATIONS');
+    this.setElementText('stage-badge-text', stage ? stage.name.toUpperCase() : 'MODULE 1: SYSTEM DESIGN FUNDAMENTALS');
     const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-    this.setElementText('level-indicator-text', `Level ${level.id} / ${totalLevels}`);
+    this.setElementText('level-indicator-text', `Topic ${level.id} / ${totalLevels}`);
     this.setElementText('xp-count-val', `${this.xp}`);
 
-    // Stepper dots for all 9 levels
+    // Stepper dots for all 28 topics
     const stepperContainer = document.getElementById('stage-stepper-dots');
     if (stepperContainer && window.GAME_LEVELS) {
       stepperContainer.innerHTML = window.GAME_LEVELS.map((lvl, idx) => {
@@ -174,19 +175,20 @@ class GameController {
         const isCurrent = lvl.id === level.id;
         const dotClass = isCurrent ? 'dot current' : (isDone ? 'dot done' : 'dot pending');
         const connector = idx < window.GAME_LEVELS.length - 1 ? `<div class="dot-connector ${isDone ? 'active' : ''}"></div>` : '';
-        return `<div class="${dotClass}" title="Level ${lvl.id}: ${lvl.title}" onclick="window.game.jumpToLevel(${idx})"></div>${connector}`;
+        return `<div class="${dotClass}" title="Topic ${lvl.id}: ${lvl.topic}" onclick="window.game.jumpToLevel(${idx})"></div>${connector}`;
       }).join('');
     }
 
-    this.setElementText('challenge-topic-text', `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2" class="rq-icon btn-icon"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2" fill="#f39c12"/></svg> Mission: ${level.topicHint || level.title}`);
+    this.setElementText('challenge-topic-text', `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2" class="rq-icon btn-icon"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2" fill="#f39c12"/></svg> Mission: ${level.topicHint || level.topic}`);
 
     const progressFill = document.getElementById('progress-bar-fill');
     if (progressFill) progressFill.style.width = `${((level.id) / totalLevels) * 100}%`;
   }
 
   jumpToLevel(idx) {
-    // Only allow jumping if level is completed or adjacent
-    if (idx <= this.currentLevelIndex || this.completedLevelIds.has(idx + 1)) {
+    const targetLevelId = idx + 1;
+    // Allow jumping to any level up to current or any completed level (allows revisiting completed topics)
+    if (idx <= this.currentLevelIndex || this.completedLevelIds.has(targetLevelId)) {
       window.soundEngine?.click?.();
       this.loadLevel(idx);
     }
@@ -211,8 +213,8 @@ class GameController {
     }
   }
 
+  // STEP 1 & STEP 2: Render Scenario and 3 Balanced Answer Options
   renderLevelView(level) {
-    // Hide all overlays & feedback cards
     document.getElementById('discovery-modal')?.classList.add('hidden');
     document.getElementById('consequence-feedback-card')?.classList.add('hidden');
     document.getElementById('success-feedback-banner')?.classList.add('hidden');
@@ -220,16 +222,16 @@ class GameController {
 
     this.isEvaluating = false;
 
-    // Populate Story & Problem screen (everyday English, no technical jargon)
+    // STEP 1: Story & Problem (Simple English, PUBG/BGMI scenario)
     this.setElementText('lvl-time', level.time);
     this.setElementText('lvl-users', level.usersCount);
     this.setElementText('lvl-title', level.title);
     this.setElementText('lvl-situation', level.situation);
     this.setElementText('lvl-problem', level.problem);
 
-    this.updateCompanionState('thinking', `“Review the situation carefully. What decision should we make?”`);
+    this.updateCompanionState('thinking', `“Review the Ola cab booking situation. What decision should we make?”`);
 
-    // Render 2 or 3 beginner-friendly choices
+    // STEP 2: Exactly 3 beginner-friendly choices (A, B, C)
     const optionsContainer = document.getElementById('options-grid');
     if (optionsContainer) {
       optionsContainer.innerHTML = '';
@@ -248,7 +250,7 @@ class GameController {
       });
     }
 
-    // Render State 1: Initial Problem 3D Simulation
+    // Render 3D Simulation
     if (this.simulationEngine) {
       this.simulationEngine.render(level, null);
     }
@@ -262,6 +264,7 @@ class GameController {
     });
   }
 
+  // STEP 3: Show the Result (Outcome explanation + retry on wrong choice)
   makeChoice(choice) {
     if (this.isEvaluating) return;
     this.isEvaluating = true;
@@ -269,7 +272,6 @@ class GameController {
     this.selectedChoice = choice;
     const level = window.GAME_LEVELS[this.currentLevelIndex];
 
-    // Lock choices and highlight
     this.setChoicesDisabled(true);
 
     const allCards = document.querySelectorAll('.choice-card');
@@ -287,14 +289,13 @@ class GameController {
 
     this.updateCompanionState('observing', `“Testing Option ${choice.id}... Let's observe the result!”`);
 
-    // Render State 2: Selected Answer Consequence in 3D Diorama
     if (this.simulationEngine) {
       this.simulationEngine.render(level, choice);
     }
     this.updateTeacherMode();
 
     if (!choice.isOptimal) {
-      // Suboptimal choice consequence
+      // Suboptimal choice: show outcome and allow retry
       setTimeout(() => {
         window.soundEngine?.overload?.();
         this.updateCompanionState('curious', `“Look at what happened. That created an unexpected bottleneck!”`);
@@ -302,7 +303,10 @@ class GameController {
         this.isEvaluating = false;
       }, 1100);
     } else {
-      // Correct choice success
+      // Optimal choice: mark firstDecisionCompleted and reveal Concept Explanation
+      if (this.learningProgress && this.learningProgress[level.id]) {
+        this.learningProgress[level.id].firstDecisionCompleted = true;
+      }
       setTimeout(() => {
         window.soundEngine?.success?.();
         this.updateCompanionState('celebrating', `“Brilliant! The solution works! Everything flows smoothly!”`);
@@ -321,7 +325,7 @@ class GameController {
     if (card) {
       card.classList.remove('hidden');
       const wh = choice.whatHappened || {};
-      this.setElementText('consequence-title', `Option ${choice.id} Result: Practical Bottleneck`);
+      this.setElementText('consequence-title', `Option ${choice.id} Result: System Bottleneck`);
       this.setElementText('consequence-body', choice.consequenceText || wh.bottleneck || "This choice led to an operational breakdown.");
     }
   }
@@ -357,7 +361,6 @@ class GameController {
     const level = window.GAME_LEVELS[this.currentLevelIndex];
     this.updateCompanionState('thinking', `“Let's rethink our approach. Which solution should we test next?”`);
 
-    // Reset 3D simulation to clean problem state
     if (this.simulationEngine) {
       this.simulationEngine.render(level, null);
     }
@@ -382,27 +385,29 @@ class GameController {
     document.getElementById('what-happened-modal')?.classList.add('hidden');
   }
 
-  // =========================================================================
-  // STAGE 3: CONCEPT EXPLANATION POPUP (7 Required Sections)
-  // =========================================================================
+  // STEP 4 & STEP 5: Teach the Concept & Visual Diagram
   showDiscoveryModal(level, choice) {
     const modal = document.getElementById('discovery-modal');
     if (!modal) return;
     modal.classList.remove('hidden');
 
+    if (this.learningProgress && this.learningProgress[level.id]) {
+      this.learningProgress[level.id].conceptExplanationViewed = true;
+    }
+
     const disc = level.discovery;
 
-    // 1. Technical Concept Name from Excel
+    // 1. Concept Name & Tagline
     this.setElementText('disc-badge-title', disc.badge);
     this.setElementText('disc-tagline', disc.tagline);
 
-    // 2. Simple Meaning
+    // 2. Simple Meaning (Plain English)
     this.setElementText('disc-simple-meaning', disc.simpleMeaning || disc.tagline);
 
     // 3. Everyday Analogy
     this.setElementText('disc-analogy', disc.analogy);
 
-    // 4. How It Works (3 to 5 numbered steps)
+    // 4. How It Works (Step-by-step process)
     const howItWorksContainer = document.getElementById('disc-how-it-works-list');
     if (howItWorksContainer && disc.howItWorks) {
       howItWorksContainer.innerHTML = disc.howItWorks.map(step => `
@@ -415,7 +420,7 @@ class GameController {
     // 5. Why It Matters
     this.setElementText('disc-why-it-matters', disc.whyItMatters || "Ensures predictable operations, high speed, and fault resilience.");
 
-    // 6. Visual Explanation Diagram
+    // STEP 5: Visual Explanation Diagram
     this.setElementText('disc-visual-diagram', disc.visualExplanation || `${disc.badge} Flow Demonstration`);
 
     // Contrast cards
@@ -427,17 +432,156 @@ class GameController {
     }
 
     // Advanced Notes
-    this.setElementText('disc-advanced-text', disc.advancedInfo || "");
+    this.setElementText('disc-advanced-text', disc.teacherNotes?.realWorld || disc.advancedInfo || "");
     const advPanel = document.getElementById('advanced-panel');
     if (advPanel) advPanel.classList.add('hidden');
 
-    // Award XP
-    if (!this.completedLevelIds.has(level.id)) {
-      this.completedLevelIds.add(level.id);
-      this.xp += 150;
-      this.updateTopBar(level);
+    // STEP 6: Render Knowledge Check (Mandatory learning checkpoint)
+    this.renderKnowledgeCheck(level);
+  }
+
+  // STEP 6: Interactive Knowledge Check
+  renderKnowledgeCheck(level) {
+    const kc = level.knowledgeCheck;
+    if (!kc) return;
+
+    this.setElementText('kc-question-text', kc.question);
+
+    const optGrid = document.getElementById('kc-options-grid');
+    const feedbackBox = document.getElementById('kc-feedback-box');
+
+    const progress = this.learningProgress?.[level.id] || {};
+    const isAlreadyPassed = progress.knowledgeCheckCompleted || false;
+
+    if (feedbackBox) {
+      feedbackBox.classList.add('hidden');
+      feedbackBox.innerHTML = '';
+    }
+
+    if (optGrid) {
+      optGrid.innerHTML = kc.options.map(opt => {
+        let extraClass = '';
+        if (isAlreadyPassed && opt.isCorrect) {
+          extraClass = 'passed-correct';
+        }
+        return `
+          <button class="kc-option-card ${extraClass}" id="kc-opt-${opt.id}" onclick="window.game.handleKnowledgeCheckAnswer('${opt.id}')">
+            <div class="kc-opt-badge">${opt.id}</div>
+            <div class="kc-opt-text">${opt.text}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    if (isAlreadyPassed) {
+      this.unlockNextLevelButton(level);
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-success-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">✅ Knowledge Check Completed!</div>
+          <div class="kc-fb-text">You have mastered this concept! Feel free to revisit or proceed to the next topic.</div>
+        `;
+      }
+    } else {
+      this.lockNextLevelButton();
+    }
+  }
+
+  handleKnowledgeCheckAnswer(optId) {
+    const level = window.GAME_LEVELS[this.currentLevelIndex];
+    if (!level || !level.knowledgeCheck) return;
+
+    const kc = level.knowledgeCheck;
+    const selectedOpt = kc.options.find(o => o.id === optId);
+    if (!selectedOpt) return;
+
+    if (!this.learningProgress[level.id]) {
+      this.learningProgress[level.id] = {
+        storyViewed: true,
+        firstDecisionCompleted: true,
+        conceptExplanationViewed: true,
+        knowledgeCheckCompleted: false,
+        attempts: 0,
+        isCompleted: false
+      };
+    }
+
+    this.learningProgress[level.id].attempts += 1;
+
+    const feedbackBox = document.getElementById('kc-feedback-box');
+    const allOptButtons = document.querySelectorAll('.kc-option-card');
+
+    if (selectedOpt.isCorrect) {
+      // Step 6 Passed Correctly!
+      window.soundEngine?.success?.();
+      allOptButtons.forEach(btn => btn.classList.remove('kc-incorrect', 'kc-correct'));
+      const chosenBtn = document.getElementById(`kc-opt-${optId}`);
+      if (chosenBtn) chosenBtn.classList.add('kc-correct');
+
+      this.learningProgress[level.id].knowledgeCheckCompleted = true;
+      this.learningProgress[level.id].isCompleted = true;
+
+      // STEP 7: Award XP and mark level completed only after Knowledge Check is passed!
+      if (!this.completedLevelIds.has(level.id)) {
+        this.completedLevelIds.add(level.id);
+        this.xp += 150;
+        this.updateTopBar(level);
+        this.animateXpGain();
+      }
       this.saveState();
-      this.animateXpGain();
+
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-success-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">🎉 Correct! Concept Mastered!</div>
+          <div class="kc-fb-text">${selectedOpt.explanation}</div>
+        `;
+      }
+
+      this.unlockNextLevelButton(level);
+
+    } else {
+      // Wrong choice in Step 6: provide hint and allow another attempt
+      window.soundEngine?.click?.();
+      const chosenBtn = document.getElementById(`kc-opt-${optId}`);
+      if (chosenBtn) chosenBtn.classList.add('kc-incorrect');
+
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-error-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">❌ Not quite right (Attempt ${this.learningProgress[level.id].attempts})</div>
+          <div class="kc-fb-text">${selectedOpt.explanation}</div>
+          <div class="kc-fb-hint">${kc.hint || "Think about the main concept explained above and try again!"}</div>
+        `;
+      }
+
+      this.lockNextLevelButton();
+    }
+  }
+
+  lockNextLevelButton() {
+    const nextBtn = document.getElementById('btn-continue-next-level');
+    if (nextBtn) {
+      nextBtn.disabled = true;
+      nextBtn.classList.add('btn-locked');
+      nextBtn.innerHTML = `Answer Step 6 to Unlock Next Topic 🔒`;
+    }
+  }
+
+  unlockNextLevelButton(level) {
+    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
+    const nextBtn = document.getElementById('btn-continue-next-level');
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('btn-locked');
+      if (level.id >= totalLevels) {
+        nextBtn.innerHTML = `Complete All 28 Topics & View Certificate 🏆 →`;
+      } else {
+        nextBtn.innerHTML = `Unlock Next Topic (Topic ${level.id + 1}) → 🚀`;
+      }
     }
   }
 
@@ -449,150 +593,44 @@ class GameController {
     }
   }
 
-  // =========================================================================
-  // STAGE 4: YOUTUBE VIDEO LESSON EMBEDDED INSIDE THE GAME
-  // =========================================================================
-  continueToVideo() {
+  // STEP 7: Gated Completion - Advance to Next Level Only After Knowledge Check
+  nextLevelDirect() {
+    const level = window.GAME_LEVELS[this.currentLevelIndex];
+    const progress = this.learningProgress?.[level?.id];
+
+    if (!progress?.knowledgeCheckCompleted) {
+      alert("Please answer the Step 6 Knowledge Check correctly before continuing!");
+      return;
+    }
+
     window.soundEngine?.select?.();
 
-    // Close discovery popup
     document.getElementById('discovery-modal')?.classList.add('hidden');
     this.hideConsequenceCard();
     this.hideSuccessBanner();
     this.hideWhatHappenedModal();
 
-    // Switch screen to Video Lesson
-    document.getElementById('screen-gameplay')?.classList.add('hidden');
-    const videoScreen = document.getElementById('screen-video-lesson');
-    if (videoScreen) {
-      videoScreen.classList.remove('hidden');
-    }
-    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
-
-    const level = window.GAME_LEVELS[this.currentLevelIndex];
-    this.isVideoCompleted = this.completedVideoLevelIds.has(level.id);
-
-    // Populate Lesson Header & Info
-    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-    this.setElementText('video-lesson-level-badge', `Level ${level.id} of ${totalLevels}`);
-    this.setElementText('video-lesson-title', level.videoTitle || level.discovery.badge);
-    this.setElementText('video-lesson-concept', level.concept);
-
-    // Reset completion banner and next level button
-    const banner = document.getElementById('video-completion-banner');
-    const nextBtn = document.getElementById('btn-video-next-level');
-
-    if (this.isVideoCompleted) {
-      if (banner) banner.classList.remove('hidden');
-      if (nextBtn) {
-        nextBtn.removeAttribute('disabled');
-        nextBtn.classList.remove('btn-locked');
-        nextBtn.innerHTML = level.id === totalLevels ? `Complete Game & View Certificate 🏆 →` : `Next Level (Level ${level.id + 1}) →`;
-      }
-      this.setElementText('video-status-text', 'Status: ✅ Lesson previously completed!');
-    } else {
-      if (banner) banner.classList.add('hidden');
-      if (nextBtn) {
-        nextBtn.setAttribute('disabled', 'true');
-        nextBtn.classList.add('btn-locked');
-        nextBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Next Level (Locked — Watch video to complete)`;
-      }
-      this.setElementText('video-status-text', 'Status: 🔴 Playing Lesson... (Watch through to unlock next level)');
-    }
-
-    // Embed YouTube Player with API
-    this.embedYouTubeVideo(level.videoId);
-  }
-
-  embedYouTubeVideo(videoId) {
-    const playerContainer = document.getElementById('youtube-player-container');
-    if (!playerContainer) return;
-
-    // Use responsive embedded iframe with enablejsapi=1
-    playerContainer.innerHTML = `
-      <iframe 
-        id="yt-active-iframe" 
-        src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&modestbranding=1" 
-        title="RideQuest System Design Video Lesson" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-    `;
-
-    // Try initializing YT.Player if YouTube API is loaded
-    if (window.YT && window.YT.Player) {
-      try {
-        if (this.ytPlayer && typeof this.ytPlayer.destroy === 'function') {
-          this.ytPlayer.destroy();
-        }
-        this.ytPlayer = new window.YT.Player('yt-active-iframe', {
-          events: {
-            'onStateChange': (event) => {
-              // 0 = YT.PlayerState.ENDED
-              if (event.data === 0) {
-                this.handleVideoEnded();
-              }
-            }
-          }
-        });
-      } catch (e) {
-        console.warn('YT.Player wrapper fallback active:', e);
-      }
-    }
-  }
-
-  handleVideoEnded() {
-    const level = window.GAME_LEVELS[this.currentLevelIndex];
-    if (this.isVideoCompleted) return;
-
-    this.isVideoCompleted = true;
-    this.completedVideoLevelIds.add(level.id);
-    this.saveState();
-
-    window.soundEngine?.success?.();
-
-    // Show completion celebration banner
-    const banner = document.getElementById('video-completion-banner');
-    if (banner) banner.classList.remove('hidden');
-
-    this.setElementText('video-status-text', 'Status: 🎉 Video completed! Next level unlocked!');
-
-    // Unlock Next Level button
-    const nextBtn = document.getElementById('btn-video-next-level');
-    if (nextBtn) {
-      nextBtn.removeAttribute('disabled');
-      nextBtn.classList.remove('btn-locked');
-      nextBtn.classList.add('pulse-glow');
-      const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-        nextBtn.innerHTML = level.id === totalLevels ? `Complete Game & View Certificate 🏆 →` : `Next Level (Level ${level.id + 1}) →`;
-    }
-  }
-
-  manualCompleteVideoFallback() {
-    window.soundEngine?.click?.();
-    if (confirm("Confirm that you have watched and completed this System Design video lesson?")) {
-      this.handleVideoEnded();
-    }
-  }
-
-  nextLevelFromVideo() {
-    window.soundEngine?.select?.();
-
     const maxLevelIdx = window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27;
     if (this.currentLevelIndex >= maxLevelIdx) {
-      // Completed All Levels — Show Graduation Victory Screen!
+      // Completed all 28 topics!
       this.showVictoryScreen();
       return;
     }
 
-    // Advance to next level in exact order
     const nextIdx = this.currentLevelIndex + 1;
     this.loadLevel(nextIdx);
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+  }
+
+  continueToVideo() {
+    this.nextLevelDirect();
+  }
+
+  nextLevelFromVideo() {
+    this.nextLevelDirect();
   }
 
   showVictoryScreen() {
-    document.getElementById('screen-video-lesson')?.classList.add('hidden');
     document.getElementById('screen-gameplay')?.classList.add('hidden');
     document.getElementById('discovery-modal')?.classList.add('hidden');
 
@@ -625,11 +663,11 @@ class GameController {
     const level = window.GAME_LEVELS[this.currentLevelIndex];
     if (!level) return;
 
-    this.setElementText('teach-level-title', `Level ${level.id}: ${level.title}`);
+    this.setElementText('teach-level-title', `Topic ${level.id}: ${level.topic}`);
     this.setElementText('teach-concept-revealed', level.concept);
-    this.setElementText('teach-experience', level.discovery.teacherNotes.experience);
-    this.setElementText('teach-realworld', level.discovery.teacherNotes.realWorld);
-    this.setElementText('teach-question', level.discovery.teacherNotes.question);
+    this.setElementText('teach-experience', level.discovery.teacherNotes?.experience || "");
+    this.setElementText('teach-realworld', level.discovery.teacherNotes?.realWorld || "");
+    this.setElementText('teach-question', level.discovery.teacherNotes?.question || "");
 
     const choiceInfo = document.getElementById('teach-student-choice');
     if (this.selectedChoice) {
@@ -640,7 +678,7 @@ class GameController {
         </span>
       `;
     } else {
-      choiceInfo.innerHTML = `<span class="text-muted">Student is thinking and evaluating options...</span>`;
+      choiceInfo.innerHTML = `<span class="text-muted">Student is evaluating options...</span>`;
     }
 
     const select = document.getElementById('teach-jump-select');
@@ -648,7 +686,7 @@ class GameController {
       window.GAME_LEVELS.forEach((lvl, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.innerText = `Level ${lvl.id}: ${lvl.concept}`;
+        opt.innerText = `Topic ${lvl.id}: ${lvl.topic}`;
         select.appendChild(opt);
       });
       select.value = this.currentLevelIndex;
@@ -677,14 +715,21 @@ class GameController {
     if (!list) return;
     list.innerHTML = '';
 
-    window.GAME_LEVELS.forEach(lvl => {
+    window.GAME_LEVELS.forEach((lvl, idx) => {
       const isUnlocked = this.completedLevelIds.has(lvl.id);
       const card = document.createElement('div');
       card.className = `codex-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+      card.style.cursor = isUnlocked ? 'pointer' : 'default';
+      card.onclick = () => {
+        if (isUnlocked || idx <= this.currentLevelIndex) {
+          this.toggleCodex();
+          this.loadLevel(idx);
+        }
+      };
       card.innerHTML = `
-        <div class="codex-num">Level ${lvl.id} • ${lvl.topic}</div>
-        <div class="codex-title">${isUnlocked ? lvl.concept : '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Mystery Concept'}</div>
-        <div class="codex-desc">${isUnlocked ? lvl.discovery.tagline : 'Complete this level challenge and video lesson to unlock.'}</div>
+        <div class="codex-num">Topic ${lvl.id} • ${lvl.topic}</div>
+        <div class="codex-title">${isUnlocked ? lvl.concept : '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Locked Concept'}</div>
+        <div class="codex-desc">${isUnlocked ? lvl.discovery.tagline : 'Complete this topic and knowledge check to unlock.'}</div>
         ${isUnlocked ? `<div class="codex-analogy"><em>"${lvl.discovery.analogy}"</em></div>` : ''}
       `;
       list.appendChild(card);
@@ -706,8 +751,8 @@ class GameController {
       const isHidden = panel.classList.toggle('hidden');
       if (btn) {
         btn.innerHTML = isHidden ? 
-          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M6 18h12M10 21h4"/><circle cx="12" cy="7" r="3"/><path d="M12 10v4M9 14h6"/><path d="M7 18a5 5 0 0 1 10 0"/></svg> Show Deeper Technical Insights` : 
-          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Hide Deeper Technical Insights`;
+          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M6 18h12M10 21h4"/><circle cx="12" cy="7" r="3"/><path d="M12 10v4M9 14h6"/><path d="M7 18a5 5 0 0 1 10 0"/></svg> Show Real-World Engineering Insights` : 
+          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Hide Real-World Engineering Insights`;
       }
     }
   }
@@ -723,11 +768,11 @@ window.beginLevel1 = function() {
   if (window.game) window.game.beginLevel1();
 };
 
-function initRideQuest() {
+function initGame() {
   if (!window.game) {
     try {
       window.game = new GameController();
-      console.log('RideQuest System Design Game initialized with 28-Level curriculum!');
+      console.log('System Design Learning Game (Ola Cab Edition, 28 Topics) Initialized!');
     } catch (e) {
       console.error('Failed to initialize GameController:', e);
     }
@@ -735,7 +780,7 @@ function initRideQuest() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initRideQuest);
+  document.addEventListener('DOMContentLoaded', initGame);
 } else {
-  initRideQuest();
+  initGame();
 }

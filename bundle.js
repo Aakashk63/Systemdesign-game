@@ -846,26 +846,97 @@ window.soundEngine = new SoundEngine();
 
 
 /* === FILE: levels-data.js === */
-/**
- * RideQuest - System Design Learning Game: Levels Data
- * Single Source of Truth based on "System_Design_Levels_Complete (1).pdf"
- * 
- * Complete original content preserved from the supplied PDF source.
- * Strict Curriculum Flow: SNO 1 through 9.
- */
+// ============================================================
+// SYSTEM DESIGN LEARNING GAME - CURRICULUM DATA
+// 7 MODULES, EXACTLY 28 TOPICS (OLA MOBILITY EDITION)
+// DESIGNED FOR FIRST-YEAR STUDENTS WITH ZERO CS BACKGROUND
+// ============================================================
 
 const STAGES = [
-  { id: 1, name: "Stage 1: System Foundations", icon: "🏛️", levels: [1, 2] },
-  { id: 2, name: "Stage 2: Networking & Connectivity", icon: "🌐", levels: [3, 4] },
-  { id: 3, name: "Stage 3: Communication & Security", icon: "🛡️", levels: [5, 6, 7] },
-  { id: 4, name: "Stage 4: Data Architecture", icon: "💾", levels: [8, 9] },
-  { id: 5, name: "Stage 5: Caching & Storage", icon: "⚡", levels: [10, 11, 12, 13] },
-  { id: 6, name: "Stage 6: Content & Delivery", icon: "🌍", levels: [14] },
-  { id: 7, name: "Stage 7: Scalability & Traffic", icon: "🚀", levels: [15, 16, 17] },
-  { id: 8, name: "Stage 8: Distributed Data & Sharding", icon: "🗄️", levels: [18] },
-  { id: 9, name: "Stage 9: Distributed Systems Architecture", icon: "🌐", levels: [19, 20, 21, 22, 23] },
-  { id: 10, name: "Stage 10: Asynchronous Messaging & Streaming", icon: "📨", levels: [24, 25, 26] },
-  { id: 11, name: "Stage 11: Real-Time Telemetry & Search", icon: "📍", levels: [27, 28] }
+  {
+    "id": 1,
+    "name": "Module 1: System Design Fundamentals",
+    "icon": "📐",
+    "desc": "Ola Core Architecture & 50,000 Rush Hour Bookings",
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Module 2: Networking and Communication",
+    "icon": "🌐",
+    "desc": "DNS, HTTPS Security & REST APIs",
+    "levels": [
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Module 3: Database Fundamentals",
+    "icon": "💾",
+    "desc": "SQL vs NoSQL, ACID, Indexing, Replication & Sharding",
+    "levels": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Module 4: Application Architecture",
+    "icon": "🏗️",
+    "desc": "Monolith vs Microservices & Authentication Security",
+    "levels": [
+      19,
+      20
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Module 5: Scalability and Performance",
+    "icon": "⚡",
+    "desc": "Horizontal Scaling, Load Balancing, Redis Cache & CDN",
+    "levels": [
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Module 6: Asynchronous Processing and Reliability",
+    "icon": "🛡️",
+    "desc": "Kafka Queues, Fault Tolerance & Rate Limiting",
+    "levels": [
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Module 7: Advanced System Design",
+    "icon": "🎯",
+    "desc": "Geospatial Search & 2km Radius Nearest Cab Matching",
+    "levels": [
+      28
+    ]
+  }
 ];
 
 const LEVELS = [
@@ -873,2683 +944,3362 @@ const LEVELS = [
     "id": 1,
     "stage": 1,
     "sno": 1,
-    "topic": "Requirements Engineering",
-    "concept": "Requirements Engineering: Functional vs. Non-Functional Requirements (FR & NFR)",
-    "title": "Level 1: The Blueprint & Scope Framing",
-    "time": "Day 1 \u2014 Construction Kickoff",
-    "usersCount": "5,000 Holiday Shoppers Capacity",
-    "topicHint": "Blueprint & Scope Framing",
-    "situation": "You are standing in the middle of a massive, muddy, empty field in your rubber boots. The construction crew has arrived with 10 cement mixers, stacks of steel rods, and 50 eager workers with shovels. The site manager walks up to you, taps his hard hat, and asks: \"Boss, the trucks are burning diesel just standing here. Do we pour the concrete right now, or what is the game plan?\"",
-    "problem": "Before touching building materials, an architect must define what the store actually does day-to-day versus how durable, safe, and fast the building operates. What is your game plan?",
-    "simulationType": "supermarket_blueprint",
+    "topic": "Introduction to System Design",
+    "concept": "Introduction to System Design",
+    "title": "Level 1: 50,000 People Book Cabs at 6:00 PM",
+    "time": "Evening Rush Hour — Bangalore Tech Park",
+    "usersCount": "50,000 Riders Opening Ola App",
+    "topicHint": "Handling Rush Hour Traffic Without Crashes",
+    "situation": "It is 6:00 PM on a rainy Friday evening in Bangalore. Office workers leave work, and suddenly 50,000 people open the Ola app at the exact same minute to book a cab. A junior engineer asks: \"Can we just run the entire Ola cab booking app on one single laptop under my desk?\"",
+    "problem": "What happens if you try to run an app with 50,000 riders on a single home computer?",
+    "simulationType": "ola_rush_hour",
     "choices": [
       {
         "id": "A",
-        "text": "Pour the concrete immediately! We will figure out where to place the bakery, cold storage, and cash registers while the walls are going up.",
-        "isOptimal": false,
-        "consequenceText": "The workers cheer and pour tons of wet concrete across the ground. Two weeks later, the walls are solid, but moving day turns into a disaster. The refrigerated delivery truck arrives with 800 tubs of premium ice cream and dairy milk. The driver asks where the high-voltage commercial freezer outlets are. You look at the walls in horror: there are no heavy electric lines installed. Within hours, the ice cream melts into sticky soup across the floor. To add insult to injury, the front entrance is so narrow that two shopping carts cannot pass each other without jamming. You are forced to hire a demolition crew to jackhammer the concrete, smashing your budget before selling a single tomato.",
-        "resultState": "unplanned_gridlock",
+        "text": "The laptop runs out of memory, freezes completely, and crashes the app for all 50,000 riders.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! One regular laptop cannot process 50,000 booking requests at the same second. The processor overheats, the memory fills up, and the app crashes, stranding riders in the rain. That is why we need System Design!",
         "statImpact": {
-          "latency": "Frozen",
-          "capacity": "0 Shoppers",
-          "risk": "Operational Gridlock",
-          "cost": "Demolition Deficit"
+          "latency": "25ms",
+          "capacity": "50,000 Riders Smooth",
+          "risk": "Zero Downtime",
+          "cost": "Well-Planned"
         },
         "whatHappened": {
-          "helped": "You poured concrete quickly without spending time on paperwork.",
-          "bottleneck": "Without requirements scoping, you built without high-voltage power lines or cart lanes, forcing expensive demolition!",
-          "reflectionQuestion": "Can any system function if you build before scoping Functional and Non-Functional Requirements?"
-        }
+          "helped": "Understood that big apps need organized systems of computers.",
+          "bottleneck": "A single laptop lacks the power to handle thousands of users at once.",
+          "reflectionQuestion": "Why do apps with millions of users need a planned system of computers?"
+        },
+        "successSummary": "Great decision! You understood why single computers fail and why system planning is required."
       },
       {
         "id": "B",
-        "text": "Stop the trucks. Give me a clipboard. First, list every single department we need (groceries, billing, parking) and specify the structural rules (floors holding 5,000 shoppers, fire exits, and heavy freezer power lines).",
-        "isOptimal": true,
-        "consequenceText": "You sit down on an overturned crate, pull out a marker, and methodically map out the floor plan. You designate dedicated zones for vegetables, dry groceries, frozen meats, and checkout bays. You calculate that the building must withstand heavy monsoon rains, sustain 5,000 customers during holiday festivals, and house fire suppression sprinklers. The builders pour the foundation with exact conduits for plumbing, drainage, and electricity. When the doors open, foot traffic flows effortlessly, freezers run ice-cold, and the safety inspector stamps \"PASSED\" on your building license.",
-        "resultState": "blueprint_success",
+        "text": "The laptop automatically turns into a supercomputer with no extra planning needed.",
+        "isOptimal": false,
+        "consequenceText": "Computers cannot magically make themselves faster. When thousands of ride requests hit the laptop, it freezes instantly and no cabs can be booked.",
         "statImpact": {
-          "latency": "Under 100ms",
-          "capacity": "5,000 Shoppers (99.99% Uptime)",
-          "risk": "Zero Downtime",
-          "cost": "On Budget"
+          "latency": "Frozen",
+          "capacity": "0 Cabs Dispatched",
+          "risk": "Total Crash",
+          "cost": "Lost Business"
         },
-        "successSummary": "By separating Functional Requirements (what the store does) from Non-Functional Requirements (how durable and fast it runs), construction succeeds without rework!"
+        "whatHappened": {
+          "helped": "Hoped computer hardware would upgrade itself.",
+          "bottleneck": "Hardware has physical limits and cannot upgrade automatically.",
+          "reflectionQuestion": "Can software run smoothly without planning the computer hardware behind it?"
+        }
       },
       {
         "id": "C",
-        "text": "Just build one giant four-walled empty hall with a tin roof. We can throw everything inside later without dividers.",
+        "text": "Passengers do not need any servers or internet connection to book cabs on their phones.",
         "isOptimal": false,
-        "consequenceText": "The crew puts up a giant open tin shed in record time. It looks cheap and spacious, but daily operations become an absolute circus. You placed the fresh fish counter right next to the luxury perfume display; by afternoon, the expensive imported perfumes smell like raw sardines. Heavy electrical cables for meat cutters are stretched openly across the walkway because there are no wall dividers, causing three shoppers to trip and fall. The echo inside the giant metal shed is so deafening that cashiers cannot hear what customers are ordering. The city safety officer arrives, blows a whistle, and slaps a bright orange \"UNSAFE / BUSINESS SHUT DOWN\" sticker on the rolling shutter.",
-        "resultState": "warehouse_invasion",
+        "consequenceText": "An online app cannot work without computers and internet. Without a central system, riders cannot see nearby drivers or share ride destinations.",
         "statImpact": {
-          "latency": "Deafening",
-          "capacity": "Shut Down",
-          "risk": "Severe Safety Hazard",
-          "cost": "Total Shutdown"
+          "latency": "Offline",
+          "capacity": "0 Rides",
+          "risk": "No Connection",
+          "cost": "Broken App"
         },
         "whatHappened": {
-          "helped": "Construction was fast and required no interior partition planning.",
-          "bottleneck": "Zero architectural boundaries caused fish odors to ruin perfume, tripping hazards on walkways, and a city shutdown!",
-          "reflectionQuestion": "Why do large software systems require clear module boundaries instead of throwing everything into one giant monolith?"
+          "helped": "Thought online apps work like offline games.",
+          "bottleneck": "Ride hailing requires constant network communication.",
+          "reflectionQuestion": "How does information travel from a rider's phone to a cab driver's phone?"
         }
       }
     ],
     "discovery": {
-      "badge": "Requirements Engineering: Functional vs. Non-Functional Requirements",
-      "tagline": "Separating what the system does from how durably and quickly it performs",
-      "simpleMeaning": "Requirements Engineering divides software architecture into two mandatory pillars: Functional Requirements (FR) defining what the system DOES, and Non-Functional Requirements (NFR) defining how the system PERFORMS.",
-      "analogy": "Before touching building materials, an architect separates what the store does day-to-day (selling groceries, processing bills) from how durable and safe the building operates (floor load ratings, fire exit widths, freezer power lines).",
+      "badge": "Introduction to System Design",
+      "tagline": "Planning and connecting computers so big applications run smoothly without crashing",
+      "simpleMeaning": "System Design is like planning a whole city before building it. Instead of hoping one computer does everything, you plan which computers handle cab locations, which computers handle payments, and how they talk to each other without slowing down.",
+      "pubgExample": "When 50,000 riders tap 'Book Mini' on Ola at 6:00 PM, a well-designed system distributes the requests so every rider gets a cab in 3 minutes without the app freezing.",
+      "analogy": "Building a busy highway: You cannot have just one single narrow lane for an entire city. You must plan multiple lanes, bridges, and traffic lights so thousands of vehicles move smoothly.",
       "howItWorks": [
-        "1. Functional Requirements (FR) \u2014 What the system DOES: User registration, product search, cart management, payment processing, and inventory status tracking.",
-        "2. Non-Functional Requirements (NFR) \u2014 Latency & Speed: Search queries must return product records in under 100 milliseconds.",
-        "3. Non-Functional Requirements (NFR) \u2014 Availability & Scalability: 99.99% uptime (less than 52 mins downtime/year), 10x traffic surge scaling, and encrypted payment transactions."
+        "1. Understand the Traffic: Know how many riders and drivers use the app every minute.",
+        "2. Divide the Work: Separate ride tracking, payments, and maps across different computers.",
+        "3. Stop Bottlenecks: Plan backup computers so the app stays fast during heavy rain or festival rushes.",
+        "4. Keep It Fast: Make sure riders get driver details in just a few milliseconds."
       ],
-      "whyItMatters": "Building without requirements scoping leads to catastrophic rework, melted inventory, security vulnerabilities, or complete system collapse under surge traffic.",
-      "visualExplanation": "Functional Needs (Features & User Actions) + Non-Functional Limits (Speed, Scalability, 99.99% Uptime) \u2500\u2500\u25ba Solid Production Architecture",
+      "whyItMatters": "Without System Design, popular apps like Ola would crash constantly during rush hours, leaving riders stranded and drivers without trips.",
+      "visualExplanation": "[50,000 Riders with Phones] ──► [Planned Ola System] ──► Smooth Cab Dispatch in 3 Mins!",
       "contrast": {
-        "termA": "Functional Requirements (FR)",
-        "descA": "The direct capabilities provided to users: product search, cart management, checkout, and inventory tracking.",
-        "termB": "Non-Functional Requirements (NFR)",
-        "descB": "Operational qualities: sub-100ms latency, 99.99% uptime, 10x scalability, encryption, and data consistency."
+        "termA": "Single Computer Setup",
+        "descA": "One computer tries to do everything; quickly freezes and crashes under 50,000 users.",
+        "termB": "Planned System",
+        "descB": "Work is shared across organized computers; handles millions of ride requests smoothly."
       },
-      "advancedInfo": "Non-Functional Requirements dictate infrastructure sizing and SLA/SLO boundaries. Neglecting NFRs like concurrency and write durability leads to fatal crashes even if all functional code works in development.",
       "teacherNotes": {
-        "concept": "Requirements Engineering, FR vs NFR, SLAs & SLOs",
-        "experience": "Students experienced why physical supermarkets require electrical conduits and floor ratings before pouring concrete.",
-        "realWorld": "Amazon and Flipkart engineer their platforms to sustain 10x to 50x surge traffic during festive sales without dropping below 99.99% availability.",
-        "question": "What happens to an e-commerce platform if all payment buttons work (FR) but pages take 8 seconds to load (NFR)?"
-      }
+        "concept": "What is System Design, Scale, Capacity, Bottlenecks",
+        "experience": "Students learned why 50,000 simultaneous users cannot run on a simple home laptop.",
+        "realWorld": "Ola, Uber, and Swiggy use distributed server clusters across India to handle millions of daily bookings.",
+        "question": "What is the difference between writing code for one person and designing a system for 10 million users?"
+      },
+      "olaExample": "When 50,000 riders tap 'Book Mini' on Ola at 6:00 PM, a well-designed system distributes the requests so every rider gets a cab in 3 minutes without the app freezing."
     },
-    "youtubeUrl": "https://youtu.be/ChvIjjBK8FQ?si=AfMC9-06gJz1NoQI",
-    "videoId": "ChvIjjBK8FQ",
-    "videoTitle": "Introduction to System Design (Tamil)"
+    "knowledgeCheck": {
+      "question": "What is the main goal of System Design in a cab booking app like Ola?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To plan and organize connected computers so thousands of riders can book cabs without the app crashing.",
+          "isCorrect": true,
+          "explanation": "Correct! System Design ensures that servers, databases, and networks work together to handle heavy traffic smoothly."
+        },
+        {
+          "id": "B",
+          "text": "To paint all the cabs yellow and buy new tires for drivers.",
+          "isCorrect": false,
+          "explanation": "Not quite. Painting cabs is physical car maintenance, not system design for software."
+        },
+        {
+          "id": "C",
+          "text": "To give everyone free unlimited cab rides without charging any money.",
+          "isCorrect": false,
+          "explanation": "Incorrect. System design is about building reliable computer systems, not pricing policies."
+        }
+      ],
+      "hint": "Hint: Think about why apps need servers, networks, and databases to work together during rush hours."
+    }
   },
   {
     "id": 2,
     "stage": 1,
     "sno": 2,
-    "topic": "System Architecture",
-    "concept": "Client\u2013Server Architecture: Decoupling Requesters from Central Data Stores",
-    "title": "Level 2: The Front Counter & Back-Office Vault",
-    "time": "Day 14 \u2014 Official Store Opening",
-    "usersCount": "Active Shoppers at Counter",
-    "topicHint": "Client\u2013Server Architecture",
-    "situation": "Your supermarket is officially open. The shelves are neatly stocked, the floors are sparkling, and the lights are bright. A customer walks through the front door, picks up a can of imported coffee, looks at it, and asks: \"Excuse me, how much does this coffee cost, and do you have 12 more cans in the back?\" Deep inside the back of your building is a locked underground vault containing your master financial ledgers, wholesale supplier purchase prices, employee payroll sheets, and total inventory logs.",
-    "problem": "How should the customer query product prices and complete purchases without risking store records or exposing private company files?",
-    "simulationType": "client_server_clerk",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Tell the customer to walk into the private back-office vault, open the master filing cabinet, and search through the company ledgers himself.",
-        "isOptimal": false,
-        "consequenceText": "The customer happily strolls into your private vault. Soon, fifteen other shoppers wander back there too. While looking for coffee prices, one customer accidentally knocks over a cup of hot tea onto the primary accounting journal, dissolving months of financial records. Another customer spots your secret wholesale purchase prices, realizes your profit margins, and demands a 50% discount at the top of his lungs. An opportunistic thief casually pockets a confidential binder containing employee bank details. Your private business records are utterly corrupted and compromised.",
-        "resultState": "vault_compromised",
-        "statImpact": {
-          "latency": "Chaotic",
-          "capacity": "Compromised",
-          "risk": "Critical Data Leak",
-          "cost": "Catastrophic"
-        },
-        "whatHappened": {
-          "helped": "Store staff did not have to stop what they were doing to answer customer questions.",
-          "bottleneck": "Allowing untrusted clients direct access to internal storage destroyed ledger integrity and leaked confidential secrets!",
-          "reflectionQuestion": "Why should a web browser or mobile client NEVER connect directly to a backend database?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Place a store clerk behind an inquiry desk at the entrance. The customer asks the clerk, the clerk looks up the item in the terminal, and tells the customer the price and stock.",
-        "isOptimal": true,
-        "consequenceText": "The shopper walks up to the clean inquiry desk. He asks: \"Can I get the price and stock count for this coffee?\" The clerk remains in front of the secure partition, enters the product barcode into the terminal, reads the isolated stock number, and responds: \"That is Rs. 350, and we have 24 cans in stock.\" The customer gets the exact answer in three seconds. The private vault stays locked, safe, and untouched.",
-        "resultState": "client_server_success",
-        "statImpact": {
-          "latency": "3 Seconds Fast",
-          "capacity": "Unlimited Shoppers",
-          "risk": "Protected Vault",
-          "cost": "Secure & Scalable"
-        },
-        "successSummary": "A clean physical boundary was created: the shopper (Client) interacts exclusively with a trained intermediary (Server), keeping private records (Database) safe!"
-      },
-      {
-        "id": "C",
-        "text": "Print 5,000 photocopies of all internal company bank and ledger books, and leave stacks of them at the front door for shoppers to read.",
-        "isOptimal": false,
-        "consequenceText": "Leaving entire copies of your internal ledgers at the front door creates immediate chaos. Competitors from down the street walk in, scoop up the notebooks, and discover your wholesale suppliers and contract terms. Customers get overwhelmed trying to decode 300 pages of confusing ledger numbers just to find the price of a bar of soap. Within hours, your proprietary trade secrets are leaked all over town.",
-        "resultState": "leak_disaster",
-        "statImpact": {
-          "latency": "Overwhelming",
-          "capacity": "Confused",
-          "risk": "Proprietary Trade Secrets Leaked",
-          "cost": "Massive Business Loss"
-        },
-        "whatHappened": {
-          "helped": "Shoppers did not have to wait in line to speak to a clerk.",
-          "bottleneck": "Distributing raw database dumps to client devices leaked trade secrets to competitors and confused everyday shoppers!",
-          "reflectionQuestion": "What security risks emerge when client-side applications download full internal backend datasets?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Client\u2013Server Architecture: Request & Response Model",
-      "tagline": "Creating a clean boundary between user interface clients and protected central data vaults",
-      "simpleMeaning": "Client\u2013Server Architecture separates the system into Requesters (Clients) and Providers (Servers). The client renders the UI and captures user intent, while the server enforces validation, executes business logic, and mediates access to data.",
-      "analogy": "The shopper never enters the private record room; they interact exclusively through a designated desk with a trained clerk who retrieves verified answers safely.",
-      "howItWorks": [
-        "1. Step 1 (Request): Client / Shopper sends a structured Request (\"Price of Coffee?\") to the Server / Clerk.",
-        "2. Step 2 (Server Processing): Server / Clerk validates permissions, executes business logic, and checks the protected Database / Vault.",
-        "3. Step 3 (Response): Server / Clerk sends a structured Response (\"Rs. 350, In Stock\") containing status codes and payload back to the Client / Shopper."
-      ],
-      "whyItMatters": "Decoupling clients from servers protects internal databases from direct tampering, centralizes security, and allows updating backend logic without modifying client devices.",
-      "visualExplanation": "Client (App/Browser) \u2500\u2500[Request: Price?]\u2500\u2500\u25ba Server (Clerk/Validation) \u2500\u2500\u25ba Database (Vault) \u2500\u2500\u25ba Server \u2500\u2500[Response: Rs 350]\u2500\u2500\u25ba Client",
-      "contrast": {
-        "termA": "Client (The Requester)",
-        "descA": "Web browser or mobile app. Renders UI and captures intent; holds no private business logic or direct database connections.",
-        "termB": "Server (The Provider)",
-        "descB": "Central machine listening for requests. Enforces business rules, validation, securely interacts with databases, and returns results."
-      },
-      "advancedInfo": "In multi-tier architectures, clients communicate via stateless network requests (HTTP/REST/gRPC). This ensures backend databases are shielded behind private subnets and firewalls.",
-      "teacherNotes": {
-        "concept": "Client\u2013Server Model, Request-Response Lifecycle, Decoupling",
-        "experience": "Students saw why letting customers roam into the master vault causes catastrophic record corruption and privacy leaks.",
-        "realWorld": "Every web app and mobile client (Swiggy, Uber, Netflix) communicates with backend application servers via APIs.",
-        "question": "Why is it dangerous to embed raw database credentials (like PostgreSQL passwords) inside a mobile app's client code?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/iKz9szx9wiQ?si=JqDjUO3wOo9LjxL",
-    "videoId": "iKz9szx9wiQ",
-    "videoTitle": "Client Server Architecture | System Design | Tamil"
-  },
-  {
-    "id": 3,
-    "stage": 2,
-    "sno": 3,
-    "topic": "Networking Fundamentals",
-    "concept": "Networking Fundamentals: IP Addresses, DNS, and Ports",
-    "title": "Level 3: Finding the Store & Entering the Right Doors",
-    "time": "Day 30 \u2014 City Infrastructure Connection",
-    "usersCount": "City-Wide Traffic Discovery",
-    "topicHint": "IP Addresses, DNS, Ports",
-    "situation": "Your physical building is completed, but it is located on a newly paved ring road. The municipal corporation issues your official survey coordinates: Latitude 11.0168\u00b0 N, Longitude 76.9558\u00b0 E. Now, people across the city need to visit your store. Furthermore, when trucks and people arrive at the building exterior, they need to know which specific door to enter: customers need the glass revolving doors, cash collection vans need the armored back-bay door, and plumbing repairmen need the maintenance hatch.",
-    "problem": "How can thousands of customers easily find your location, and how should distinct types of traffic enter without blocking each other?",
-    "simulationType": "networking_dns_ports",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Print posters telling people to visit '11.0168, 76.9558'. Remove all door signs and let shoppers, cash vans, and supply trucks push through whichever random door they find unlocked.",
-        "isOptimal": false,
-        "consequenceText": "Shoppers try to type long, confusing numbers into their map apps. People mistype a single digit and end up stranded in an industrial gravel quarry 15 miles away. The few customers who actually arrive find no door signs. A family pushing a baby stroller accidentally walks into the armored security loading dock, triggering sirens and getting held at gunpoint by security guards. Meanwhile, a massive semi-truck carrying potatoes tries to drive through the glass customer revolving door, smashing the facade to pieces.",
-        "resultState": "gps_collision_gridlock",
-        "statImpact": {
-          "latency": "Lost in Quarry",
-          "capacity": "0 Visitors",
-          "risk": "Armed Security Alert",
-          "cost": "Smashed Glass Facade"
-        },
-        "whatHappened": {
-          "helped": "You avoided registering a brand name or installing numbered entrance signs.",
-          "bottleneck": "Humans cannot memorize numerical coordinates, and unmarked doors caused delivery trucks to smash through glass customer doors!",
-          "reflectionQuestion": "Why do computers need DNS to map human names to IP addresses, and ports to route specific protocols?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Register a clear, memorable brand name like 'FreshMart' in the city directory mapped to your coordinates, and place bold numbered signs over each door (Door 80 for regular entry, Door 443 for armored security guards, Door 5432 for internal vault maintenance).",
-        "isOptimal": true,
-        "consequenceText": "Anyone in the city can simply tell an auto driver or map app: \"Take me to FreshMart.\" The city mapping directory instantly translates \"FreshMart\" to the physical coordinates behind the scenes. When visitors arrive, shoppers walk smoothly through Door 80, cash vans deliver securely through armored Door 443, and technical technicians go through Door 5432. Traffic flows safely without collision or confusion.",
-        "resultState": "dns_ports_success",
-        "statImpact": {
-          "latency": "Instant Lookup",
-          "capacity": "Unlimited City Traffic",
-          "risk": "Zero Collision",
-          "cost": "Optimal Navigation"
-        },
-        "successSummary": "Human-friendly names mapped to numerical network coordinates plus dedicated numbered ports keep traffic organized and secure!"
-      },
-      {
-        "id": "C",
-        "text": "Do not register any name or coordinates. Hire street shouters on bicycles to guide every individual car from their homes to your building one by one.",
-        "isOptimal": false,
-        "consequenceText": "Your bicycle-shouter idea collapses under basic logistics. On the first morning, 400 cars want to visit your store, but you only have five bicycle guides. Traffic backs up for miles. The bicycle messengers get exhausted, confuse directions, and argue with drivers. The entire operation goes bankrupt from hiring hundreds of messengers while customers give up and go to your competitors.",
-        "resultState": "bicycle_gridlock",
-        "statImpact": {
-          "latency": "Miles of Traffic",
-          "capacity": "5 Cars Guided",
-          "risk": "Operational Bankruptcy",
-          "cost": "Wasted Wages"
-        },
-        "whatHappened": {
-          "helped": "Personal guides provided high-touch concierge navigation to the first five cars.",
-          "bottleneck": "Manual discovery cannot scale to hundreds of concurrent users, causing traffic jams and bankruptcy!",
-          "reflectionQuestion": "Why must network discovery protocols operate automatically and deterministically at scale?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Networking Fundamentals: IP Addresses, DNS, and Ports",
-      "tagline": "Mapping human names to machine coordinates and routing services to numbered doorways",
-      "simpleMeaning": "Computers locate each other across the global Internet using numerical IP addresses. DNS acts as the Internet's telephone directory mapping domain names to IP addresses, while Ports route traffic to specific applications running on that machine.",
-      "analogy": "A human needs an easy name (\"FreshMart\") instead of geographic coordinates (11.0168\u00b0 N, 76.9558\u00b0 E). Once at the building, labeled doors (Door 80, 443, 5432) ensure different types of traffic reach the correct department.",
-      "howItWorks": [
-        "1. IP Address (GPS Coordinates): Numerical address (IPv4: 192.168.1.1, IPv6: 2001:db8::1) assigned to every network machine to route data packets.",
-        "2. DNS - Domain Name System (City Directory): Translates human-friendly domain names (\"freshmart.com\") into computer-routable IP addresses (\"142.250.190.46\").",
-        "3. Ports (Numbered Service Doors): An IP gets you to the server machine; a Port gets you to the right application (Port 80 = HTTP, Port 443 = HTTPS, Port 5432 = PostgreSQL)."
-      ],
-      "whyItMatters": "Without DNS, humans would have to memorize 12-digit numbers for every website. Without Ports, a server could not run a web store, email server, and database simultaneously.",
-      "visualExplanation": "Domain (\"freshmart.com\") \u2500\u2500\u25ba DNS Resolution \u2500\u2500\u25ba IP Address (\"142.250.190.46\") \u2500\u2500\u25ba Port 443 (HTTPS Secure Web Service)",
-      "contrast": {
-        "termA": "IP Address (The Machine Location)",
-        "descA": "Every machine connected to the Internet is assigned a numerical address used to route data packets across the global network.",
-        "termB": "DNS & Ports (Names & Doorways)",
-        "descB": "DNS translates human names to IP addresses; Ports route incoming packets to the exact listening service on that server."
-      },
-      "advancedInfo": "DNS resolution uses recursive and authoritative nameservers with hierarchical caching (Browser, OS, ISP) governed by Time-To-Live (TTL). Common standard ports: 80 (HTTP), 443 (HTTPS), 22 (SSH), 5432 (PostgreSQL), 3306 (MySQL), 6379 (Redis).",
-      "teacherNotes": {
-        "concept": "IP Addressing (IPv4/IPv6), DNS Resolution Hierarchy, Standard Port Numbers",
-        "experience": "Students saw why numerical coordinates strand shoppers in quarries and why unnumbered doors cause semi-trucks to ram glass customer doors.",
-        "realWorld": "Google Public DNS (8.8.8.8) and Cloudflare (1.1.1.1) resolve billions of DNS queries every second.",
-        "question": "What happens if two different applications attempt to bind to Port 80 on the same server simultaneously?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/mpQZVYPuDGU?si=YR2fYFxC8XBU_zqE",
-    "videoId": "mpQZVYPuDGU",
-    "videoTitle": "How DNS Server Works | System Design | Tamil"
-  },
-  {
-    "id": 4,
-    "stage": 2,
-    "sno": 4,
-    "topic": "Networking Protocols",
-    "concept": "Networking Protocols: TCP vs. UDP and HTTP vs. HTTPS",
-    "title": "Level 4: Road Rules & Sealed Briefcases",
-    "time": "Day 45 \u2014 City Logistics Transport",
-    "usersCount": "Continuous Inter-City Transport",
-    "topicHint": "TCP vs. UDP & HTTP vs. HTTPS",
-    "situation": "Your store has two ongoing transportation needs: 1. Every morning, expensive porcelain plates and delicate glassware must be transported from a local pottery factory. If a box is dropped, you need the driver to stop, report the broken item, and replace it immediately. 2. Store managers need to send confidential daily cash sheets and customer credit account summaries to the bank across town. The road is full of pickpockets and rival business spies standing on street corners.",
-    "problem": "Different goods require different transport rules: fragile physical goods require signed verification receipts, sensitive financial documents require tamper-proof locked safes, and non-critical data needs raw speed without paperwork. How should you transport your goods and confidential papers?",
-    "simulationType": "protocols_transport",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Put both the glassware and the private bank sheets into open cardboard crates tied to the back of speeding motorcycles with no receipts, no tracking, and no locks.",
-        "isOptimal": false,
-        "consequenceText": "The speeding motorcycle hits a speed bump. Three boxes of porcelain plates tumble onto the asphalt and shatter into dust. The driver does not notice, keeps driving, and delivers empty boxes. Worse, the confidential bank papers blow away in the wind. A rival store manager picks them off the sidewalk, reads every customer's credit details, and posts them online. Your store faces massive regulatory fines, and inventory losses reach record highs.",
-        "resultState": "broken_plates_leak",
-        "statImpact": {
-          "latency": "Fast but Broken",
-          "capacity": "Lost Cargo",
-          "risk": "Public Credit Leak",
-          "cost": "Massive Regulatory Fines"
-        },
-        "whatHappened": {
-          "helped": "Motorcycles were fast and did not waste time getting delivery signatures.",
-          "bottleneck": "Unreliable transport broke fragile glassware without retries, and plaintext papers leaked customer banking details!",
-          "reflectionQuestion": "Why can bank transactions never tolerate packet loss (requiring TCP) or unencrypted plaintext (requiring HTTPS)?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Transport glassware using delivery vans that require signed handoffs for every single box before moving to the next. Put confidential banking slips into locked, steel-armored briefcases that only the bank manager has the secret key to open.",
-        "isOptimal": true,
-        "consequenceText": "The glassware van uses a verified check-in system: the driver hands over Box 1, gets an initial, hands over Box 2, and if Box 3 is slightly chipped, it is flagged and resent on the spot. The confidential banking slips are sealed inside an encrypted briefcase. Even if a thief knocks the courier off his bike and steals the briefcase, he cannot open it without the secret physical key. The bank receives the data fully intact and confidential.",
-        "resultState": "protocols_success",
-        "statImpact": {
-          "latency": "Guaranteed Delivery",
-          "capacity": "100% Intact Cargo",
-          "risk": "Zero Data Leak",
-          "cost": "Optimal Protection"
-        },
-        "successSummary": "TCP's guaranteed handshake ensures zero lost cargo, while HTTPS's cryptographic locks guarantee total privacy and integrity in transit!"
-      },
-      {
-        "id": "C",
-        "text": "Send all shipments via slow, heavy armored trucks, including bulk promotional paper flyers and store radio background music recordings.",
-        "isOptimal": false,
-        "consequenceText": "Using heavy armored transport for absolutely everything creates extreme bottlenecks. Your store radio background music stream stutters and pauses every 10 seconds because the sound files are waiting for armored truck clearances. The flyers arrive three days late because the security overhead is unnecessarily complex for non-critical items.",
-        "resultState": "heavy_armored_choke",
-        "statImpact": {
-          "latency": "Extreme Lag",
-          "capacity": "Stuttering Streams",
-          "risk": "Over-Engineered Choke",
-          "cost": "Excessive Fuel Waste"
-        },
-        "whatHappened": {
-          "helped": "Even promotional flyers were guarded by bulletproof steel plates.",
-          "bottleneck": "Applying heavy handshake and encryption overhead to live streaming audio caused constant stuttering and delays!",
-          "reflectionQuestion": "Why do live video streams and voice calls use lightweight UDP instead of connection-oriented TCP?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Networking Protocols: TCP vs. UDP and HTTP vs. HTTPS",
-      "tagline": "Reliable vs lightweight transport, and encrypted modern web communication",
-      "simpleMeaning": "Network protocols establish the rules for packaging, transmitting, and verifying data across wires. TCP guarantees delivery through connection handshakes, UDP provides ultra-low latency without confirmation receipts, and HTTPS encrypts data in transit.",
-      "analogy": "Fragile physical goods require signed verification receipts (TCP), live voice/audio needs fast couriers without paperwork (UDP), and confidential papers require locked, tamper-proof briefcases (HTTPS).",
-      "howItWorks": [
-        "1. TCP (Transmission Control Protocol) \u2014 The Verified Van: Establishes a reliable connection using a 3-Way Handshake (SYN \u2192 SYN-ACK \u2192 ACK), guarantees in-order delivery, and retransmits lost packets.",
-        "2. UDP (User Datagram Protocol) \u2014 The Fast Courier Bike: Connectionless transport with ultra-low latency; lost packets are skipped. Used for live video streaming, multiplayer games, and voice calls.",
-        "3. HTTP vs. HTTPS (Plain Box vs. Locked Briefcase): HTTP transmits plaintext across the wire vulnerable to snooping. HTTPS wraps HTTP inside TLS/SSL encryption using public/private keys to guarantee Confidentiality and Integrity."
-      ],
-      "whyItMatters": "Without TCP, financial transactions and downloads would silently drop packets. Without HTTPS, attackers on public Wi-Fi networks could intercept passwords and credit card credentials in plaintext.",
-      "visualExplanation": "TCP: Client \u2500\u2500[SYN]\u2500\u2500\u25ba Server \u2500\u2500[SYN-ACK]\u2500\u2500\u25ba Client \u2500\u2500[ACK]\u2500\u2500\u25ba Data Stream (Guaranteed Delivery)\nHTTPS: TLS Handshake (Public Key Exchange) \u2500\u2500\u25ba Symmetric Session Key \u2500\u2500\u25ba Encrypted AES Ciphertext",
-      "contrast": {
-        "termA": "TCP (Transmission Control Protocol)",
-        "descA": "Connection-oriented, guaranteed in-order delivery, retransmissions, flow control. Used for web pages, APIs, and databases.",
-        "termB": "UDP (User Datagram Protocol)",
-        "descB": "Connectionless, lightweight, ultra-low latency, no retries. Used for live video calls, gaming, and streaming audio."
-      },
-      "advancedInfo": "HTTPS uses Transport Layer Security (TLS 1.3). It combines asymmetric cryptography (RSA / ECDHE) to negotiate shared secrets with symmetric encryption (AES-GCM / ChaCha20) for ultra-fast data transmission.",
-      "teacherNotes": {
-        "concept": "Transport Layer (TCP vs UDP) & Application Layer (HTTP vs HTTPS)",
-        "experience": "Students connected broken plates to lost packets, pickpockets to plaintext packet sniffers, and armored briefcases to TLS encryption.",
-        "realWorld": "Financial institutions and e-commerce checkout platforms mandate HTTPS with strict HTTP Strict Transport Security (HSTS).",
-        "question": "Why does online multiplayer gaming prefer UDP over TCP even if an occasional player position packet is lost?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/kq1lPrb2pt8?si=BL_--R8bZhEd0bk3",
-    "videoId": "kq1lPrb2pt8",
-    "videoTitle": "OSI Model & Networking Protocols | System Design | Tamil"
-  },
-  {
-    "id": 5,
-    "stage": 3,
-    "sno": 5,
-    "topic": "API Design",
-    "concept": "API Design & RESTful Architecture: Standardized Communication Contracts",
-    "title": "Level 5: The Standard Order Form",
-    "time": "Day 60 \u2014 Warehouse Order Synchronization",
-    "usersCount": "Hundreds of Orders Per Hour",
-    "topicHint": "API Design & RESTful Architecture",
-    "situation": "Your central warehouse receives hundreds of orders every hour from cashiers, department supervisors, and restocking staff. However, everyone communicates in chaotic ways: \u2022 One cashier shouts: \"Give me 5 apples!\" \u2022 Another writes a poem: \"The fruit stand is bare, send forth the red fruit.\" \u2022 Another leaves a sticky note saying: \"Apples. 10. Change.\" The warehouse workers are completely overwhelmed trying to translate different languages, handwriting styles, and vague commands. Orders are constantly mixed up.",
-    "problem": "Operations scale only when communication between departments uses a standardized grammar with consistent action words and unambiguous item addresses. What communication standard should you introduce?",
-    "simulationType": "api_contracts_scanners",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Let everyone communicate however they feel like. Tell the warehouse workers to just guess what people mean.",
-        "isOptimal": false,
-        "consequenceText": "The warehouse turns into a disaster zone. A note saying \"Apples. 10. Change.\" is interpreted by one worker as \"Delete 10 apples\", while another worker interprets it as \"Add 10 apples\". The fruit department receives a truckload of green chili peppers instead of fresh fruit. Staff argue constantly, customers wait in checkout lines for over an hour, and stock counts become completely untrustworthy.",
-        "resultState": "rest_confusion_zone",
-        "statImpact": {
-          "latency": "1+ Hour Delay",
-          "capacity": "0 Accurate Orders",
-          "risk": "Inventory Chaos",
-          "cost": "Severe Wastage"
-        },
-        "whatHappened": {
-          "helped": "Staff did not have to learn any formal rules or fill out structured forms.",
-          "bottleneck": "Unstructured text was interpreted inconsistently, delivering chili peppers instead of fruit and stalling operations!",
-          "reflectionQuestion": "Why must software systems communicate using structured protocols (like JSON schemas) rather than arbitrary text?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Issue a standardized requisition form with four strict checkboxes: [VIEW], [ADD NEW], [CHANGE], and [REMOVE]. Every order must clearly state the item category and product ID number.",
-        "isOptimal": true,
-        "consequenceText": "Order processing runs like clockwork. A cashier needing stock simply checks [VIEW] on /warehouse/fruits/apples, and the form returns current quantities instantly. To add stock, the manager submits an [ADD NEW] form containing the item count. Any computer terminal, tablet, or handheld barcode scanner can communicate with the warehouse effortlessly because the grammar is clear, predictable, and uniform.",
-        "resultState": "rest_order_success",
-        "statImpact": {
-          "latency": "Instant Clockwork",
-          "capacity": "Unlimited Automated Orders",
-          "risk": "Zero Ambiguity",
-          "cost": "High Efficiency"
-        },
-        "successSummary": "Standardized verbs ([VIEW], [ADD NEW], [CHANGE], [REMOVE]) mapped to clean resource paths allow any device to communicate seamlessly!"
-      },
-      {
-        "id": "C",
-        "text": "Ban all order slips. Force every single cashier to walk back to the warehouse in person and verbally speak to the warehouse manager for every single transaction.",
-        "isOptimal": false,
-        "consequenceText": "Your physical operations grind to an absolute halt. Cashiers constantly abandon their cash registers to walk back to the warehouse. Checkout lanes are left unstaffed, lines snake around the block, and the warehouse manager suffers a nervous breakdown trying to talk to 40 cashiers at the exact same time.",
-        "resultState": "physical_bottleneck_collapse",
-        "statImpact": {
-          "latency": "Gridlock",
-          "capacity": "Lines Around Block",
-          "risk": "Manager Breakdown",
-          "cost": "Lost Customers"
-        },
-        "whatHappened": {
-          "helped": "Cashiers got to communicate face-to-face with the warehouse manager.",
-          "bottleneck": "Forcing tightly coupled verbal interactions abandoned checkout registers and created a single point of failure!",
-          "reflectionQuestion": "Why do microservices communicate through asynchronous, decoupled APIs instead of blocking synchronous dependencies?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "API Design & RESTful Architecture",
-      "tagline": "Standardized verbs, resource-based URLs, and structured data schemas",
-      "simpleMeaning": "An API (Application Programming Interface) is a defined contract specifying how software systems exchange requests and responses. REST (Representational State Transfer) utilizes standard HTTP verbs where every request is stateless, containing all required context.",
-      "analogy": "Instead of shouting vague poems, staff use a standardized requisition form with four strict action boxes ([VIEW], [ADD NEW], [CHANGE], [REMOVE]) and explicit resource item paths.",
-      "howItWorks": [
-        "1. GET (corresponds to [VIEW]): Used to read data (e.g., GET /api/v1/products/42 fetches details of product 42).",
-        "2. POST (corresponds to [ADD NEW]): Used to create a new resource (e.g., POST /api/v1/products creates a product).",
-        "3. PUT / PATCH ([CHANGE]) & DELETE ([REMOVE]): PUT/PATCH updates existing resources; DELETE removes a resource (e.g., DELETE /api/v1/products/42)."
-      ],
-      "whyItMatters": "APIs decouple frontend clients from backend databases. Web apps, mobile devices, and external suppliers can update independently without breaking each other.",
-      "visualExplanation": "Barcode Scanner \u2500\u2500\u25ba GET /api/v1/products/42 \u2500\u2500\u25ba API Gateway \u2500\u2500\u25ba JSON Response { id: 42, name: 'Apples', stock: 120 } (200 OK)",
-      "contrast": {
-        "termA": "REST (Representational State Transfer)",
-        "descA": "Standard HTTP verbs (GET, POST, PUT, DELETE) operating on resource URIs returning JSON. Stateless and cacheable.",
-        "termB": "Modern API Styles (GraphQL & gRPC)",
-        "descB": "GraphQL allows clients to request exact fields; gRPC uses compact binary Protocol Buffers over HTTP/2 for microservice calls."
-      },
-      "advancedInfo": "REST APIs adhere to standard HTTP status codes: 200 OK, 201 Created, 204 No Content, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 500 Server Error. URI path versioning (/api/v1/ vs /api/v2/) prevents breaking deployed clients.",
-      "teacherNotes": {
-        "concept": "API Design Patterns, REST Verbs, Status Codes, Versioning Strategies",
-        "experience": "Students experienced why chaotic free-form notes cause warehouses to ship green chili peppers instead of fresh fruit.",
-        "realWorld": "Stripe, GitHub, and Shopify provide REST APIs that process billions of requests daily with standardized JSON schemas.",
-        "question": "What is the difference between idempotent methods (like GET, PUT, DELETE) and non-idempotent methods (like POST)?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/37eRt5sl7ZE?si=khgza23wGzjlwEj_E",
-    "videoId": "37eRt5sl7ZE",
-    "videoTitle": "What is API | REST vs RESTful | System Design | Tamil"
-  },
-  {
-    "id": 6,
-    "stage": 3,
-    "sno": 6,
-    "topic": "Authentication",
-    "concept": "Authentication (AuthN) & Token-Based Sessions: Cryptographic Identity Verification",
-    "title": "Level 6: The Gatekeeper & The Entry Stamp",
-    "time": "Day 75 \u2014 VIP Member Services",
-    "usersCount": "Customer Identity Verification",
-    "topicHint": "Authentication (AuthN) & JWT",
-    "situation": "Your supermarket has a VIP Member Lounge and a Loyalty Points Cashback program. A man in a leather jacket walks up to the customer service counter, points to a gold account ledger, and says: \"Hello, I am Pranesh. Please deduct 5,000 loyalty points from my account and hand me Rs. 5,000 in physical cash right now.\" You have never seen this person before in your life.",
-    "problem": "You must separate identity verification into two stages: a strong initial identity check (verifying credentials), followed by a lightweight, temporary physical pass for ongoing access. How should you verify the customer's identity?",
-    "simulationType": "auth_identity_verification",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Smile, trust his word, open the cash drawer, and hand him the Rs. 5,000 cash immediately.",
-        "isOptimal": false,
-        "consequenceText": "The stranger takes the cash, laughs, and walks out the door. Ten minutes later, the real Pranesh walks into the store, scans his card, and discovers his loyalty points are completely gone. When you explain what happened, he calls the police, files a lawsuit for negligence, and alerts the media. Word spreads that your store gives away customer accounts to anyone who asks, triggering a massive wave of customer boycotts.",
-        "resultState": "auth_theft_boycott",
-        "statImpact": {
-          "latency": "Instant Theft",
-          "capacity": "Zero Trust",
-          "risk": "Lawsuit & Police Alert",
-          "cost": "Massive Boycotts"
-        },
-        "whatHappened": {
-          "helped": "The customer was served with zero delay or credential prompts.",
-          "bottleneck": "Blindly trusting unverified claims handed money to an impostor, triggering lawsuits and customer boycotts!",
-          "reflectionQuestion": "Why must every state-changing request prove authentication cryptographically?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Ask for proof of identity (such as a password and a verification code sent to his registered phone). Once verified, stamp his wrist with a tamper-proof glowing ink stamp valid for the afternoon so he does not have to show his ID card at every single counter.",
-        "isOptimal": true,
-        "consequenceText": "The clerk asks the man for his account PIN and sends an instant verification code to the registered phone number. The man looks nervous, fumbles with his pockets, fails to produce the code, and runs out the door: he was a fraudster! When the real customer arrives, he proves his identity smoothly in five seconds. The clerk stamps his hand with a tamper-proof mark. For the rest of his shopping visit, the customer shows the stamp at the cafe, bakery, and checkout to buy items instantly without having to pull out his passport every two minutes.",
-        "resultState": "auth_stamp_success",
-        "statImpact": {
-          "latency": "5 Seconds Verification",
-          "capacity": "100% Protected Accounts",
-          "risk": "Fraudster Defeated",
-          "cost": "Optimal Security"
-        },
-        "successSummary": "Strong initial authentication verified credentials, followed by a signed, temporary token (JWT stamp) for fast ongoing authorization!"
-      },
-      {
-        "id": "C",
-        "text": "Lock him in an interview room for two hours and make him fill out a 40-page legal background check every single time he wants to buy a carton of eggs.",
-        "isOptimal": false,
-        "consequenceText": "Customers refuse to shop at your supermarket. People do not want to endure a grueling, two-hour legal interrogation just to purchase daily groceries. Lines outside the store stretch down the street, perishable vegetables rot on the shelves, and shoppers leave for the grocery store down the road.",
-        "resultState": "interrogation_desertion",
-        "statImpact": {
-          "latency": "2 Hour Wait",
-          "capacity": "Abandoned Aisles",
-          "risk": "Extreme Friction",
-          "cost": "Rotting Groceries"
-        },
-        "whatHappened": {
-          "helped": "Nobody could ever impersonate another shopper without passing a 40-page background check.",
-          "bottleneck": "Extreme authentication friction destroyed user experience and drove customers to competitors!",
-          "reflectionQuestion": "How do token-based architectures balance high security at login with seamless microsecond requests afterward?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Authentication (AuthN) & Token-Based Sessions",
-      "tagline": "Verifying identity securely and issuing cryptographically signed session tokens",
-      "simpleMeaning": "Authentication (AuthN) answers \"Who are you?\" by verifying credentials using knowledge (passwords/PINs), ownership (phone OTP, hardware keys), or biometrics. Once verified, servers issue a signed JSON Web Token (JWT) for stateless session management.",
-      "analogy": "Separating identity check into two stages: a strong initial credential verification, followed by a lightweight, tamper-proof glowing wrist stamp (JWT) for fast subsequent access.",
-      "howItWorks": [
-        "1. Step 1 (Login): User logs in with credentials (username + secret password).",
-        "2. Step 2 (Verification): Server verifies password against a stored one-way cryptographic hash with random salt (Bcrypt / Argon2).",
-        "3. Step 3 (Token Issuance): Upon success, the server issues a cryptographically signed JSON Web Token (JWT) attached in subsequent authorization headers."
-      ],
-      "whyItMatters": "Passwords must never be stored in plaintext. Cryptographic hashing protects against database leaks, while signed tokens allow distributed backend servers to verify logins without querying the database on every click.",
-      "visualExplanation": "Login Credentials \u2500\u2500\u25ba Server (Verify Bcrypt Hash) \u2500\u2500\u25ba Issue Signed JWT (Header.Payload.Signature) \u2500\u2500\u25ba Client Attaches JWT on Next Request",
-      "contrast": {
-        "termA": "Authentication (AuthN)",
-        "descA": "Verifies identity (\"Who are you?\") via passwords, multi-factor OTPs, or biometrics.",
-        "termB": "JSON Web Token (JWT)",
-        "descB": "Digitally signed token containing Header, Payload (User ID, claims), and Signature verified with the server's secret key."
-      },
-      "advancedInfo": "JWTs are compact and self-contained. The signature is computed using HMAC SHA-256 or RSA/ECDSA asymmetric keys. If an attacker modifies the payload (e.g. changing userId: 5 to userId: 1), the cryptographic signature verification fails immediately.",
-      "teacherNotes": {
-        "concept": "Authentication (AuthN), Password Hashing & Salting, JWT Architecture",
-        "experience": "Students saw why blind trust gives cash to fraudsters, while 2-hour legal interrogations make shoppers desert the store.",
-        "realWorld": "Google, GitHub, and major banking applications use salted hashes (Argon2/Bcrypt) and short-lived JWTs paired with refresh tokens.",
-        "question": "Why should password hashing algorithms deliberately be computationally slow (like Bcrypt with high work factors)?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/kCnyLl1UhNM?si=HbdBqRNp9i9Z7smy",
-    "videoId": "kCnyLl1UhNM",
-    "videoTitle": "Authentication vs Authorization | System Design | Tamil"
-  },
-  {
-    "id": 7,
-    "stage": 3,
-    "sno": 7,
-    "topic": "Authorization",
-    "concept": "Authorization (AuthZ) & Access Control Models: Role-Based Access Control & Principle of Least Privilege",
-    "title": "Level 7: Department Security Badges",
-    "time": "Day 90 \u2014 Internal Staff Access Control",
-    "usersCount": "Staff Operational Permissions",
-    "topicHint": "Authorization (AuthZ) & RBAC",
-    "situation": "Your staff members are now properly authenticated: every employee wears an official, verified name tag. However, during the afternoon shift, an 18-year-old shelf-stocking intern with a verified name tag takes the elevator to the executive administrative suite, walks into the master accounting office, opens the manager's desk drawer, and begins reading confidential staff payroll folders. When the store manager catches him, the intern argues: \"I work here! My name tag is 100% genuine and verified at the front door. That means I can enter any room in this building!\"",
-    "problem": "Proving who you are at the front entrance does not mean you have permission to touch everything inside the building. Access must be partitioned by organizational responsibility. How should you manage permissions?",
-    "simulationType": "authz_rbac_vault",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Agree with the intern. If an employee is verified to enter the building, they should have access to every desk, cash drawer, and server room.",
-        "isOptimal": false,
-        "consequenceText": "Within a week, your business collapses from internal chaos. The shelf-stocking intern accidentally presses an emergency reset lever in the central electrical room, plunging the entire supermarket into darkness. An aggrieved junior cashier enters the supplier billing computer and deletes invoices. Without internal access controls, employees rummage through private personnel files, leading to internal theft, leaks, and operational gridlock.",
-        "resultState": "rbac_blackout_theft",
-        "statImpact": {
-          "latency": "Gridlock",
-          "capacity": "Compromised Staff",
-          "risk": "Power Blackout & Theft",
-          "cost": "Operational Disaster"
-        },
-        "whatHappened": {
-          "helped": "You did not have to set up keycard permissions or electronic locks.",
-          "bottleneck": "Treating Authentication as Authorization allowed an intern to trip electrical breakers and delete supplier invoices!",
-          "reflectionQuestion": "Why must every API endpoint verify Authorization permissions independently of Authentication?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Install color-coded electronic door locks. Program the intern's badge for storage rooms and retail aisles only. Reserve the cash counting room for senior cashiers, and restrict the executive office strictly to the General Manager.",
-        "isOptimal": true,
-        "consequenceText": "The intern walks up to the executive accounting door and swipes his badge. The electronic lock flashes bright red, sounds a soft buzz, and denies access. He returns to the grocery aisles where his badge works properly on storage doors. The cashiers can access their billing registers, the maintenance staff can enter utility closets, and the management suite remains secure. Everyone works in their designated operational zone without cross-contamination.",
-        "resultState": "rbac_door_success",
-        "statImpact": {
-          "latency": "Instant Access Check",
-          "capacity": "Strictly Partitioned",
-          "risk": "Zero Unauthorized Access",
-          "cost": "Secure & Compliant"
-        },
-        "successSummary": "Role-Based Access Control (RBAC) and the Principle of Least Privilege ensure staff only access resources required for their specific jobs!"
-      },
-      {
-        "id": "C",
-        "text": "Fire all employees and manage the entire multi-story supermarket alone so you never have to worry about permissions.",
-        "isOptimal": false,
-        "consequenceText": "You collapse from physical exhaustion within 36 hours. You cannot stock 50 shelves, cut meat at the butcher counter, manage four cash registers, and clean the floors simultaneously. While you are busy ringing up a customer at Counter 1, unattended freezers overflow at the back, and the store descends into abandonment.",
-        "resultState": "exhaustion_abandonment",
-        "statImpact": {
-          "latency": "Exhausted",
-          "capacity": "1 Exhausted Person",
-          "risk": "Abandonment",
-          "cost": "Total Store Failure"
-        },
-        "whatHappened": {
-          "helped": "You had zero employee security risks because you had zero employees.",
-          "bottleneck": "Refusing to delegate authority collapsed operations from physical exhaustion in 36 hours!",
-          "reflectionQuestion": "How does role-based access delegation allow large organizations and cloud platforms to scale safely?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Authorization (AuthZ) & Access Control Models",
-      "tagline": "Enforcing access boundaries via Role-Based Access Control and Principle of Least Privilege",
-      "simpleMeaning": "While Authentication (AuthN) validates identity (\"Are you an active employee?\"), Authorization (AuthZ) enforces access limits (\"Do you have permission to modify payroll data?\"). RBAC assigns privileges based on system roles.",
-      "analogy": "Proving who you are at the front entrance does not mean you have permission to open the cash vault. Badges are color-coded: interns open stockrooms, senior cashiers open cash registers, and only the General Manager opens the executive suite.",
-      "howItWorks": [
-        "1. Authentication vs. Authorization: AuthN validates identity; AuthZ enforces access limits on specific resources.",
-        "2. Role-Based Access Control (RBAC): Assigning permissions to roles (Customer = read products/create orders; Cashier = read inventory/scan barcodes; Admin = manage stock and payroll).",
-        "3. Principle of Least Privilege (PoLP): Every entity must operate using only the minimal permissions necessary to perform its designated task."
-      ],
-      "whyItMatters": "Without Authorization checks, any logged-in user could read other people's bank statements, delete databases, or escalate privileges to administrator level.",
-      "visualExplanation": "Authenticated User (Badge Valid) \u2500\u2500\u25ba Door Check: Does role have 'VAULT_ACCESS'? \u2500\u2500\u25ba Role = Stocker \u2500\u2500\u25ba 403 Forbidden! Door Locked.",
-      "contrast": {
-        "termA": "Authentication (AuthN)",
-        "descA": "Validates identity. \"Who are you?\" Proved via passwords, badges, or biometrics.",
-        "termB": "Authorization (AuthZ)",
-        "descB": "Enforces permissions. \"What are you allowed to do?\" Enforced via RBAC, OAuth 2.0 scopes, and least privilege."
-      },
-      "advancedInfo": "OAuth 2.0 acts as a digital valet key: it enables delegated authorization where third-party apps (e.g. Swiggy accessing Google accounts) receive scoped, temporary access tokens without ever seeing the master password.",
-      "teacherNotes": {
-        "concept": "Authorization (AuthZ), Role-Based Access Control (RBAC), Principle of Least Privilege (PoLP), OAuth 2.0",
-        "experience": "Students understood why an authentic employee badge shouldn't unlock the executive vault or electrical breaker room.",
-        "realWorld": "AWS IAM policies, Kubernetes RBAC, and Google Cloud IAM manage enterprise access through granular permission roles.",
-        "question": "Why should authorization checks always execute on backend servers instead of relying on client-side button hiding?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/AVTyu_mIehQ?si=XQxh7WW9F9wSfehd",
-    "videoId": "AVTyu_mIehQ",
-    "videoTitle": "JWT Explained | System Design | Tamil"
-  },
-  {
-    "id": 8,
-    "stage": 4,
-    "sno": 8,
-    "topic": "Relational Databases",
-    "concept": "Relational Database Design (RDBMS) & ACID Guarantees: Transactional Integrity",
-    "title": "Level 8: The Billing Ledger & The ACID Test",
-    "time": "Day 105 \u2014 Peak Saturday Rush & Power Failure",
-    "usersCount": "2,000 Concurrent Shoppers",
-    "topicHint": "RDBMS & ACID Guarantees",
-    "situation": "It is Saturday evening. The store is packed with 2,000 customers. There is only one single, rare carton of imported Belgian chocolates left on shelf 4. At the exact same fraction of a second, Customer Priya at Cash Register 1 and Customer Rahul at Cash Register 2 place the exact same item code on the counter. Both cashiers scan the barcode and press \"CONFIRM PAYMENT\" simultaneously. Suddenly, a severe thunderstorm hits the area: right as the cashiers hit the enter key, the main power grid cuts out, plunging the building into total darkness for five seconds before the backup generators roar to life!",
-    "problem": "Critical business accounting requires strict, unambiguous guarantees: financial exchanges must happen completely or not at all, concurrent updates must never double-sell limited physical stock, and committed data must survive power failures. How should you record transactions?",
+    "topic": "Functional and Non-Functional Requirements",
+    "concept": "Functional and Non-Functional Requirements",
+    "title": "Level 2: What the App Does vs. How Fast It Runs",
+    "time": "Morning Commute — Delhi Airport Terminal",
+    "usersCount": "10,000 Riders at Airport",
+    "topicHint": "App Features vs Speed & Reliability",
+    "situation": "The Ola engineering team is planning the new airport booking update. The designer says: \"We must let riders select Sedan or Prime, view the fare, and apply coupon codes.\" But the lead architect adds: \"When a rider taps Book, the cab search must finish in under 2 seconds, and the servers must stay online 99.9% of the time!\"",
+    "problem": "What is the difference between what an app DOES (Features) and how well it RUNS (Performance)?",
     "simulationType": "requirements_stress",
     "choices": [
       {
         "id": "A",
-        "text": "Use a loose cardboard notebook to write down sales without inventory checks or power-failure safety logs. Let both transactions proceed through the registers.",
-        "isOptimal": false,
-        "consequenceText": "When the lights flicker back on, your computer records are in utter shambles. The system processed payments for both Priya and Rahul, charging both of their credit cards for the single box of chocolate. Priya grabs the box and walks out, leaving an enraged Rahul standing at the counter demanding his item or his money back. To make matters worse, the sudden power cut corrupted the uncommitted ledger file, erasing the sales records of the last 45 minutes. Cashiers have no idea how much money is in their drawers versus what the computer thinks they sold.",
-        "resultState": "acid_double_charge_loss",
+        "text": "Functional is what the app does (booking a cab, applying coupons); Non-Functional is how well it runs (fast response, 99.9% uptime).",
+        "isOptimal": true,
+        "consequenceText": "Exactly right! Functional Requirements are the features riders click on (booking, fare estimate, cancelling). Non-Functional Requirements are the quality standards: the app must respond in under 2 seconds, never lose payments, and never crash!",
         "statImpact": {
-          "latency": "Corrupted Data",
-          "capacity": "Double-Charged Customers",
-          "risk": "45 Mins Sales Erased",
-          "cost": "Financial Chaos"
+          "latency": "Sub-2s",
+          "capacity": "Reliable",
+          "risk": "Zero Downtime",
+          "cost": "Balanced"
         },
         "whatHappened": {
-          "helped": "Both registers confirmed transactions quickly without waiting for locking mechanisms.",
-          "bottleneck": "Without ACID guarantees, concurrency caused double-selling, and power loss wiped uncommitted memory!",
-          "reflectionQuestion": "Why do banking systems require strict ACID guarantees instead of eventual consistency?"
-        }
+          "helped": "Separated core features from performance and reliability metrics.",
+          "bottleneck": "Building features without performance targets creates slow apps that users hate.",
+          "reflectionQuestion": "Why is an app with great buttons useless if every button takes 20 seconds to respond?"
+        },
+        "successSummary": "Perfect! You distinguished Functional Requirements (features) from Non-Functional Requirements (speed and uptime)."
       },
       {
         "id": "B",
-        "text": "Use an atomic, transaction-safe relational ledger. Lock the item record during processing so only one customer can complete the purchase, and enforce durable write-ahead logging to guarantee no data is corrupted or half-saved during a power blackout.",
-        "isOptimal": true,
-        "consequenceText": "The database software handles the concurrency flawlessly. The moment Register 1 initiated the payment, it placed an instantaneous lock on the inventory record for that specific chocolate bar. Register 2 was immediately notified: \"Item out of stock.\" Rahul's payment card was never charged. Furthermore, because the database wrote the transaction to a persistent Write-Ahead Log (WAL) on the hard disk before confirming, not a single penny of data was lost when the power cut occurred. When the generators kicked in, all records remained perfectly balanced and accurate.",
-        "resultState": "acid_lock_success",
+        "text": "Functional means the cab has functional air conditioning; Non-Functional means the car radio is broken.",
+        "isOptimal": false,
+        "consequenceText": "Those are physical car features, not software requirements for the Ola application system.",
         "statImpact": {
-          "latency": "Atomic Locking",
-          "capacity": "Zero Double-Selling",
-          "risk": "100% Power Crash Recovery",
-          "cost": "Perfect Balance"
+          "latency": "Unclear",
+          "capacity": "Confused Scope",
+          "risk": "Missed Targets",
+          "cost": "Wasted Effort"
         },
-        "successSummary": "ACID guarantees ensured Atomicity (all-or-nothing), Consistency (integrity rules), Isolation (locking), and Durability (WAL logging on disk)!"
+        "whatHappened": {
+          "helped": "Thought about car parts instead of software systems.",
+          "bottleneck": "System requirements define how software behaves and performs.",
+          "reflectionQuestion": "What does a software engineer measure when testing an app?"
+        }
       },
       {
         "id": "C",
-        "text": "Cancel every customer purchase across the entire store for the entire day whenever lightning flashes outside.",
+        "text": "Only build fancy buttons and ignore whether the app takes 5 minutes to load or crashes frequently.",
         "isOptimal": false,
-        "consequenceText": "Customers furiously abandon full grocery carts in the aisles and storm out of your supermarket. No shopper will tolerate having their shopping trip canceled every time rain clouds gather. Your inventory spoils on the floor, and your store earns a reputation for total operational incompetence.",
-        "resultState": "lightning_rage_quit",
+        "consequenceText": "If the app takes 5 minutes to confirm a cab, hurried riders at the airport will delete Ola and take a regular taxi instead.",
         "statImpact": {
-          "latency": "Store Cancelled",
-          "capacity": "Abandoned Carts",
-          "risk": "Customer Boycott",
-          "cost": "Spoiled Inventory"
+          "latency": "5-Minute Delay",
+          "capacity": "Angry Riders",
+          "risk": "Player Churn",
+          "cost": "Lost Revenue"
         },
         "whatHappened": {
-          "helped": "You eliminated the risk of power cuts occurring mid-transaction.",
-          "bottleneck": "Canceling the entire store during rain drove customers away and spoiled inventory!",
-          "reflectionQuestion": "How do resilient database recovery mechanisms ensure business continuity during hardware and power faults?"
+          "helped": "Focused only on visuals without speed.",
+          "bottleneck": "Slow response times destroy user trust completely.",
+          "reflectionQuestion": "Would you keep using an app that freezes for minutes every time you book?"
         }
       }
     ],
     "discovery": {
-      "badge": "Relational Database Design (RDBMS) & ACID Guarantees",
-      "tagline": "Atomicity, Consistency, Isolation, and Durability under concurrency and system failures",
-      "simpleMeaning": "Relational databases (RDBMS like PostgreSQL and MySQL) organize data into strict tables with schemas, enforcing ACID guarantees so transactions execute safely under high concurrency and power cuts.",
-      "analogy": "When two shoppers reach for the last chocolate box simultaneously during a thunderstorm, the ledger locks the item for the first buyer and uses write-ahead logging so power cuts never corrupt accounts.",
+      "badge": "Functional vs. Non-Functional Requirements",
+      "tagline": "Balancing the features users click with the speed and reliability they expect",
+      "simpleMeaning": "Functional Requirements (FR) describe WHAT the system does (features like booking a ride, showing fare estimate, or paying with wallet). Non-Functional Requirements (NFR) describe HOW WELL the system performs (booking completes in under 2 seconds, 99.9% uptime, and protecting passwords).",
+      "pubgExample": "In Ola, picking 'Ola Auto' and entering a drop location is a Functional Requirement. Having your nearby driver assigned in under 3 seconds without app freezing is a Non-Functional Requirement.",
+      "analogy": "Buying a car: Having 4 wheels, a steering wheel, and doors is Functional (what it is). Getting 20 km per liter of fuel, low maintenance, and 5-star crash safety is Non-Functional (how well and safely it works).",
       "howItWorks": [
-        "1. Atomicity (\"All or Nothing\"): If payment succeeds but receipt generation fails, the entire transaction rolls back completely.",
-        "2. Consistency (\"Integrity Enforced\"): All state transitions preserve defined schema constraints and valid account balances.",
-        "3. Isolation (\"Independent Execution\"): Concurrent transactions run without exposing intermediate uncommitted changes to other users.",
-        "4. Durability (\"Permanently Stored\"): Once confirmed, data is recorded to disk (WAL) and survives power cuts or hardware reboots."
+        "1. List Features (FR): Riders can book cabs, track live driver location, and rate drivers.",
+        "2. Set Speed Targets (NFR): Cab search must return within 2 seconds.",
+        "3. Set Reliability Targets (NFR): The system must stay available 99.9% of the year.",
+        "4. Test Both: Ensure the buttons work AND that the app feels fast and smooth."
       ],
-      "whyItMatters": "Without ACID guarantees, e-commerce stores double-sell limited items, banking transfers lose money mid-flight, and database crashes wipe transaction histories.",
-      "visualExplanation": "Register 1 & 2 Compete \u2500\u2500\u25ba Database Row Lock on Item \u2500\u2500\u25ba Reg 1 Buys / Reg 2 Out of Stock \u2500\u2500\u25ba Write-Ahead Log (WAL on Disk) \u2500\u2500\u25ba Crash Recovery Intact",
+      "whyItMatters": "An app with 50 wonderful features is completely useless if it takes 30 seconds to load or crashes when rain starts.",
+      "visualExplanation": "Functional: [Book Cab] + [Apply Coupon]\nNon-Functional: [Response < 2s] + [99.9% Uptime] = Great Ola App!",
       "contrast": {
-        "termA": "ACID Transactions (RDBMS)",
-        "descA": "Strict tables, foreign keys, row-level locking, and Write-Ahead Logging ensuring mathematical precision and zero data loss.",
-        "termB": "Uncontrolled Concurrency",
-        "descB": "Simultaneous writes without locking cause race conditions, dirty reads, phantom updates, and corrupted ledger balances."
+        "termA": "Functional Requirements (FR)",
+        "descA": "What the app does: features and buttons riders interact with (e.g., book ride, pay fare).",
+        "termB": "Non-Functional Requirements (NFR)",
+        "descB": "How well it runs: speed, uptime, security, and scalability under heavy rush."
       },
-      "advancedInfo": "Relational engines use Multi-Version Concurrency Control (MVCC) and strict transaction isolation levels (Read Committed, Repeatable Read, Serializable) alongside Write-Ahead Logging (WAL) to survive sudden server reboots.",
       "teacherNotes": {
-        "concept": "Relational Database Architecture, ACID Properties, Concurrency Control & WAL",
-        "experience": "Students experienced why simultaneous purchases require locking and why power cuts require write-ahead disk logging.",
-        "realWorld": "Visa, Stripe, and core banking ledgers rely on ACID-compliant relational databases to process billions of dollars with zero lost pennies.",
-        "question": "What is the difference between a dirty read, a non-repeatable read, and a phantom read in database concurrency?"
-      }
+        "concept": "Functional Requirements (FR), Non-Functional Requirements (NFR), Latency, Availability, SLA",
+        "experience": "Students learned why software must balance what it does with how fast and reliably it operates.",
+        "realWorld": "Ola and Uber engineering teams define strict SLAs: 99.99% uptime and sub-200ms API response times.",
+        "question": "If an app has a working payment button (FR) but processing takes 2 minutes (NFR), is it acceptable?"
+      },
+      "olaExample": "In Ola, picking 'Ola Auto' and entering a drop location is a Functional Requirement. Having your nearby driver assigned in under 3 seconds without app freezing is a Non-Functional Requirement."
     },
-    "youtubeUrl": "https://youtu.be/AVTyu_mIehQ?si=XQxh7WW9F9wSfehd",
-    "videoId": "AVTyu_mIehQ",
-    "videoTitle": "JWT Explained | System Design | Tamil"
+    "knowledgeCheck": {
+      "question": "If a rider opens Ola to catch a train and the app freezes because the server is too slow, which requirement failed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-Functional Requirement (Speed and performance failed).",
+          "isCorrect": true,
+          "explanation": "Correct! Speed, responsiveness, and uptime are Non-Functional Requirements. Freezing means performance failed."
+        },
+        {
+          "id": "B",
+          "text": "Functional Requirement (The rider forgot their shoes).",
+          "isCorrect": false,
+          "explanation": "Incorrect. Personal shoes have nothing to do with software system requirements."
+        },
+        {
+          "id": "C",
+          "text": "Color Requirement (The cab was the wrong shade of white).",
+          "isCorrect": false,
+          "explanation": "Incorrect. Vehicle paint color is cosmetic, not a software requirement failure."
+        }
+      ],
+      "hint": "Hint: Think about whether freezing is a missing button (feature) or a problem with speed and responsiveness (performance)."
+    }
+  },
+  {
+    "id": 3,
+    "stage": 1,
+    "sno": 3,
+    "topic": "Client–Server Architecture",
+    "concept": "Client–Server Architecture",
+    "title": "Level 3: How Your Phone Talks to the Ola Cloud Server",
+    "time": "Evening Booking — Connaught Place, Delhi",
+    "usersCount": "Rider Phone & Nearby Cab Drivers",
+    "topicHint": "Client Requests and Server Responses",
+    "situation": "You open the Ola app on your smartphone (the Client) to go home. You need to know: \"Where are the 3 closest cabs right now?\" Your friend wonders: \"Does your phone connect directly to all 10,000 cab drivers' phones in Delhi through Bluetooth wires?\"",
+    "problem": "How should your smartphone get accurate information about nearby available cabs?",
+    "simulationType": "client_server_clerk",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Your phone (Client) asks the central Ola computer (Server), and the server replies with the nearest 3 cabs.",
+        "isOptimal": true,
+        "consequenceText": "Perfect! Your phone is the Client (asking for nearby cabs). The central computer in the cloud is the Server (holding driver GPS data, calculating fares, and sending answers back in milliseconds).",
+        "statImpact": {
+          "latency": "30ms",
+          "capacity": "Millions Connected",
+          "risk": "Safe & Secure",
+          "cost": "Standard"
+        },
+        "whatHappened": {
+          "helped": "The central server coordinates riders and drivers safely.",
+          "bottleneck": "Connecting phones directly to each other would cause massive confusion and security risks.",
+          "reflectionQuestion": "Why is a central server needed when matching strangers for cab rides?"
+        },
+        "successSummary": "Correct! Client-Server architecture allows millions of phones to communicate through a central system."
+      },
+      {
+        "id": "B",
+        "text": "Your phone connects directly to thousands of drivers' phones using Bluetooth wires across the entire city.",
+        "isOptimal": false,
+        "consequenceText": "Bluetooth only works over a few meters and cannot connect across a city. Connecting thousands of phones directly causes connection chaos.",
+        "statImpact": {
+          "latency": "Failed",
+          "capacity": "0 Drivers Found",
+          "risk": "High Disconnections",
+          "cost": "Unworkable"
+        },
+        "whatHappened": {
+          "helped": "Tried to bypass the central server.",
+          "bottleneck": "Direct phone-to-phone connections cannot scale across city distances.",
+          "reflectionQuestion": "Can Bluetooth on your phone reach a driver 5 kilometers away?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Your phone guesses where cabs are using magic without sending any messages over the internet.",
+        "isOptimal": false,
+        "consequenceText": "Smartphones cannot magically guess real-world locations. Without internet communication, your screen would show an empty map.",
+        "statImpact": {
+          "latency": "Offline",
+          "capacity": "0 Cabs",
+          "risk": "No Data",
+          "cost": "Broken"
+        },
+        "whatHappened": {
+          "helped": "Thought phones can know live data without internet.",
+          "bottleneck": "Every live update requires network messages between client and server.",
+          "reflectionQuestion": "How does live location data travel from a moving cab to your screen?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Client–Server Architecture",
+      "tagline": "Separating the user's mobile screen (Client) from the central brain (Server)",
+      "simpleMeaning": "Client-Server architecture is a system where the Client (your phone or browser) makes requests, and the Server (a powerful computer in the cloud) processes the request and sends back the answer.",
+      "pubgExample": "When you tap 'Confirm Booking' in Ola, your phone (Client) sends a request over 4G/5G. The Ola Server receives it, finds the nearest driver, and sends a response back with the driver's name and car number.",
+      "analogy": "A restaurant: You are the Customer (Client) reading the menu and ordering food. The Kitchen is the Server cooking the food and sending it back to your table.",
+      "howItWorks": [
+        "1. Client (Mobile App): Shows the map, accepts your finger taps, and sends a Request.",
+        "2. Internet Network: Carries the request from your phone to the cloud data center.",
+        "3. Server: Checks available cabs, validates your wallet balance, and generates a Response.",
+        "4. Response Delivered: Your app receives the driver's location and animates the cab on your screen."
+      ],
+      "whyItMatters": "It keeps heavy computing, driver verification, and billing safe in central servers rather than running everything on slow phones.",
+      "visualExplanation": "[Rider Mobile: Client] ──Request: 'Find Cab'──► [Ola Cloud: Server] ──Response: 'Cab Arriving'──► [Rider Mobile]",
+      "contrast": {
+        "termA": "Client (Your Phone)",
+        "descA": "Displays UI, captures taps, sends requests, and shows the incoming cab on the map.",
+        "termB": "Server (Cloud Computer)",
+        "descB": "Central brain that verifies drivers, calculates shortest routes, and manages payments."
+      },
+      "teacherNotes": {
+        "concept": "Client, Server, Request, Response, Client-Server Architecture",
+        "experience": "Students learned how mobile devices interact with remote server infrastructure.",
+        "realWorld": "Ola, Uber, Zomato, and Amazon all operate on Client-Server communication over HTTPS.",
+        "question": "What is your mobile phone called when it asks the Ola server for nearby cabs?"
+      },
+      "olaExample": "When you tap 'Confirm Booking' in Ola, your phone (Client) sends a request over 4G/5G. The Ola Server receives it, finds the nearest driver, and sends a response back with the driver's name and car number."
+    },
+    "knowledgeCheck": {
+      "question": "In the Ola cab booking app, what is the role of the 'Server'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To receive booking requests from rider phones, check available drivers, and send back trip details.",
+          "isCorrect": true,
+          "explanation": "Correct! The server is the central computer that processes requests and manages game/app logic."
+        },
+        {
+          "id": "B",
+          "text": "To act as the steering wheel inside the physical cab.",
+          "isCorrect": false,
+          "explanation": "Incorrect. A server is a computer in a data center, not a steering wheel."
+        },
+        {
+          "id": "C",
+          "text": "To physically drive the cab to your house in place of the human driver.",
+          "isCorrect": false,
+          "explanation": "Incorrect. The server coordinates information; human drivers or cars do the physical driving."
+        }
+      ],
+      "hint": "Hint: Think about which computer receives your request, finds a cab, and sends the answer back."
+    }
+  },
+  {
+    "id": 4,
+    "stage": 1,
+    "sno": 4,
+    "topic": "Frontend, Backend, and Database",
+    "concept": "Frontend, Backend, and Database",
+    "title": "Level 4: The Screen, the Brain, and the Memory",
+    "time": "Morning Rush — Mumbai Suburban Stations",
+    "usersCount": "100,000 Morning Passengers",
+    "topicHint": "3 Essential Layers of Every Software System",
+    "situation": "A passenger opens Ola to book a ride from Andheri station. The app displays a beautiful map with a green 'Book Ride' button. When tapped, the system must calculate the ₹240 fare, match a driver, and permanently record the trip receipt so the driver gets paid tomorrow.",
+    "problem": "Where do the visual buttons, the fare calculation logic, and the permanent trip records live?",
+    "simulationType": "client_server_clerk",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Frontend is the screen you touch; Backend is the brain that calculates fare; Database is the memory that saves trip records.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant! The 3-tier structure runs all modern software. Frontend = the mobile UI; Backend = the server business logic (calculating distance and surge fare); Database = permanent disk memory saving trip receipts.",
+        "statImpact": {
+          "latency": "Fast & Clean",
+          "capacity": "Organized 3-Tier",
+          "risk": "Zero Data Loss",
+          "cost": "Standard"
+        },
+        "whatHappened": {
+          "helped": "Separated presentation, business logic, and permanent storage.",
+          "bottleneck": "Mixing all three into the phone makes apps heavy, insecure, and easy to hack.",
+          "reflectionQuestion": "Why should your phone not store other drivers' bank account details?"
+        },
+        "successSummary": "Great job! You mastered the three core layers: Frontend, Backend, and Database."
+      },
+      {
+        "id": "B",
+        "text": "Save all 100,000 passengers' bank details and passwords inside the rider's phone memory.",
+        "isOptimal": false,
+        "consequenceText": "Saving other people's bank details on someone's phone is a massive security disaster! Hackers could easily steal everyone's money.",
+        "statImpact": {
+          "latency": "Dangerous",
+          "capacity": "Data Leak",
+          "risk": "Total Security Breach",
+          "cost": "Huge Fines"
+        },
+        "whatHappened": {
+          "helped": "Put confidential database records onto a user device.",
+          "bottleneck": "User devices cannot be trusted with central database records.",
+          "reflectionQuestion": "Where should sensitive passwords and payment records be stored safely?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Delete the database so the app forgets all trips, rides, and driver payments as soon as the phone closes.",
+        "isOptimal": false,
+        "consequenceText": "Without a database, drivers will never get paid for their hard work, and riders have no proof of past trips. Drivers will strike immediately.",
+        "statImpact": {
+          "latency": "Forgotten",
+          "capacity": "0 Records",
+          "risk": "Unpaid Drivers",
+          "cost": "Company Collapse"
+        },
+        "whatHappened": {
+          "helped": "Removed permanent storage.",
+          "bottleneck": "Commercial apps must persist financial and trip data safely.",
+          "reflectionQuestion": "Can a business operate if it forgets every sale the moment it closes?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Frontend, Backend, and Database",
+      "tagline": "The three essential layers of every web and mobile application",
+      "simpleMeaning": "Frontend is what the user sees and touches (the mobile screen). Backend is the invisible brain running on servers (calculating fares and matching drivers). Database is the permanent digital filing cabinet that safely stores rider accounts, driver details, and trip receipts.",
+      "pubgExample": "In Ola: Frontend = The map, buttons, and car icons on your phone. Backend = The server algorithms calculating traffic and assigning the driver. Database = The storage storing your phone number, trip history, and wallet balance.",
+      "analogy": "A restaurant: Frontend is the dining room and menu. Backend is the chefs cooking in the kitchen. Database is the refrigerator and pantry storing the ingredients.",
+      "howItWorks": [
+        "1. Frontend (UI): Rider enters pickup and drop points and taps 'Confirm'.",
+        "2. Backend (Server): Computes route distance, adds surge multiplier, and locates nearest driver.",
+        "3. Database (Storage): Saves Trip ID #98214 with fare ₹240 and timestamps to permanent disk.",
+        "4. All in Sync: The backend sends confirmation to both rider and driver frontends."
+      ],
+      "whyItMatters": "Keeping these three layers separate makes apps secure, fast, and easy to maintain by different engineering teams.",
+      "visualExplanation": "[Frontend: Mobile App] ──Requests──► [Backend: Cloud Server] ──Saves──► [Database: Storage Vault]",
+      "contrast": {
+        "termA": "Frontend",
+        "descA": "Visual interface on the user's phone; collects inputs and displays maps and trip status.",
+        "termB": "Backend & Database",
+        "descB": "Server brain that calculates business rules, and permanent database that safeguards records."
+      },
+      "teacherNotes": {
+        "concept": "Frontend, Backend, Database, 3-Tier Architecture, Client-Side vs Server-Side",
+        "experience": "Students understood the clear division between UI presentation, server logic, and persistent storage.",
+        "realWorld": "Ola uses React Native / Android Native (Frontend), Java / Go microservices (Backend), and MySQL / DynamoDB (Database).",
+        "question": "Which layer is responsible for permanently remembering how much money is in your Ola Money wallet?"
+      },
+      "olaExample": "In Ola: Frontend = The map, buttons, and car icons on your phone. Backend = The server algorithms calculating traffic and assigning the driver. Database = The storage storing your phone number, trip history, and wallet balance."
+    },
+    "knowledgeCheck": {
+      "question": "When you book an Ola cab and receive a digital receipt for ₹250, which layer is responsible for permanently saving that receipt?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Database (the permanent digital filing cabinet).",
+          "isCorrect": true,
+          "explanation": "Correct! The database safely and permanently stores trip history, payments, and account balances."
+        },
+        {
+          "id": "B",
+          "text": "The glass screen of your smartphone.",
+          "isCorrect": false,
+          "explanation": "Incorrect. The glass screen is hardware for touching, not permanent storage."
+        },
+        {
+          "id": "C",
+          "text": "The car tires of the cab.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Car tires are vehicle parts, not digital data storage."
+        }
+      ],
+      "hint": "Hint: Think about which component acts as the permanent digital filing cabinet that remembers records."
+    }
+  },
+  {
+    "id": 5,
+    "stage": 1,
+    "sno": 5,
+    "topic": "Basic System Architecture",
+    "concept": "Basic System Architecture",
+    "title": "Level 5: Connecting the Full Ola Dispatch System",
+    "time": "Evening Peak — Hyderabad Cyber Towers",
+    "usersCount": "Full City Deployment: 50,000 Riders & 8,000 Cabs",
+    "topicHint": "Connecting Clients, Gateway, Dispatchers, and Data",
+    "situation": "You are connecting all the pieces of Ola for an entire city. Rider phones, driver phones, API security gateways, dispatch servers, and database storage vaults must all communicate smoothly. An intern asks: \"Can we just connect every rider phone directly to our raw financial database without any security server in the middle?\"",
+    "problem": "Why must every component be organized into a proper system architecture instead of letting phones touch the database directly?",
+    "simulationType": "ola_system_blueprint",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Organize traffic through an API Gateway and Backend Servers so phones never touch raw databases directly.",
+        "isOptimal": true,
+        "consequenceText": "Masterful architecture! By placing an API Gateway and Backend servers between phones and databases, requests are checked for security and balanced evenly. Sensitive databases remain completely protected!",
+        "statImpact": {
+          "latency": "20ms",
+          "capacity": "50,000 Smooth",
+          "risk": "High Security",
+          "cost": "Well-Architected"
+        },
+        "whatHappened": {
+          "helped": "Followed layered system architecture with security boundaries.",
+          "bottleneck": "Allowing direct client access to databases exposes sensitive tables to attacks and corruption.",
+          "reflectionQuestion": "Why does a bank have teller counters instead of letting customers walk directly into the money vault?"
+        },
+        "successSummary": "Brilliant! You connected the complete basic system architecture with secure layers."
+      },
+      {
+        "id": "B",
+        "text": "Let all 50,000 rider phones connect directly to the raw database files and edit fares as they wish.",
+        "isOptimal": false,
+        "consequenceText": "Dishonest riders edit their fare from ₹500 to ₹0, and delete other riders' accounts. The database crashes within 3 minutes.",
+        "statImpact": {
+          "latency": "Corrupted",
+          "capacity": "Cheaters Everywhere",
+          "risk": "Total Bankruptcy",
+          "cost": "Disaster"
+        },
+        "whatHappened": {
+          "helped": "Removed middle security servers to save money.",
+          "bottleneck": "Unfiltered direct database access destroys data integrity.",
+          "reflectionQuestion": "What happens if any random user can edit database numbers directly?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Disconnect all servers and make drivers call every phone number in the phonebook one by one.",
+        "isOptimal": false,
+        "consequenceText": "Calling thousands of numbers manually takes days. Passengers give up and walk, and the cab company goes bankrupt.",
+        "statImpact": {
+          "latency": "Hours Delay",
+          "capacity": "Manual Failure",
+          "risk": "Zero Modern Tech",
+          "cost": "Unusable"
+        },
+        "whatHappened": {
+          "helped": "Abandoned automated system architecture.",
+          "bottleneck": "Modern scale requires automated digital systems.",
+          "reflectionQuestion": "Can telephone operators manually coordinate 50,000 live rides simultaneously?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Basic System Architecture",
+      "tagline": "Connecting clients, gateways, application servers, and databases into a safe flow",
+      "simpleMeaning": "Basic System Architecture is the blueprint that organizes how software pieces fit together. Riders connect through an API Gateway, which sends requests to Application Servers (Dispatch, Payments, Maps), which then talk to secure Databases.",
+      "pubgExample": "When an Ola rider requests a ride: (1) App sends request -> (2) API Gateway checks login -> (3) Dispatch Server matches driver -> (4) Database records trip -> (5) Confirmation sent back to rider and driver.",
+      "analogy": "An airport: Passengers don't walk directly onto the runway. They pass through the Entrance -> Security Check -> Boarding Gate -> Airplane. Each step has a clear job.",
+      "howItWorks": [
+        "1. User Layer: Rider and Driver mobile apps running on smartphones.",
+        "2. Gateway Layer: API Gateway verifies security tokens and routes requests.",
+        "3. Service Layer: Dispatch, Fare Calculation, and Tracking services process trip logic.",
+        "4. Data Layer: Databases and caches store persistent records securely."
+      ],
+      "whyItMatters": "Protects company data, stops fraud, prevents crashes, and ensures riders and drivers get accurate service in seconds.",
+      "visualExplanation": "[Rider & Driver Apps] ──► [API Gateway] ──► [Dispatch Backend] ──► [Secure Database]",
+      "contrast": {
+        "termA": "Layered Architecture",
+        "descA": "Organized layers protect databases, balance traffic, and allow independent scaling.",
+        "termB": "Direct Unprotected Access",
+        "descB": "Phones talk directly to databases; leads to security hacks, data theft, and server crashes."
+      },
+      "teacherNotes": {
+        "concept": "System Architecture, Layered Design, API Gateway, Tier Separation, Security Boundaries",
+        "experience": "Students learned how all the individual components connect into an end-to-end architecture.",
+        "realWorld": "Every modern mobility platform (Ola, Uber, Lyft) uses multi-layered service architecture.",
+        "question": "What is the job of the API Gateway sitting between rider phones and backend servers?"
+      },
+      "olaExample": "When an Ola rider requests a ride: (1) App sends request -> (2) API Gateway checks login -> (3) Dispatch Server matches driver -> (4) Database records trip -> (5) Confirmation sent back to rider and driver."
+    },
+    "knowledgeCheck": {
+      "question": "Why should Ola never allow rider phones to connect directly to the raw financial database?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because riders could maliciously change fares or steal private bank details; backend servers must check security first.",
+          "isCorrect": true,
+          "explanation": "Correct! Backend servers act as a secure referee to validate all actions before touching database records."
+        },
+        {
+          "id": "B",
+          "text": "Because databases can only be touched by drivers wearing yellow uniforms.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Database access is controlled by software security protocols, not driver uniforms."
+        },
+        {
+          "id": "C",
+          "text": "Because rider phones will physically melt if they touch database cables.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Phone hardware does not melt; the problem is software data security and fraud."
+        }
+      ],
+      "hint": "Hint: Think about what could happen if anyone could edit their own ride balance without a server checking first."
+    }
+  },
+  {
+    "id": 6,
+    "stage": 2,
+    "sno": 6,
+    "topic": "Networking Fundamentals – IP Addresses, DNS, and Ports",
+    "concept": "Networking Fundamentals – IP Addresses, DNS, and Ports",
+    "title": "Level 6: Finding the Ola Cloud Server in Bangalore",
+    "time": "Morning Commute — Koramangala, Bangalore",
+    "usersCount": "Rider Phone Locating Ola Cloud",
+    "topicHint": "IP Addresses (Street Address), DNS (Phonebook), Ports (Apartment Number)",
+    "situation": "Your Ola app needs to connect to the Ola server over the internet. The server has an IP address like '142.250.190.46'. But humans cannot remember long strings of numbers for every website and service! When you tap Book, your app contacts 'api.olacabs.com'.",
+    "problem": "How does your phone convert the friendly name 'api.olacabs.com' into the real computer IP address?",
+    "simulationType": "networking_dns_ports",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The phone asks DNS (the internet's phonebook), which translates 'api.olacabs.com' into the server's exact IP address.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! DNS (Domain Name System) acts like your phone's contact list. You type 'api.olacabs.com', and DNS immediately tells your phone the exact computer IP address and Port 443 to connect to!",
+        "statImpact": {
+          "latency": "5ms DNS",
+          "capacity": "Instant Lookups",
+          "risk": "Zero Connection Failures",
+          "cost": "Standard"
+        },
+        "whatHappened": {
+          "helped": "Used DNS to resolve domain names into numerical IP addresses.",
+          "bottleneck": "Without DNS, users would have to memorize 12-digit number codes for every service.",
+          "reflectionQuestion": "Why do we save friends' names in our phone instead of memorizing their 10-digit phone numbers?"
+        },
+        "successSummary": "Awesome! You understood IP Addresses, DNS lookups, and Ports."
+      },
+      {
+        "id": "B",
+        "text": "Force all riders to memorize long 12-digit IP numbers and type them into their app every morning.",
+        "isOptimal": false,
+        "consequenceText": "Nobody wants to memorize '142.250.190.46:443' just to call a cab! Riders will make typos, get connection errors, and stop using Ola.",
+        "statImpact": {
+          "latency": "Slow & Frustrating",
+          "capacity": "Typo Errors",
+          "risk": "Lost Customers",
+          "cost": "High Support Costs"
+        },
+        "whatHappened": {
+          "helped": "Expected users to act like network routers.",
+          "bottleneck": "Humans prefer memorable text names rather than raw binary or decimal numbers.",
+          "reflectionQuestion": "Would you use Google if you had to type 172.217.16.206 into the browser every time?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "The phone transmits radio signals into outer space hoping an alien satellite forwards it to Ola.",
+        "isOptimal": false,
+        "consequenceText": "Satellites in outer space do not route city cab requests. Signals get lost, and riders are left waiting endlessly.",
+        "statImpact": {
+          "latency": "Lost in Space",
+          "capacity": "0 Connection",
+          "risk": "100% Failure",
+          "cost": "Broken"
+        },
+        "whatHappened": {
+          "helped": "Ignored internet networking standards.",
+          "bottleneck": "Internet traffic follows organized IP and DNS routing protocols.",
+          "reflectionQuestion": "How does internet traffic travel reliably through local network cables and towers?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "IP Addresses, DNS, and Ports",
+      "tagline": "How computers find each other across the worldwide internet",
+      "simpleMeaning": "An IP Address is like a house's street address (where the computer lives). DNS (Domain Name System) is the internet's phonebook that translates names like 'olacabs.com' into IP addresses. A Port number is like an apartment door number, telling the computer which specific program to deliver the message to.",
+      "pubgExample": "When you tap 'Book Cab', your phone asks DNS: \"Where is api.olacabs.com?\" DNS answers: \"Go to IP 142.250.190.46 at Port 443.\" Your phone connects directly in 5 milliseconds.",
+      "analogy": "Sending a parcel: The IP Address is the building street address. The DNS is looking up the person's name in a directory. The Port number is the specific Flat Number (e.g. Flat 443) inside the building.",
+      "howItWorks": [
+        "1. Domain Name: User app asks for 'api.olacabs.com'.",
+        "2. DNS Lookup: Internet directory returns IP address '142.250.190.46'.",
+        "3. Port Selection: Connects to Port 443 (the standard secure web door).",
+        "4. Connection Established: Rider phone and Ola dispatch server begin talking."
+      ],
+      "whyItMatters": "Without IP addresses, DNS, and ports, computers on the internet would have no way to find each other or route messages.",
+      "visualExplanation": "[Phone: 'api.olacabs.com'] ──► [DNS Server] ──Returns IP──► [Connects to IP: 142.250.190.46 : Port 443]",
+      "contrast": {
+        "termA": "DNS (Domain Name System)",
+        "descA": "Human-friendly names like 'olacabs.com'; automatically looked up in milliseconds.",
+        "termB": "IP Address & Port",
+        "descB": "Machine-readable numerical destination (IP: 142.250.190.46) and door number (Port: 443)."
+      },
+      "teacherNotes": {
+        "concept": "IP Address (IPv4/IPv6), DNS Resolution, Port Numbers, TCP/IP",
+        "experience": "Students learned how domain names resolve to IP addresses and how ports direct traffic to specific services.",
+        "realWorld": "Every network call in Ola, Google, and Netflix relies on DNS resolvers (like Cloudflare 1.1.1.1 and Google 8.8.8.8).",
+        "question": "What is the internet phonebook called that converts domain names into IP addresses?"
+      },
+      "olaExample": "When you tap 'Book Cab', your phone asks DNS: \"Where is api.olacabs.com?\" DNS answers: \"Go to IP 142.250.190.46 at Port 443.\" Your phone connects directly in 5 milliseconds."
+    },
+    "knowledgeCheck": {
+      "question": "Why does your phone use DNS when opening the Ola app instead of connecting directly by raw numbers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS translates friendly names like 'api.olacabs.com' into the server's exact IP address so humans don't have to memorize numbers.",
+          "isCorrect": true,
+          "explanation": "Correct! DNS translates names into IP addresses automatically so we never have to type raw numbers."
+        },
+        {
+          "id": "B",
+          "text": "DNS turns the cab's headlights on during night rides.",
+          "isCorrect": false,
+          "explanation": "Incorrect. DNS is an internet network service, not a physical car component."
+        },
+        {
+          "id": "C",
+          "text": "DNS gives the driver a 50% discount on road toll taxes.",
+          "isCorrect": false,
+          "explanation": "Incorrect. DNS handles domain name lookups, not highway toll pricing."
+        }
+      ],
+      "hint": "Hint: Think about why you use a contact list instead of memorizing 10-digit phone numbers for all your friends."
+    }
+  },
+  {
+    "id": 7,
+    "stage": 2,
+    "sno": 7,
+    "topic": "HTTP vs. HTTPS",
+    "concept": "HTTP vs. HTTPS",
+    "title": "Level 7: Protecting Credit Cards & Ola Money with Encryption",
+    "time": "Evening Payment — Paying ₹450 Ride Fare",
+    "usersCount": "1,000,000 Daily Online Payments",
+    "topicHint": "Plain Text (HTTP) vs Encrypted Security (HTTPS)",
+    "situation": "You reach your destination and pay ₹450 using your credit card or Ola Money wallet. If the app uses unencrypted HTTP, your card number and CVV are sent over open Wi-Fi like a clear postcard. A hacker sitting at a nearby tea stall with a laptop could easily read your bank details!",
+    "problem": "How should Ola send your payment details over public networks without anyone spying on them?",
+    "simulationType": "protocols_transport",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use HTTPS (encrypted): scrambles your payment details into secret code so only the Ola server can read it.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant security! The 'S' in HTTPS stands for Secure (using SSL/TLS encryption). Even if someone intercepts your network packets, all they see is scrambled gibberish! Your card details and wallet remain 100% safe.",
+        "statImpact": {
+          "latency": "Encrypted & Fast",
+          "capacity": "Safe Payments",
+          "risk": "Zero Card Thefts",
+          "cost": "Protected"
+        },
+        "whatHappened": {
+          "helped": "Enforced end-to-end TLS encryption on all mobile communications.",
+          "bottleneck": "Unencrypted HTTP leaves financial data vulnerable to packet sniffing and theft.",
+          "reflectionQuestion": "Why would you send a secret letter in a sealed steel locker instead of writing it on a transparent postcard?"
+        },
+        "successSummary": "Success! You used HTTPS encryption to safeguard passenger credit cards and wallet balances."
+      },
+      {
+        "id": "B",
+        "text": "Use unencrypted HTTP and send raw credit card numbers in plain readable text across public Wi-Fi.",
+        "isOptimal": false,
+        "consequenceText": "Hackers easily intercept the plain text. Thousands of riders have their bank accounts emptied, and Ola faces devastating legal lawsuits.",
+        "statImpact": {
+          "latency": "Unsecure",
+          "capacity": "Stolen Cards",
+          "risk": "Catastrophic Breach",
+          "cost": "Bankruptcy & Fines"
+        },
+        "whatHappened": {
+          "helped": "Saved a tiny fraction of encryption CPU time.",
+          "bottleneck": "Plain text transmission over public networks is an unforgivable security breach.",
+          "reflectionQuestion": "Would you shout your bank PIN number out loud in a crowded train station?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Stop taking online payments completely and force all riders to pay in gold coins.",
+        "isOptimal": false,
+        "consequenceText": "Nobody carries gold coins to take an auto rickshaw. Riders cannot pay, and the business collapses immediately.",
+        "statImpact": {
+          "latency": "Ancient",
+          "capacity": "Zero Modern Riders",
+          "risk": "Unusable",
+          "cost": "Lost Business"
+        },
+        "whatHappened": {
+          "helped": "Avoided modern digital security.",
+          "bottleneck": "Modern commerce requires secure digital payment infrastructure.",
+          "reflectionQuestion": "How do modern apps accept digital payments securely?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "HTTP vs. HTTPS",
+      "tagline": "Protecting user data and passwords with end-to-end encryption",
+      "simpleMeaning": "HTTP sends messages in plain readable text. Anyone tapping into the Wi-Fi can read it. HTTPS adds encryption (SSL/TLS), locking your message inside a secret digital code that only your phone and the Ola server have the key to open.",
+      "pubgExample": "When you enter your CVV or Ola Money PIN, HTTPS encrypts 'PIN: 4892' into a scrambled string like 'x9#kL!982a'. Even if a hacker intercepts it, they cannot read your PIN.",
+      "analogy": "HTTP is like sending a postcard through the mail where any postal worker can read your message. HTTPS is like locking your letter in a tamper-proof titanium safe before mailing it.",
+      "howItWorks": [
+        "1. TLS Handshake: Phone and Server verify security certificates and agree on a secret encryption key.",
+        "2. Encryption on Phone: Rider's payment details are locked using the secret key.",
+        "3. Safe Transit: Scrambled data travels safely over mobile networks and public Wi-Fi.",
+        "4. Decryption on Server: Only the authentic Ola server unlocks the data and processes the payment."
+      ],
+      "whyItMatters": "Protects passengers from identity theft, card fraud, and stops malicious actors from tampering with ride prices.",
+      "visualExplanation": "HTTP:  [Card: 4521...] ──Plain Text Over Wi-Fi──► Hacker can steal!\nHTTPS: [Card: 4521...] ──Scrambled Secret Code──► 100% Protected!",
+      "contrast": {
+        "termA": "HTTPS (Secure)",
+        "descA": "Encrypted with SSL/TLS; scrambles data so eavesdroppers see only meaningless code.",
+        "termB": "HTTP (Unencrypted)",
+        "descB": "Sent in open plain text; vulnerable to snooping, man-in-the-middle attacks, and theft."
+      },
+      "teacherNotes": {
+        "concept": "HTTP, HTTPS, SSL/TLS, Symmetric & Asymmetric Encryption, Certificates",
+        "experience": "Students learned the critical security difference between plain-text HTTP and encrypted HTTPS.",
+        "realWorld": "Google, Ola, Apple, and banks reject all plain HTTP connections and require HTTPS everywhere.",
+        "question": "What does the letter 'S' in HTTPS stand for?"
+      },
+      "olaExample": "When you enter your CVV or Ola Money PIN, HTTPS encrypts 'PIN: 4892' into a scrambled string like 'x9#kL!982a'. Even if a hacker intercepts it, they cannot read your PIN."
+    },
+    "knowledgeCheck": {
+      "question": "What does HTTPS do to protect your payment information when booking a ride on Ola?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encrypts (scrambles) the payment data so eavesdroppers on public Wi-Fi cannot read it.",
+          "isCorrect": true,
+          "explanation": "Correct! HTTPS encrypts all network traffic, ensuring passwords and credit cards remain completely private."
+        },
+        {
+          "id": "B",
+          "text": "It washes the cab so it looks clean upon arrival.",
+          "isCorrect": false,
+          "explanation": "Incorrect. HTTPS is an internet security protocol, not a car washing service."
+        },
+        {
+          "id": "C",
+          "text": "It prevents the cab from getting stuck in red traffic lights.",
+          "isCorrect": false,
+          "explanation": "Incorrect. HTTPS protects digital data; it cannot control physical street traffic lights."
+        }
+      ],
+      "hint": "Hint: Think about what happens when you lock a message inside a secret code that only the receiver can read."
+    }
+  },
+  {
+    "id": 8,
+    "stage": 2,
+    "sno": 8,
+    "topic": "APIs and JSON",
+    "concept": "APIs and JSON",
+    "title": "Level 8: The Universal Language Between Phone and Server",
+    "time": "Afternoon Booking — Indiranagar, Bangalore",
+    "usersCount": "Rider Phone Sending Ride Request",
+    "topicHint": "APIs (The Messenger) and JSON (The Data Format)",
+    "situation": "Your Ola phone app runs on Android (written in Java/Kotlin), while the Ola cloud server runs on Linux (written in Go/Python). They are two totally different computer programs! When your phone requests a cab, how do they understand each other without misunderstanding words?",
+    "problem": "What standard messenger and data format allows different devices and servers to talk cleanly?",
+    "simulationType": "api_contracts_scanners",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use an API to define the request, and JSON as the simple text format (key: value) both computers understand.",
+        "isOptimal": true,
+        "consequenceText": "Perfect! An API (Application Programming Interface) is the menu of allowed actions (like /book-ride). JSON (JavaScript Object Notation) is the clean, human-readable format both phones and servers understand: {\"rider\": \"Priya\", \"cab\": \"Mini\", \"fare\": 240}.",
+        "statImpact": {
+          "latency": "10ms",
+          "capacity": "Universal Standard",
+          "risk": "Zero Misunderstandings",
+          "cost": "Efficient"
+        },
+        "whatHappened": {
+          "helped": "Adopted standard APIs and lightweight JSON data interchange.",
+          "bottleneck": "Without standard formats, different programming languages cannot exchange structured data.",
+          "reflectionQuestion": "Why do pilots and airport air traffic controllers all speak standard English?"
+        },
+        "successSummary": "Great work! You connected mobile apps and cloud backends using APIs and JSON."
+      },
+      {
+        "id": "B",
+        "text": "Have the phone send random audio voice memos to the server and guess what the rider wants.",
+        "isOptimal": false,
+        "consequenceText": "Processing voice memos for millions of rides is slow, prone to background noise errors, and overloads server speech models.",
+        "statImpact": {
+          "latency": "30,000ms Delay",
+          "capacity": "Speech Recognition Errors",
+          "risk": "Failed Bookings",
+          "cost": "Massive Compute"
+        },
+        "whatHappened": {
+          "helped": "Attempted to use informal human voice for machine-to-machine communication.",
+          "bottleneck": "Computers need structured, predictable data structures to execute transactions instantly.",
+          "reflectionQuestion": "Why do digital forms have labeled fields rather than blank voice notes?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Send a handwritten postcard by physical mail every time someone wants to hail an auto.",
+        "isOptimal": false,
+        "consequenceText": "By the time the physical postcard arrives 3 days later, the passenger has already walked to their destination.",
+        "statImpact": {
+          "latency": "3 Days",
+          "capacity": "0 Rides Today",
+          "risk": "Absurd",
+          "cost": "Unusable"
+        },
+        "whatHappened": {
+          "helped": "Used physical mail for digital bookings.",
+          "bottleneck": "Online ride-hailing requires sub-second digital API messaging.",
+          "reflectionQuestion": "How fast should an online ride request take?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "APIs and JSON",
+      "tagline": "The digital messenger and data language connecting apps across the world",
+      "simpleMeaning": "An API (Application Programming Interface) is like a restaurant waiter that takes your request to the kitchen and brings back the answer. JSON is the simple text language they use to write the order with clear labels and values.",
+      "pubgExample": "When you tap 'Book Cab', your app calls the Ola Booking API with this JSON message: {\"pickup\": \"MG Road\", \"drop\": \"Airport\", \"cab_type\": \"Prime\"}. The server replies with: {\"status\": \"confirmed\", \"driver\": \"Ramesh\", \"cab_no\": \"KA01AB1234\"}.",
+      "analogy": "Filling out an official form: An API is the submission counter window. JSON is the neatly labeled form with boxes like 'Name: John', 'Destination: Airport', 'Passengers: 2'.",
+      "howItWorks": [
+        "1. API Endpoint: A dedicated web address like `POST /api/v1/rides/book`.",
+        "2. JSON Request Payload: Clean text formatted in curly braces with key-value pairs.",
+        "3. Server Processing: The backend server reads the JSON fields in 1 millisecond.",
+        "4. JSON Response: The server returns structured status and driver information."
+      ],
+      "whyItMatters": "Allows iPhones, Android devices, web browsers, and cloud servers built by different companies to exchange information flawlessly.",
+      "visualExplanation": "[Rider Phone]\n       │  Sends JSON: {\"action\": \"book\", \"cab\": \"Mini\"}\n       ▼\n[Ola API Server] ──► Validates in 2ms and Returns JSON: {\"status\": \"confirmed\"}",
+      "contrast": {
+        "termA": "API (The Messenger)",
+        "descA": "The defined set of rules and addresses through which apps ask servers for services.",
+        "termB": "JSON (The Language)",
+        "descB": "Simple, lightweight text format with key-value pairs: {\"driver\": \"Ramesh\", \"eta\": 3}."
+      },
+      "teacherNotes": {
+        "concept": "APIs, JSON, Key-Value Pairs, Payloads, Endpoints, Serialization",
+        "experience": "Students learned how frontends and backends communicate using structured JSON over APIs.",
+        "realWorld": "Google Maps, Ola, Stripe, and WhatsApp communicate across billions of devices using JSON APIs.",
+        "question": "What is the simple text format called that uses curly braces and key-value pairs?"
+      },
+      "olaExample": "When you tap 'Book Cab', your app calls the Ola Booking API with this JSON message: {\"pickup\": \"MG Road\", \"drop\": \"Airport\", \"cab_type\": \"Prime\"}. The server replies with: {\"status\": \"confirmed\", \"driver\": \"Ramesh\", \"cab_no\": \"KA01AB1234\"}."
+    },
+    "knowledgeCheck": {
+      "question": "What is JSON used for when your phone talks to the Ola cloud server?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is a simple text format with key-value pairs that lets both phone and server understand ride details easily.",
+          "isCorrect": true,
+          "explanation": "Correct! JSON organizes data with clean labels (like \"fare\": 250) so any computer can read it instantly."
+        },
+        {
+          "id": "B",
+          "text": "It is a physical battery charger placed in the back seat of the cab.",
+          "isCorrect": false,
+          "explanation": "Incorrect. JSON is a software data format, not hardware in a car."
+        },
+        {
+          "id": "C",
+          "text": "It is the brand name of the gasoline used by the driver.",
+          "isCorrect": false,
+          "explanation": "Incorrect. JSON is a computer science data exchange standard, not vehicle fuel."
+        }
+      ],
+      "hint": "Hint: Think about structured text with labels like {\"name\": \"Rahul\", \"rating\": 4.8}."
+    }
   },
   {
     "id": 9,
-    "stage": 4,
+    "stage": 2,
     "sno": 9,
-    "topic": "Database Architecture",
-    "concept": "Database Architecture: Relational vs. Non-Relational (SQL vs. NoSQL Paradigm)",
-    "title": "Level 9: Database Architecture \u2014 Relational vs. Non-Relational (SQL vs. NoSQL)",
-    "time": "Day 120 \u2014 Hypermarket Scale & Polyglot Persistence",
-    "usersCount": "250,000 Products & Millions of Cart Clicks",
-    "topicHint": "SQL vs. NoSQL Paradigm",
-    "situation": "Your business is expanding into a giant hypermarket. You have two massive database challenges hitting your store at the same time: 1. In addition to basic groceries, you now sell 250,000 diverse products across dozens of categories (Milk has volume and expiry date; T-Shirts have size and fabric; 4K Smart TVs have screen size, HDMI ports, and refresh rate). Your database administrator created a single table with 300 columns to force all these items into one place, leaving 95% of the cells as empty NULL values. Every time a new product type arrives, altering the table locks the database and freezes billing counters! 2. At the exact same time, you need an ultra-fast temporary storage room for thousands of shoppers who are actively dropping items into shopping baskets, changing their minds, and navigating through products in real time.",
-    "problem": "You do not store diverse, unpredictable items in rigid, uniform metal ice-cube trays. Standard, uniform numbers belong in tabular ledgers; varied physical items belong in flexible, modular storage boxes; and fast temporary baskets belong in an accessible, open bin right next to the shopper. How should you architect your database tier?",
+    "topic": "API Design – REST and RESTful Architecture",
+    "concept": "API Design – REST and RESTful Architecture",
+    "title": "Level 9: Standard Rules for Booking, Tracking, and Cancelling",
+    "time": "Evening Architecture Review — Ola HQ",
+    "usersCount": "500 Software Developers Building Ola Features",
+    "topicHint": "Standard HTTP Methods (GET, POST, PUT, DELETE)",
+    "situation": "Ola has hundreds of developers building features for riders, drivers, corporate passes, and rentals. If every developer created random, chaotic names for their buttons (like /doTheCabThing, /fetchCarNow, /cancelItQuick), nobody would understand how the system works and bugs would appear everywhere.",
+    "problem": "How do professional engineering teams organize APIs using standard, predictable rules?",
+    "simulationType": "api_contracts_scanners",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use REST rules with standard HTTP verbs: GET (fetch rides), POST (book ride), PUT (update location), DELETE (cancel ride).",
+        "isOptimal": true,
+        "consequenceText": "Brilliant architecture! REST (Representational State Transfer) uses standard, intuitive HTTP verbs: GET to view, POST to create a booking, PUT/PATCH to update driver GPS, and DELETE to cancel a ride. Every developer instantly understands the system!",
+        "statImpact": {
+          "latency": "Clean & Predictable",
+          "capacity": "Easy to Maintain",
+          "risk": "Zero Confusion",
+          "cost": "Low Bug Count"
+        },
+        "whatHappened": {
+          "helped": "Followed industry-standard RESTful conventions.",
+          "bottleneck": "Inventing ad-hoc, inconsistent endpoints leads to spaghetti architecture and endless integration bugs.",
+          "reflectionQuestion": "Why do road signs use standard shapes (octagons for STOP) across the entire country?"
+        },
+        "successSummary": "Masterclass! You used RESTful API design principles with standard HTTP methods."
+      },
+      {
+        "id": "B",
+        "text": "Let every developer invent random confusing names like /pleaseGiveMeACabBro and /cancelPleaseNoCharge.",
+        "isOptimal": false,
+        "consequenceText": "Inconsistent naming creates massive confusion. When the mobile team tries to connect to the backend, features break and bookings fail.",
+        "statImpact": {
+          "latency": "Chaotic",
+          "capacity": "Broken Integrations",
+          "risk": "High Bugs",
+          "cost": "Wasted Engineering"
+        },
+        "whatHappened": {
+          "helped": "Avoided setting team conventions.",
+          "bottleneck": "Lack of standardized API contracts destroys team velocity and system reliability.",
+          "reflectionQuestion": "What happens if every player in a football team makes up their own rules during a match?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Never create any APIs; force all riders to walk to the Ola headquarters in Bangalore to book a ride.",
+        "isOptimal": false,
+        "consequenceText": "Nobody will travel 500 kilometers to an office building just to book a 10-minute cab ride across town. The company fails immediately.",
+        "statImpact": {
+          "latency": "Unusable",
+          "capacity": "0 Rides",
+          "risk": "Company Dead",
+          "cost": "Total Failure"
+        },
+        "whatHappened": {
+          "helped": "Abandoned digital APIs completely.",
+          "bottleneck": "Digital businesses require remote, standardized API interfaces.",
+          "reflectionQuestion": "Why are remote web APIs essential for smartphone apps?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "RESTful API Design",
+      "tagline": "Standardized, intuitive rules for interacting with web resources",
+      "simpleMeaning": "REST is a set of clean rules for designing APIs. It treats things in the app (like Rides, Drivers, and Receipts) as 'resources' and uses standard action words (HTTP Verbs): GET (to see), POST (to create), PUT/PATCH (to update), and DELETE (to remove).",
+      "pubgExample": "In Ola: `GET /rides/123` (view ride status), `POST /rides` (book a new ride), `PUT /rides/123/location` (update driver GPS), `DELETE /rides/123` (cancel the ride). Simple, clean, and predictable!",
+      "analogy": "Standard library operations: You can BROWSE books (GET), DONATE a new book (POST), RENEW a book (PUT), or RETURN/REMOVE a book (DELETE).",
+      "howItWorks": [
+        "1. Resources as Nouns: Use plural nouns for resources (e.g., `/cabs`, `/riders`, `/rides`).",
+        "2. Standard Verbs: Use GET to read, POST to create, PUT to update, DELETE to cancel.",
+        "3. Stateless: Each request contains all information needed to process it.",
+        "4. Clear Status Codes: Server replies with 200 OK (Success), 201 Created (Booked), 404 (Not Found)."
+      ],
+      "whyItMatters": "Makes APIs easy for hundreds of engineers and external partners (like Google Maps or payment gateways) to integrate seamlessly.",
+      "visualExplanation": "POST   /rides      ──► Creates New Cab Booking (201 Created)\nGET    /rides/123  ──► Fetches Live Driver Location (200 OK)\nDELETE /rides/123  ──► Cancels Booking Safely (200 OK)",
+      "contrast": {
+        "termA": "RESTful API",
+        "descA": "Clean nouns and standard verbs (`POST /rides`, `DELETE /rides/123`); predictable and clear.",
+        "termB": "Unstructured API",
+        "descB": "Messy, ad-hoc URLs (`/makeRideHappenNow`, `/removeTheCar`); difficult to maintain and debug."
+      },
+      "teacherNotes": {
+        "concept": "REST, HTTP Verbs (GET, POST, PUT, DELETE), Statelessness, HTTP Status Codes (200, 201, 404, 500)",
+        "experience": "Students learned how standardized REST conventions organize complex enterprise APIs.",
+        "realWorld": "Ola, Uber, GitHub, and Twitter provide RESTful APIs powering thousands of third-party apps.",
+        "question": "Which HTTP verb is used in REST to book a brand new cab ride?"
+      },
+      "olaExample": "In Ola: `GET /rides/123` (view ride status), `POST /rides` (book a new ride), `PUT /rides/123/location` (update driver GPS), `DELETE /rides/123` (cancel the ride). Simple, clean, and predictable!"
+    },
+    "knowledgeCheck": {
+      "question": "In a RESTful API for Ola, which HTTP method should be used when a rider taps 'Book Ride' to create a new booking?",
+      "options": [
+        {
+          "id": "A",
+          "text": "POST (used to create a new resource, like creating a new ride booking).",
+          "isCorrect": true,
+          "explanation": "Correct! In REST architecture, POST is the standard method used to create new resources."
+        },
+        {
+          "id": "B",
+          "text": "DELETE (used to delete all records from the server).",
+          "isCorrect": false,
+          "explanation": "Incorrect. DELETE cancels or removes resources, it does not create a new booking."
+        },
+        {
+          "id": "C",
+          "text": "PAINT (used to repaint the cab yellow).",
+          "isCorrect": false,
+          "explanation": "Incorrect. PAINT is not an HTTP method."
+        }
+      ],
+      "hint": "Hint: Think about which standard HTTP verb is used to create or submit brand new data (POST)."
+    }
+  },
+  {
+    "id": 10,
+    "stage": 3,
+    "sno": 10,
+    "topic": "Database Fundamentals – SQL vs. NoSQL",
+    "concept": "Database Fundamentals – SQL vs. NoSQL",
+    "title": "Level 10: Rider Wallet Balances vs. Live Driver GPS Telemetry",
+    "time": "Evening Peak — 10 Million Active Users",
+    "usersCount": "10,000,000 Daily Rides & GPS Pings",
+    "topicHint": "Structured Tables (SQL) vs. Rapid Flexible Streams (NoSQL)",
+    "situation": "Ola needs to store two very different kinds of information. First, rider wallet balances and bank transactions that must always be 100% strictly accurate without losing a single rupee. Second, live GPS coordinates sent by 500,000 moving drivers every 3 seconds, generating billions of temporary location points a day.",
+    "problem": "How should Ola choose between a structured SQL database and a flexible high-speed NoSQL database?",
     "simulationType": "database_polyglot",
     "choices": [
       {
         "id": "A",
-        "text": "Force every single item, dynamic product attribute, and temporary active shopping basket into that single rigid SQL table with hundreds of empty columns. If we reach 800 columns, so be it.",
-        "isOptimal": false,
-        "consequenceText": "Your database performance collapses under its own weight. The table becomes bloated with millions of empty cells. Simple searches like \"Find green shirts\" require the database engine to scan through giant rows of unused TV attributes, bogging down the servers. When a new shipment of drones arrives and the manager runs a script to add FlightRange and BatteryCapacity columns, the entire master table locks up, bringing down the billing counters on a busy Sunday afternoon. Active shopping cart writes hammer the disk, driving CPU usage to 100%.",
-        "resultState": "sql_bloat_lockout",
+        "text": "Use SQL for structured wallet balances and payments, and NoSQL for rapid, high-speed driver GPS streams.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! SQL guarantees financial accuracy in organized tables where every rupee is accounted for. NoSQL handles millions of rapid GPS coordinate streams per second without locking up tables or slowing down the dispatch system!",
         "statImpact": {
-          "latency": "Table Locked",
-          "capacity": "100% CPU Disk Hammer",
-          "risk": "Billing Freeze on Sunday",
-          "cost": "Server Crash"
+          "latency": "30ms",
+          "capacity": "10M Rides Safe",
+          "risk": "Zero Data Loss",
+          "cost": "Optimized"
         },
         "whatHappened": {
-          "helped": "You maintained only one single database engine to manage.",
-          "bottleneck": "A single 300-column table with 95% NULLs locked up the database during schema alterations and crushed billing!",
-          "reflectionQuestion": "Why do modern platforms adopt Polyglot Persistence instead of forcing all workloads into a single database engine?"
-        }
+          "helped": "Matched the right database tool to the right data workload.",
+          "bottleneck": "Using the wrong database either corrupts financial balances or locks up under GPS streams.",
+          "reflectionQuestion": "Why do money balances need strict tables while live GPS points prefer write speed?"
+        },
+        "successSummary": "Perfect choice! You used SQL for structured payments and NoSQL for rapid GPS streams."
       },
       {
         "id": "B",
-        "text": "Adopt a multi-model storage architecture: keep core structured financial ledgers and billing records in the relational SQL database (with rigid tables and ACID guarantees), while moving the diverse product catalog and high-speed temporary shopping carts into specialized NoSQL databases (flexible documents for products, fast in-memory key-value lookups for carts).",
-        "isOptimal": true,
-        "consequenceText": "Your entire store data layer operates at maximum efficiency. 1. The TV record stores its ports and screen dimensions, the milk record stores its expiration date, and the t-shirt stores its fabric and size inside dynamic Document stores (like MongoDB). New product categories are added instantly without downtime. 2. Active customer carts and sessions run in an in-memory Key-Value store (like Redis), serving responses in microseconds. 3. Financial ledger transactions remain safely managed inside the relational SQL database (like PostgreSQL), maintaining bulletproof ACID guarantees. Every storage engine does exactly what it is designed for.",
-        "resultState": "polyglot_harmony_success",
+        "text": "Store all rider bank details and wallet money in an unorganized text file with no safety checks.",
+        "isOptimal": false,
+        "consequenceText": "Unorganized text files have no transaction safety. When multiple rides finish at once, balances get corrupted, riders lose their money, and complaints flood support.",
         "statImpact": {
-          "latency": "Microseconds Response",
-          "capacity": "250,000 Dynamic Products",
-          "risk": "Zero Downtime",
-          "cost": "Highly Scalable"
+          "latency": "Corrupted",
+          "capacity": "Lost Money",
+          "risk": "Financial Disaster",
+          "cost": "Massive Refunds"
         },
-        "successSummary": "Polyglot Persistence: Relational SQL for ACID ledgers, Document NoSQL for dynamic product catalogs, and In-Memory Key-Value for ultra-fast carts!"
+        "whatHappened": {
+          "helped": "Attempted to use the simplest possible file.",
+          "bottleneck": "Flat files cannot safely handle concurrent financial writes.",
+          "reflectionQuestion": "What happens if two payments update a text file at the exact same millisecond?"
+        }
       },
       {
         "id": "C",
-        "text": "Stop selling electronics, clothes, and varied items entirely. Only sell milk and bread forever so the database schema never needs to change, and ban customers from using shopping carts.",
+        "text": "Force billions of temporary GPS points into rigid financial tables, locking the entire database.",
         "isOptimal": false,
-        "consequenceText": "Your business model is crippled. While competing department stores thrive by selling high-margin consumer electronics, appliances, and fashion, your revenue drops by 80% because you threw away profitable business lines simply to avoid learning how to manage flexible data structures.",
-        "resultState": "milk_bread_bankruptcy",
+        "consequenceText": "Rigid relational tables lock up when flooded with billions of GPS writes. The entire Ola system freezes, and nobody can book a ride.",
         "statImpact": {
-          "latency": "Crippled Business",
-          "capacity": "Only Milk & Bread",
-          "risk": "80% Revenue Drop",
-          "cost": "Competitor Wipeout"
+          "latency": "5,000ms Lag",
+          "capacity": "Database Locked",
+          "risk": "System Freeze",
+          "cost": "High CPU Waste"
         },
         "whatHappened": {
-          "helped": "The database schema never had to add a new column.",
-          "bottleneck": "Crippling your business model caused an 80% revenue crash because you refused to adopt flexible data stores!",
-          "reflectionQuestion": "How does adopting specialized database engines unlock massive business capability and revenue growth?"
+          "helped": "Tried to force all data into one single relational format.",
+          "bottleneck": "High-velocity streaming telemetry overloads strict relational row locks.",
+          "reflectionQuestion": "Why should temporary live GPS logs be stored differently from permanent money receipts?"
         }
       }
     ],
     "discovery": {
-      "badge": "Database Architecture: Relational vs. Non-Relational (SQL vs. NoSQL)",
-      "tagline": "Multi-model storage architecture and Polyglot Persistence across the enterprise",
-      "simpleMeaning": "Database architecture selects storage engines tailored to workload attributes: Relational (SQL) provides rigid schemas, ACID safety, and multi-table joins; Non-Relational (NoSQL) provides flexible schemas, horizontal cluster scaling, and sub-millisecond in-memory lookups.",
-      "analogy": "Standard uniform numbers belong in tabular ledgers (SQL); varied physical items belong in flexible modular boxes (Document NoSQL); and fast temporary baskets belong in an open accessible bin (Key-Value Redis).",
+      "badge": "SQL vs. NoSQL",
+      "tagline": "Choosing between rigid organized tables and flexible rapid data storage",
+      "simpleMeaning": "A database is a digital filing system. SQL databases store data in neat tables with fixed rows and columns (like a spreadsheet with strict rules). NoSQL databases store data in flexible documents without rigid tables, making them super fast for handling massive streams of changing data.",
+      "pubgExample": "Ola uses SQL (like PostgreSQL or MySQL) to manage user accounts, wallet balances, and trip invoices where mistakes cannot happen. It uses NoSQL (like Cassandra or MongoDB) to ingest millions of live driver GPS pings every minute.",
+      "analogy": "SQL is like a bank vault with numbered safety deposit boxes; NoSQL is like a high-speed conveyor belt where you can drop packages of any shape instantly.",
       "howItWorks": [
-        "1. SQL (Relational): Structured Tables, rigid schemas, scaled vertically, strict ACID safety. Ideal for billing, accounting ledgers, and relational data.",
-        "2. Document Stores (MongoDB): Stores items as dynamic JSON documents. Highly suited for diverse product catalogs where attributes differ across categories.",
-        "3. Key-Value Stores (Redis): In-memory lookup dictionary with sub-millisecond responses. Suited for user carts, caching, and active sessions.",
-        "4. Wide-Column Stores (Cassandra): High write throughput partitioned across nodes for time-series events and telemetry.",
-        "5. Polyglot Persistence: Production systems leverage multiple database engines, pairing SQL where consistency is non-negotiable with NoSQL for ultra-low latency."
+        "1. Structured Data (SQL): Uses strict columns like Rider_ID, Phone, Wallet_Balance, Created_At.",
+        "2. Streaming Data (NoSQL): Uses flexible documents containing dynamic GPS coordinates and timestamps.",
+        "3. Accuracy vs Speed: SQL prioritizes mathematical correctness; NoSQL prioritizes massive write speeds.",
+        "4. Polyglot Persistence: Modern companies use both SQL and NoSQL for different jobs."
       ],
-      "whyItMatters": "Using the wrong database engine leads to table-locking freezes, CPU exhaustion, bloated NULL columns, or corrupted financial records.",
-      "visualExplanation": "Checkout & Ledger \u2500\u2500\u25ba PostgreSQL (SQL / ACID / Strict Tables)\nProduct Catalog \u2500\u2500\u25ba MongoDB (Document NoSQL / JSON Schemas)\nActive Shopping Carts \u2500\u2500\u25ba Redis (In-Memory Key-Value / Microsecond Speed)",
+      "whyItMatters": "Using the wrong database causes passengers to lose money or causes the app to freeze when millions of cabs stream location data.",
+      "visualExplanation": "[Wallet Balances & Receipts] ──► [SQL Database: Strict Rows & Columns]\n[Live Driver GPS Coordinates] ──► [NoSQL Database: High-Speed Stream]",
       "contrast": {
-        "termA": "SQL (Relational Databases)",
-        "descA": "Rigid schemas, ACID transactions, powerful multi-table JOINs. Best for core banking ledgers, orders, and billing.",
-        "termB": "NoSQL (Non-Relational Databases)",
-        "descB": "Flexible schemas, horizontal cluster scaling, sub-millisecond in-memory caching. Best for catalogs, carts, and event streams."
+        "termA": "SQL Database",
+        "descA": "Strict tables, fixed columns; perfect for rider money, billing, and user profiles.",
+        "termB": "NoSQL Database",
+        "descB": "Flexible documents, high write speed; perfect for live GPS tracking, telemetry, and chats."
       },
-      "advancedInfo": "Polyglot Persistence is the enterprise standard. For example, Amazon uses DynamoDB (NoSQL) for ultra-fast shopping cart lookups and relational databases for formal invoicing and ledger audits.",
       "teacherNotes": {
-        "concept": "SQL vs. NoSQL Paradigm, Document Stores, Key-Value Stores, Polyglot Persistence",
-        "experience": "Students saw why 300-column tables freeze databases on Sunday afternoons and why specialized data engines operate with maximum efficiency.",
-        "realWorld": "Uber uses MySQL/PostgreSQL for trip ledgers, Redis for real-time driver coordinates, and Apache Cassandra for telemetry logs.",
-        "question": "What is the CAP Theorem (Consistency, Availability, Partition Tolerance), and why can distributed NoSQL databases choose only two?"
-      }
+        "concept": "SQL, NoSQL, Relational vs Document Storage, Polyglot Persistence",
+        "experience": "Students learned how to choose storage based on structure, safety, and speed requirements.",
+        "realWorld": "Ola, Uber, and Swiggy use PostgreSQL for billing/ledgers and Cassandra/Redis for live vehicle location streams.",
+        "question": "If you are storing a user's bank wallet balance, would you choose SQL or NoSQL?"
+      },
+      "olaExample": "Ola uses SQL (like PostgreSQL or MySQL) to manage user accounts, wallet balances, and trip invoices where mistakes cannot happen. It uses NoSQL (like Cassandra or MongoDB) to ingest millions of live driver GPS pings every minute."
     },
-    "youtubeUrl": "https://youtu.be/n_6OgQQmxM8?si=jGYX5ZCM-YI0j5Wn",
-    "videoId": "n_6OgQQmxM8",
-    "videoTitle": "Database Concepts | System Design | Tamil"
-  },
-{
-    "id": 10,
-    "stage": 5,
-    "sno": 10,
-    "topic": "OLTP vs. OLAP",
-    "concept": "OLTP vs. OLAP: Fast Transactional Processing vs. Deep Analytical Processing",
-    "title": "Level 10: Cash Register vs. The Accountant's Giant Ledger (OLTP vs. OLAP)",
-    "time": "Day 150 — Financial Audits & Live Checkout Counters",
-    "usersCount": "100 Active Registers & 500,000 Invoices/Day",
-    "topicHint": "OLTP vs. OLAP Architecture",
-    "situation": "Your supermarket is bustling with thousands of customers scanning groceries at 100 busy checkout registers. At the exact same time, your Chief Financial Officer (CFO) arrives with a team of data analysts. They sit down at a back-office desk and run a massive analytical query: \"Calculate total revenue, profit margins, and supplier purchase trends across all 50 product categories over the past 5 years.\" Both the live checkout cashiers and the CFO are connected to the exact same database server.",
-    "problem": "What is your architectural decision to handle live transaction checkout counters alongside heavy business analytics?",
-    "simulationType": "oltp_olap_registers",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Force cashiers and the CFO to share the exact same billing database machine simultaneously without any separation.",
-        "isOptimal": false,
-        "consequenceText": "Your checkout counters turn into a nightmare. A single analytical query from the CFO locks thousands of database table rows. Cashier scanners freeze mid-transaction with the spinning wheel of death. Customers waiting in 100 checkout lanes become furious as lines stretch into the parking lot. Register terminals timeout, leading to lost sales, frustrated shoppers abandoning full carts, and complete operational paralysis.",
-        "resultState": "oltp_olap_deadlock",
-        "statImpact": {
-          "latency": "Frozen (30s+)",
-          "capacity": "Deadlocked",
-          "risk": "Storewide Register Lockup",
-          "cost": "Massive Sales Loss"
+    "knowledgeCheck": {
+      "question": "Which database should Ola use to store user wallet balances and trip payments where data must never have math errors?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A SQL database with structured tables and strict transactional safety rules.",
+          "isCorrect": true,
+          "explanation": "Correct! SQL databases ensure that user balances and purchase records remain completely accurate and protected from errors."
         },
-        "whatHappened": {
-          "helped": "You avoided setting up a secondary reporting database.",
-          "bottleneck": "Heavy multi-table analytical aggregations locked relational database rows, causing live checkout cashiers to freeze!",
-          "reflectionQuestion": "Why should high-throughput row-level OLTP writes never compete with heavy columnar OLAP queries on the same machine?"
+        {
+          "id": "B",
+          "text": "A temporary notepad document saved on the driver's phone.",
+          "isCorrect": false,
+          "explanation": "Incorrect. A phone notepad file cannot handle secure central banking and payments."
+        },
+        {
+          "id": "C",
+          "text": "No database at all, just guessing wallet balances every time a rider logs in.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Without a database, user balances would be lost every time the app closes."
         }
-      },
-      {
-        "id": "B",
-        "text": "Separate the data systems: keep a fast, lightweight ledger at the front registers for instant billing (OLTP), and periodically copy sales data into a dedicated analytical data warehouse for the CFO (OLAP).",
-        "isOptimal": true,
-        "consequenceText": "Checkout lanes operate at lightning speed. Cashiers scan individual items and complete payments in under 50 milliseconds using the high-performance OLTP database. Every night, an automated ETL pipeline extracts completed receipts, transforms them, and loads them into a specialized columnar data warehouse (OLAP). The CFO runs multi-year business intelligence queries across millions of rows in seconds without ever touching live cash registers.",
-        "resultState": "oltp_olap_harmony",
-        "statImpact": {
-          "latency": "Under 50ms",
-          "capacity": "500,000 Sales/Day",
-          "risk": "Zero Lockouts",
-          "cost": "Optimal Sizing"
-        },
-        "successSummary": "Separating OLTP (row-based transactional database) from OLAP (columnar analytical warehouse via ETL) ensures sub-50ms billing and powerful business reporting!"
-      },
-      {
-        "id": "C",
-        "text": "Ban the CFO and business analysts from ever looking at historical sales data or auditing company finances.",
-        "isOptimal": false,
-        "consequenceText": "Your cashiers scan items quickly, but your executive team is completely blind. Without sales analytics, the supermarket overstocks perishable dairy products that spoil on shelves while high-demand items run out of stock. Management cannot track revenue leaks, calculate tax filings, or negotiate wholesale discounts, steering the entire business toward bankruptcy.",
-        "resultState": "blind_management",
-        "statImpact": {
-          "latency": "Fast Scans",
-          "capacity": "Blind Operations",
-          "risk": "Inventory Spoilage & Tax Fines",
-          "cost": "Business Bankruptcy"
-        },
-        "whatHappened": {
-          "helped": "Billing database performance remained unaffected.",
-          "bottleneck": "Depriving management of analytical business intelligence prevented inventory optimization and financial planning!",
-          "reflectionQuestion": "How do modern organizations extract competitive business value from operational transactional data without impacting latency?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "OLTP vs. OLAP",
-      "tagline": "Separating fast transactional billing from heavy analytical business intelligence",
-      "simpleMeaning": "OLTP powers fast, real-time day-to-day operations (like scanning groceries and payments), while OLAP analyzes massive historical datasets to reveal long-term business trends.",
-      "analogy": "You do not make checkout clerks pause customer lines while corporate headquarters audits five years of receipts on the counter terminal. Live registers stay physically separate from corporate audit archives.",
-      "howItWorks": [
-        "1. OLTP (Online Transaction Processing): Handles high volumes of quick, row-based read/write queries (INSERT bill, UPDATE stock) using normalized SQL databases with sub-second response times.",
-        "2. ETL Pipeline (Extract, Transform, Load): Periodically extracts operational logs from OLTP, transforms and aggregates them, and loads them into an analytical repository.",
-        "3. OLAP (Online Analytical Processing): Uses columnar storage (Snowflake, BigQuery, ClickHouse) to scan millions of records across specific metrics (e.g. SUM revenue by region) without impacting live users."
       ],
-      "whyItMatters": "Running heavy analytical queries on live operational databases locks records, spikes CPU usage to 100%, and freezes customer-facing checkout transactions.",
-      "visualExplanation": "Checkout Lanes ──► OLTP (PostgreSQL: Row-based / Fast Writes / Normalized)\n                      │\n             [Nightly ETL Pipeline]\n                      ▼\nManagement BI ──► OLAP (Snowflake/ClickHouse: Columnar / Aggregations / Read-Heavy)",
-      "contrast": {
-        "termA": "OLTP (Transactional Systems)",
-        "descA": "Row-oriented storage, normalized schemas, high concurrency, ACID guarantees, milliseconds latency. Example: Checkout & wallet payments.",
-        "termB": "OLAP (Analytical Systems)",
-        "descB": "Columnar storage, denormalized star schemas, batch queries scanning billions of rows, complex aggregations. Example: 5-year revenue trends."
-      },
-      "advancedInfo": "Column-oriented databases in OLAP store all values of a single column contiguously on disk. When computing SUM(revenue), the engine reads only the revenue column blocks without scanning millions of unused customer names and timestamps.",
-      "teacherNotes": {
-        "concept": "OLTP vs. OLAP, ETL Pipelines, Row vs Columnar Storage",
-        "experience": "Students experienced why running 5-year financial audits on live cashier databases locks checkout lanes and why dual architecture is essential.",
-        "realWorld": "Walmart processes millions of point-of-sale transactions via OLTP databases, while loading daily sales into petabyte-scale data lakes and OLAP warehouses for supply chain planning.",
-        "question": "Why is columnar storage 100x faster than row-oriented storage for calculating average monthly sales across 500 million records?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/iw-5kFzIdgY?si=kcg0XyDWZ49jkB75",
-    "videoId": "iw-5kFzIdgY",
-    "videoTitle": "OLTP vs OLAP | System Design Explained"
+      "hint": "Hint: Think about which database uses strict, organized tables to guarantee financial accuracy."
+    }
   },
   {
     "id": 11,
-    "stage": 5,
+    "stage": 3,
     "sno": 11,
+    "topic": "Relational Database Design",
+    "concept": "Relational Database Design",
+    "title": "Level 11: Linking Drivers, Cabs, Riders, and Trips",
+    "time": "Morning Commute — 500,000 Daily Trips",
+    "usersCount": "Drivers, Cabs, Riders & Receipts",
+    "topicHint": "Organizing Tables with Keys instead of Duplicating Data",
+    "situation": "In Ola, every driver has a unique Driver ID. Each driver drives one cab and completes hundreds of trips. If the database copied the driver's full name, phone number, vehicle registration, and home address into every single trip receipt, the database would explode in size and create messy mistakes whenever a driver updates their phone number.",
+    "problem": "How should the database organize drivers, cabs, riders, and trips without duplicating data?",
+    "simulationType": "database_polyglot",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Create separate tables for Drivers, Cabs, and Trips, and link them using unique IDs (keys).",
+        "isOptimal": true,
+        "consequenceText": "Excellent architecture! By creating separate tables linked with IDs, each driver's info is stored once. If a driver changes their phone number, it updates in one single place, and all 500 of their past trip receipts stay perfectly accurate!",
+        "statImpact": {
+          "latency": "15ms Lookup",
+          "capacity": "Minimal Storage",
+          "risk": "Zero Duplication",
+          "cost": "Low DB Cost"
+        },
+        "whatHappened": {
+          "helped": "Normalized data into clean, linked relational tables.",
+          "bottleneck": "Duplicating text across millions of rows wastes storage and leads to out-of-sync data.",
+          "reflectionQuestion": "Why is using a unique Driver ID better than retyping the driver's name on every receipt?"
+        },
+        "successSummary": "Great job! You designed relational tables with primary and foreign keys to prevent duplication."
+      },
+      {
+        "id": "B",
+        "text": "Copy the driver's full name, home address, and vehicle engine number into every single trip row.",
+        "isOptimal": false,
+        "consequenceText": "If a driver completes 500 trips, their address is duplicated 500 times. If they move to a new house, you must find and update 500 rows, leading to broken data.",
+        "statImpact": {
+          "latency": "Slow Queries",
+          "capacity": "10x Wasted Space",
+          "risk": "Out-of-Sync Data",
+          "cost": "High Storage"
+        },
+        "whatHappened": {
+          "helped": "Kept all data in one place without thinking about relations.",
+          "bottleneck": "Massive data redundancy and update nightmares.",
+          "reflectionQuestion": "What happens if an update fails halfway through updating 500 duplicated rows?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Delete driver and cab tables completely and store everything as random unlinked numbers.",
+        "isOptimal": false,
+        "consequenceText": "Without organized tables or relations, the system cannot tell which driver completed which trip, leaving drivers unpaid and riders without receipts.",
+        "statImpact": {
+          "latency": "Broken",
+          "capacity": "Lost Records",
+          "risk": "Total Failure",
+          "cost": "Unusable"
+        },
+        "whatHappened": {
+          "helped": "Avoided table design completely.",
+          "bottleneck": "Data cannot be queried or understood without clear relational structure.",
+          "reflectionQuestion": "How does an app know which driver picked you up without a linked record?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Relational Database Design",
+      "tagline": "Organizing data into neat tables connected by unique identification keys",
+      "simpleMeaning": "Relational design means organizing information into separate tables (like Drivers, Cabs, Riders, and Trips) and connecting them using unique IDs called keys. This ensures you never have to repeat the same information over and over.",
+      "pubgExample": "Instead of writing the driver's name, car color, and license number inside every single trip receipt, the Trips table simply stores `driver_id: 101`. The app looks up the driver's full profile using that ID.",
+      "analogy": "A college student ID: The library and exam department only write your Roll Number on book receipts, not your entire home address and parent's names on every paper.",
+      "howItWorks": [
+        "1. Tables: Create dedicated tables for core entities (Drivers table, Cabs table, Trips table).",
+        "2. Primary Key: Give each record a unique identifier (e.g., `driver_id`).",
+        "3. Foreign Key: Use that unique ID in other tables to link related records cleanly.",
+        "4. Single Source of Truth: Updating a driver's phone number in one table updates what shows everywhere."
+      ],
+      "whyItMatters": "Saves massive database storage, prevents out-of-sync bugs, and makes running reports fast and reliable.",
+      "visualExplanation": "[Drivers Table]\n(ID: 101 | Name: 'Ramesh' | Phone: '98765...')\n       │ (driver_id)\n       ▼\n[Trips Table]\n(Trip: 5001 | driver_id: 101 | Fare: ₹250)\n(Trip: 5002 | driver_id: 101 | Fare: ₹320)",
+      "contrast": {
+        "termA": "Relational Design (Linked Tables)",
+        "descA": "Data stored once in dedicated tables; connected cleanly by unique IDs.",
+        "termB": "Flat Duplicated Design",
+        "descB": "Every detail copied in every row; wastes storage and causes out-of-sync bugs."
+      },
+      "teacherNotes": {
+        "concept": "Relational Database Design, Tables, Primary Keys, Foreign Keys, Normalization",
+        "experience": "Students learned how tables connect using keys instead of copy-pasting information.",
+        "realWorld": "Enterprise platforms like Ola, Amazon, and Salesforce rely on normalized relational schemas.",
+        "question": "What is the key called that links a trip back to the driver who completed it?"
+      },
+      "olaExample": "Instead of writing the driver's name, car color, and license number inside every single trip receipt, the Trips table simply stores `driver_id: 101`. The app looks up the driver's full profile using that ID."
+    },
+    "knowledgeCheck": {
+      "question": "Why does Ola link a trip receipt to a driver using their unique 'Driver ID' instead of repeating their entire profile on every receipt?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores driver info in one place, saves storage, and updates easily if the driver changes their phone number.",
+          "isCorrect": true,
+          "explanation": "Correct! Relational design links records cleanly by ID so you store data once without messy duplication."
+        },
+        {
+          "id": "B",
+          "text": "It makes the cab travel twice as fast through street traffic.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Database schema design manages data storage, not vehicle speed."
+        },
+        {
+          "id": "C",
+          "text": "It forces riders to pay double fare for every trip.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Linking tables is an engineering best practice, not a fare penalty."
+        }
+      ],
+      "hint": "Hint: Think about what happens if a driver changes their phone number—do you want to update it in 1 place or 1,000 places?"
+    }
+  },
+  {
+    "id": 12,
+    "stage": 3,
+    "sno": 12,
     "topic": "ACID Properties",
-    "concept": "ACID Properties: Atomicity, Consistency, Isolation, and Durability",
-    "title": "Level 11: The Multi-Step Vault Deposit (ACID Deep Dive)",
-    "time": "Day 180 — Automated Digital Wallet System",
-    "usersCount": "10,000 Concurrent Transfers & Blackout Tests",
-    "topicHint": "ACID Transaction Guarantees",
-    "situation": "You are introducing an automated Customer Wallet payment system. A shopper wants to transfer Rs. 1,000 from their personal bank wallet into the supermarket vault to buy groceries. This requires two distinct database steps: Step 1: Deduct Rs. 1,000 from the customer's wallet balance. Step 2: Add Rs. 1,000 to the supermarket's central store ledger. Just as Step 1 finishes, a sudden thunderstorm causes a power blackout, plunging the server room into darkness and shutting down the machine before Step 2 executes!",
-    "problem": "What is your architectural decision to ensure multi-step financial transactions never lose money or leave accounts out of sync?",
+    "concept": "ACID Properties",
+    "title": "Level 12: Paying ₹350 for a Ride with Ola Money (Zero Lost Money)",
+    "time": "Evening Payment — Ride Completed",
+    "usersCount": "1,000,000 Daily Wallet Transactions",
+    "topicHint": "All-or-Nothing Transactions That Protect User Money",
+    "situation": "Your ride ends and the fare is ₹350. You tap 'Pay with Ola Money'. In that exact millisecond, your mobile network drops! The server deducted ₹350 from your wallet, but the network glitch happened before the server could mark the driver's trip as paid. An inexperienced coder says: \"Too bad, the rider lost their ₹350 and the driver got nothing!\"",
+    "problem": "How should a reliable database handle payments so money is never lost during a crash?",
     "simulationType": "acid_atomic_vault",
     "choices": [
       {
         "id": "A",
-        "text": "Run the two steps independently without safety wrappers. When power returns, hope the customer or manager notices any missing funds.",
-        "isOptimal": false,
-        "consequenceText": "The customer turns on their phone after the blackout: Rs. 1,000 was deducted from their personal wallet, but the supermarket system shows Rs. 0 received! The shopper has lost money, your staff has no record of the deposit, and the customer angrily files a fraud lawsuit. Your ledger is corrupted, and public trust in your digital payment system is ruined.",
-        "resultState": "money_vanished",
+        "text": "Apply ACID rules: either both money is deducted and driver is paid, or the whole transaction cancels and refunds.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant! This is Atomicity from ACID. A financial transaction is all-or-nothing. If any step fails, the system rolls back so you never lose your ₹350 without the ride being marked as paid!",
         "statImpact": {
-          "latency": "Uncertain",
-          "capacity": "Corrupted",
-          "risk": "Vanished Funds & Lawsuits",
-          "cost": "Disastrous"
+          "latency": "Instant",
+          "capacity": "100% Trust",
+          "risk": "Zero Money Loss",
+          "cost": "Protected"
         },
         "whatHappened": {
-          "helped": "You avoided transaction management overhead.",
-          "bottleneck": "A partial write failure occurred mid-transfer, leaving money deducted from the sender but never credited to the recipient!",
-          "reflectionQuestion": "Why must multi-statement database operations execute under atomic all-or-nothing guarantees?"
-        }
+          "helped": "Treated the payment as an atomic database transaction.",
+          "bottleneck": "Executing steps independently leads to money taken without payment credited.",
+          "reflectionQuestion": "Why must deducting money and crediting the driver happen as one single atomic unit?"
+        },
+        "successSummary": "Success! You used ACID properties to protect riders and drivers from lost money and corrupted balances."
       },
       {
         "id": "B",
-        "text": "Wrap both ledger steps in an atomic, all-or-nothing transaction block (BEGIN TRANSACTION ... COMMIT) backed by a Write-Ahead Log (WAL) so incomplete operations roll back automatically on crashes.",
-        "isOptimal": true,
-        "consequenceText": "The database transaction engine handles the failure cleanly. Because both steps were wrapped in an atomic transaction, the engine detects that Step 2 was interrupted by the power cut. Upon reboot, the database consults its Write-Ahead Log (WAL) and automatically rolls back Step 1. The Rs. 1,000 is restored to the shopper's wallet with zero lost pennies. When the shopper reconnects, the transfer retries and completes cleanly.",
-        "resultState": "acid_rollback_success",
+        "text": "Keep the rider's ₹350 deducted, but never credit the driver because the connection dropped halfway.",
+        "isOptimal": false,
+        "consequenceText": "Riders and drivers will be furious! Taking money without completing the transaction destroys trust and violates banking laws.",
         "statImpact": {
-          "latency": "Under 10ms",
-          "capacity": "10,000 Concurrent Tx",
-          "risk": "Zero Data Loss",
-          "cost": "Mathematical Precision"
+          "latency": "Broken",
+          "capacity": "Angry Users",
+          "risk": "Lawsuits & Chargebacks",
+          "cost": "Huge Losses"
         },
-        "successSummary": "ACID transaction guarantees: Atomicity rolls back partial crashes, Consistency preserves balance rules, Isolation prevents race conditions, and Durability saves confirmed writes to disk!"
+        "whatHappened": {
+          "helped": "Did not roll back the incomplete transaction.",
+          "bottleneck": "Partial database operations leave accounts in an invalid state.",
+          "reflectionQuestion": "Would you keep using an app that took your money and left your trip unpaid?"
+        }
       },
       {
         "id": "C",
-        "text": "Trust the customer's handwritten word and manually credit money whenever anyone claims a power cut interrupted their payment.",
+        "text": "Give the rider 50 free cab rides whenever their internet connection flickers.",
         "isOptimal": false,
-        "consequenceText": "Fraudsters quickly take advantage of your policy. Dishonest visitors intentionally disconnect their mobile network mid-payment, claim a crash occurred, and demand free store credits. Within a week, the supermarket ledger shows massive financial deficits and thousands of unbacked free credits, bankrupting the store.",
-        "resultState": "fraud_exploit",
+        "consequenceText": "People will exploit this glitch by turning airplane mode on and off, taking millions of free rides and bankrupting the company.",
         "statImpact": {
-          "latency": "Manual & Slow",
-          "capacity": "Exploited",
-          "risk": "Rampant Fraud & Deficits",
-          "cost": "Total Bankruptcy"
+          "latency": "Exploited",
+          "capacity": "Free Ride Abuse",
+          "risk": "Massive Revenue Loss",
+          "cost": "Bankruptcy"
         },
         "whatHappened": {
-          "helped": "You resolved individual customer complaints manually.",
-          "bottleneck": "Replacing automated ACID integrity with manual honor systems invited widespread fraud and drained store reserves!",
-          "reflectionQuestion": "Why must database consistency be enforced mathematically by software rather than human discretion?"
+          "helped": "Attempted to apologize to the user without proper validation.",
+          "bottleneck": "Uncontrolled state generation destroys business finances.",
+          "reflectionQuestion": "Why must financial transactions be strictly verified instead of handing out free rides?"
         }
       }
     ],
     "discovery": {
       "badge": "ACID Properties",
-      "tagline": "Atomicity, Consistency, Isolation, and Durability in relational transactions",
-      "simpleMeaning": "ACID is a set of four mathematical guarantees that ensure database transactions execute reliably without lost money, dirty data, or corruption even during power failures.",
-      "analogy": "When handing money through a bank window, the transaction is not complete until the teller takes the cash AND stamps your deposit slip. If an emergency occurs midway, the cash stays safely in your hand.",
+      "tagline": "The four unbreakable rules that keep database transactions safe and accurate",
+      "simpleMeaning": "ACID stands for four guarantees: Atomicity (All or Nothing: all steps succeed or everything cancels), Consistency (rules are always followed), Isolation (multiple payments don't interfere with each other), and Durability (once saved, it's never lost even if the power cuts).",
+      "pubgExample": "When you pay ₹350 for an Ola ride: Atomicity ensures either both ₹350 leaves your wallet AND the driver receives it, or zero money moves. Durability ensures that once payment confirms, it stays recorded even if the server reboots seconds later.",
+      "analogy": "An ATM cash withdrawal: The machine either dispenses your ₹500 cash AND updates your bank balance, or if cash jams, it ejects your card and deducts zero rupees.",
       "howItWorks": [
-        "1. Atomicity (\"All or Nothing\"): Entire operation executes as an indivisible unit. If any step fails or the system crashes, the entire transaction rolls back completely.",
-        "2. Consistency (\"Integrity Enforced\"): Guarantees state transitions preserve all schema constraints, account balance limits (balance >= 0), and foreign keys.",
-        "3. Isolation (\"Independent Execution\"): Concurrent transactions execute without seeing intermediate, uncommitted updates from other active transactions.",
-        "4. Durability (\"Permanence\"): Once a transaction is committed, changes are written to non-volatile disk storage (Write-Ahead Logging / WAL) and survive sudden reboots."
+        "1. Atomicity: The payment is treated as one single atomic action (All or Nothing).",
+        "2. Consistency: Balances cannot go below zero or violate account rules.",
+        "3. Isolation: If two people pay at the same second, each transaction runs cleanly one after the other.",
+        "4. Durability: Once the transaction confirms, the record is written to safe permanent disk storage."
       ],
-      "whyItMatters": "Without ACID guarantees, financial transfers lose funds mid-flight, e-commerce stores oversell inventory, and sudden power outages corrupt master database ledgers.",
-      "visualExplanation": "[BEGIN TRANSACTION]\nStep 1: Deduct Rs. 1,000 from Wallet (Pending)\n   ⚡ POWER FAILURE! ⚡\n[SYSTEM RECOVERY] ──► WAL Log Rollback ──► Step 1 Undone ──► Wallet Restored",
+      "whyItMatters": "Without ACID guarantees, network glitches and server crashes would cause riders to lose money or drivers to go unpaid.",
+      "visualExplanation": "[Deduct ₹350 from Rider] ──AND──► [Credit ₹350 to Driver]\n              ▲\n              │ (ACID Rule)\n    Both Succeed OR Both Cancel!",
       "contrast": {
-        "termA": "ACID Transactions",
-        "descA": "Strict mathematical guarantees: atomic commit/rollback, invariant checks, MVCC isolation levels, and write-ahead disk logging.",
-        "termB": "Unprotected Concurrency",
-        "descB": "Dirty reads, lost updates, race conditions, and corrupted balances caused by unmanaged multi-step operations."
+        "termA": "ACID Transaction",
+        "descA": "All-or-nothing guarantee; protects money and ensures data is never corrupted.",
+        "termB": "Non-ACID Steps",
+        "descB": "Steps run independently; partial failures take money without completing payments."
       },
-      "advancedInfo": "Relational databases implement Isolation using Multi-Version Concurrency Control (MVCC) and Isolation Levels (Read Committed, Repeatable Read, Serializable). Serializable prevents phantom reads and write skew at the cost of concurrency throughput.",
       "teacherNotes": {
-        "concept": "ACID Properties, Transactions, WAL, MVCC Isolation",
-        "experience": "Students experienced what happens when a power outage strikes between wallet deduction and store credit, and saw how WAL rollbacks protect funds.",
-        "realWorld": "Payment gateways like Stripe and UPI process hundreds of millions of atomic transactions daily, relying on relational ACID engines to guarantee zero dropped money.",
-        "question": "What is the difference between Atomicity (all-or-nothing execution) and Durability (permanent persistence on disk)?"
-      }
+        "concept": "ACID, Atomicity, Consistency, Isolation, Durability, Rollback",
+        "experience": "Students learned why critical state changes must be treated as atomic all-or-nothing transactions.",
+        "realWorld": "Payment gateways (UPI, Razorpay, Paytm) and banking apps rely on ACID relational databases.",
+        "question": "What does the letter 'A' in ACID stand for, and what does it mean?"
+      },
+      "olaExample": "When you pay ₹350 for an Ola ride: Atomicity ensures either both ₹350 leaves your wallet AND the driver receives it, or zero money moves. Durability ensures that once payment confirms, it stays recorded even if the server reboots seconds later."
     },
-    "youtubeUrl": "https://youtu.be/TxSoMvMDClY?si=KvUAAjH9jTPQY6w1",
-    "videoId": "TxSoMvMDClY",
-    "videoTitle": "ACID Transactions Explained"
-  },
-  {
-    "id": 12,
-    "stage": 5,
-    "sno": 12,
-    "topic": "Database Replication",
-    "concept": "Database Replication: Primary-Replica (Master-Slave) Architecture",
-    "title": "Level 12: The Backup Store Ledgers (Database Replication)",
-    "time": "Day 210 — 100 Checkout Lanes Peak Rush",
-    "usersCount": "100 Registers Querying Simultaneously",
-    "topicHint": "Primary-Replica Replication",
-    "situation": "Your supermarket now has 100 checkout lanes running all day. Every lane needs to read product prices, verify membership discounts, and record completed sales. All 100 cashiers are querying a single database machine in the basement. The database machine's hard drive is grinding loudly, CPU usage sits at 99%, and querying the price of a chocolate bar takes 8 seconds per scan. Cashiers are sweating, lines are out the door, and the chief engineer warns that if this single machine dies, the entire store shuts down.",
-    "problem": "What is your architectural decision to scale database read capacity and prevent a Single Point of Failure?",
-    "simulationType": "db_replication_cluster",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Keep all 100 registers connected to that single database machine. If it burns out, close the supermarket for the day.",
-        "isOptimal": false,
-        "consequenceText": "At 2:00 PM on a Saturday, the overworked database hard drive overheats and burns out. The entire store freezes instantly: no cash register can scan prices, customer carts are stuck in queues, and the store manager is forced to lock the doors and turn away 1,500 shoppers. The supermarket loses millions in revenue and takes three days to recover data from tape backups.",
-        "resultState": "single_spof_burnout",
-        "statImpact": {
-          "latency": "Dead",
-          "capacity": "0 (Burned Out)",
-          "risk": "Complete Single Point of Failure",
-          "cost": "Storewide Shutdown"
+    "knowledgeCheck": {
+      "question": "What does 'Atomicity' in ACID guarantee when you pay for an Ola ride with your wallet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The transaction is all-or-nothing: either money is deducted and trip is paid, or everything cancels safely with zero loss.",
+          "isCorrect": true,
+          "explanation": "Correct! Atomicity means all steps must succeed together, or the entire operation rolls back with zero loss."
         },
-        "whatHappened": {
-          "helped": "You maintained only one database machine without setting up network sync.",
-          "bottleneck": "Relying on a single hardware node concentrated all read/write load onto one disk and created a fatal Single Point of Failure!",
-          "reflectionQuestion": "Why is relying on a single database server unacceptable for high-availability production environments?"
+        {
+          "id": "B",
+          "text": "The cab engine uses atomic energy to travel faster.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Atomicity is a database term about all-or-nothing actions, not vehicle fuel."
+        },
+        {
+          "id": "C",
+          "text": "The rider must pay double the fare if they ride after midnight.",
+          "isCorrect": false,
+          "explanation": "Incorrect. ACID properties protect transactions, they do not add price penalties."
         }
-      },
-      {
-        "id": "B",
-        "text": "Set up Primary-Replica Replication: designate one Primary server strictly for sales writes, and clone several Read Replicas that continuously sync data to handle all price check lookups.",
-        "isOptimal": true,
-        "consequenceText": "System performance improves immediately. The single Primary machine receives completed sales receipts and streams changes to four Read Replicas. The 100 cashiers distribute their price lookups across the replicas. Price scans drop from 8 seconds to 3 milliseconds! Best of all, when one replica server undergoes maintenance, the other replicas absorb the traffic with zero downtime.",
-        "resultState": "replication_harmony_success",
-        "statImpact": {
-          "latency": "3ms Scan",
-          "capacity": "100 Lanes Parallel",
-          "risk": "High Availability",
-          "cost": "Resilient Scaling"
-        },
-        "successSummary": "Primary-Replica replication offloads heavy read traffic to synced replicas, protecting the Primary for writes and eliminating Single Points of Failure!"
-      },
-      {
-        "id": "C",
-        "text": "Give every cashier their own isolated local database that never syncs with other cashiers.",
-        "isOptimal": false,
-        "consequenceText": "Total operational breakdown occurs within an hour. Cashier 1 sells the last bag of imported rice, but Cashier 4's isolated database still shows 10 bags in stock and sells it to someone else. Cashier 10 offers an outdated 50% discount because their local database was never updated. Inventory records diverge hopelessly, leading to double-sales, stock errors, and angry arguments.",
-        "resultState": "isolated_split_brain",
-        "statImpact": {
-          "latency": "Fast Local",
-          "capacity": "Desynchronized",
-          "risk": "Severe Inventory Drift",
-          "cost": "Accounting Nightmare"
-        },
-        "whatHappened": {
-          "helped": "Cashiers did not share a bottlenecked network connection.",
-          "bottleneck": "Unsynchronized isolated databases caused severe data divergence, double-selling out-of-stock items, and invalid pricing!",
-          "reflectionQuestion": "How does data replication maintain consistent state across multiple nodes while scaling read performance?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Replication",
-      "tagline": "Primary-Replica architecture, read scaling, and automatic failover",
-      "simpleMeaning": "Database Replication copies data across multiple servers so read traffic is spread out and the application keeps running even if one server dies.",
-      "analogy": "Instead of making every clerk run down to the same master filing cabinet to read prices, you print multiple live carbon-copy price sheets for each counter. Only official sales updates are recorded into the master ledger.",
-      "howItWorks": [
-        "1. Primary Node (Master): Exclusively processes all write operations (INSERT, UPDATE, DELETE) and records changes to an append-only replication log.",
-        "2. Replication Stream: Replicas connect over the network and continuously pull the log stream (synchronously or asynchronously).",
-        "3. Read Replicas (Slaves): Process read queries (SELECT) concurrently, scaling read capacity linearly with each additional replica node.",
-        "4. Automatic Failover: If the Primary crashes, a health monitoring consensus elects a replica to become the new Primary automatically."
       ],
-      "whyItMatters": "Most web applications have a 95:5 read-to-write ratio. Replicas scale read throughput by orders of magnitude while ensuring high availability.",
-      "visualExplanation": "Cashier Writes (Orders) ──► Primary DB (Master)\n                                   │ [Replication Log Stream]\n                                   ▼\nCashier Reads (Prices)  ──► Read Replica 1  |  Read Replica 2  |  Read Replica 3",
-      "contrast": {
-        "termA": "Primary Node (Write Master)",
-        "descA": "Single source of truth for write modifications. Ensures strict write consistency and orders operations into the change stream.",
-        "termB": "Read Replicas (Followers)",
-        "descB": "Horizontally scaled read-only instances. Serve millions of concurrent queries, offloading the Primary node."
-      },
-      "advancedInfo": "Replication can be Synchronous (Primary waits for replicas to confirm write, ensuring zero data loss but increasing write latency) or Asynchronous (Primary acknowledges immediately, providing ultra-low latency with minor replication lag window).",
-      "teacherNotes": {
-        "concept": "Database Replication, Primary-Replica, Replication Lag, High Availability",
-        "experience": "Students witnessed a single overworked database burn out under 100 registers, and resolved it by offloading reads to replicas.",
-        "realWorld": "Platforms like Twitter, YouTube, and Netflix utilize tens of thousands of read replicas to serve billions of read queries per second worldwide.",
-        "question": "What is Replication Lag, and how can it cause a user to refresh their profile page and briefly see old data?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/bI8Ry6GhMSE?si=VSg9Nu0aAo_tRhQr",
-    "videoId": "bI8Ry6GhMSE",
-    "videoTitle": "Database Replication Strategies"
+      "hint": "Hint: Think about 'All-or-Nothing'—you either pay and get the receipt, or get a full refund if it fails."
+    }
   },
   {
     "id": 13,
-    "stage": 5,
+    "stage": 3,
     "sno": 13,
-    "topic": "Caching Strategies",
-    "concept": "Caching Strategies: In-Memory Caching & Cache Eviction (LRU/LFU)",
-    "title": "Level 13: The Cashier's Sticky Notepad (Caching Strategies)",
-    "time": "Day 240 — Hot Summer Rush on Soda & Water",
-    "usersCount": "90% Repeated Lookups for Top 5 Items",
-    "topicHint": "Cache-Aside & In-Memory Redis",
-    "situation": "Even with database replicas, your registers are overwhelmed on hot summer afternoons. 90% of shoppers are buying the exact same five items: cold mineral water, soda cans, ice bags, chips, and bread. For every single customer, the cashier terminal sends a network query down to the replica database hard drive to look up the price of water, wait for the disk to spin, and return the price. Disk I/O is exhausted, and cashiers are repeating the exact same lookup thousands of times an hour.",
-    "problem": "What is your architectural decision to eliminate redundant disk queries for frequently accessed data?",
-    "simulationType": "caching_sticky_notepad",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Continue querying the database disk for every single can of soda and bottle of water, regardless of how often it is scanned.",
-        "isOptimal": false,
-        "consequenceText": "Your database disks continue to run hot and slow down. Even though you added replicas in Level 12, disk read heads are thrashing constantly to fetch the identical Rs. 20 mineral water price 80,000 times an hour. Latency stays high, power consumption doubles, and checkout queues back up needlessly.",
-        "resultState": "disk_thrashing_fatigue",
-        "statImpact": {
-          "latency": "Slow Disk I/O",
-          "capacity": "Wasted Read Head",
-          "risk": "Repeated Redundant Queries",
-          "cost": "High Disk Wear"
-        },
-        "whatHappened": {
-          "helped": "You did not consume memory for a cache layer.",
-          "bottleneck": "Querying spinning disks for the same static data thousands of times per minute caused severe disk I/O thrashing!",
-          "reflectionQuestion": "Why is accessing physical disk or database storage thousands of times slower than reading from in-memory RAM?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Install an ultra-fast in-memory cache directly on the cashier counter (a quick Sticky Notepad / Redis). Store popular item prices in memory, and use an LRU eviction rule to discard rarely searched items when space fills up.",
-        "isOptimal": true,
-        "consequenceText": "The billing counters become blazing fast. The first time water is scanned, the price is fetched from the database and written to the cache (Cache Miss). Every subsequent scan pulls the price directly from lightning-fast RAM in 0.2 milliseconds (Cache Hit)! 90% of database queries disappear instantly. When seasonal items arrive, the Least Recently Used (LRU) policy gracefully discards stale items to keep the notepad compact.",
-        "resultState": "cache_hit_bliss",
-        "statImpact": {
-          "latency": "0.2ms In-Memory",
-          "capacity": "90% Hit Ratio",
-          "risk": "Minimal Disk I/O",
-          "cost": "Ultra Efficient"
-        },
-        "successSummary": "In-memory caching (Redis/Memcached) delivers sub-millisecond lookups for hot data, reducing database disk pressure by 90% with LRU eviction!"
-      },
-      {
-        "id": "C",
-        "text": "Store every single price in the cashier's personal memory and ban the store from ever updating prices.",
-        "isOptimal": false,
-        "consequenceText": "Cashiers memorize prices, but the moment a supplier changes a price or a cashier gets fatigued, they mischarge items. Furthermore, when new employees join, they do not know any prices and checkout lines halt entirely. The business loses revenue due to human error and rigid pricing.",
-        "resultState": "human_memory_failure",
-        "statImpact": {
-          "latency": "Erratic",
-          "capacity": "Human Limited",
-          "risk": "Severe Pricing Errors",
-          "cost": "Revenue Discrepancies"
-        },
-        "whatHappened": {
-          "helped": "No electronic database was queried.",
-          "bottleneck": "Relying on static human memory caused pricing mistakes, zero agility, and complete failure when onboarding new staff!",
-          "reflectionQuestion": "How do caching strategies like Cache-Aside maintain cache freshness through Time-To-Live (TTL) and eviction policies?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Caching Strategies",
-      "tagline": "In-memory caching, Cache-Aside pattern, and LRU/LFU eviction policies",
-      "simpleMeaning": "Caching stores copies of frequently accessed data in ultra-fast in-memory RAM (like Redis) so the system doesn't have to repeatedly query slow database disks.",
-      "analogy": "A cashier does not walk to the underground storage room to ask the price of milk 500 times a day; they write the price on a sticky note attached to the register monitor. They glance at the note in a split second.",
-      "howItWorks": [
-        "1. Cache-Aside (Lazy Loading): The application queries the in-memory cache first. On a Cache Hit, it returns data in microseconds. On a Cache Miss, it reads the database, writes to cache, and returns.",
-        "2. Write-Through: Data is written to both cache and database simultaneously, ensuring consistency at the expense of write latency.",
-        "3. Write-Back: Data is written to cache first and asynchronously flushed to disk in batches, providing maximum write throughput.",
-        "4. LRU Eviction (Least Recently Used): When the cache reaches memory limits, the least recently queried entries are evicted to make room for new hot data."
-      ],
-      "whyItMatters": "RAM access is 100,000x faster than disk I/O. Caching absorbs over 90% of repeat traffic, dramatically lowering database costs and latency.",
-      "visualExplanation": "Register Request ──► Cache Lookup (Redis RAM) ──[HIT: 0.2ms]──► Instant Response!\n                            │\n                      [MISS: 8ms]\n                            ▼\n                     Database (Disk) ──► Write into Cache ──► Return to Register",
-      "contrast": {
-        "termA": "In-Memory Cache (RAM / Redis)",
-        "descA": "Sub-millisecond latency, volatile high-speed key-value store, handles hundreds of thousands of operations per second.",
-        "termB": "Persistent Database (Disk / SSD)",
-        "descB": "Higher latency (millisecond range), ACID durable storage, disk read head/bus overhead. Relieved by cache hits."
-      },
-      "advancedInfo": "Cache invalidation is a classic computer science challenge. Production systems set Time-To-Live (TTL) timestamps on keys so cached entries expire automatically, avoiding stale price discrepancies.",
-      "teacherNotes": {
-        "concept": "Caching Strategies, Cache Hit/Miss, LRU vs LFU, Cache-Aside Pattern",
-        "experience": "Students solved database disk bottlenecks during hot summer soda rushes by introducing an in-memory sticky note cache.",
-        "realWorld": "Facebook, Reddit, and Netflix serve over 95% of incoming user requests directly from distributed Redis and Memcached clusters.",
-        "question": "What is the difference between Least Recently Used (LRU) and Least Frequently Used (LFU) eviction policies?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/_d3yaOg8PIQ?si=BTMDHWf-AzkkIpF7",
-    "videoId": "_d3yaOg8PIQ",
-    "videoTitle": "Caching Strategies & Eviction Policies"
-  },
-  {
-    "id": 14,
-    "stage": 6,
-    "sno": 14,
-    "topic": "CDN",
-    "concept": "Content Delivery Networks (CDN): Edge Caching & Geographical PoPs",
-    "title": "Level 14: Kiosks Across the State (Content Delivery Networks - CDN)",
-    "time": "Day 270 — Statewide Expansion Across Tamil Nadu",
-    "usersCount": "500,000 Statewide Mobile Users",
-    "topicHint": "CDN & Edge Caching",
-    "situation": "Your brand has become famous! Shoppers across the entire state of Tamil Nadu want to browse your daily digital catalog, view high-resolution photos of fresh bakery treats, and download the daily promotional flyer. However, your main server building is located entirely in Coimbatore. When a shopper in Chennai (500 km away) opens the app to look at the daily 5 MB photo flyer, the network data packets must travel back and forth over hundreds of kilometers of optical fiber. The photos load line-by-line over several agonizing seconds, and users in remote cities complain that your app feels sluggish and broken.",
-    "problem": "What is your architectural decision to deliver heavy digital assets to geographically distant users at lightning speed?",
-    "simulationType": "cdn_edge_kiosks",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Force all customers across all cities to download heavy product images, videos, and brochures directly from the single server building in Coimbatore.",
-        "isOptimal": false,
-        "consequenceText": "Your Coimbatore servers get overwhelmed by bandwidth demands. Thousands of concurrent 5 MB downloads saturate your network connection. Shoppers in Chennai and Madurai experience buffering, image download timeouts, and 6-second page load times. Distant users get frustrated and abandon their online grocery carts.",
-        "resultState": "optical_bandwidth_choke",
-        "statImpact": {
-          "latency": "6+ Seconds (500km)",
-          "capacity": "Network Saturated",
-          "risk": "Geographic High Latency",
-          "cost": "Massive Transit Costs"
-        },
-        "whatHappened": {
-          "helped": "You hosted all files on a single central server.",
-          "bottleneck": "Sending heavy static media files over hundreds of kilometers for every user request saturated bandwidth and caused high network latency!",
-          "reflectionQuestion": "Why does physical geographical distance introduce unavoidable latency according to the laws of physics and speed of light in optical fiber?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Set up small local digital kiosks (Edge Caches / CDN) in Chennai, Madurai, Salem, and Trichy. Store static images and flyers on these edge servers close to local users so they load instantly.",
-        "isOptimal": true,
-        "consequenceText": "App performance becomes blazing fast across the entire map. When a shopper in Chennai opens the brochure, the 5 MB photo loads in 20 milliseconds directly from the local Chennai Edge Server (Point of Presence). The central server in Coimbatore only processes dynamic checkout payments, reducing origin bandwidth consumption by 85%!",
-        "resultState": "edge_cdn_speed",
-        "statImpact": {
-          "latency": "20ms Local Edge",
-          "capacity": "500,000 Users Everywhere",
-          "risk": "Zero Origin Overload",
-          "cost": "85% Bandwidth Saved"
-        },
-        "successSummary": "Content Delivery Networks (CDNs) cache static assets at geographically distributed Edge PoPs, reducing latency from seconds to milliseconds!"
-      },
-      {
-        "id": "C",
-        "text": "Remove all images, colors, and styling from the app, turning the catalog into pure plaintext so distant users download smaller files.",
-        "isOptimal": false,
-        "consequenceText": "Your app looks like a dull 1985 terminal screen. Shoppers cannot see what the cakes look like, whether the fruits look ripe, or what colors the clothes are. Engagement drops, conversion rates plummet, and shoppers uninstall the app in favor of visually appealing competitor apps.",
-        "resultState": "terminal_screen_abandonment",
-        "statImpact": {
-          "latency": "Small Text Only",
-          "capacity": "Ruined Experience",
-          "risk": "Zero Visual Appeal",
-          "cost": "Massive Customer Churn"
-        },
-        "whatHappened": {
-          "helped": "Payload size was reduced to small plaintext.",
-          "bottleneck": "Stripping visual assets ruined user experience and caused shoppers to uninstall the app in favor of visually rich competitors!",
-          "reflectionQuestion": "How does a CDN allow web applications to serve rich multimedia experiences without melting the origin server?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "CDN",
-      "tagline": "Geographically distributed Edge Caching, Points of Presence, and Origin Shielding",
-      "simpleMeaning": "A Content Delivery Network (CDN) is a worldwide network of edge servers that cache static files (images, videos, styles) close to users so they load with near-zero latency.",
-      "analogy": "If a company in Coimbatore prints 50,000 paper catalogs every morning, it does not make customers drive 500 km from Chennai to pick one up. It ships boxes of catalogs to small distribution kiosks in every city so customers grab one locally in seconds.",
-      "howItWorks": [
-        "1. Edge Servers (Points of Presence / PoPs): Caching servers placed geographically close to end users (e.g., Cloudflare, CloudFront, Akamai).",
-        "2. Static Asset Offloading: Heavy, unchanging files (images, CSS styles, JavaScript bundles, video streams) are cached at edge locations.",
-        "3. Origin Shielding: Only dynamic API requests (like payments or user profiles) travel all the way back to the Origin Server in Coimbatore.",
-        "4. Anycast Routing: Network routing directs user DNS requests to the topologically nearest edge server automatically."
-      ],
-      "whyItMatters": "Light traveling through optical fiber takes ~5ms per 1,000km, plus routing hops. Moving content close to users cuts round-trip times from seconds to single-digit milliseconds.",
-      "visualExplanation": "Chennai Shopper ──► Chennai Edge PoP (CDN) ──[Cached Images in 20ms]──► Instant Display!\n                              │ (Cache Miss Only)\n                              ▼\nCoimbatore Origin Server ──► Serves Dynamic APIs & Checkout Only",
-      "contrast": {
-        "termA": "CDN Edge Servers (PoPs)",
-        "descA": "Distributed worldwide, caches static images/videos/bundles, shields origin servers from 90% of bandwidth traffic.",
-        "termB": "Origin Server",
-        "descB": "Central backend application server where master databases and dynamic business logic reside."
-      },
-      "advancedInfo": "CDNs utilize Anycast IP routing and BGP announcements so millions of users globally connect to the exact same IP address, but network routers automatically steer each user to their geographically closest edge facility.",
-      "teacherNotes": {
-        "concept": "Content Delivery Networks (CDNs), Edge PoPs, Anycast Routing, Origin Shielding",
-        "experience": "Students solved 500km optical fiber latency between Coimbatore and Chennai by placing Edge Caches in major cities.",
-        "realWorld": "Netflix offloads over 95% of all streaming video traffic through its Open Connect CDN appliances deployed directly inside local ISP networks.",
-        "question": "What types of web application data belong on a CDN edge versus what must always hit the origin server?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/8QPyXxBPYCI?si=6aNoHzdPBVTParC6",
-    "videoId": "8QPyXxBPYCI",
-    "videoTitle": "CDN Architecture & Edge Caching"
-  },
-  {
-    "id": 15,
-    "stage": 7,
-    "sno": 15,
-    "topic": "Horizontal vs. Vertical Scaling",
-    "concept": "Scaling Paradigms: Horizontal (Scale Out) vs. Vertical (Scale Up)",
-    "title": "Level 15: Outgrowing the Property (Horizontal vs. Vertical Scaling)",
-    "time": "Day 300 — Footfall Surges to 200,000 Visitors",
-    "usersCount": "200,000 Daily Shoppers (95% CPU Load)",
-    "topicHint": "Scale Out vs. Scale Up",
-    "situation": "Your customer footfall has grown from 2,000 visitors a day to 200,000 visitors a day. Your application server is groaning. The CPU usage is constantly pegged at 95%, and the cooling fans are screaming. Your chief infrastructure engineer comes to you with two different proposals to prevent the server from crashing under the incoming traffic.",
-    "problem": "What is your architectural decision to handle massive traffic growth without hitting physical hardware limits or incurring fatal downtime?",
-    "simulationType": "scaling_cluster_nodes",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Vertical Scaling (Scale Up): Take down the server tonight, replace the motherboard with the most powerful 128-core enterprise CPU money can buy, and max out the RAM to 1 Terabyte on that single machine.",
-        "isOptimal": false,
-        "consequenceText": "Upgrading the single machine provides temporary relief, but you quickly run into harsh limitations: You must take the supermarket offline for several hours during the hardware installation, causing downtime. The specialized super-computer parts cost 10 times more than standard hardware, draining your budget. Three months later, traffic doubles again. You call the hardware vendor to upgrade the CPU, and they inform you: \"There are no larger chips manufactured on Earth.\" You have hit the physical ceiling of vertical growth, and that single machine remains a Single Point of Failure (SPOF).",
-        "resultState": "vertical_hardware_ceiling",
-        "statImpact": {
-          "latency": "Single Node",
-          "capacity": "Hard Ceiling",
-          "risk": "10x Hardware Cost & SPOF",
-          "cost": "Prohibitive Expense"
-        },
-        "whatHappened": {
-          "helped": "Software architecture did not need distributed clustering.",
-          "bottleneck": "Vertical scaling required hours of server downtime, cost 10x more, hit physical manufacturing limits, and remained a Single Point of Failure!",
-          "reflectionQuestion": "Why does every single-machine architecture eventually hit an unbreakable physical wall in compute and memory?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Horizontal Scaling (Scale Out): Keep the current server and purchase four additional identical, cost-effective servers. Run them alongside each other as a cluster to share the application load.",
-        "isOptimal": true,
-        "consequenceText": "Your infrastructure becomes flexible and resilient: You add new server nodes without taking the existing system offline. If one of the smaller machines suffers a power supply failure, the remaining machines continue processing traffic without a storewide outage. When traffic drops late at night, you can power down unnecessary nodes to save electricity, scaling out during the day and scaling in at night.",
-        "resultState": "horizontal_cluster_power",
-        "statImpact": {
-          "latency": "Balanced Load",
-          "capacity": "Elastic Multi-Node",
-          "risk": "No SPOF",
-          "cost": "Cost-Effective Commodity"
-        },
-        "successSummary": "Horizontal Scaling (Scale Out) clusters commodity servers for limitless elastic capacity, fault tolerance, and zero-downtime expansion!"
-      },
-      {
-        "id": "C",
-        "text": "Do nothing and hope that customers stop visiting the supermarket during peak hours.",
-        "isOptimal": false,
-        "consequenceText": "On the first busy weekend, the single machine overheats, triggers an automatic thermal shutdown, and drops all active connections. Your website and registers crash simultaneously, shoppers are unable to pay, and the business suffers severe revenue losses and public embarrassment.",
-        "resultState": "thermal_overheat_crash",
-        "statImpact": {
-          "latency": "Crashed",
-          "capacity": "0 (Overheated)",
-          "risk": "Thermal Meltdown",
-          "cost": "Catastrophic Brand Damage"
-        },
-        "whatHappened": {
-          "helped": "You spent zero budget on hardware.",
-          "bottleneck": "Ignoring 95% CPU utilization triggered an automatic thermal server shutdown that brought down the entire store on a peak weekend!",
-          "reflectionQuestion": "Why must engineering teams plan infrastructure scaling before utilization reaches critical thresholds?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Horizontal vs. Vertical Scaling",
-      "tagline": "Elastic commodity server clusters vs. single-machine hardware limits",
-      "simpleMeaning": "Vertical Scaling upgrades a single machine with bigger hardware (Scale Up), while Horizontal Scaling adds more servers side-by-side to distribute the load (Scale Out).",
-      "analogy": "When a delivery company needs to deliver 10 times more packages, it does not spend billions inventing a monster truck the size of a stadium that cannot fit under bridges. It buys 10 standard delivery vans that drive on regular roads simultaneously.",
-      "howItWorks": [
-        "1. Vertical Scaling (Scale Up): Upgrades CPU, RAM, and SSD on one machine. Simple to deploy, but hits physical hardware limits, costs exponentially more, and remains a Single Point of Failure.",
-        "2. Horizontal Scaling (Scale Out): Adds standard commodity servers to a cluster. Scales near-infinitely, provides fault tolerance, and enables zero-downtime rolling upgrades.",
-        "3. Auto-Scaling: Cloud infrastructure automatically spins up new instances when CPU load exceeds 70%, and terminates them when traffic subsides to optimize costs.",
-        "4. Stateless Architecture: App servers store no session state locally, allowing any server in the cluster to handle any incoming request."
-      ],
-      "whyItMatters": "No single computer on earth can handle the traffic of Google, Amazon, or Uber. Distributed horizontal scaling is the bedrock of modern internet infrastructure.",
-      "visualExplanation": "Vertical:   [Tiny Server] ──► [Monster Supercomputer] (Hits Physical Wall)\nHorizontal: [Server 1] + [Server 2] + [Server 3] + [Server 4] (Limitless Elastic Cluster)",
-      "contrast": {
-        "termA": "Vertical Scaling (Scale Up)",
-        "descA": "Bigger single box (e.g. 128 cores, 1TB RAM). Requires downtime to upgrade, exponential price tag, hard physical ceiling, single point of failure.",
-        "termB": "Horizontal Scaling (Scale Out)",
-        "descB": "Adding more commodity nodes. Near-limitless scaling, elastic pay-as-you-go, fault-tolerant redundancy with zero downtime."
-      },
-      "advancedInfo": "Horizontal scaling requires stateless application tiers. User sessions and authentication tokens are offloaded to shared distributed caches (Redis) or JWTs so any server in the cluster can handle any request interchangeably.",
-      "teacherNotes": {
-        "concept": "Horizontal vs. Vertical Scaling, Commodity Hardware, Auto-Scaling Groups, Statelessness",
-        "experience": "Students compared upgrading a single machine against adding four delivery vans, experiencing why horizontal clustering wins.",
-        "realWorld": "Google runs over 2.5 million commodity servers horizontally across global data centers instead of relying on giant mainframe supercomputers.",
-        "question": "What architectural requirement must a web application satisfy to be horizontally scalable across 50 servers?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/xpDnVSmNFX0?si=zA3ZK1TFRwUo3cA5",
-    "videoId": "xpDnVSmNFX0",
-    "videoTitle": "Horizontal vs Vertical Scaling Explained"
-  },
-  {
-    "id": 16,
-    "stage": 7,
-    "sno": 16,
-    "topic": "Load Balancing",
-    "concept": "Load Balancing: Smart Traffic Routing & Node Health Checks",
-    "title": "Level 16: The Highway Traffic Director (Load Balancing)",
-    "time": "Day 330 — 4 Server Cluster Deployed",
-    "usersCount": "Traffic Imbalance: 95% Clumped on Server 1",
-    "topicHint": "Load Balancing & Routing Algorithms",
-    "situation": "You successfully deployed four identical application servers side-by-side. However, when customers open the app, 95% of incoming connections are still connecting directly to Server 1 because its IP address was hardcoded into early mobile clients. Server 1 catches fire and crashes, while Server 2, Server 3, and Server 4 sit completely idle with 0% CPU utilization!",
-    "problem": "What is your architectural decision to distribute incoming user traffic evenly across all backend servers?",
-    "simulationType": "load_balancer_traffic",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Let customer devices pick random server IP addresses on their own without a central traffic controller.",
-        "isOptimal": false,
-        "consequenceText": "Client connections clump together unevenly. Some servers end up completely swamped while others remain half-empty. Worse, when Server 3 suffers a hard drive crash, client apps continue blindly sending requests to its dead IP address, causing thousands of shoppers to receive connection failed errors.",
-        "resultState": "random_clump_failure",
-        "statImpact": {
-          "latency": "Erratic Jitter",
-          "capacity": "Uneven Distribution",
-          "risk": "Dead IP Traffic Routing",
-          "cost": "Poor Utilization"
-        },
-        "whatHappened": {
-          "helped": "You did not set up a dedicated load balancing proxy.",
-          "bottleneck": "Without centralized health checks and intelligent routing, clients clumped onto single nodes and sent traffic to dead servers!",
-          "reflectionQuestion": "Why can client devices never be trusted to perform reliable, health-aware traffic distribution?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Place a high-speed Load Balancer in front of the server farm. Implement smart traffic routing algorithms (Round-Robin, Least Connections) and health checks to balance the load evenly.",
-        "isOptimal": true,
-        "consequenceText": "Traffic flows across your infrastructure smoothly and evenly. The Load Balancer accepts all incoming client connections on a single virtual IP and distributes requests across Servers 1, 2, 3, and 4 in balanced rotation. Its automated health check monitors every node: if Server 3 becomes unresponsive, the Load Balancer instantly detaches it from the active pool in milliseconds with zero dropped customer requests!",
-        "resultState": "load_balanced_harmony",
-        "statImpact": {
-          "latency": "Consistent 25ms",
-          "capacity": "4x Balanced Throughput",
-          "risk": "Zero Dropped Connections",
-          "cost": "Maximum Resource Use"
-        },
-        "successSummary": "Load Balancers distribute traffic evenly using algorithms like Round-Robin and Least Connections while isolating unhealthy nodes via continuous health checks!"
-      },
-      {
-        "id": "C",
-        "text": "Shut down Servers 2, 3, and 4 since they are idle, and force Server 1 to do all the work alone.",
-        "isOptimal": false,
-        "consequenceText": "You return to the exact same failure state as Level 15. Server 1 immediately crashes under the full weight of the supermarket's user traffic, bringing down the entire digital shopping operation.",
-        "resultState": "monolithic_relapse",
-        "statImpact": {
-          "latency": "Crashed",
-          "capacity": "Zero",
-          "risk": "Immediate Store Outage",
-          "cost": "Self-Inflicted Downtime"
-        },
-        "whatHappened": {
-          "helped": "You saved electricity on idle server instances.",
-          "bottleneck": "Shutting down the cluster threw away horizontal scaling and caused Server 1 to immediately crash under overload!",
-          "reflectionQuestion": "How does a load balancer unlock the true power of horizontally scaled server clusters?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Load Balancing",
-      "tagline": "Traffic distribution algorithms, health checks, and Layer 4 vs. Layer 7 routing",
-      "simpleMeaning": "A Load Balancer acts as a reverse-proxy traffic director in front of your server farm, distributing incoming requests evenly so no single machine gets overloaded.",
-      "analogy": "If a venue opens four entrance gates, it does not leave visitors to figure out which line is shortest from the parking lot. A security officer stands at the main entrance barrier, directing the next car in line to whichever specific gate has the shortest queue.",
-      "howItWorks": [
-        "1. Round-Robin: Requests are distributed sequentially across backend nodes (Node 1 ──► Node 2 ──► Node 3 ──► Node 4). Ideal for uniform request workloads.",
-        "2. Least Connections: Directs new requests to whichever node currently has the fewest active, concurrent connections. Ideal for varied processing times.",
-        "3. Consistent Hashing: Hashes client attributes (like User ID or Session Key) to consistently map a user to the same node for caching efficiency.",
-        "4. Heartbeat Health Checks: Periodically pings /healthz. If a server fails to respond with HTTP 200 OK, it is automatically removed from the active routing pool."
-      ],
-      "whyItMatters": "Without load balancing, horizontal scaling fails because traffic clumps onto single nodes while others sit idle.",
-      "visualExplanation": "Incoming Client Traffic ──► [LOAD BALANCER: Single VIP / Health Checked]\n                                    ├──► Node 1 (25% Load - Healthy)\n                                    ├──► Node 2 (25% Load - Healthy)\n                                    ├──► Node 3 (25% Load - Healthy)\n                                    └──► Node 4 (25% Load - Healthy)",
-      "contrast": {
-        "termA": "Layer 4 Load Balancing (Transport)",
-        "descA": "Routes traffic based purely on network IP and TCP/UDP ports without inspecting application payloads. Ultra-fast and lightweight.",
-        "termB": "Layer 7 Load Balancing (Application)",
-        "descB": "Inspects HTTP headers, cookies, and URL paths, enabling smart routing (e.g. /checkout to high-memory nodes, /media to CDN)."
-      },
-      "advancedInfo": "High-availability load balancing pairs active and passive load balancer nodes using VRRP (Virtual Router Redundancy Protocol) with floating virtual IPs (VIPs) to eliminate the load balancer itself as a single point of failure.",
-      "teacherNotes": {
-        "concept": "Load Balancing, Round-Robin, Least Connections, Health Checks, Layer 4 vs Layer 7",
-        "experience": "Students solved a 95% traffic clumping disaster on Server 1 by deploying a smart traffic director with health checking.",
-        "realWorld": "AWS Elastic Load Balancer (ELB), NGINX, and HAProxy handle billions of connections per second across modern cloud applications.",
-        "question": "What is the difference between Layer 4 (TCP) and Layer 7 (HTTP) load balancing, and when should you choose each?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/V6uG2jlONuU?si=gue8xyDtCbmcXNL6",
-    "videoId": "V6uG2jlONuU",
-    "videoTitle": "Load Balancing Architecture & Algorithms"
-  },
-  {
-    "id": 17,
-    "stage": 7,
-    "sno": 17,
-    "topic": "Rate Limiting",
-    "concept": "Rate Limiting: Token Bucket Algorithms & Bot Traffic Shaping",
-    "title": "Level 17: The Gate Turnstile & The Scalper Rush (Rate Limiting)",
-    "time": "Day 360 — 9:00 AM Sunday Flash Sale",
-    "usersCount": "50,000 Bot Requests/Sec Scalper Rush",
-    "topicHint": "Rate Limiting & Token Bucket",
-    "situation": "Every Sunday morning at 9:00 AM, your supermarket runs a \"Flash Sale\" on high-end cooking oil and basmati rice at a 70% discount. The moment the clock strikes 9:00 AM, a group of automated scalpers runs a bot script that sends 50,000 requests per second to your checkout API. Your servers are flooded, processing pipelines jam, and regular families trying to buy weekly groceries get connection timeout errors. The bots buy up all the discounted inventory in three seconds flat to resell on the street.",
-    "problem": "What is your architectural decision to protect your backend APIs from automated scalper bots and volumetric Denial-of-Service attacks?",
-    "simulationType": "rate_limiter_turnstile",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Allow unlimited requests from any device or IP address as fast as they can send them.",
-        "isOptimal": false,
-        "consequenceText": "Your infrastructure crashes every Sunday morning under Denial-of-Service (DoS) conditions. Scalper scripts consume 100% of network sockets, database connections, and server memory. Real paying customers are locked out, and genuine families leave angry reviews on social media about unfair bot hoarding.",
-        "resultState": "bot_scalper_stampede",
-        "statImpact": {
-          "latency": "Timed Out",
-          "capacity": "Flooded by Bots",
-          "risk": "100% Sockets Consumed",
-          "cost": "Reputational Disaster"
-        },
-        "whatHappened": {
-          "helped": "You did not add request inspection overhead.",
-          "bottleneck": "Allowing unthrottled API requests permitted automated scalper bots to flood the system with 50,000 req/sec and deny service to real families!",
-          "reflectionQuestion": "Why must every public internet API have strict rate limiting boundaries to protect availability?"
-        }
-      },
-      {
-        "id": "B",
-        "text": "Install a strict Rate Limiter at the front door using algorithms like Token Bucket or Sliding Window to restrict each user to a reasonable limit (e.g., maximum 5 checkout attempts per minute).",
-        "isOptimal": true,
-        "consequenceText": "The Rate Limiter protects your platform. When a bot tries to fire 500 requests a second, the Rate Limiter immediately throttles the excess requests, returning an HTTP 429 \"Too Many Requests\" status code with zero backend database load. Meanwhile, real families browsing at normal human speeds pass through without noticing any restriction. The flash sale inventory is purchased fairly by real shoppers!",
-        "resultState": "rate_limiter_shield_success",
-        "statImpact": {
-          "latency": "Sub-millisecond Check",
-          "capacity": "5 Req/Min per User",
-          "risk": "HTTP 429 Throttle Shield",
-          "cost": "Fair Human Distribution"
-        },
-        "successSummary": "Rate limiters enforce fair usage via algorithms like Token Bucket and Sliding Window, returning HTTP 429 to abusive traffic while protecting backend services!"
-      },
-      {
-        "id": "C",
-        "text": "Shut down the online store completely and only sell products via secret phone calls.",
-        "isOptimal": false,
-        "consequenceText": "Your business loses 90% of its sales volume. The convenience of digital shopping is destroyed, phone lines are constantly busy, and customers abandon your brand for competing online supermarkets.",
-        "resultState": "manual_phone_collapse",
-        "statImpact": {
-          "latency": "Phone Busy Tone",
-          "capacity": "1 Call at a Time",
-          "risk": "Loss of Digital Commerce",
-          "cost": "90% Sales Drop"
-        },
-        "whatHappened": {
-          "helped": "Bots were completely blocked from the checkout API.",
-          "bottleneck": "Shutting down the digital store crippled business revenue by 90% instead of engineering smart technical traffic shaping!",
-          "reflectionQuestion": "How does software rate limiting preserve business availability during surge events without abandoning digital commerce?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Rate Limiting",
-      "tagline": "Token Bucket, Sliding Window algorithms, and HTTP 429 traffic shaping",
-      "simpleMeaning": "Rate Limiting restricts how many requests a user or client IP can make within a given timeframe, stopping malicious bots from overwhelming backend servers.",
-      "analogy": "To prevent a stampede during a massive clearance sale, a store does not leave the front doors wide open. It installs turnstiles that rotate at a controlled pace, allowing one shopper through every three seconds while keeping crowds safely organized outside.",
-      "howItWorks": [
-        "1. Token Bucket: A virtual bucket holds a fixed capacity of tokens, refilled at a constant rate. Each request consumes one token. If empty, the request is rejected with HTTP 429.",
-        "2. Leaky Bucket: Requests queue up in a buffer and are released at a smooth, constant rate, smoothing out spiky traffic bursts.",
-        "3. Sliding Window Log/Counter: Tracks requests across a rolling time window (e.g. last 60 seconds) to prevent boundary burst exploits.",
-        "4. Distributed Rate Limiting: Centralizes counters in high-speed in-memory Redis clusters using atomic increments (INCRBY) so limits apply across all app servers."
-      ],
-      "whyItMatters": "Protects APIs against DoS attacks, brute-force password attempts, scalper bots, and accidental infinite loops from client code.",
-      "visualExplanation": "Scalper Bot (500 req/s) ──► [RATE LIMITER: Token Bucket] ──► HTTP 429 (Too Many Requests - BLOCKED)\nHuman Shopper (1 req/5s) ──► [RATE LIMITER: Token Bucket] ──► Forwarded to Checkout API (ACCEPTED)",
-      "contrast": {
-        "termA": "Token Bucket Algorithm",
-        "descA": "Allows short, controlled bursts of traffic up to bucket capacity while enforcing a steady average refill rate. Most popular in production APIs.",
-        "termB": "Leaky Bucket Algorithm",
-        "descB": "Smooths out bursts by releasing requests at a strictly constant, unvarying rate regardless of incoming traffic spikes."
-      },
-      "advancedInfo": "Production rate limiters respond to throttled clients with standardized HTTP headers: X-RateLimit-Limit (max allowed), X-RateLimit-Remaining (tokens left), and Retry-After (seconds until refill).",
-      "teacherNotes": {
-        "concept": "Rate Limiting, Token Bucket, Leaky Bucket, Sliding Window, HTTP 429",
-        "experience": "Students defended Sunday flash sales against 50,000 req/sec scalper bots using a Token Bucket turnstile.",
-        "realWorld": "APIs like GitHub, Twitter, and OpenAI enforce strict token bucket rate limits per user API key to ensure infrastructure stability.",
-        "question": "What is the burst advantage of the Token Bucket algorithm compared to a strict Fixed Window counter?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/hs6-WxrmAEs?si=UT-k0E9mgi08Gl2E",
-    "videoId": "hs6-WxrmAEs",
-    "videoTitle": "Rate Limiting Strategies & Algorithms"
-  },
-  {
-    "id": 18,
-    "stage": 8,
-    "sno": 18,
-    "topic": "Sharding",
-    "concept": "Database Sharding: Horizontal Partitioning across Independent Nodes",
-    "title": "Level 18: Splitting the Master Ledger (Database Sharding)",
-    "time": "Day 400 — 50 Million Customer Nationwide Ledger",
-    "usersCount": "50 Million Accounts & 2 Billion Rows",
-    "topicHint": "Database Sharding & Sharding Keys",
-    "situation": "Your supermarket has expanded across the entire country, managing 50 million registered customer accounts. Even with read replicas, your Primary Database cannot keep up with write traffic. The single relational database contains a customer orders table with 2 billion rows. A single table scan or index lookup takes seconds to complete, and the hard disk holding the database is 98% full. You cannot buy a bigger hard drive, and write queries are queueing up into multi-minute backlogs.",
-    "problem": "What is your architectural decision to overcome single-database hardware boundaries and scale database write throughput indefinitely?",
+    "topic": "Database Indexing",
+    "concept": "Database Indexing",
+    "title": "Level 13: Finding a Driver by Mobile Number in 2 Milliseconds",
+    "time": "Driver Login — 2,000,000 Registered Drivers",
+    "usersCount": "2,000,000 Driver Accounts in India",
+    "topicHint": "Fast Lookups Like a Book Index vs. Checking Every Row",
+    "situation": "A driver types their 10-digit mobile number to log into the Ola Driver app. Ola has 2,000,000 registered drivers in its database. Without an index, the database has to inspect driver 1, driver 2, driver 3... all the way to 2 million rows. The login screen spins for 30 seconds and times out!",
+    "problem": "How can the database locate one specific driver instantly without scanning 2,000,000 records one by one?",
     "simulationType": "database_sharding_ledgers",
     "choices": [
       {
         "id": "A",
-        "text": "Keep all 50 million customers and 2 billion rows packed into that single giant database table on one machine.",
-        "isOptimal": false,
-        "consequenceText": "The single database machine crashes permanently from disk exhaustion. The operating system runs out of inode space, write operations fail with disk full errors, and table indexes exceed physical RAM, causing catastrophic disk thrashing. The entire national supermarket chain grinds to a halt.",
-        "resultState": "disk_exhaustion_collapse",
+        "text": "Create an Index on the Phone_Number column, allowing the database to jump directly to the driver in 2 milliseconds.",
+        "isOptimal": true,
+        "consequenceText": "Super fast! An index acts like an alphabetical phonebook or book index. Instead of scanning 2 million rows, the database uses the index to jump straight to the driver in just 2 milliseconds!",
         "statImpact": {
-          "latency": "Infinite Backlog",
-          "capacity": "98% Disk Full",
-          "risk": "Complete Disk Exhaustion",
-          "cost": "National Outage"
+          "latency": "2ms Lookup",
+          "capacity": "2M Drivers Fast",
+          "risk": "Zero Lag",
+          "cost": "Tiny Extra Disk"
         },
         "whatHappened": {
-          "helped": "You maintained a single monolithic database instance.",
-          "bottleneck": "A single database machine hit physical disk capacity and write I/O limits under 2 billion rows, causing catastrophic crashes!",
-          "reflectionQuestion": "Why do read replicas fail to solve write scalability bottlenecks on a single primary database?"
-        }
+          "helped": "Added an index on the frequently searched phone number field.",
+          "bottleneck": "Full table scans read every single row on disk, wasting massive time and memory.",
+          "reflectionQuestion": "Why does a textbook have an index at the back instead of making you read every page?"
+        },
+        "successSummary": "Awesome! You added an index to turn a 30-second table scan into a 2-millisecond instant lookup."
       },
       {
         "id": "B",
-        "text": "Implement Database Sharding: partition the single giant table horizontally across multiple independent database machines using a consistent Sharding Key (e.g., hashing the User ID).",
-        "isOptimal": true,
-        "consequenceText": "Your database tier gains limitless horizontal scalability. Instead of one monster machine struggling with 2 billion rows, you distribute the data across four independent shards holding 500 million rows each. When User #4,821,902 places an order, the application calculates hash(UserID) % 4 and routes the write directly to Shard 2. Write bottlenecks vanish, indexes fit comfortably in RAM, and when the store grows to 100 million users, you simply add more shards!",
-        "resultState": "sharding_scalability_triumph",
+        "text": "Scan all 2,000,000 driver records row by row from top to bottom every single time someone logs in.",
+        "isOptimal": false,
+        "consequenceText": "Scanning 2 million records for every login overloads the database hard drives. Logins take half a minute, and the database crashes when 5,000 drivers log in at 8:00 AM.",
         "statImpact": {
-          "latency": "Under 15ms",
-          "capacity": "Limitless Shards",
-          "risk": "Isolated Node Failure",
-          "cost": "Linearly Scalable"
+          "latency": "30,000ms Lag",
+          "capacity": "Disk Overload",
+          "risk": "Database Crash",
+          "cost": "Wasted Compute"
         },
-        "successSummary": "Database Sharding horizontally partitions massive tables across independent physical database servers using a Sharding Key, enabling near-infinite write scalability!"
+        "whatHappened": {
+          "helped": "Relied on a full table scan without indexing.",
+          "bottleneck": "Linear search across 2 million records takes massive I/O time.",
+          "reflectionQuestion": "How long would it take to find a name in a telephone directory if names were not in alphabetical order?"
+        }
       },
       {
         "id": "C",
-        "text": "Delete all customer purchase histories older than two weeks so the database never gets too big.",
+        "text": "Ask drivers to register a brand new account every single time they want to log in.",
         "isOptimal": false,
-        "consequenceText": "Deleting purchase histories creates a customer support catastrophe. Shoppers trying to return defective products or view warranty receipts find their records erased. Accountants cannot balance yearly balance sheets, and tax authorities audit the company for missing mandatory fiscal transaction logs, imposing devastating penalties.",
-        "resultState": "record_erasure_audit",
+        "consequenceText": "Forcing drivers to re-register deletes their rating, earnings history, and bank links. Drivers will refuse to work for Ola.",
         "statImpact": {
-          "latency": "Small Database",
-          "capacity": "Destroyed History",
-          "risk": "Audit Fines & Lost Warranties",
-          "cost": "Regulatory Disaster"
+          "latency": "Unusable",
+          "capacity": "Lost History",
+          "risk": "Driver Revolt",
+          "cost": "Total Failure"
         },
         "whatHappened": {
-          "helped": "Database disk space was kept artificially small.",
-          "bottleneck": "Erasing historical records violated legal warranty requirements and caused severe government tax penalties!",
-          "reflectionQuestion": "Why is data deletion never an acceptable substitute for scalable distributed storage architecture?"
+          "helped": "Avoided solving the database lookup problem.",
+          "bottleneck": "Unacceptable user experience destroys the entire driver community.",
+          "reflectionQuestion": "Can software succeed if it forces users to restart from scratch?"
         }
       }
     ],
     "discovery": {
-      "badge": "Sharding",
-      "tagline": "Horizontal table partitioning, sharding keys, and distributed write scaling",
-      "simpleMeaning": "Database Sharding splits a massive database horizontally across multiple independent servers so no single machine runs out of disk or write capacity.",
-      "analogy": "If a national organization has 50 million member files, it does not stuff them into a single cabinet in one room. It distributes them across regional offices: Cabinet A handles names beginning with A–F, Cabinet B handles G–M, and Cabinet C handles N–Z.",
+      "badge": "Database Indexing",
+      "tagline": "Creating quick lookup shortcuts to find specific records in milliseconds",
+      "simpleMeaning": "An index is a special lookup table created on specific columns (like Phone Number or Driver ID). Instead of reading every single row in the database, the index helps the database jump directly to the exact record you need.",
+      "pubgExample": "When a driver enters their phone number on Ola, an index on `phone_number` lets the database locate their car details, rating, and wallet instantly out of 2 million drivers.",
+      "analogy": "The index at the back of a 1,000-page book: You look up 'Cab' in the index, see page 142, and flip straight there without reading pages 1 to 141.",
       "howItWorks": [
-        "1. Horizontal Partitioning: Rows of a single table are split across multiple physical database instances called Shards.",
-        "2. Sharding Key: A designated column (like User ID or Customer ID) used by the routing layer to determine which shard owns that row.",
-        "3. Hash-Based Sharding: Computes hash(ShardingKey) % NumberOfShards to distribute records evenly across all nodes without hotspots.",
-        "4. Range-Based Sharding: Partitions data based on ranges of values (e.g., User IDs 1–1,000,000 on Shard 1, 1,000,001–2,000,000 on Shard 2).",
-        "5. Routing Layer: Application middleware inspects the query's Sharding Key and routes requests directly to the target shard."
+        "1. Full Table Scan (Slow): Checks every row from start to end; very slow on large databases.",
+        "2. Index Structure: Keeps a sorted list of values pointing to their exact disk storage locations.",
+        "3. Instant Jump: Uses binary search or B-Trees to locate the target in just a few disk reads.",
+        "4. Trade-off: Reads become super fast, but writes take slightly longer because the index must also update."
       ],
-      "whyItMatters": "While Read Replicas scale read queries, Sharding is the only way to scale write operations and total storage capacity beyond single-server physical limits.",
-      "visualExplanation": "User Order Query (UserID: 4821902) ──► hash(UserID) % 4 = Shard 2\n                                          ├──► Shard 1 (500M Rows - Users 0-25%)\n                                          ├──► Shard 2 (500M Rows - Users 25-50%) ◄── [TARGET NODE]\n                                          ├──► Shard 3 (500M Rows - Users 50-75%)\n                                          └──► Shard 4 (500M Rows - Users 75-100%)",
+      "whyItMatters": "Without indexes, searching for drivers, riders, or booking receipts would take minutes and freeze the app.",
+      "visualExplanation": "[Search: '9876543210']\n       │\n       ▼\n[Phone Index: Sorted] ──Jump──► [Row 1,421,809] (Found in 2ms!)",
       "contrast": {
-        "termA": "Database Sharding (Horizontal Partitioning)",
-        "descA": "Splitting table rows across multiple distinct database servers. Scales write throughput and storage linearly.",
-        "termB": "Read Replication",
-        "descB": "Copying the exact same full database to multiple follower nodes. Scales read queries only; does not solve write limits or storage caps."
+        "termA": "Indexed Lookup",
+        "descA": "Jumps directly to target record via sorted lookup tree; takes 2 milliseconds.",
+        "termB": "Full Table Scan",
+        "descB": "Reads every single row from row 1 to 2,000,000; takes 30 seconds and freezes CPU."
       },
-      "advancedInfo": "Sharding introduces complexity: Cross-shard JOIN queries are notoriously slow and expensive, and schema migrations require distributed coordination across all shards.",
       "teacherNotes": {
-        "concept": "Database Sharding, Sharding Keys, Hash vs Range Partitioning, Cross-Shard Joins",
-        "experience": "Students solved a 2-billion-row disk exhaustion crisis by partitioning customer tables across 4 independent database shards.",
-        "realWorld": "Slack and Discord shard their database clusters by Workspace ID and Guild ID to support billions of messages per day across thousands of nodes.",
-        "question": "What happens if a poor Sharding Key is chosen (such as Country Code when 90% of users live in one country), and what is a 'Celebrity/Hotspot Problem'?"
-      }
+        "concept": "Database Indexing, B-Trees, Full Table Scan, Read vs Write Trade-offs",
+        "experience": "Students learned why indexes are essential for rapid lookups and how they compare to book indexes.",
+        "realWorld": "PostgreSQL, MySQL, and DynamoDB rely on B-Tree and hash indexes for sub-millisecond key lookups.",
+        "question": "What is the small trade-off of having an index when you insert a brand-new driver?"
+      },
+      "olaExample": "When a driver enters their phone number on Ola, an index on `phone_number` lets the database locate their car details, rating, and wallet instantly out of 2 million drivers."
     },
-    "youtubeUrl": "https://youtu.be/5faMjKuB9bc?si=dyr_rDLoeuTLvQBm",
-    "videoId": "5faMjKuB9bc",
-    "videoTitle": "Database Sharding & Partitioning"
+    "knowledgeCheck": {
+      "question": "Why does Ola create an index on the Driver Phone Number column in its database?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To find and display the driver's profile in milliseconds without scanning millions of rows one by one.",
+          "isCorrect": true,
+          "explanation": "Correct! An index acts like a book index, jumping directly to the requested record immediately."
+        },
+        {
+          "id": "B",
+          "text": "To give the driver a 5-star rating automatically on every trip.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Database indexes speed up data lookups; they have nothing to do with driver ratings."
+        },
+        {
+          "id": "C",
+          "text": "To hide all driver phone numbers so nobody can ever log in.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Indexes make searching faster, they do not hide data."
+        }
+      ],
+      "hint": "Hint: Think about why a textbook has an index at the back—does it help you find pages faster?"
+    }
   },
-{
-    "id": 19,
-    "stage": 9,
-    "sno": 19,
+  {
+    "id": 14,
+    "stage": 3,
+    "sno": 14,
+    "topic": "Database Replication",
+    "concept": "Database Replication",
+    "title": "Level 14: What if the Main Database Server Loses Power?",
+    "time": "Friday Night Rush — Mumbai Data Center",
+    "usersCount": "500,000 Concurrent Ride Bookings",
+    "topicHint": "Keeping Live Backup Copies (Primary & Replicas)",
+    "situation": "It is Friday night, the busiest time of the week. Half a million people across India are booking Ola rides. Suddenly, the main database server computer in the Mumbai data center suffers a sudden hardware motherboard blowout! An intern gasps: \"We only had that one single database computer...\"",
+    "problem": "How can Ola ensure the app never goes down and trip data is safe when a database server dies?",
+    "simulationType": "db_replication_cluster",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use Database Replication to keep exact live copies on backup replica servers that take over instantly.",
+        "isOptimal": true,
+        "consequenceText": "Lifesaver! With Database Replication, every ride is continuously copied to replica servers. When the Primary crashes, a Replica is automatically promoted to be the new Primary, and riders don't even notice a hiccup!",
+        "statImpact": {
+          "latency": "25ms",
+          "capacity": "Zero Downtime",
+          "risk": "Zero Data Loss",
+          "cost": "Backup Hardware"
+        },
+        "whatHappened": {
+          "helped": "Maintained continuous live replicas of the database.",
+          "bottleneck": "A single point of failure guarantees total collapse when hardware breaks.",
+          "reflectionQuestion": "What happens if you have no backup copy and your laptop hard drive breaks?"
+        },
+        "successSummary": "Outstanding! You set up database replication with automatic failover to prevent total disaster."
+      },
+      {
+        "id": "B",
+        "text": "Keep only one single database computer and accept that all rider and driver accounts are wiped out if it crashes.",
+        "isOptimal": false,
+        "consequenceText": "All driver accounts, trip histories, and wallet balances are lost. The company's reputation is destroyed, and the business faces immediate shutdown.",
+        "statImpact": {
+          "latency": "Dead",
+          "capacity": "0 Rides",
+          "risk": "100% Data Loss",
+          "cost": "Catastrophic"
+        },
+        "whatHappened": {
+          "helped": "Saved money by buying only one computer.",
+          "bottleneck": "Single point of failure leads to irrecoverable data loss.",
+          "reflectionQuestion": "Is it worth saving a few dollars if a crash destroys the entire business?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Shut down all cab operations in India for two weeks while a technician looks for replacement parts.",
+        "isOptimal": false,
+        "consequenceText": "Two weeks of downtime causes all riders to switch to competing services. Millions of dollars in revenue are lost while servers sit offline.",
+        "statImpact": {
+          "latency": "2 Weeks Offline",
+          "capacity": "0 Active",
+          "risk": "Lost Customers",
+          "cost": "Massive Revenue Drop"
+        },
+        "whatHappened": {
+          "helped": "Waited for manual hardware repair.",
+          "bottleneck": "Manual repair is far too slow for an active mobility service.",
+          "reflectionQuestion": "Why do modern online services need automated instant failover?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Database Replication",
+      "tagline": "Copying data continuously to backup servers for high availability and read sharing",
+      "simpleMeaning": "Database Replication means copying data from a main database (called the Primary) to one or more backup databases (called Replicas). If the Primary computer breaks, a Replica immediately steps in so the app keeps running smoothly.",
+      "pubgExample": "When a rider completes a trip in Ola, the Primary database saves the receipt and instantly copies it to Replicas in Bangalore and Delhi. If the main server crashes, the backup server takes over in seconds.",
+      "analogy": "Keeping a photocopy of your passport in your travel bag: if your original passport is lost, your backup copy keeps you safe.",
+      "howItWorks": [
+        "1. Primary Server: Handles all writes (new bookings, payments, driver ratings).",
+        "2. Replica Servers: Continuously copy changes from the Primary.",
+        "3. Read Distribution: Millions of riders checking their past receipts read from Replicas, taking load off the Primary.",
+        "4. Automatic Failover: If the Primary dies, a Replica becomes the new Primary within seconds."
+      ],
+      "whyItMatters": "Protects against hardware crashes, prevents data loss, and lets millions of riders inspect receipts without overloading one server.",
+      "visualExplanation": "              [Write: New Trip Receipt]\n                     │\n                     ▼\n            [Primary Database] (Crashes!)\n            ╱                ╲\n   (Syncs) ╱                  ╲ (Syncs)\n          ▼                    ▼\n   [Replica DB 1]       [Replica DB 2] ──Promoted──► New Primary!",
+      "contrast": {
+        "termA": "Replicated Cluster",
+        "descA": "Multiple live database copies; zero downtime and instant failover on crashes.",
+        "termB": "Single Database Server",
+        "descB": "One computer holds everything; hardware failure causes total shutdown and data loss."
+      },
+      "teacherNotes": {
+        "concept": "Database Replication, Primary/Replica (Master/Slave), High Availability, Failover",
+        "experience": "Students learned why critical data must be continuously replicated across independent machines.",
+        "realWorld": "AWS Aurora, PostgreSQL, and MySQL clusters use replication for 99.999% availability.",
+        "question": "Besides handling crashes, how do replica servers help when millions of riders check their past trips?"
+      },
+      "olaExample": "When a rider completes a trip in Ola, the Primary database saves the receipt and instantly copies it to Replicas in Bangalore and Delhi. If the main server crashes, the backup server takes over in seconds."
+    },
+    "knowledgeCheck": {
+      "question": "What is the main purpose of Database Replication in a 24/7 app like Ola?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To keep live backup copies of the database so the app stays running if the main server fails.",
+          "isCorrect": true,
+          "explanation": "Correct! Replication ensures continuous backups and instant failover so user data is never lost."
+        },
+        {
+          "id": "B",
+          "text": "To make every cab driver fly in an airplane instead of driving on roads.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Database replication manages data backups, not physical vehicle transport."
+        },
+        {
+          "id": "C",
+          "text": "To charge riders double fare every time they book on weekends.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Replication is about system reliability, not charging riders."
+        }
+      ],
+      "hint": "Hint: Think about what happens when you keep a duplicate backup copy of your school project on a pen drive."
+    }
+  },
+  {
+    "id": 15,
+    "stage": 3,
+    "sno": 15,
+    "topic": "Database Partitioning",
+    "concept": "Database Partitioning",
+    "title": "Level 15: Splitting 50 Million Trip History Receipts by Month & Year",
+    "time": "Rider Profile Screen — Trip History",
+    "usersCount": "50,000,000 Completed Trips (2022 to 2024)",
+    "topicHint": "Dividing One Huge Table into Smaller Manageable Sections",
+    "situation": "Over the past 3 years, Ola has accumulated 50,000,000 completed trip receipts in one giant 'Trips' table. When a rider opens their app to view their ride from yesterday, the database takes 25 seconds to crawl through three years of old trips from 2022!",
+    "problem": "How can Ola organize this massive 50-million-row table so checking recent trips is lightning fast?",
+    "simulationType": "database_sharding_ledgers",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Partition the huge table into smaller sections by Year or Month (e.g., Year 2024 table, Year 2023 table).",
+        "isOptimal": true,
+        "consequenceText": "Smart move! By partitioning the table by year and month, queries for yesterday's ride only search the current month's section. The database skips 45 million old rows entirely, and receipts load in 15 milliseconds!",
+        "statImpact": {
+          "latency": "15ms History",
+          "capacity": "50M Trips Organized",
+          "risk": "Zero Sluggishness",
+          "cost": "Efficient"
+        },
+        "whatHappened": {
+          "helped": "Partitioned historical trip data by date ranges.",
+          "bottleneck": "Searching one monolithic table forces the database to scan millions of irrelevant old years.",
+          "reflectionQuestion": "Why should checking yesterday's cab receipt search through trips from 3 years ago?"
+        },
+        "successSummary": "Great work! You used partitioning to divide a gigantic table into fast, manageable monthly pieces."
+      },
+      {
+        "id": "B",
+        "text": "Permanently delete all trip records from previous years so riders can never view their tax receipts.",
+        "isOptimal": false,
+        "consequenceText": "Riders need past receipts for corporate expense claims and tax filings. Deleting their history causes huge backlash and lost corporate accounts.",
+        "statImpact": {
+          "latency": "Fast but Empty",
+          "capacity": "Lost History",
+          "risk": "Upset Riders",
+          "cost": "Lost Enterprise Clients"
+        },
+        "whatHappened": {
+          "helped": "Reduced table size by destroying user records.",
+          "bottleneck": "Deleting valuable historical data instead of organizing it cleanly.",
+          "reflectionQuestion": "Can you make searches fast without deleting user data?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Leave all 50 million rows in one giant table and tell riders to wait 25 seconds every time they open trip history.",
+        "isOptimal": false,
+        "consequenceText": "Riders get annoyed waiting half a minute just to download a receipt. Many riders abandon the app.",
+        "statImpact": {
+          "latency": "25,000ms Delay",
+          "capacity": "Unoptimized Table",
+          "risk": "Bad User Experience",
+          "cost": "High DB Load"
+        },
+        "whatHappened": {
+          "helped": "Avoided table reorganization.",
+          "bottleneck": "Monolithic tables degrade in performance as row counts grow into the tens of millions.",
+          "reflectionQuestion": "What happens to search speed as a table grows 10 times bigger?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Database Partitioning",
+      "tagline": "Splitting a giant table into smaller, faster logical sections within the same database",
+      "simpleMeaning": "Database Partitioning means dividing a giant table with millions of rows into smaller, organized pieces (called partitions) based on a rule, like Year, Month, or City. The database only searches the relevant partition instead of the whole monster table.",
+      "pubgExample": "Ola partitions its trip history table by Year and Month (e.g., Partition 2024_Oct, Partition 2024_Nov). When you view today's ride, the database searches only this month's partition.",
+      "analogy": "An office filing cabinet: Instead of dumping 5 years of receipts into one giant pile, you use separate labeled folders for 2022, 2023, and 2024.",
+      "howItWorks": [
+        "1. Choose a Partition Key: Pick a field like `trip_date` or `year_month`.",
+        "2. Divide Data: The database automatically stores records in the matching partition.",
+        "3. Partition Pruning: When querying recent rides, the database completely skips old partitions.",
+        "4. Easy Archiving: Old years can be archived or compressed without affecting live rides."
+      ],
+      "whyItMatters": "Keeps query speeds lightning fast even as the app accumulates tens of millions of historical records over years.",
+      "visualExplanation": "[Giant Trips Table: 50 Million Rows]\n                   │\n       Divided into Partitions:\n┌──────────────────┼──────────────────┐\n▼                  ▼                  ▼\n[Year 2022]        [Year 2023]        [Year 2024: Current]\n(Skipped)          (Skipped)          (Only Search Here! 15ms)",
+      "contrast": {
+        "termA": "Partitioned Table",
+        "descA": "Divided into monthly folders; queries scan only relevant data in milliseconds.",
+        "termB": "Single Monster Table",
+        "descB": "All 50M rows in one pile; queries crawl through years of old data and lag."
+      },
+      "teacherNotes": {
+        "concept": "Database Partitioning, Range Partitioning, Partition Pruning, Query Optimization",
+        "experience": "Students learned how to organize massive tables by logical boundaries like dates or months.",
+        "realWorld": "PostgreSQL, Oracle, and Google BigQuery use range partitioning for fast time-series analysis.",
+        "question": "What is the process called where the database skips old partitions during a query?"
+      },
+      "olaExample": "Ola partitions its trip history table by Year and Month (e.g., Partition 2024_Oct, Partition 2024_Nov). When you view today's ride, the database searches only this month's partition."
+    },
+    "knowledgeCheck": {
+      "question": "How does dividing trip receipts into monthly partitions help an Ola rider checking yesterday's ride?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The database only searches the current month's partition, making the receipt load in milliseconds.",
+          "isCorrect": true,
+          "explanation": "Correct! Partitioning allows the database to ignore millions of old records and search only the relevant month."
+        },
+        {
+          "id": "B",
+          "text": "It gives the rider 5 free rides every time they check their history.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Partitioning speeds up database lookups; it does not alter ride pricing."
+        },
+        {
+          "id": "C",
+          "text": "It cancels all other rides in the city automatically.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Partitioning organizes data storage, it is not a ride cancellation feature."
+        }
+      ],
+      "hint": "Hint: Think about searching through one small folder of today's papers versus searching a warehouse of 3 years of old papers."
+    }
+  },
+  {
+    "id": 16,
+    "stage": 3,
+    "sno": 16,
+    "topic": "Database Sharding",
+    "concept": "Database Sharding",
+    "title": "Level 16: Distributing Driver Data Across City Database Servers",
+    "time": "National Expansion — 100 Indian Cities",
+    "usersCount": "100,000,000 Nationwide Users across India",
+    "topicHint": "Splitting Data Across Multiple Physical Computers",
+    "situation": "Ola now operates across 100 cities in India. The total driver and rider profile data is over 150 Terabytes. The engineers bought the biggest, most expensive server computer available on the market, but the database hard drives are 100% full and cannot fit another city!",
+    "problem": "What do you do when one single database computer physically cannot hold all the country's drivers and riders?",
+    "simulationType": "database_sharding_ledgers",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use Database Sharding to split data across multiple separate database servers (e.g., Shard by City: Delhi, Mumbai, Bangalore).",
+        "isOptimal": true,
+        "consequenceText": "Brilliant engineering! Sharding splits the data across independent database machines (Server 1 for Delhi, Server 2 for Mumbai, Server 3 for Bangalore). You can now add as many database servers as needed to support every city in India!",
+        "statImpact": {
+          "latency": "20ms",
+          "capacity": "Nationwide Scale",
+          "risk": "Zero Hard Drive Limit",
+          "cost": "Scalable Fleet"
+        },
+        "whatHappened": {
+          "helped": "Horizontally distributed data across multiple physical database computers.",
+          "bottleneck": "Single-node hardware reaches a hard physical limit on disk and RAM.",
+          "reflectionQuestion": "Why is spreading work across 5 ordinary servers better than buying 1 impossible super-server?"
+        },
+        "successSummary": "Awesome! You used database sharding to scale storage horizontally across multiple machines."
+      },
+      {
+        "id": "B",
+        "text": "Keep trying to squeeze all 100 cities onto that one computer until the hard drive corrupts and fails.",
+        "isOptimal": false,
+        "consequenceText": "The hard drive hits 100% capacity and stops accepting writes. Driver registrations fail, trip saves corrupt, and the server crashes nationwide.",
+        "statImpact": {
+          "latency": "Dead",
+          "capacity": "Disk Full",
+          "risk": "Data Corruption",
+          "cost": "Server Crash"
+        },
+        "whatHappened": {
+          "helped": "Ignored hardware limits.",
+          "bottleneck": "Hard drives cannot hold infinite data.",
+          "reflectionQuestion": "What happens to your phone if storage reaches 100% and you try to take a 4K video?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Ban 50 cities from using Ola to free up disk space on the single machine.",
+        "isOptimal": false,
+        "consequenceText": "Shutting down Ola in half the country destroys business growth and hands the market to competitors.",
+        "statImpact": {
+          "latency": "Abandoned",
+          "capacity": "50% Market Lost",
+          "risk": "Public Outrage",
+          "cost": "Huge Revenue Loss"
+        },
+        "whatHappened": {
+          "helped": "Reduced data by throwing away paying customers.",
+          "bottleneck": "Engineering failures must be solved with architecture, not by punishing users.",
+          "reflectionQuestion": "How should a growing system expand without rejecting users?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Database Sharding",
+      "tagline": "Splitting a massive dataset across multiple separate physical database computers",
+      "simpleMeaning": "Sharding means dividing data horizontally across multiple separate database servers (called shards). Each database machine holds a portion of the data (for example, Server A holds Delhi data, Server B holds Mumbai data, Server C holds Bangalore data).",
+      "pubgExample": "When a rider in Delhi books a cab, Ola routes the request directly to Database Shard Delhi. When a rider in Mumbai books, it routes to Database Shard Mumbai. Neither server runs out of space.",
+      "analogy": "A city library that outgrows its building: The city opens a North Branch for North zone residents and a South Branch for South zone residents.",
+      "howItWorks": [
+        "1. Shard Key: Pick a field like `city_id` or `user_id` to decide where data lives.",
+        "2. Routing Layer: A router checks the City ID and sends queries directly to the correct database computer.",
+        "3. Independent Machines: Each shard has its own CPU, RAM, and hard drives.",
+        "4. Unlimited Scale: When launching in 20 new cities, simply add Shards 4, 5, and 6!"
+      ],
+      "whyItMatters": "Allows applications to expand from one city to hundreds of cities without hitting the physical limits of a single computer.",
+      "visualExplanation": "                 [Nationwide Ola Traffic]\n                            │\n              ┌─────────────┼─────────────┐\n              ▼             ▼             ▼\n       [Shard: Delhi] [Shard: Mumbai] [Shard: Bangalore]\n        (20TB Disk)    (20TB Disk)     (20TB Disk)",
+      "contrast": {
+        "termA": "Sharded Database Fleet",
+        "descA": "Data split across multiple physical computers; scales horizontally to infinite cities.",
+        "termB": "Single Database Server",
+        "descB": "All data on one computer; crashes when disk space and memory hit hardware limits."
+      },
+      "teacherNotes": {
+        "concept": "Database Sharding, Horizontal Partitioning, Shard Keys, Routing Layer",
+        "experience": "Students learned how to scale beyond single-machine limits by sharding across multiple servers.",
+        "realWorld": "Ola, Uber, Discord, and Instagram shard their database clusters by user ID or geographical region.",
+        "question": "What is the difference between Partitioning (inside one DB) and Sharding (across multiple DB computers)?"
+      },
+      "olaExample": "When a rider in Delhi books a cab, Ola routes the request directly to Database Shard Delhi. When a rider in Mumbai books, it routes to Database Shard Mumbai. Neither server runs out of space."
+    },
+    "knowledgeCheck": {
+      "question": "What is the main difference between Database Partitioning and Database Sharding in Ola?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Partitioning divides data into sections inside one database computer; Sharding distributes data across multiple separate computers.",
+          "isCorrect": true,
+          "explanation": "Correct! Partitioning splits tables on a single machine, while Sharding spreads data across multiple physical database servers."
+        },
+        {
+          "id": "B",
+          "text": "Partitioning is for autos, while Sharding is for bicycle rentals.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Both are core database architecture concepts used across all software systems."
+        },
+        {
+          "id": "C",
+          "text": "Sharding deletes user data permanently, while Partitioning duplicates it 100 times.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Sharding safely stores data across different machines without deleting anything."
+        }
+      ],
+      "hint": "Hint: Think about whether you are organizing drawers in one cabinet (partitioning) or buying multiple separate cabinets (sharding)."
+    }
+  },
+  {
+    "id": 17,
+    "stage": 3,
+    "sno": 17,
     "topic": "CAP Theorem",
-    "concept": "CAP Theorem: Consistency, Availability, and Partition Tolerance",
-    "title": "Level 19: The Broken Telephone Line (CAP Theorem)",
-    "time": "Day 430 — Severed Regional Fiber Cable",
-    "usersCount": "Coimbatore & Chennai Warehouses Isolated",
-    "topicHint": "CAP Theorem (CP vs. AP)",
-    "situation": "Your supermarket now has two major branch warehouses: one in Coimbatore and one in Chennai. They share a live synchronized digital catalog so inventory counts match across both cities. Suddenly, an underground fiber-optic cable is severed by road construction. The telephone and internet link between Coimbatore and Chennai is completely dead. A shopper walks into the Coimbatore branch to buy the very last high-end espresso machine in stock. At the exact same second, another customer walks into the Chennai branch trying to buy that exact same machine online. Because the communication line is broken, neither branch can verify if the other branch just sold it.",
-    "problem": "When a network partition occurs between warehouses, how do you handle inventory availability versus strict data consistency?",
+    "concept": "CAP Theorem",
+    "title": "Level 17: When the Telecom Cable Between Delhi and Bangalore Breaks",
+    "time": "Monsoon Storms — Inter-City Network Cut",
+    "usersCount": "2 Major Regional Data Centers (Delhi & Bangalore)",
+    "topicHint": "Consistency vs. Availability During Network Partitions",
+    "situation": "Ola has two main database centers: one in Delhi and one in Bangalore. They sync driver wallet balances across both regions. Suddenly, heavy monsoon landslides cut the main fiber optic internet cable between Delhi and Bangalore! A manager demands: \"I want 100% exact instant synchronization AND 100% uninterrupted instant updates in both cities right now!\"",
+    "problem": "Under the famous CAP theorem, what trade-off must Ola make when the network connection between two servers is cut?",
     "simulationType": "cap_network_partition",
     "choices": [
       {
         "id": "A",
-        "text": "Pretend the network is not broken. Let both branches sell the machine and hope for good luck.",
-        "isOptimal": false,
-        "consequenceText": "Both branches sell the single machine simultaneously. Two customers walk away with confirmed receipts for one physical box. When the network reconnects, your system discovers the duplicate sale. One customer arrives for pickup only to find an empty shelf, leading to intense customer frustration, public complaints, and brand damage.",
-        "resultState": "cap_double_selling",
+        "text": "Choose between Consistency (pause wallet updates to prevent mismatched balances) OR Availability (keep rides moving, sync balances later).",
+        "isOptimal": true,
+        "consequenceText": "Spot on! This is the CAP Theorem. When a network Partition (P) occurs, you MUST choose between Consistency (C) or Availability (A). You cannot physically have both while the cable between the cities is severed!",
         "statImpact": {
-          "latency": "Deceptive",
-          "capacity": "Double-Sold",
-          "risk": "Inventory Divergence & Customer Outrage",
-          "cost": "Brand Damage"
+          "latency": "Predictable",
+          "capacity": "Realistic System",
+          "risk": "Understood Trade-off",
+          "cost": "Balanced"
         },
         "whatHappened": {
-          "helped": "You avoided handling the network outage.",
-          "bottleneck": "Ignoring the network partition led to double-selling the last physical machine to two different buyers!",
-          "reflectionQuestion": "Why is it mathematically impossible for a distributed system during a network split to be both completely available and strictly consistent?"
-        }
+          "helped": "Understood the physical laws of distributed networks.",
+          "bottleneck": "Two disconnected computers cannot guarantee identical data while both accept independent writes.",
+          "reflectionQuestion": "Why can two friends not keep identical notes if their phone call drops?"
+        },
+        "successSummary": "Brilliant! You mastered the CAP theorem and recognized that network splits force a trade-off between Consistency and Availability."
       },
       {
         "id": "B",
-        "text": "Consistency over Availability (CP): Lock the inventory and refuse new sales on that machine in both branches until the network cable is repaired, guaranteeing no double-selling happens.",
-        "isOptimal": true,
-        "consequenceText": "You prioritize absolute correctness (CP System). When the customer attempts checkout, the register displays a message: \"Network synchronization unavailable. Transaction paused for safety.\" The shopper is disappointed, but the business never sells an item it cannot fulfill. Financial and inventory integrity remains 100% accurate.",
-        "resultState": "cap_cp_consistency",
+        "text": "Claim the system can magically guarantee 100% Consistency and 100% Availability simultaneously through a severed cable.",
+        "isOptimal": false,
+        "consequenceText": "Physics makes this impossible. If Delhi and Bangalore cannot talk, updates made in Delhi cannot appear in Bangalore. Claiming both leads to contradictory records and double spending.",
         "statImpact": {
-          "latency": "Safety Pause",
-          "capacity": "Guaranteed 100% Accuracy",
-          "risk": "Zero Overselling",
-          "cost": "Correctness Preserved"
+          "latency": "Impossible",
+          "capacity": "Corrupted State",
+          "risk": "Contradictory Ledgers",
+          "cost": "Financial Loss"
         },
-        "successSummary": "In a CP (Consistency + Partition Tolerance) architecture, writes are safely rejected during network partitions to guarantee mathematical correctness and prevent double-selling!"
+        "whatHappened": {
+          "helped": "Ignored the fundamental mathematical law of distributed systems.",
+          "bottleneck": "Data cannot travel across a physically severed network line.",
+          "reflectionQuestion": "Can information travel between two disconnected islands without a medium?"
+        }
       },
       {
         "id": "C",
-        "text": "Availability over Consistency (AP): Allow both branches to keep selling goods to keep customers happy right now, accepting that inventory numbers will disagree temporarily and must be reconciled later.",
+        "text": "Permanently shut down all cab booking across India whenever any network cable experiences a glitch.",
         "isOptimal": false,
-        "consequenceText": "You prioritize store uptime (AP System). Both customers complete their purchases smoothly. Later, when the cable is repaired, the system flags the conflict. Your customer service team contacts one buyer, offers an apology discount voucher, and ships an upgraded unit from a partner distributor. Your revenue flow never stopped during the outage, but you incurred manual compensation costs.",
-        "resultState": "cap_ap_availability",
+        "consequenceText": "Internet glitches happen regularly. Shutting down all operations every time a cable has an issue would mean Ola is offline dozens of days every year.",
         "statImpact": {
-          "latency": "Always Available",
-          "capacity": "Soft Inconsistency",
-          "risk": "Temporary Divergence",
-          "cost": "Compensation Vouchers"
+          "latency": "Zero Uptime",
+          "capacity": "0 Rides",
+          "risk": "Business Dead",
+          "cost": "Total Loss"
         },
         "whatHappened": {
-          "helped": "Customers could continue buying without checkout freezes.",
-          "bottleneck": "Allowing unsynchronized writes created inventory conflicts that required manual reconciliation and apology vouchers!",
-          "reflectionQuestion": "When should modern systems choose AP (Availability) over CP (Consistency)?"
+          "helped": "Overreacted to a normal network event.",
+          "bottleneck": "Systems must be resilient to partial network partitions.",
+          "reflectionQuestion": "How should a distributed system react when one network cable cuts?"
         }
       }
     ],
     "discovery": {
       "badge": "CAP Theorem",
-      "tagline": "Consistency, Availability, and Partition Tolerance in distributed architectures",
-      "simpleMeaning": "The CAP Theorem states that when a network partition (P) occurs, a distributed system can guarantee either strict Consistency (C) or 100% Availability (A), but never both simultaneously.",
-      "analogy": "When two branch offices lose telephone contact, they cannot simultaneously guarantee that both branches stay completely open for business while also guaranteeing that their ledger records match perfectly.",
+      "tagline": "The fundamental trade-off: Consistency vs. Availability during network failures",
+      "simpleMeaning": "The CAP theorem states that a distributed system can only guarantee two of three things at the same time: Consistency (every server sees identical data), Availability (every request gets a fast response), and Partition Tolerance (the system handles broken network links). Since cables can always break in the real world, you must choose between Consistency or Availability during a split.",
+      "pubgExample": "If the network cable between Delhi and Bangalore breaks, Ola can either pause wallet top-ups until the cable is fixed (Consistency), or let riders keep booking rides and synchronize balances once reconnected (Availability).",
+      "analogy": "Two friends taking notes over the phone: If their call drops (Partition), they can either stop writing to stay matched (Consistency) or keep writing independently (Availability), but they cannot do both simultaneously while disconnected.",
       "howItWorks": [
-        "1. Consistency (C): Every read receives the most recent write or an error. All nodes see identical data simultaneously.",
-        "2. Availability (A): Every non-failing node returns a successful response without error, though it may not contain the freshest write.",
-        "3. Partition Tolerance (P): The system continues operating despite dropped packets or severed network connections between nodes.",
-        "4. Physical Reality: Network partitions (P) are unavoidable physical facts of life. Therefore, systems must choose between CP (trade availability for safety) and AP (trade safety for uptime)."
+        "1. Consistency (C): Every user reads the exact same data at the same second.",
+        "2. Availability (A): The app keeps responding even if some servers are isolated.",
+        "3. Partition Tolerance (P): The system continues operating despite network cables breaking.",
+        "4. The Rule: In the real world, networks always break (P happens). You must choose C (Consistency) or A (Availability)."
       ],
-      "whyItMatters": "Understanding CAP tradeoffs dictates whether your application behaves like a bank ledger (CP — refuse stale writes) or a social media feed (AP — show cached posts during network dips).",
-      "visualExplanation": "        [PARTITION OCCURS (Link Severed)]\n                /               \\\n      Choose CP (Consistency)     Choose AP (Availability)\n       Pause write / Error       Serve request with stale state\n     Zero double-selling          100% uptime, reconcile later",
+      "whyItMatters": "Helps engineers make intentional trade-offs: choose strict accuracy for money (CP), or choose continuous uptime for cab matching (AP).",
+      "visualExplanation": "                 [Network Cable Snaps!]\n               (Partition Tolerance: P)\n                         │\n         ┌───────────────┴───────────────┐\n         ▼                               ▼\n  Choose CONSISTENCY (C)          Choose AVAILABILITY (A)\n  Pause updates until linked.     Keep cabs moving; sync later.",
       "contrast": {
-        "termA": "CP Systems (e.g., PostgreSQL / CockroachDB)",
-        "descA": "Locks nodes or returns errors during network partitions to prevent split-brain state. Mandatory for banking and inventory stock.",
-        "termB": "AP Systems (e.g., Cassandra / DynamoDB)",
-        "descB": "Allows isolated nodes to continue accepting writes independently, reconciling conflicts asynchronously via eventual consistency."
+        "termA": "Consistency (CP System)",
+        "descA": "Pauses or rejects requests during a split to prevent mismatched data (e.g., bank payments).",
+        "termB": "Availability (AP System)",
+        "descB": "Answers every request immediately; synchronizes data differences after the network heals."
       },
-      "advancedInfo": "Brewer's CAP Theorem proves mathematically that in any asynchronous network where messages can be delayed or lost, maintaining consensus requires waiting indefinitely, which violates availability SLAs.",
       "teacherNotes": {
-        "concept": "CAP Theorem, Network Partitions, CP vs. AP Tradeoffs, Pacelc Theorem",
-        "experience": "Students witnessed a severed fiber cable between Coimbatore and Chennai force a choice between overselling an espresso machine or pausing sales.",
-        "realWorld": "Google Spanner achieves 'effectively CA' by syncing atomic clocks with GPS receivers (TrueTime API) to keep latency bounds under 7ms globally.",
-        "question": "Why does a banking ATM immediately shut down and display 'Out of Service' when its network link drops, instead of handing out cash freely?"
-      }
+        "concept": "CAP Theorem, Consistency, Availability, Partition Tolerance, Distributed Trade-offs",
+        "experience": "Students learned why distributed systems cannot escape trade-offs when networks fail.",
+        "realWorld": "Banking apps choose CP (Consistency) to protect balances; ride booking and social feeds often choose AP (Availability).",
+        "question": "If you are designing a casual cab search feature, would you choose Consistency (stop search) or Availability (keep searching)?"
+      },
+      "olaExample": "If the network cable between Delhi and Bangalore breaks, Ola can either pause wallet top-ups until the cable is fixed (Consistency), or let riders keep booking rides and synchronize balances once reconnected (Availability)."
     },
-    "youtubeUrl": "https://youtu.be/-h0vQVREfXs?si=R-upj0YZZ5MsqsDg",
-    "videoId": "-h0vQVREfXs",
-    "videoTitle": "CAP Theorem Explained | System Design"
+    "knowledgeCheck": {
+      "question": "When an internet cable breaks between two Ola server data centers, what does the CAP theorem state?",
+      "options": [
+        {
+          "id": "A",
+          "text": "You must choose between strict Consistency (identical data) or Availability (keeping the system online).",
+          "isCorrect": true,
+          "explanation": "Correct! When a network partition occurs, a system cannot guarantee both perfect instant consistency and 100% availability."
+        },
+        {
+          "id": "B",
+          "text": "All cabs on the road will run out of fuel simultaneously.",
+          "isCorrect": false,
+          "explanation": "Incorrect. The CAP theorem is a computer science theorem about data trade-offs, not car fuel."
+        },
+        {
+          "id": "C",
+          "text": "The app will automatically give every rider free lifetime rides.",
+          "isCorrect": false,
+          "explanation": "Incorrect. The CAP theorem guides system design choices, not promotional giveaways."
+        }
+      ],
+      "hint": "Hint: Think about C (Consistency) and A (Availability)—when network cables cut, which trade-off must you pick?"
+    }
+  },
+  {
+    "id": 18,
+    "stage": 3,
+    "sno": 18,
+    "topic": "OLTP vs. OLAP",
+    "concept": "OLTP vs. OLAP",
+    "title": "Level 18: Live Ride Dispatch vs. Studying 10 Million Past Trips",
+    "time": "Evening Surge — Live Dispatch vs Data Science",
+    "usersCount": "50,000 Live Trips vs 10M Historical Trips",
+    "topicHint": "Fast Live Transactions (OLTP) vs Deep Analytics Warehouses (OLAP)",
+    "situation": "Right now, 50,000 live Ola rides are running across Mumbai, updating driver GPS and meter fares every millisecond. At the exact same time, the pricing data scientist wants to run a massive query across 10,000,000 completed past trips to calculate surge pricing algorithms for the next year. A junior developer runs this giant calculation directly on the live dispatch database!",
+    "problem": "What happens when heavy historical analytics queries are run directly on the live dispatch database?",
+    "simulationType": "oltp_olap_registers",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Keep them separate: use OLTP for fast live ride dispatch, and OLAP (data warehouse) for heavy historical analytics.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant architecture! OLTP handles fast, small transactions (booking cabs, updating GPS) in real time. OLAP is a separate data warehouse that studies millions of historical trips without slowing down live rides!",
+        "statImpact": {
+          "latency": "25ms Live / Fast Reports",
+          "capacity": "Separate Systems",
+          "risk": "Zero Interference",
+          "cost": "Well-Balanced"
+        },
+        "whatHappened": {
+          "helped": "Separated operational transactional workloads from analytical workloads.",
+          "bottleneck": "Heavy analytical queries lock tables and starve live dispatch transactions of CPU.",
+          "reflectionQuestion": "Why should an accountant's yearly tax report not block the cashier scanning groceries?"
+        },
+        "successSummary": "Perfect! You separated OLTP (live ride transactions) from OLAP (deep analytics warehouse)."
+      },
+      {
+        "id": "B",
+        "text": "Run massive analytical queries scanning 10 million past trips directly on the live dispatch server during evening rush.",
+        "isOptimal": false,
+        "consequenceText": "The analytical query maxes out 100% of the database CPU for 10 minutes. Live bookings freeze, drivers cannot accept rides, and thousands of riders are stranded.",
+        "statImpact": {
+          "latency": "10,000ms Delay",
+          "capacity": "CPU Overheated",
+          "risk": "Live Dispatch Crash",
+          "cost": "High Revenue Loss"
+        },
+        "whatHappened": {
+          "helped": "Tried to save money by using only one database for everything.",
+          "bottleneck": "Heavy scans consume all database resources, stalling fast live transactions.",
+          "reflectionQuestion": "What happens if a customer asks the cashier to audit the store's whole year while 50 people wait in line?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Never analyze past trips at all, leaving pricing and demand completely unmonitored forever.",
+        "isOptimal": false,
+        "consequenceText": "Without analytics, Ola cannot predict rush hour demand or plan driver incentives. The business loses money and falls behind competitors.",
+        "statImpact": {
+          "latency": "Blind Operations",
+          "capacity": "Unoptimized Pricing",
+          "risk": "Business Decline",
+          "cost": "Lost Growth"
+        },
+        "whatHappened": {
+          "helped": "Avoided running analytics entirely.",
+          "bottleneck": "Modern mobility companies need data-driven insights to optimize supply and demand.",
+          "reflectionQuestion": "How do ride-hailing apps know where more cabs will be needed tomorrow without past data?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "OLTP vs. OLAP",
+      "tagline": "Separating fast real-time transactions from heavy historical analytics",
+      "simpleMeaning": "OLTP (Online Transaction Processing) is built for fast, everyday actions like booking a cab, updating GPS, or deducting wallet fare. OLAP (Online Analytical Processing) is a separate data warehouse built for analyzing millions of past records to find trends, calculate surge pricing, and plan fleet growth.",
+      "pubgExample": "When you book an Ola cab in Bandra, OLTP processes it in 10 milliseconds. Later that night, the Ola planning team uses OLAP to analyze 10 million rides and discover that 40% more cabs are needed at Mumbai Airport on Sunday nights.",
+      "analogy": "OLTP is the grocery store cashier scanning milk quickly in 2 seconds; OLAP is the store manager in the back office analyzing sales numbers for the entire year to plan next year's inventory.",
+      "howItWorks": [
+        "1. OLTP (Operational): Handles fast, simple read/write operations (e.g., Update Ride Status to Completed).",
+        "2. Background Sync (ETL): Completed trip data is copied periodically into the OLAP warehouse.",
+        "3. OLAP (Analytical): Handles complex queries scanning millions of historical records.",
+        "4. Zero Interference: Analysts can run giant queries without causing any lag for active riders.",
+        "5. High Reliability: Keeps core ride booking fast and responsive 24/7."
+      ],
+      "whyItMatters": "Running big data analytics on a live production database causes lag spikes and freezes ride booking for real users.",
+      "visualExplanation": "[Live Ride Booking: Tap 'Book'] ──► [OLTP Database: Fast & Instant (10ms)]\n                                              │\n                                     (Copies data overnight)\n                                              ▼\n[Data Scientist: Surge Pricing] ──► [OLAP Warehouse: Analyzes 10M Trips]",
+      "contrast": {
+        "termA": "OLTP (Transactions)",
+        "descA": "Fast, simple operations on current data; keeps live ride booking running with zero lag.",
+        "termB": "OLAP (Analytics)",
+        "descB": "Complex queries on massive historical data; used for surge pricing and business planning."
+      },
+      "teacherNotes": {
+        "concept": "OLTP, OLAP, Data Warehousing, ETL, Workload Isolation",
+        "experience": "Students learned why live transactional operations must be isolated from analytical reporting.",
+        "realWorld": "Companies use PostgreSQL/MySQL for OLTP and Snowflake/Google BigQuery/Amazon Redshift for OLAP analytics.",
+        "question": "What would happen to live Ola riders if the analytics team ran a 10-minute report on the live database?"
+      },
+      "olaExample": "When you book an Ola cab in Bandra, OLTP processes it in 10 milliseconds. Later that night, the Ola planning team uses OLAP to analyze 10 million rides and discover that 40% more cabs are needed at Mumbai Airport on Sunday nights."
+    },
+    "knowledgeCheck": {
+      "question": "Which system should Ola use to study passenger travel trends across 10 million past trips to optimize surge pricing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An OLAP data warehouse designed for deep analysis of large amounts of historical data.",
+          "isCorrect": true,
+          "explanation": "Correct! OLAP systems are built specifically to analyze massive historical datasets without slowing down live operations."
+        },
+        {
+          "id": "B",
+          "text": "The live dispatch OLTP database while 50,000 riders are actively booking cabs.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Running heavy reports on the live OLTP database freezes the app for active riders."
+        },
+        {
+          "id": "C",
+          "text": "A driver's personal smartphone memory card.",
+          "isCorrect": false,
+          "explanation": "Incorrect. A single phone memory card cannot hold or compute 10 million historical trips."
+        }
+      ],
+      "hint": "Hint: Think about which system is designed for Analytical processing of millions of past records (OLAP)."
+    }
+  },
+  {
+    "id": 19,
+    "stage": 4,
+    "sno": 19,
+    "topic": "Monolithic vs. Microservices Architecture",
+    "concept": "Monolithic vs. Microservices Architecture",
+    "title": "Level 19: All Features in One Giant Program vs. Separate Services",
+    "time": "System Architecture Review — Ola Tech Hub",
+    "usersCount": "Dispatch, Wallet, Driver GPS & Invoices",
+    "topicHint": "Single Fragile Program vs. Independent Resilient Services",
+    "situation": "All of Ola's systems (Cab Matching, Ola Money Wallet, Driver GPS Tracking, and SMS Invoices) are packed into one giant computer program running on one big server (a Monolith). During Monday morning rush hour, a tiny bug causes the SMS Invoice generator to crash. Because everything is bundled into one program, the crash brings down the entire Ola app, stopping all cab dispatching and leaving riders stranded!",
+    "problem": "Should all features run inside one giant program, or be separated into independent microservices?",
+    "simulationType": "scaling_cluster_nodes",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use Microservices: split Cab Matching, Wallet, GPS, and Invoices into independent services that don't crash each other.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant architecture! With Microservices, each feature runs on its own independent server. If the SMS Invoice service glitches, cab matching and wallet payments continue working 100% smoothly, and engineers can fix the SMS service without restarting the whole app!",
+        "statImpact": {
+          "latency": "25ms",
+          "capacity": "Resilient Fleet",
+          "risk": "Zero Total Outages",
+          "cost": "Well-Organized"
+        },
+        "whatHappened": {
+          "helped": "Isolated failure domains into independent microservices.",
+          "bottleneck": "A monolithic program has one single point of failure; one small bug brings down everything.",
+          "reflectionQuestion": "Why should a receipt printing glitch not stop drivers from picking up passengers?"
+        },
+        "successSummary": "Awesome! You separated the monolithic app into independent, resilient microservices."
+      },
+      {
+        "id": "B",
+        "text": "Keep everything glued together in one giant program and accept that any tiny bug crashes the entire company.",
+        "isOptimal": false,
+        "consequenceText": "Whenever any small feature like promo codes or invoice emails has an issue, the entire app crashes for millions of riders across India.",
+        "statImpact": {
+          "latency": "High Risk",
+          "capacity": "Fragile Monolith",
+          "risk": "Total Outage",
+          "cost": "Frequent Downtime"
+        },
+        "whatHappened": {
+          "helped": "Avoided separating services.",
+          "bottleneck": "Tight coupling means all features share the exact same process memory and failure points.",
+          "reflectionQuestion": "If your car air conditioner stops working, should the entire engine turn off?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Delete driver tracking, invoices, and promo codes so the app only has one single button forever.",
+        "isOptimal": false,
+        "consequenceText": "Deleting essential features leaves riders blind without GPS tracking or receipts. Riders switch to other ride-hailing services.",
+        "statImpact": {
+          "latency": "Crippled",
+          "capacity": "Stripped Features",
+          "risk": "Lost Customers",
+          "cost": "Zero Growth"
+        },
+        "whatHappened": {
+          "helped": "Removed features instead of designing resilient architecture.",
+          "bottleneck": "Modern applications require rich feature sets with reliable architecture.",
+          "reflectionQuestion": "Can a modern ride-hailing app survive without maps, receipts, and live tracking?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Monolithic vs. Microservices",
+      "tagline": "Choosing between one giant combined program and independent mini-services",
+      "simpleMeaning": "A Monolith is one single giant computer program that contains every feature (booking, billing, driver tracking, receipts). Microservices splits the application into small, independent services that run on separate computers. If one service has an error, the rest of the app stays online!",
+      "pubgExample": "In Ola, the Ride Dispatch service is completely separate from the Promo Code service. If the promo code server gets overloaded during a festival discount, riders can still book cabs and track drivers without interruption.",
+      "analogy": "A Swiss Army Knife vs. a Tool Box: If the knife blade breaks on a Swiss Army knife, the whole tool is ruined. In a tool box, if your screwdriver breaks, your hammer and wrench still work fine.",
+      "howItWorks": [
+        "1. Monolith (Simple Start): Easy to build initially, but hard to maintain as teams and features grow.",
+        "2. Independent Deployment: With microservices, the Wallet team can update payments without touching the Map Dispatch code.",
+        "3. Fault Isolation: A crash in SMS receipts does not stop riders from hailing cabs.",
+        "4. Independent Scaling: When 200,000 riders book at 6:00 PM, scale only the Dispatch service without wasting money on the others."
+      ],
+      "whyItMatters": "Allows large engineering teams to build, scale, and update different parts of Ola without risking bringing down the entire platform.",
+      "visualExplanation": "[Monolith: Everything in 1 Box] ──Bug in Invoices──► Entire Ola App Crashes!\n\n[Microservices Fleet]\n[Cab Dispatch] ──Works!──┐\n[Ola Wallet]   ──Works!──┼──► App stays online even if SMS Service glitches!\n[SMS Service]  ──Reboots ┘",
+      "contrast": {
+        "termA": "Microservices Architecture",
+        "descA": "Separate services per feature; isolated failures, independent scaling, resilient app.",
+        "termB": "Monolithic Architecture",
+        "descB": "All features bundled in one process; a single bug crashes the entire platform for everyone."
+      },
+      "teacherNotes": {
+        "concept": "Monolithic Architecture, Microservices, Loose Coupling, Fault Isolation",
+        "experience": "Students learned why modern systems decompose giant applications into independent services.",
+        "realWorld": "Ola, Uber, Netflix, and Amazon transitioned from monoliths to hundreds of microservices for resilience.",
+        "question": "What is the main advantage of scaling individual microservices independently?"
+      },
+      "olaExample": "In Ola, the Ride Dispatch service is completely separate from the Promo Code service. If the promo code server gets overloaded during a festival discount, riders can still book cabs and track drivers without interruption."
+    },
+    "knowledgeCheck": {
+      "question": "Why is Microservices architecture useful for Ola's ride booking and receipt generation features?",
+      "options": [
+        {
+          "id": "A",
+          "text": "If the receipt service experiences a crash, live ride booking and cab matching continue running normally.",
+          "isCorrect": true,
+          "explanation": "Correct! Microservices isolate failures so a problem in one service does not take down the rest of the app."
+        },
+        {
+          "id": "B",
+          "text": "It gives every passenger a free helicopter ride to work.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Microservices are an architectural pattern for server software, not a transportation vehicle."
+        },
+        {
+          "id": "C",
+          "text": "It forces all cab drivers to turn off their car engines.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Microservices keep digital systems running reliably, they do not affect car engines."
+        }
+      ],
+      "hint": "Hint: Think about what happens if one tool in your toolbox breaks—do your other tools keep working?"
+    }
   },
   {
     "id": 20,
-    "stage": 9,
+    "stage": 4,
     "sno": 20,
-    "topic": "BASE Model",
-    "concept": "BASE: Basically Available, Soft state, Eventual consistency",
-    "title": "Level 20: The Relaxed Ledger (The BASE Model)",
-    "time": "Day 460 — Viral Potato Chip Thumbs-Up Storm",
-    "usersCount": "50,000 Concurrent Like Clicks on Catalog",
-    "topicHint": "The BASE Model & Eventual Consistency",
-    "situation": "Your online supermarket catalog features customer reviews, product view counters, and thumbs-up recommendation badges. Currently, every time a shopper clicks \"Like\" on a brand of potato chips, the platform halts all background operations, acquires global table locks across 50 database servers, and waits until every single server on the continent confirms that the counter changed from 1,420 to 1,421. Because thousands of shoppers are clicking \"Like\" simultaneously, the entire website stutters and freezes over tiny badge counts.",
-    "problem": "How should you architect high-volume social counters without acquiring expensive distributed locks or freezing the store?",
-    "simulationType": "base_eventual_consistency",
+    "topic": "Authentication and Authorization",
+    "concept": "Authentication and Authorization",
+    "title": "Level 20: Proving Who You Are vs. What You Are Allowed to Do",
+    "time": "Rider Login & Security Gate",
+    "usersCount": "Regular Riders vs Customer Support Admins",
+    "topicHint": "Who You Are (AuthN) vs. What You Can Do (AuthZ)",
+    "situation": "A passenger logs into Ola using their phone number and a 4-digit OTP. They have successfully proven: \"I am Rahul, phone 9876543210.\" Once in the app, Rahul discovers an internal developer URL: 'admin.olacabs.com/issue-refund-10000'. When Rahul clicks it, an unsecure server allows the refund because it thinks: \"Well, Rahul is logged in, so he can do whatever he wants!\"",
+    "problem": "What is the critical difference between verifying WHO someone is and checking WHAT they are allowed to do?",
+    "simulationType": "auth_identity_verification",
     "choices": [
       {
         "id": "A",
-        "text": "Continue using strict ACID transactions with global distributed locks for every single comment, review, and view counter.",
-        "isOptimal": false,
-        "consequenceText": "Your infrastructure collapses under lock contention. Customers cannot browse products because servers are waiting for distributed consensus across dozens of nodes just to update a trivial thumbs-up icon. High latency causes shoppers to abandon carts, wasting computing resources on non-critical data.",
-        "resultState": "base_acid_lock_freeze",
+        "text": "Authentication verifies identity (Who are you?); Authorization checks permissions (What are you allowed to do?).",
+        "isOptimal": true,
+        "consequenceText": "Spot on! Authentication proved Rahul is Rahul via OTP. But Authorization stops Rahul from issuing refunds because his role is 'Regular Rider', not 'Ola Finance Admin'. This keeps the app safe from unauthorized actions!",
         "statImpact": {
-          "latency": "Severe Lock Contention",
-          "capacity": "Freezing Catalog",
-          "risk": "Global Lock Stutters",
-          "cost": "Abandoned Carts"
+          "latency": "Secure Check",
+          "capacity": "Strict Roles",
+          "risk": "Zero Admin Hacks",
+          "cost": "Protected"
         },
         "whatHappened": {
-          "helped": "Every single node showed the exact same thumbs-up number at every nanosecond.",
-          "bottleneck": "Treating casual thumbs-up counters like core banking ledgers acquired distributed locks across 50 servers and froze the entire website!",
-          "reflectionQuestion": "Why should non-critical analytics and social counters never be governed by strict ACID guarantees?"
-        }
+          "helped": "Separated identity verification from role-based permission enforcement.",
+          "bottleneck": "Assuming an authenticated user has permission to do everything creates massive security exploits.",
+          "reflectionQuestion": "Why should logging in not automatically grant access to admin controls?"
+        },
+        "successSummary": "Awesome! You enforced proper Authorization to protect administrative controls and user wallets."
       },
       {
         "id": "B",
-        "text": "Adopt the BASE model: accept that non-critical counters can be slightly out-of-sync for a few seconds across servers (Soft State), allowing the system to stay fast and available, converging on the exact count eventually (Eventual Consistency).",
-        "isOptimal": true,
-        "consequenceText": "The entire platform runs at blazing speed. Shoppers click \"Like\" instantly with 0ms delay. A shopper in Delhi might temporarily see 1,425 likes while a shopper in Mumbai sees 1,422, but within three seconds, background gossiping syncs the counts to 1,428 everywhere. The store remains 100% available, and servers handle massive traffic effortlessly.",
-        "resultState": "base_eventual_success",
+        "text": "Treat authentication and authorization as the same thing, letting any logged-in rider issue refunds to themselves.",
+        "isOptimal": false,
+        "consequenceText": "Dishonest users issue millions of rupees in fake refunds to their bank accounts. The company loses all its cash reserves in hours.",
         "statImpact": {
-          "latency": "Sub-millisecond",
-          "capacity": "Limitless Likes/Sec",
-          "risk": "Zero Downtime",
-          "cost": "Highly Efficient"
+          "latency": "Compromised",
+          "capacity": "Fraud Rampant",
+          "risk": "Bankruptcy",
+          "cost": "Massive Theft"
         },
-        "successSummary": "The BASE model (Basically Available, Soft state, Eventual consistency) provides high availability and massive throughput for non-critical telemetry and counters!"
+        "whatHappened": {
+          "helped": "Assumed login is all that is required for permissions.",
+          "bottleneck": "Lack of authorization checks allows privilege escalation.",
+          "reflectionQuestion": "Would a bank let any customer walk into the vault just because they have an ATM card?"
+        }
       },
       {
         "id": "C",
-        "text": "Remove all reviews, ratings, and view counts completely from the website.",
+        "text": "Remove login completely and let anyone use the app without any phone number or password.",
         "isOptimal": false,
-        "consequenceText": "Shoppers feel blind. Without customer ratings, product popularity metrics, or review feedback, engagement drops by 60%. Visitors assume the supermarket is untrustworthy and abandon the app for competing platforms with rich social proof.",
-        "resultState": "base_features_removed",
+        "consequenceText": "Anyone can impersonate any rider, book cabs under fake names, and steal saved wallet balances. Nobody can use the service safely.",
         "statImpact": {
-          "latency": "No Counters",
-          "capacity": "Stagnant",
-          "risk": "Customer Mistrust",
-          "cost": "60% Revenue Drop"
+          "latency": "Lawless",
+          "capacity": "Stolen Accounts",
+          "risk": "100% Vulnerable",
+          "cost": "App Destroyed"
         },
         "whatHappened": {
-          "helped": "You eliminated the distributed counter write workload completely.",
-          "bottleneck": "Deleting social proof and rating badges destroyed customer trust and dropped platform conversions by 60%!",
-          "reflectionQuestion": "How does Eventual Consistency allow modern applications to offer rich interactive features without sacrificing speed?"
+          "helped": "Removed security to make things easy.",
+          "bottleneck": "Online systems require both identity verification and permission control.",
+          "reflectionQuestion": "Why does every real-world service require an account and verification?"
         }
       }
     ],
     "discovery": {
-      "badge": "BASE Model",
-      "tagline": "Basically Available, Soft state, Eventual consistency for web-scale systems",
-      "simpleMeaning": "The BASE model is the polar opposite of strict ACID: it prioritizes high availability and low latency by accepting that data can be temporarily out-of-sync, converging eventually.",
-      "analogy": "If a friend changes their phone number, they do not pause the entire city's cell towers until all 1,000 friends update their address books. They tell friends gradually, and eventually everyone has the new number.",
+      "badge": "Authentication & Authorization",
+      "tagline": "Authentication verifies who you are; Authorization decides what you can do",
+      "simpleMeaning": "Authentication (AuthN) asks: 'Who are you?' It verifies your identity using credentials like an OTP, password, or fingerprint. Authorization (AuthZ) asks: 'What permissions do you have?' It checks whether your verified role (e.g., Passenger, Driver, Customer Support, Super Admin) is permitted to perform a specific action.",
+      "pubgExample": "When you enter your OTP, Ola Authenticates you as 'Rider_Rahul'. When Rahul tries to click 'Refund ₹5,000', the server checks Authorization: if you are a Customer Support Manager, it permits the refund; if you are an ordinary rider, it blocks the button with 'Access Denied'.",
+      "analogy": "An airport: Your passport and photo ID Authenticate that you are John. But Authorization checks your boarding pass to see if you can enter the business class lounge, and only authorized pilots can enter the cockpit!",
       "howItWorks": [
-        "1. Basically Available (BA): The system guarantees availability for all requests, even if some nodes are degraded or returning cached approximations.",
-        "2. Soft State (S): The state of data may shift over time without direct user interaction, as background replication streams propagate updates.",
-        "3. Eventual Consistency (E): Given a period without new writes, all distributed replicas converge to become mathematically consistent.",
-        "4. Contrast with ACID: ACID demands pessimistic locking and immediate consistency (banking ledgers); BASE enables optimistic asynchronous scaling (social likes, views, carts)."
+        "1. Authentication (AuthN): Rider enters phone number and OTP; server issues a secure session token (JWT).",
+        "2. Identity Established: The system now knows exactly which User ID made the request.",
+        "3. Authorization (AuthZ): When an action is requested, the server checks the user's role and permissions.",
+        "4. Access Decision: If authorized, action completes; if not authorized, server returns HTTP 403 Forbidden."
       ],
-      "whyItMatters": "Web platforms with millions of users cannot acquire global locks across servers. BASE enables horizontal scaling across distributed data stores (like Cassandra and DynamoDB).",
-      "visualExplanation": "User Clicks Like ──► Local Node Updates Instantly (1,421)\n                           │\n               [Asynchronous Gossip Sync]\n                           ▼\nAll 50 Nodes Converge to Exact Count (1,428) in 3 seconds",
+      "whyItMatters": "Prevents normal riders from accessing developer tools, issuing fake refunds, or tampering with driver earnings.",
+      "visualExplanation": "[Rider Enters OTP] ──► [Authentication (AuthN)] ──► Identity: 'Rider_Rahul'\n                                         │\n[Tries to Issue Refund] ──► [Authorization (AuthZ)] ──► Blocked! (Role: Rider, Not Admin)",
       "contrast": {
-        "termA": "ACID Model (Pessimistic Consistency)",
-        "descA": "Immediate strict consistency, rigid schemas, row/table locks, high latency overhead. Mandatory for financial accounting.",
-        "termB": "BASE Model (Optimistic Availability)",
-        "descB": "High availability, asynchronous replication, soft state, sub-millisecond responses, converging eventually. Ideal for social feeds and telemetry."
+        "termA": "Authentication (AuthN)",
+        "descA": "Verifies identity ('Who are you?'); uses passwords, OTPs, biometrics, and login tokens.",
+        "termB": "Authorization (AuthZ)",
+        "descB": "Checks permissions ('What can you do?'); enforces roles (Rider vs Driver vs Support Admin)."
       },
-      "advancedInfo": "Eventual consistency systems often utilize Conflict-Free Replicated Data Types (CRDTs) or Last-Write-Wins (LWW) timestamps to merge concurrent updates without centralized coordination.",
       "teacherNotes": {
-        "concept": "BASE Properties, ACID vs. BASE, Eventual Consistency, CRDTs",
-        "experience": "Students experienced the freeze caused by acquiring global distributed locks across 50 servers for potato chip thumbs-up counters.",
-        "realWorld": "YouTube view counts, Twitter retweets, and Amazon product reviews all rely on BASE models to display approximate counts that converge eventually.",
-        "question": "Why is Eventual Consistency acceptable for YouTube video view counters but completely unacceptable for bank account balances?"
-      }
+        "concept": "Authentication (AuthN), Authorization (AuthZ), RBAC (Role-Based Access Control), Security",
+        "experience": "Students learned the vital distinction between verifying identity and granting permission.",
+        "realWorld": "OAuth 2.0, JWT tokens, and IAM systems handle AuthN and AuthZ across Ola, Google, and AWS.",
+        "question": "If you show your college ID card to enter the campus, is that Authentication or Authorization?"
+      },
+      "olaExample": "When you enter your OTP, Ola Authenticates you as 'Rider_Rahul'. When Rahul tries to click 'Refund ₹5,000', the server checks Authorization: if you are a Customer Support Manager, it permits the refund; if you are an ordinary rider, it blocks the button with 'Access Denied'."
     },
-    "youtubeUrl": "https://youtu.be/YWXRUbyX_E0?si=wnW_juQ8hBm86jn2",
-    "videoId": "YWXRUbyX_E0",
-    "videoTitle": "BASE Properties in System Design"
+    "knowledgeCheck": {
+      "question": "When Ola checks whether your account has permission to view administrative driver earnings reports, which security step is it performing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Authorization (checking whether your verified account has permission to view internal financial reports).",
+          "isCorrect": true,
+          "explanation": "Correct! Authorization checks permissions to decide what actions an authenticated user is permitted to do."
+        },
+        {
+          "id": "B",
+          "text": "Authentication (asking you to enter an OTP for the first time).",
+          "isCorrect": false,
+          "explanation": "Incorrect. Authentication verifies who you are, while authorization checks your permissions."
+        },
+        {
+          "id": "C",
+          "text": "In-cab air conditioning temperature control.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Car climate control has nothing to do with software access permissions."
+        }
+      ],
+      "hint": "Hint: The system already knows who you are; it is checking if you have the PERMISSION to view the report."
+    }
   },
   {
     "id": 21,
-    "stage": 9,
+    "stage": 5,
     "sno": 21,
-    "topic": "Fault Tolerance & Resilience",
-    "concept": "Fault Tolerance & Resilience: Redundancy, recovery, graceful degradation",
-    "title": "Level 21: The Power Outage Drill (Fault Tolerance & Resilience)",
-    "time": "Day 490 — Midnight Warehouse Lightning Storm",
-    "usersCount": "Main Power Line Snapped & Server Rack Shorted",
-    "topicHint": "Fault Tolerance & Graceful Degradation",
-    "situation": "A major lightning storm hits your main warehouse district. The main power line snaps, one of your three server racks shorts out, and the automated package-sorting belt in the basement jams. At the same time, thousands of active shoppers are placing orders online. Your floor manager runs into the office: \"Boss, half our infrastructure is burning! What do we do?\"",
-    "problem": "How do you design a system architecture that continues processing customer transactions during severe hardware failures?",
-    "simulationType": "fault_tolerance_resilience",
+    "topic": "Scalability – Vertical vs. Horizontal Scaling",
+    "concept": "Scalability – Vertical vs. Horizontal Scaling",
+    "title": "Level 21: Monsoon Rain Rush — Adding 20 Servers vs. 1 Expensive Chip",
+    "time": "Heavy Monsoon Storm — Mumbai & Pune",
+    "usersCount": "Surge from 10,000 to 300,000 Ride Requests",
+    "topicHint": "Upgrading 1 Computer vs. Adding a Team of Computers",
+    "situation": "Heavy monsoon rains start in Mumbai. Ride requests suddenly surge from 10,000 to 300,000 in 15 minutes! The main dispatch server computer is running at 99% CPU load and getting red hot. An engineer suggests: \"Let's just keep buying bigger and more expensive RAM and CPU chips for this single computer!\" But the biggest chip on Earth still won't be enough.",
+    "problem": "How should Ola scale its dispatch system to handle massive surges in ride requests?",
+    "simulationType": "scaling_cluster_nodes",
     "choices": [
       {
         "id": "A",
-        "text": "Do not plan for hardware failures. Let the entire store and website shut down completely whenever any single component breaks.",
-        "isOptimal": false,
-        "consequenceText": "Your business experiences frequent, costly downtime. A single blown fuse or fried network switch brings down your entire e-commerce pipeline. Customer checkouts freeze midway, orders are lost, and your reputation for reliability is ruined.",
-        "resultState": "fault_complete_blackout",
+        "text": "Use Horizontal Scaling: add 20 standard server computers to share the ride booking load as a team.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! Horizontal Scaling (scaling out) means adding more computers to share the work. There is no limit to how many servers you can add, and if one breaks, the other 19 keep cabs booking smoothly!",
         "statImpact": {
-          "latency": "Infinite Downtime",
-          "capacity": "0% Operating",
-          "risk": "Fragile Monolith",
-          "cost": "Huge Revenue Loss"
+          "latency": "20ms",
+          "capacity": "300,000 Smooth",
+          "risk": "Zero Single Point of Failure",
+          "cost": "Cost-Effective"
         },
         "whatHappened": {
-          "helped": "You saved initial hardware setup costs by avoiding redundancy.",
-          "bottleneck": "A single power line snap took down the entire platform because there was zero hardware redundancy or failover!",
-          "reflectionQuestion": "Why must high-availability systems assume that hardware components will inevitably fail at runtime?"
-        }
+          "helped": "Scaled horizontally by adding standard servers to distribute load.",
+          "bottleneck": "Vertical scaling hits hard physical limits, becomes exponentially expensive, and remains a single point of failure.",
+          "reflectionQuestion": "Why is hiring 10 normal workers safer than hiring one giant bodybuilder who might get sick?"
+        },
+        "successSummary": "Great decision! You used horizontal scaling to support 300,000 riders without hardware limits."
       },
       {
         "id": "B",
-        "text": "Design for Fault Tolerance: utilize redundant power generators, automatic server failover, and Graceful Degradation (temporarily disable non-essential features like personalized recommendations so checkout keeps working).",
-        "isOptimal": true,
-        "consequenceText": "The supermarket demonstrates high operational resilience: Redundancy kicks on Uninterruptible Power Supplies (UPS) and backup diesel generators within seconds. Automatic Failover routes network traffic away from the fried server rack to the two healthy standby racks. Graceful Degradation sheds heavy machine-learning recommendation models, keeping 100% of core billing and checkout processing online without missing a single customer order!",
-        "resultState": "fault_resilience_success",
+        "text": "Stick to Vertical Scaling: spend ₹50,00,000 trying to find one giant computer until no bigger parts exist and it crashes.",
+        "isOptimal": false,
+        "consequenceText": "Single-computer hardware has physical limits. Once you hit the maximum CPU size, you cannot upgrade further. When that single computer crashes, all 300,000 riders lose connection at once.",
         "statImpact": {
-          "latency": "15ms Seamless",
-          "capacity": "100% Core Checkout",
-          "risk": "Zero Downtime",
-          "cost": "Fault Tolerant"
+          "latency": "Laggy",
+          "capacity": "Hardware Ceiling Hit",
+          "risk": "Total Single-Point Crash",
+          "cost": "Extremely Expensive"
         },
-        "successSummary": "Fault-tolerant architecture pairs redundant hardware with automatic failover and graceful degradation, shedding non-essential load to keep core checkout online!"
+        "whatHappened": {
+          "helped": "Upgraded single machine hardware.",
+          "bottleneck": "Vertical scaling is limited by physics and costs far more per unit of compute.",
+          "reflectionQuestion": "What happens when the fastest processor in the world is still too slow for your traffic?"
+        }
       },
       {
         "id": "C",
-        "text": "Send staff into the burning server room to manually hold wires together with their bare hands.",
+        "text": "Refuse to let new riders enter the app and lock the server at 10,000 riders forever.",
         "isOptimal": false,
-        "consequenceText": "A dangerous safety violation occurs. Staff members suffer electric shocks, emergency services evacuate the entire building, and government safety regulators shut down your company pending criminal investigations.",
-        "resultState": "fault_hazard_disaster",
+        "consequenceText": "290,000 stranded riders in the rain get 'Service Unavailable' errors. Riders uninstall Ola and book other cabs.",
         "statImpact": {
-          "latency": "Evacuated",
-          "capacity": "Government Lockout",
-          "risk": "Fatal Safety Violations",
-          "cost": "Criminal Penalties"
+          "latency": "Locked",
+          "capacity": "Capped at 10k",
+          "risk": "Massive Customer Churn",
+          "cost": "Lost Revenue"
         },
         "whatHappened": {
-          "helped": "You attempted manual human heroism.",
-          "bottleneck": "Substituting software automated failover with dangerous manual improvisation led to safety hazards and an emergency shutdown!",
-          "reflectionQuestion": "Why should high-availability failover be completely automated rather than dependent on human intervention?"
+          "helped": "Avoided scaling by rejecting users.",
+          "bottleneck": "Refusing growth destroys business value.",
+          "reflectionQuestion": "How should an online business respond when popularity grows?"
         }
       }
     ],
     "discovery": {
-      "badge": "Fault Tolerance & Resilience",
-      "tagline": "Redundancy, automatic failover, and graceful degradation under hardware failures",
-      "simpleMeaning": "Fault tolerance is the ability of a system to keep running smoothly even when underlying hardware, servers, or power lines suffer catastrophic failures.",
-      "analogy": "A modern commercial airplane does not rely on a single jet engine or a single hydraulic line. It has multiple backup engines and emergency batteries so the plane lands safely if an engine fails.",
+      "badge": "Vertical vs. Horizontal Scaling",
+      "tagline": "Scaling Up (bigger computer) vs. Scaling Out (more computers working together)",
+      "simpleMeaning": "Scalability is the ability of a system to handle more traffic by adding resources. Vertical Scaling ('Scaling Up') means making one computer more powerful by adding faster CPUs and more RAM. Horizontal Scaling ('Scaling Out') means adding more computers to work together as a team.",
+      "pubgExample": "When rain starts in Mumbai and ride requests jump from 20,000 to 200,000, Ola automatically spins up 30 new cloud servers (Horizontal Scaling) to share the dispatch load evenly.",
+      "analogy": "Moving heavy cargo: Vertical scaling is hiring one bodybuilder (who can still get exhausted or injured). Horizontal scaling is hiring 15 regular movers who easily carry the boxes together.",
       "howItWorks": [
-        "1. Redundancy (No Single Point of Failure): Duplicate critical components (multi-AZ servers, dual power supplies, database replicas) so standby nodes take over instantly.",
-        "2. Automated Failover: Health checks and consensus protocols detect dead nodes and redirect traffic in milliseconds without human intervention.",
-        "3. Graceful Degradation: Under severe stress, non-essential background tasks (like complex recommendations or animations) are temporarily disabled to protect core checkout.",
-        "4. Chaos Engineering: Proactively injecting intentional failures (like Netflix Chaos Monkey) during business hours to prove the system heals automatically."
+        "1. Vertical Scaling (Scale Up): Fast initially, but hits a hard physical ceiling and becomes very expensive.",
+        "2. Horizontal Scaling (Scale Out): Add dozens of standard servers that share the work.",
+        "3. Auto-Scaling: Add servers automatically when rain starts, and turn them off at night to save money.",
+        "4. High Availability: If 1 out of 30 servers crashes, 29 servers keep running without riders noticing."
       ],
-      "whyItMatters": "Hardware failure in large-scale data centers is not an anomaly; it is a mathematical daily guarantee. Resilient systems stay online regardless.",
-      "visualExplanation": "[Main Rack Shorts Out] ──► [Heartbeat Failure Detected in 200ms]\n                                   │\n                [Traffic Auto-Routed to Standby Racks]\n                                   │\n[Core Checkout Remains 100% Online • Non-Essential AI Shed]",
+      "whyItMatters": "Horizontal scaling allows Ola to grow from a small startup in one city to a national platform handling millions of rides daily.",
+      "visualExplanation": "[Vertical Scaling: 1 Giant Server]\n[Bigger CPU + More RAM] ──► Hits physical hardware limit! (Risky)\n\n[Horizontal Scaling: Fleet of Servers]\n[Server 1] + [Server 2] + [Server 3] + [Server 4] ──► Infinite Growth!",
       "contrast": {
-        "termA": "Fault Tolerance",
-        "descA": "System operates without any user-perceptible degradation despite component failure (zero dropped requests).",
-        "termB": "Graceful Degradation",
-        "descB": "System steps down to reduced service levels (e.g., plain checkout without AI recommendations) to protect core business functions."
+        "termA": "Horizontal Scaling (Scale Out)",
+        "descA": "Add more standard computers; virtually unlimited scale, resilient, cost-effective.",
+        "termB": "Vertical Scaling (Scale Up)",
+        "descB": "Make one computer bigger; hits physical hardware limits, expensive, single point of failure."
       },
-      "advancedInfo": "Site Reliability Engineering (SRE) establishes Error Budgets and SLAs/SLOs. Redundant N+1 or 2N infrastructure clusters ensure multi-datacenter survival during natural disasters.",
       "teacherNotes": {
-        "concept": "Fault Tolerance, High Availability (99.999%), Failover, Graceful Degradation, Chaos Engineering",
-        "experience": "Students managed a lightning storm that fried power lines and a server rack, keeping checkouts running via automated failover and graceful degradation.",
-        "realWorld": "AWS and Azure data centers run redundant diesel generators with 48 hours of on-site fuel to survive statewide electrical grid blackouts.",
-        "question": "What is the difference between active-active and active-passive failover in distributed systems?"
-      }
+        "concept": "Scalability, Vertical Scaling (Scale Up), Horizontal Scaling (Scale Out), Auto-Scaling",
+        "experience": "Students learned why modern distributed architectures scale horizontally by adding nodes.",
+        "realWorld": "Cloud platforms like AWS, GCP, and Azure use horizontal auto-scaling groups for Ola, Swiggy, and Uber.",
+        "question": "What happens if you use vertical scaling and that single big computer loses power?"
+      },
+      "olaExample": "When rain starts in Mumbai and ride requests jump from 20,000 to 200,000, Ola automatically spins up 30 new cloud servers (Horizontal Scaling) to share the dispatch load evenly."
     },
-    "youtubeUrl": "https://youtu.be/rpBPMFk1ah0?si=BnLK5ZJ0GvKdKMkv",
-    "videoId": "rpBPMFk1ah0",
-    "videoTitle": "Fault Tolerance vs Resilience"
+    "knowledgeCheck": {
+      "question": "Why does Ola prefer Horizontal Scaling (adding more servers) over Vertical Scaling (buying a bigger server)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "You can add as many servers as needed without hardware limits, and if one server crashes, the others keep running.",
+          "isCorrect": true,
+          "explanation": "Correct! Horizontal scaling offers unlimited expansion and eliminates the single point of failure."
+        },
+        {
+          "id": "B",
+          "text": "It makes the physical cab tires last 10 times longer on roads.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Server scaling manages compute capacity, not physical car tire wear."
+        },
+        {
+          "id": "C",
+          "text": "It removes the need for drivers to follow traffic signals.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Server scaling does not change road traffic laws."
+        }
+      ],
+      "hint": "Hint: Think about teamwork—is it safer to rely on 1 person or a team of 10 people sharing the work?"
+    }
   },
   {
     "id": 22,
-    "stage": 9,
+    "stage": 5,
     "sno": 22,
-    "topic": "Idempotency",
-    "concept": "Idempotency: Repeated, duplicated process",
-    "title": "Level 22: The Panicked Double-Click (Idempotency)",
-    "time": "Day 520 — Slow Network Checkout Panic",
-    "usersCount": "5 Repeated 'PAY NOW' Clicks in 3 Seconds",
-    "topicHint": "Idempotency Keys & Duplicate Safety",
-    "situation": "A customer named David is standing at an automated checkout terminal. He swipes his credit card to pay Rs. 4,500 for a cart full of groceries and presses the green \"PAY NOW\" button. The screen takes 3 seconds to process because the network is slow. David gets anxious, assumes the screen didn't register his finger, and rapidly presses \"PAY NOW\" four more times in a panic.",
-    "problem": "How do you guarantee that multiple identical payment requests from an impatient user charge their account exactly once?",
-    "simulationType": "idempotency_double_click",
+    "topic": "Load Balancing",
+    "concept": "Load Balancing",
+    "title": "Level 22: Distributing 100,000 Riders Evenly Across 10 Servers",
+    "time": "Evening Rush — 100,000 Booking Requests",
+    "usersCount": "100,000 Passengers Queueing Simultaneously",
+    "topicHint": "Traffic Director that Shares Incoming Rides Evenly",
+    "situation": "At 6:00 PM, 100,000 passengers tap 'Confirm Booking' at the exact same minute. Ola has 10 powerful dispatch servers ready. But there is no traffic director! All 100,000 passengers accidentally connect to Server #1, while Servers #2 through #10 sit completely empty with 0 users! Server #1 catches fire and crashes.",
+    "problem": "How can Ola distribute incoming ride requests evenly across all available backend servers?",
+    "simulationType": "load_balancer_traffic",
     "choices": [
       {
         "id": "A",
-        "text": "Treat every single button press as a brand-new, independent payment instruction. Process all five payment requests against David's bank account.",
-        "isOptimal": false,
-        "consequenceText": "David's phone buzzes with five immediate SMS alerts from his bank: his card was charged Rs. 4,500 five separate times (totaling Rs. 22,500) for one cart of food. David is furious, contacts his bank to report fraudulent activity, demands an immediate chargeback, and leaves a scathing review online. Your finance department wastes hours processing manual refunds and paying bank dispute penalties.",
-        "resultState": "idempotency_5x_charge",
+        "text": "Place a Load Balancer in front of the servers to distribute incoming riders evenly across all 10 servers (10,000 each).",
+        "isOptimal": true,
+        "consequenceText": "Perfect solution! The Load Balancer acts as an intelligent traffic police officer. It inspects server health and distributes ride requests smoothly across all 10 servers. Each server comfortably handles 10,000 riders with zero lag!",
         "statImpact": {
-          "latency": "Charged 5x",
-          "capacity": "Rs. 22,500 Stolen",
-          "risk": "Chargebacks & Disputes",
-          "cost": "Dispute Fees"
+          "latency": "15ms Dispatch",
+          "capacity": "100,000 Smooth",
+          "risk": "Zero Server Overload",
+          "cost": "Even Load"
         },
         "whatHappened": {
-          "helped": "The server blindly executed whatever requests arrived.",
-          "bottleneck": "Without idempotency handling, five identical network requests resulted in five separate credit card deductions!",
-          "reflectionQuestion": "Why must mutating HTTP POST APIs implement idempotency keys to guard against network retries?"
-        }
+          "helped": "Used a Load Balancer to distribute traffic evenly.",
+          "bottleneck": "Unbalanced traffic floods one machine while other machines sit idle.",
+          "reflectionQuestion": "Why should an Ola load balancer route ride requests to all open dispatch servers?"
+        },
+        "successSummary": "Brilliant! You placed a load balancer in front of the server fleet to balance traffic evenly."
       },
       {
         "id": "B",
-        "text": "Implement Idempotency: assign a unique transaction token (Idempotency Key) to David's checkout attempt. If the server receives five identical requests carrying that same key, process the payment once and simply return the confirmed receipt for the rest.",
-        "isOptimal": true,
-        "consequenceText": "The system protects both the customer and the store. The first \"PAY NOW\" tap creates an Idempotency Key (e.g., `req_8f93a12`). The payment gateway charges Rs. 4,500 once and caches the result. When the four panicked duplicate taps arrive over the next two seconds, the server recognizes the identical key, ignores the duplicate charges, and immediately returns the cached success receipt. David is charged once, and checkout succeeds seamlessly!",
-        "resultState": "idempotency_shield_success",
+        "text": "Let all 100,000 riders rush directly into Server #1 until it crashes, then tell riders to try again tomorrow.",
+        "isOptimal": false,
+        "consequenceText": "Server #1 crashes instantly from memory overload. 100,000 riders receive connection errors while 9 other servers sit idle wasting money.",
         "statImpact": {
-          "latency": "Charged Exactly Once",
-          "capacity": "Safe Retries",
-          "risk": "Zero Duplicate Charges",
-          "cost": "Seamless UX"
+          "latency": "Crashed",
+          "capacity": "Server 1 Overloaded",
+          "risk": "100% Failure",
+          "cost": "Wasted 9 Idle Servers"
         },
-        "successSummary": "Idempotency keys ensure that duplicate or retried requests produce the exact same outcome as a single execution, preventing accidental double-charges!"
+        "whatHappened": {
+          "helped": "Did not balance incoming connections.",
+          "bottleneck": "A single server cannot handle the entire crowd alone.",
+          "reflectionQuestion": "What happens if 1,000 people try to enter a small shop through a single revolving door at once?"
+        }
       },
       {
         "id": "C",
-        "text": "Physically lock the customer's touch screen for 24 hours after a single tap so they can never click again.",
+        "text": "Turn off servers 2 through 10 so riders have no choice but to wait in a 4-hour queue for Server #1.",
         "isOptimal": false,
-        "consequenceText": "The register locks up completely. David cannot confirm his receipt, cannot call for assistance, and other shoppers waiting in line are blocked from using the register for the rest of the day. A ridiculous customer experience failure.",
-        "resultState": "idempotency_screen_lockout",
+        "consequenceText": "Turning off healthy servers makes the bottleneck even worse. Riders face a 4-hour queue just to get a 15-minute cab, and delete the app.",
         "statImpact": {
-          "latency": "24h Lockout",
-          "capacity": "Dead Register",
-          "risk": "Absurd UX",
-          "cost": "Register Rendered Useless"
+          "latency": "4-Hour Queue",
+          "capacity": "Crippled Fleet",
+          "risk": "Customer Exodus",
+          "cost": "Unusable"
         },
         "whatHappened": {
-          "helped": "The user could not tap the button a second time.",
-          "bottleneck": "Locking the hardware terminal prevented legitimate interaction and rendered the kiosk useless for other customers!",
-          "reflectionQuestion": "Why should idempotency be handled on the server/API layer rather than relying purely on client-side button disables?"
+          "helped": "Reduced total capacity instead of utilizing it.",
+          "bottleneck": "Under-provisioning creates artificial bottlenecks.",
+          "reflectionQuestion": "Why would you shut down healthy servers when traffic is high?"
         }
       }
     ],
     "discovery": {
-      "badge": "Idempotency",
-      "tagline": "Idempotency keys, duplicate request deduplication, and safe API retries",
-      "simpleMeaning": "An operation is idempotent if executing it multiple times produces the exact same outcome as executing it once (e.g. f(f(x)) = f(x)).",
-      "analogy": "If a delivery driver rings your doorbell five times within ten seconds, you open the front door and take the parcel once. You do not demand five identical packages and pay five times.",
+      "badge": "Load Balancing",
+      "tagline": "The intelligent traffic cop that distributes incoming requests evenly across servers",
+      "simpleMeaning": "A Load Balancer is a software or hardware device that sits between users and backend servers. It acts like a traffic director, distributing incoming requests across multiple servers so no single server gets overwhelmed while others sit empty.",
+      "pubgExample": "When 100,000 riders book cabs across Delhi, the Load Balancer routes rider 1 to Server A, rider 2 to Server B, rider 3 to Server C, and so on (Round Robin), keeping all servers fast and healthy.",
+      "analogy": "A security guard at a busy bank: Directing people to open cashier counters (Counter 1, Counter 2, Counter 3) so one counter doesn't have 100 people while the other two counters sit idle.",
       "howItWorks": [
-        "1. Idempotency Key Generation: The client creates a unique UUID (e.g., Idempotency-Key: pay_9941a) before sending the request.",
-        "2. Atomic Lock / Storage Check: The backend checks an in-memory Redis store. If the key is new, it records the key with status 'PROCESSING'.",
-        "3. Execution & Caching: The payment completes, and the successful response payload is saved in Redis with an expiration TTL (e.g. 24 hours).",
-        "4. Duplicate Deduction Shield: Any duplicate requests bearing that same key bypass payment processing and return the cached receipt immediately."
+        "1. Single Entry Point: All rider apps connect to one clean address (the Load Balancer).",
+        "2. Balancing Algorithms: Uses rules like Round Robin (taking turns) or Least Connections (finding the least busy server).",
+        "3. Health Checks: Constantly checks server health. If Server #4 crashes, the load balancer stops sending requests there.",
+        "4. High Availability: Ensures seamless cab dispatch even during peak festival hours."
       ],
-      "whyItMatters": "On mobile networks, network timeouts cause apps or browsers to automatically retry requests. Without idempotency, users get billed multiple times for single purchases.",
-      "visualExplanation": "Client Clicks 5x ──► [Idempotency Key: pay_9941a]\nRequest 1 ──► [Payment Charged: Rs. 4,500] ──► Result Cached in Redis\nRequests 2,3,4,5 ──► Key Match in Redis ──► Cached Receipt Returned (Zero Extra Charges)",
+      "whyItMatters": "Without load balancing, multiple servers cannot work together effectively, and traffic spikes crash individual machines.",
+      "visualExplanation": "                 [100,000 Riders Booking Cabs]\n                               │\n                               ▼\n                       [Load Balancer]\n            ┌──────────────────┼──────────────────┐\n            ▼                  ▼                  ▼\n       [Server 1]         [Server 2]         [Server 3]\n     (10,000 Rides)     (10,000 Rides)     (10,000 Rides)",
       "contrast": {
-        "termA": "Idempotent Operations",
-        "descA": "Can be executed repeatedly without side effects beyond initial execution (GET, PUT, DELETE, and POST with Idempotency Key).",
-        "termB": "Non-Idempotent Operations",
-        "descB": "Repeated executions accumulate side effects (e.g., standard HTTP POST creating multiple orders or charging bank cards multiple times)."
+        "termA": "Load Balanced Fleet",
+        "descA": "Traffic distributed evenly across all healthy servers; optimal performance and zero overload.",
+        "termB": "Direct Server Access",
+        "descB": "Riders connect to one server directly; one server crashes under traffic while others sit idle."
       },
-      "advancedInfo": "Stripe, Square, and PayPal APIs mandate the `Idempotency-Key` HTTP header on all financial charge endpoints to guarantee safe automated network retry behavior.",
       "teacherNotes": {
-        "concept": "Idempotency, HTTP Verbs (GET/PUT/DELETE vs POST), Idempotency Keys, Deduplication",
-        "experience": "Students witnessed an anxious customer press 'PAY NOW' five times in three seconds, and implemented idempotency tokens to charge only once.",
-        "realWorld": "Payment gateways like Stripe store Idempotency Keys in Redis clusters to safely replay identical responses during mobile network drops.",
-        "question": "Why is HTTP PUT considered inherently idempotent while HTTP POST is not?"
-      }
+        "concept": "Load Balancing, Reverse Proxy, Round Robin, Health Checks, Least Connections",
+        "experience": "Students learned how load balancers act as traffic directors to maximize resource utilization.",
+        "realWorld": "Nginx, HAProxy, AWS ALB (Application Load Balancer), and Cloudflare route trillions of web requests daily.",
+        "question": "What does a load balancer do if one of the backend servers suddenly dies?"
+      },
+      "olaExample": "When 100,000 riders book cabs across Delhi, the Load Balancer routes rider 1 to Server A, rider 2 to Server B, rider 3 to Server C, and so on (Round Robin), keeping all servers fast and healthy."
     },
-    "youtubeUrl": "https://youtu.be/6TkTtqTu1zw?si=BG27Q77y8a4sRd_K",
-    "videoId": "6TkTtqTu1zw",
-    "videoTitle": "Idempotency in API & Backend System Design"
+    "knowledgeCheck": {
+      "question": "What is the primary job of a Load Balancer in Ola's booking infrastructure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To distribute incoming ride requests evenly across multiple backend servers so no single server gets overwhelmed.",
+          "isCorrect": true,
+          "explanation": "Correct! A load balancer distributes traffic evenly across healthy servers to prevent overloads and crashes."
+        },
+        {
+          "id": "B",
+          "text": "To balance the luggage weight inside the cab's trunk.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Load balancing is a server networking concept, not physical car luggage weight."
+        },
+        {
+          "id": "C",
+          "text": "To steer the cab when the driver takes a sharp turn.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Load balancers route network traffic, they do not steer physical cars."
+        }
+      ],
+      "hint": "Hint: Think about a traffic police officer directing cars into different open lanes on a highway."
+    }
   },
   {
     "id": 23,
-    "stage": 9,
+    "stage": 5,
     "sno": 23,
-    "topic": "Distributed Transactions",
-    "concept": "Distributed Transactions: Cross-service consistency, Two-Phase Commit (2PC), Saga pattern",
-    "title": "Level 23: The Cross-Department Promise (Distributed Transactions & The Saga Pattern)",
-    "time": "Day 550 — Microservices Multi-Database Rollout",
-    "usersCount": "Order Service + Payment Service + Inventory Service",
-    "topicHint": "Distributed Transactions & Saga Pattern",
-    "situation": "Your supermarket has grown so large that it is split into three independent autonomous divisions running their own isolated databases: The Order Service (Creates the customer bill), The Payment Service (Charges the bank card), and The Inventory Service (Deducts stock from the warehouse). A customer orders a high-end microwave for Rs. 15,000. The Order Service creates the invoice, and the Payment Service debits Rs. 15,000 from the customer's account. But when the request hits the Inventory Service, the warehouse discovers the last microwave fell off a forklift and broke — there is zero stock left! The customer has already been charged, but the inventory step failed.",
-    "problem": "In a distributed microservice architecture with independent databases, how do you handle multi-step workflow failures across services?",
-    "simulationType": "saga_distributed_transactions",
+    "topic": "Caching",
+    "concept": "Caching",
+    "title": "Level 23: Fast Driver Profile Loading in 2ms vs 120ms Disk Reads",
+    "time": "Driver Match Screen — 5,000,000 Daily Lookups",
+    "usersCount": "5,000,000 Rides Matching Drivers",
+    "topicHint": "Ultra-Fast RAM Storage for Frequently Read Data",
+    "situation": "Every time a rider is matched with a cab, the app displays the driver's name, car model, license plate, and 4.8-star rating. Reading this info from the main database hard drive takes 120 milliseconds. When 5 million riders open the app during evening rush, the database hard drives choke under millions of identical read requests, making the app freeze for 10 seconds!",
+    "problem": "How can Ola serve frequently viewed driver profiles in 2 milliseconds instead of hitting slow hard drives every time?",
+    "simulationType": "caching_sticky_notepad",
     "choices": [
       {
         "id": "A",
-        "text": "Keep the customer's Rs. 15,000, mark the order as broken, and do nothing.",
-        "isOptimal": false,
-        "consequenceText": "You are stealing from your customers. The shopper's bank account was charged Rs. 15,000, but no microwave is delivered. The customer files a fraud report, credit card companies blacklist your merchant account, and your business faces severe consumer protection lawsuits.",
-        "resultState": "saga_customer_robbed",
+        "text": "Use an in-memory Cache (like Redis) to store frequently requested driver details in ultra-fast RAM memory.",
+        "isOptimal": true,
+        "consequenceText": "Blazing fast! RAM memory is over 100 times faster than reading from hard drives. The cache serves driver details in just 2 milliseconds, and takes 90% of the read traffic off the database disks!",
         "statImpact": {
-          "latency": "Corrupted State",
-          "capacity": "Failed Order",
-          "risk": "Merchant Account Blacklist",
-          "cost": "Legal Lawsuits"
+          "latency": "2ms Instant",
+          "capacity": "5M Lookups Smooth",
+          "risk": "Zero DB Overload",
+          "cost": "Optimized"
         },
         "whatHappened": {
-          "helped": "You avoided engineering a rollback mechanism.",
-          "bottleneck": "Charging the customer while leaving inventory unfulfilled created an illegal inconsistent state across microservices!",
-          "reflectionQuestion": "Why cannot microservices with separate databases rely on simple local ACID transactions?"
-        }
+          "helped": "Cached frequently read driver profile data in high-speed RAM.",
+          "bottleneck": "Disk I/O is slow; reading the same data from hard drives millions of times causes severe bottlenecks.",
+          "reflectionQuestion": "Why do you keep your favorite pen on your desk instead of walking to the store room every time you write?"
+        },
+        "successSummary": "Awesome! You introduced in-memory caching to turn 120ms disk reads into 2ms instant responses."
       },
       {
         "id": "B",
-        "text": "Two-Phase Commit (2PC): Place a hard global lock across all three services' databases until every single department verifies they are 100% ready before finalizing.",
+        "text": "Force every single ride match to query the slow hard drives directly, letting the database crash under load.",
         "isOptimal": false,
-        "consequenceText": "Two-Phase Commit (2PC) guarantees strict consistency, but creates a catastrophic performance bottleneck in microservices. Holding distributed locks across Order, Payment, and Inventory services across the network ties up database connections. When the Inventory Service slows down, all three databases lock up, paralyzing the entire company's checkout pipeline.",
-        "resultState": "saga_2pc_deadlock",
+        "consequenceText": "Database hard drives get overwhelmed with millions of disk reads. The app freezes, driver photos show as blank gray boxes, and the database crashes.",
         "statImpact": {
-          "latency": "Severe Lock Latency",
-          "capacity": "Deadlocked Services",
-          "risk": "Blocking 2PC Protocol",
-          "cost": "Pipeline Paralysis"
+          "latency": "10,000ms Freeze",
+          "capacity": "Disk I/O Bottleneck",
+          "risk": "Database Crash",
+          "cost": "Unusable"
         },
         "whatHappened": {
-          "helped": "2PC prevented uncoordinated writes using two-phase prepare/commit votes.",
-          "bottleneck": "Holding distributed locks across network boundaries caused cascading deadlocks and paralyzed all three microservices!",
-          "reflectionQuestion": "Why is Two-Phase Commit (2PC) considered an anti-pattern in modern cloud microservices architectures?"
+          "helped": "Did not use temporary fast memory.",
+          "bottleneck": "Hard drives have mechanical and physical I/O limits.",
+          "reflectionQuestion": "What happens if 1,000 students ask the teacher the exact same question in 10 seconds instead of checking the board?"
         }
       },
       {
         "id": "C",
-        "text": "The Saga Pattern (Compensating Transactions): Execute the workflow as a sequence of local transactions. When the Inventory Service fails, trigger an automatic chain of backward compensating actions (issue an immediate automatic refund and cancel the order).",
-        "isOptimal": true,
-        "consequenceText": "Your architecture stays fast, resilient, and consistent. Step 1 (Order Created) and Step 2 (Payment Charged) commit locally without holding global distributed locks. When Step 3 (Inventory) fails, the Saga Orchestrator catches the error and executes compensating transactions: it automatically calls the Payment Service to issue an instant full Rs. 15,000 refund, notifies the customer with an apology SMS, and marks the order canceled. System state remains consistent with zero blocking locks!",
-        "resultState": "saga_orchestration_success",
+        "text": "Delete driver ratings and car model names completely so there is no data to load on the screen.",
+        "isOptimal": false,
+        "consequenceText": "Passengers refuse to board cabs when they cannot verify the driver's name or car license plate for safety. Trust is ruined.",
         "statImpact": {
-          "latency": "Fast Local Tx",
-          "capacity": "Asynchronous Sagas",
-          "risk": "Zero Blocking Deadlocks",
-          "cost": "Automatic Compensation"
+          "latency": "Bland",
+          "capacity": "No Verification",
+          "risk": "Safety Complaints",
+          "cost": "Lost Trust"
         },
-        "successSummary": "The Saga Pattern manages distributed transactions as a series of local transactions with automated compensating rollbacks, ensuring eventual consistency without blocking locks!"
+        "whatHappened": {
+          "helped": "Removed features to avoid system optimization.",
+          "bottleneck": "User experience and safety must be fast, not degraded.",
+          "reflectionQuestion": "Can a cab app be safe if you hide the driver's identity from riders?"
+        }
       }
     ],
     "discovery": {
-      "badge": "Distributed Transactions & Saga Pattern",
-      "tagline": "Two-Phase Commit (2PC) vs. Saga pattern with compensating transactions",
-      "simpleMeaning": "When a business process spans multiple independent microservices, the Saga Pattern executes each step locally and triggers compensating rollback actions if a downstream step fails.",
-      "analogy": "If an online catering order requires food preparation, floral arrangements, and transportation, you do not lock all three vendors in a room until the entire day is done. If the florist runs out of flowers, they notify the coordinator, who triggers a refund for the flower portion while the rest keeps moving.",
+      "badge": "Caching",
+      "tagline": "Storing popular data in super-fast RAM memory for instant lightning retrieval",
+      "simpleMeaning": "A Cache is a temporary high-speed data store kept in computer RAM (Random Access Memory). Because reading from RAM takes less than 2 milliseconds (compared to 100+ milliseconds from disk storage), caching frequently accessed data makes apps feel instant and shields the database from traffic spikes.",
+      "pubgExample": "When your Ola cab is assigned, the driver's photo, car model, and 4.8 rating are served straight from an in-memory Redis cache in 2 milliseconds. The main database disk is only touched if the driver's info changes.",
+      "analogy": "Keeping your favorite textbook right on your study desk (cache) instead of walking downstairs to the school library basement (database) every time you need to look up a formula.",
       "howItWorks": [
-        "1. Local Transactions: Each microservice executes its step in its own database and emits an event (e.g. OrderCreated -> PaymentProcessed).",
-        "2. Distributed Coordination: Sagas can be Orchestrated (a centralized coordinator tells services what to execute) or Choreographed (services react to each other's events).",
-        "3. Failure Detection: If a downstream service fails (e.g., Inventory Out of Stock), the failure event is broadcast back up the chain.",
-        "4. Compensating Transactions: Each preceding service executes an undo operation (e.g., Payment Service executes Refund; Order Service marks Canceled)."
+        "1. Cache Hit: Request arrives -> Check fast RAM -> Data found! Return in 2ms.",
+        "2. Cache Miss: Request arrives -> Check fast RAM -> Not found -> Fetch from slower database disk -> Save copy in Cache -> Return data.",
+        "3. Invalidation (TTL): When a driver updates their phone or rating, the cache updates automatically.",
+        "4. Database Protection: Up to 95% of read queries are handled by the cache, keeping the main database relaxed."
       ],
-      "whyItMatters": "Traditional monolithic ACID transactions cannot span multiple independent cloud microservices. Sagas preserve eventual business consistency without blocking deadlocks.",
-      "visualExplanation": "[SAGA FORWARD FLOW]  Order Created ──► Payment Charged ──► Inventory Failed!\n                                                                   │\n[COMPENSATING FLOW]  Order Canceled ◄── Full Refund Issued ◄───────┘",
+      "whyItMatters": "Caching is the single most effective way to make applications lightning fast and prevent databases from crashing during rush hours.",
+      "visualExplanation": "[Rider Matched with Driver]\n         │\n         ▼\n   [Redis Cache: Fast RAM] ──Found! (Cache Hit)──► 2ms Instant Load!\n         │ (If not found)\n         ▼\n   [Main Database: Disk] ──Fetch & Save Copy in Cache──► 120ms",
       "contrast": {
-        "termA": "Two-Phase Commit (2PC - Synchronous)",
-        "descA": "Prepare and Commit phases. Holds database locks across services, creating blocking bottlenecks, single points of failure, and high latency.",
-        "termB": "Saga Pattern (Asynchronous)",
-        "descB": "Decoupled local transactions with automated compensating rollbacks. Highly scalable, non-blocking, and designed for microservices."
+        "termA": "Cached Read (RAM)",
+        "descA": "Data retrieved from ultra-fast memory in 2ms; zero database strain.",
+        "termB": "Direct Disk Read",
+        "descB": "Data read from physical hard drives in 120ms; overloads database disks under heavy traffic."
       },
-      "advancedInfo": "Compensating transactions must be designed to be idempotent and guaranteed to succeed. Retries and Dead Letter Queues (DLQs) ensure compensation actions always reach eventual consistency.",
       "teacherNotes": {
-        "concept": "Distributed Transactions, Dual-Phase Commit (2PC), Saga Pattern (Orchestration vs Choreography), Compensating Transactions",
-        "experience": "Students handled a microwave inventory failure after customer payment, replacing blocking 2PC locks with an automated Saga compensating refund.",
-        "realWorld": "Uber, Airbnb, and Amazon use Saga orchestrators to coordinate rides, bookings, and checkouts across hundreds of decoupled microservices.",
-        "question": "What is the key difference between Saga Orchestration (central controller) and Saga Choreography (event-driven peer-to-peer)?"
-      }
+        "concept": "Caching, RAM vs Disk, Cache Hit / Cache Miss, Redis, Memcached, TTL (Time-To-Live)",
+        "experience": "Students learned why RAM caching is orders of magnitude faster than disk lookups.",
+        "realWorld": "Redis and Memcached power caching for Ola, Twitter, Reddit, and YouTube.",
+        "question": "What happens when data is updated in the database? What must happen to the cached copy?"
+      },
+      "olaExample": "When your Ola cab is assigned, the driver's photo, car model, and 4.8 rating are served straight from an in-memory Redis cache in 2 milliseconds. The main database disk is only touched if the driver's info changes."
     },
-    "youtubeUrl": "https://youtu.be/Z5LqnTTH9ZM?si=gzgChRIlgBVlmq1_",
-    "videoId": "Z5LqnTTH9ZM",
-    "videoTitle": "Distributed Transactions Explained: 2PC & Saga Pattern"
+    "knowledgeCheck": {
+      "question": "How does Caching help the Ola app display driver details in 2 milliseconds instead of lagging?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It keeps frequently viewed driver details in ultra-fast RAM memory for instant delivery.",
+          "isCorrect": true,
+          "explanation": "Correct! RAM is over 100 times faster than hard disk drives, delivering data in just a few milliseconds."
+        },
+        {
+          "id": "B",
+          "text": "It forces riders to download the entire Ola app again every time a cab arrives.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Caching speeds up data retrieval, it does not re-download the app."
+        },
+        {
+          "id": "C",
+          "text": "It automatically cancels the ride if the driver takes a wrong turn.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Caching is a data storage technique, not a ride cancellation rule."
+        }
+      ],
+      "hint": "Hint: Think about why keeping a book on your desk is faster than walking to the library basement."
+    }
   },
   {
     "id": 24,
-    "stage": 10,
+    "stage": 5,
     "sno": 24,
-    "topic": "Message Queues",
-    "concept": "Message Queues: Producers, consumers, asynchronous processing",
-    "title": "Level 24: The Order Inbox Tray (Message Queues & Asynchronous Processing)",
-    "time": "Day 580 — Flash Sale Order Processing Storm",
-    "usersCount": "50,000 Concurrent Checkout Invoices & PDF Receipts",
-    "topicHint": "Message Queues & Asynchronous Decoupling",
-    "situation": "Your supermarket launches a festive holiday sale. When a customer clicks \"Confirm Order\", the backend needs to perform four heavy tasks: 1. Deduct payment from bank, 2. Generate a complex 12-page PDF tax invoice, 3. Send SMS and email notifications, 4. Send delivery route dispatch instructions to the warehouse logistics software. Currently, your web server does all four steps sequentially in a single synchronous HTTP request. Generating the PDF invoice and waiting for third-party email APIs takes 12 seconds per click! Under surge traffic, incoming web connections fill up, and the server crashes with HTTP 504 Gateway Timeouts.",
-    "problem": "How should you decouple slow, heavy background operations from fast, user-facing checkout transactions?",
+    "topic": "Content Delivery Network (CDN)",
+    "concept": "Content Delivery Network (CDN)",
+    "title": "Level 24: Downloading Car Icons & Map Tiles Instantly Across India",
+    "time": "National App Launch — 50 Million Downloads",
+    "usersCount": "50,000,000 Users Downloading Map Tiles & Icons",
+    "topicHint": "Worldwide Edge Servers Delivering Large Files Locally",
+    "situation": "Ola releases a new app update with high-resolution map tiles, 3D car icons (Auto, Mini, Prime, SUV), and driver profile avatars. The main origin storage server is located in Frankfurt, Germany. A rider in Chennai tries to download the map graphics. The heavy images must travel across 8,000 kilometers and dozens of international network cables, taking 15 seconds to load a simple car icon!",
+    "problem": "How can riders all over India download heavy map images, car graphics, and icons in milliseconds?",
+    "simulationType": "cdn_edge_kiosks",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Use a Content Delivery Network (CDN) to cache image files on local edge servers located right in Chennai, Mumbai, and Delhi.",
+        "isOptimal": true,
+        "consequenceText": "Lightning fast loading! With a CDN, static images and map tiles are cached on local edge servers near the riders. The Chennai rider downloads the car icons from a local Chennai server in 10 milliseconds with zero lag!",
+        "statImpact": {
+          "latency": "10ms Local Ping",
+          "capacity": "50M Downloads Fast",
+          "risk": "Zero Origin Overload",
+          "cost": "Bandwidth Optimized"
+        },
+        "whatHappened": {
+          "helped": "Cached large static files at local edge locations near end users.",
+          "bottleneck": "Long geographic distances increase latency, packet drops, and transmission time.",
+          "reflectionQuestion": "Why buy milk from a local neighborhood store instead of ordering from a dairy farm 8,000 km away?"
+        },
+        "successSummary": "Brilliant! You deployed a CDN to deliver heavy app assets from local edge servers across the country."
+      },
+      {
+        "id": "B",
+        "text": "Force all 50 million riders in India to download every single image directly from that one server in Germany.",
+        "isOptimal": false,
+        "consequenceText": "50 million users hitting one server in Germany saturates the internet pipes. The server crashes, riders see blank gray squares instead of cars, and complaints explode.",
+        "statImpact": {
+          "latency": "15-Second Blank Screens",
+          "capacity": "Origin Server Fried",
+          "risk": "Global Outage",
+          "cost": "Massive Overload"
+        },
+        "whatHappened": {
+          "helped": "Did not use edge distribution.",
+          "bottleneck": "A single origin server cannot handle global bandwidth demands.",
+          "reflectionQuestion": "Can one local post office deliver packages to the entire planet on the same morning?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Delete all car images, maps, and icons so riders look at a blank black screen forever.",
+        "isOptimal": false,
+        "consequenceText": "A cab booking app without maps or car icons looks broken and unusable. Riders delete the app immediately.",
+        "statImpact": {
+          "latency": "Ugly",
+          "capacity": "No Visuals",
+          "risk": "Customer Abandonment",
+          "cost": "Lost Revenue"
+        },
+        "whatHappened": {
+          "helped": "Gave up on delivering visual content.",
+          "bottleneck": "Content delivery is a solved engineering challenge that should be leveraged.",
+          "reflectionQuestion": "How do modern streaming and mobility companies deliver media daily?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Content Delivery Network (CDN)",
+      "tagline": "A worldwide network of edge servers bringing heavy content close to the user",
+      "simpleMeaning": "A Content Delivery Network (CDN) is a network of servers distributed across different cities (called Edge Servers). When a user downloads static content like map tiles, car icons, banners, or app updates, the CDN serves the file from the geographically closest server, resulting in ultra-fast speeds and low latency.",
+      "pubgExample": "When Ola releases new car graphics, the files are uploaded once to the origin server, and the CDN copies them to edge servers in Chennai, Mumbai, Delhi, and Kolkata. An Indian rider downloads the icons in milliseconds from their own city.",
+      "analogy": "A local neighborhood grocery warehouse: Instead of traveling 1,000 miles to the manufacturer's factory to buy groceries, you walk down the street to your local neighborhood shop that keeps fresh inventory on hand.",
+      "howItWorks": [
+        "1. Origin Server: The company uploads new map graphics and car icons to their origin storage.",
+        "2. Edge Caching: CDN edge servers across hundreds of cities cache copies of the files.",
+        "3. Geo-DNS Routing: When a rider opens the app, the system directs them to the closest physical server.",
+        "4. Offload Origin: The central server is protected from millions of direct image download requests."
+      ],
+      "whyItMatters": "Reduces load times from seconds to milliseconds, saves bandwidth costs, and ensures smooth visuals without crashing central servers.",
+      "visualExplanation": "[Origin Server: Frankfurt, Germany]\n       │ (Copies file once)\n       ▼\n┌──────┴──────────────────────────┐\n▼                                 ▼\n[CDN Edge: Chennai]               [CDN Edge: Mumbai]\n       │ (10ms Local Download)           │ (10ms Local Download)\n       ▼                                 ▼\n[Rider in Chennai: Instant!]      [Rider in Mumbai: Instant!]",
+      "contrast": {
+        "termA": "CDN Edge Delivery",
+        "descA": "Files downloaded from local servers nearby; low latency, lightning fast downloads.",
+        "termB": "Single Origin Server",
+        "descB": "Files travel across oceans; slow downloads, high packet loss, server crashes."
+      },
+      "teacherNotes": {
+        "concept": "Content Delivery Network (CDN), Edge Servers, PoP (Points of Presence), Latency, Bandwidth Offload",
+        "experience": "Students learned how CDNs solve geographic distance latency for large media and static files.",
+        "realWorld": "Cloudflare, Akamai, and AWS CloudFront power media delivery for Ola, Netflix, YouTube, and Swiggy.",
+        "question": "Why is a CDN perfect for map image tiles and car icons, but not for live cab booking matching?"
+      },
+      "olaExample": "When Ola releases new car graphics, the files are uploaded once to the origin server, and the CDN copies them to edge servers in Chennai, Mumbai, Delhi, and Kolkata. An Indian rider downloads the icons in milliseconds from their own city."
+    },
+    "knowledgeCheck": {
+      "question": "Why does Ola use a Content Delivery Network (CDN) for downloading car icons and map tiles?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To deliver heavy files from local edge servers physically close to the rider, making screens load in milliseconds.",
+          "isCorrect": true,
+          "explanation": "Correct! CDNs cache heavy content at edge locations worldwide, drastically cutting distance and download times."
+        },
+        {
+          "id": "B",
+          "text": "To make the physical cab drive without any driver inside.",
+          "isCorrect": false,
+          "explanation": "Incorrect. CDNs deliver media files over computer networks; they do not control physical car steering."
+        },
+        {
+          "id": "C",
+          "text": "To charge riders triple the fare when it rains.",
+          "isCorrect": false,
+          "explanation": "Incorrect. CDNs are for fast file delivery, not surge pricing algorithms."
+        }
+      ],
+      "hint": "Hint: Think about downloading an image from a server in your own city versus a server on the other side of the planet."
+    }
+  },
+  {
+    "id": 25,
+    "stage": 6,
+    "sno": 25,
+    "topic": "Message Queues and Background Processing",
+    "concept": "Message Queues and Background Processing",
+    "title": "Level 25: Generating Trip Invoices Without Freezing the App",
+    "time": "Trip Completion Screen — 'Ride Completed!'",
+    "usersCount": "100,000 Rides Finishing Simultaneously",
+    "topicHint": "Doing Heavy Tasks in the Background Without Making Users Wait",
+    "situation": "Your Ola ride finishes: 'You have reached your destination!' At that exact moment, four heavy tasks must happen: (1) calculate driver commission, (2) generate a PDF invoice, (3) send an email receipt, and (4) send an SMS notification. The current server executes these tasks synchronously, forcing the rider and driver to stare at a frozen loading screen for 20 seconds before they can exit the app!",
+    "problem": "How can Ola let riders and drivers exit the app immediately while finishing heavy invoice tasks in the background?",
     "simulationType": "message_queues_async",
     "choices": [
       {
         "id": "A",
-        "text": "Force customers to stand and wait on the screen for 12 seconds while the single web server generates PDF invoices and sends emails synchronously.",
-        "isOptimal": false,
-        "consequenceText": "Your checkout system grinds to a halt under load. Web server thread pools are held hostage waiting for third-party email and PDF APIs. When 5,000 shoppers try to checkout during the sale, thread pools exhaust, the server crashes, and customers experience HTTP 504 Gateway Timeouts.",
-        "resultState": "mq_synchronous_timeout",
+        "text": "Use a Message Queue: drop the invoice tasks into a background queue and let riders exit the app immediately.",
+        "isOptimal": true,
+        "consequenceText": "Smooth and fast! The server drops the 'Trip_Completed' event into a Message Queue (like RabbitMQ or Kafka) in 5 milliseconds and immediately unlocks the app. Dedicated background worker servers generate the PDF invoices and send emails smoothly in the background!",
         "statImpact": {
-          "latency": "12s Sync Freeze",
-          "capacity": "Thread Pool Exhaustion",
-          "risk": "HTTP 504 Timeouts",
-          "cost": "Abandoned Festive Sales"
+          "latency": "5ms App Response",
+          "capacity": "Zero Lag",
+          "risk": "Zero Frozen Screens",
+          "cost": "Asynchronous Workers"
         },
         "whatHappened": {
-          "helped": "All four steps completed before responding to the user.",
-          "bottleneck": "Forcing the client to wait synchronously for 12-second PDF and email tasks exhausted server worker threads and crashed checkout!",
-          "reflectionQuestion": "Why should slow, third-party, or compute-heavy background tasks never block the user HTTP request thread?"
-        }
+          "helped": "Decoupled user response from heavy background processing using a message queue.",
+          "bottleneck": "Synchronous processing blocks the user until every slow sub-task finishes.",
+          "reflectionQuestion": "Why does a waiter take your food order ticket to the kitchen and serve the next table instead of cooking the meal himself?"
+        },
+        "successSummary": "Brilliant! You used a message queue for asynchronous background processing to eliminate rider wait times."
       },
       {
         "id": "B",
-        "text": "Implement Asynchronous Processing with a Message Queue (e.g., RabbitMQ / AWS SQS): complete the fast payment step in 50ms, drop order background tasks into a durable queue, return instant success to the customer, and let background worker servers process invoices and emails asynchronously.",
-        "isOptimal": true,
-        "consequenceText": "The user experience becomes instantaneous and bulletproof. The customer clicks \"Confirm Order\" and receives a confirmed order screen in just 50 milliseconds! Behind the scenes, the web server (Producer) pushes tasks into a Message Queue. Dedicated background worker servers (Consumers) pull tasks from the queue and generate PDFs and send emails at their own steady pace. When traffic spikes 10x, the queue safely buffers the backlog with zero server crashes!",
-        "resultState": "mq_async_queue_success",
+        "text": "Keep riders and drivers frozen on the payment screen for 20 seconds until every single email and PDF finishes.",
+        "isOptimal": false,
+        "consequenceText": "Riders hate staring at a frozen screen when they are in a hurry to catch a flight. Many force-close the app, causing corrupted payment states.",
         "statImpact": {
-          "latency": "50ms Instant Response",
-          "capacity": "50,000 Orders Buffered",
-          "risk": "Zero Server Crashes",
-          "cost": "Elastic Worker Scaling"
+          "latency": "20,000ms Delay",
+          "capacity": "Blocked Connections",
+          "risk": "Frustrated Users",
+          "cost": "Poor UX"
         },
-        "successSummary": "Message queues decouple producers from consumers, buffering traffic spikes and offloading heavy tasks to asynchronous background workers with sub-second user responses!"
+        "whatHappened": {
+          "helped": "Processed tasks sequentially on the main thread.",
+          "bottleneck": "Synchronous blocking creates terrible user experiences.",
+          "reflectionQuestion": "Would you keep using an app that freezes for half a minute after every ride?"
+        }
       },
       {
         "id": "C",
-        "text": "Permanently stop generating invoices and stop sending confirmation emails to customers forever.",
+        "text": "Cancel all trip invoices, receipts, and driver commissions completely so the server has zero work to do.",
         "isOptimal": false,
-        "consequenceText": "Customers become anxious and inundate your customer support hotline demanding to know if their order went through. Tax authorities issue penalties for failing to generate legally mandated GST invoice documents.",
-        "resultState": "mq_features_dropped",
+        "consequenceText": "Without invoices, corporate riders cannot claim expenses, and drivers never get their commission records. The business faces legal penalties.",
         "statImpact": {
-          "latency": "Zero Emails",
-          "capacity": "Support Overwhelmed",
-          "risk": "Legal Tax Penalties",
-          "cost": "Massive Support Burden"
+          "latency": "Lawless",
+          "capacity": "No Records",
+          "risk": "Tax Violations",
+          "cost": "Unusable"
         },
         "whatHappened": {
-          "helped": "You eliminated background task processing.",
-          "bottleneck": "Erasing invoices and email notifications caused massive customer anxiety and legal tax audit violations!",
-          "reflectionQuestion": "How do message queues allow organizations to satisfy complex operational and legal requirements without slowing down user interactions?"
+          "helped": "Avoided computing background work by deleting features.",
+          "bottleneck": "Engineering must enable features asynchronously, not remove them.",
+          "reflectionQuestion": "Why are invoices and financial receipts legally required for businesses?"
         }
       }
     ],
     "discovery": {
-      "badge": "Message Queues",
-      "tagline": "Producers, consumers, message buffers, and asynchronous task offloading",
-      "simpleMeaning": "A Message Queue is a durable temporary waiting line that decouples fast web servers from slow background tasks (like PDF generation or email sending).",
-      "analogy": "When you order food at a fast-food counter, the cashier takes payment, hands you a ticket number, and calls the next customer in line. You do not stand at the counter staring at the chef while he fries potatoes; the kitchen works from a background ticket rail.",
+      "badge": "Message Queues & Background Processing",
+      "tagline": "Handing off heavy tasks to a background line so users never have to wait",
+      "simpleMeaning": "A Message Queue is an ordered buffer (like a to-do list line) that holds tasks. Instead of making a user wait for slow jobs (like generating PDF invoices, sending emails, or calculating commissions) to finish, the main server quickly drops a message into the queue and lets the user go. Background worker computers pick up tasks from the queue and finish them asynchronously.",
+      "pubgExample": "When your Ola ride ends, the server drops a 'Generate_Invoice' message into Kafka in 3 milliseconds and immediately shows 'Ride Finished!'. In the background, worker servers format your PDF receipt and email it to you while you walk into your office.",
+      "analogy": "A restaurant order ticket: The waiter takes your food order, clips the paper ticket to the kitchen order line (message queue), and immediately walks to the next customer. The chefs in the kitchen (worker servers) cook the meals in the background.",
       "howItWorks": [
-        "1. Producer (Web Server): Accepts user checkout, saves order state, pushes an order message onto the queue, and returns instant HTTP 200 OK to the shopper.",
-        "2. Message Queue (Buffer): A durable, persistent buffer (RabbitMQ, SQS) that holds messages in order, smoothing out sudden traffic spikes.",
-        "3. Consumer (Worker Pool): Background worker processes running on independent servers pull messages from the queue and perform heavy PDF rendering and email dispatches.",
-        "4. Load Leveling: If 50,000 orders arrive in 1 minute, the queue holds them safely without crashing the front-end servers."
+        "1. Producer (App Server): Creates a message: 'Process Trip #89421' and pushes it into the queue in 2ms.",
+        "2. Instant Response: The rider's phone screen immediately transitions to the rating screen with zero delay.",
+        "3. Message Queue (RabbitMQ / Kafka): Safely stores tasks in order until processed.",
+        "4. Consumers (Worker Fleet): Background servers pull jobs from the queue and send emails, SMS, and update ledgers."
       ],
-      "whyItMatters": "Synchronous architectures freeze and crash under traffic spikes. Message queues provide fault isolation: if the email service goes down, orders are still placed safely.",
-      "visualExplanation": "User Clicks Checkout ──► Web Server (50ms) ──► Instant Confirmed Screen!\n                                │\n                     [Pushes to Message Queue]\n                                ▼\n             [Worker 1: PDF]  |  [Worker 2: Email]  |  [Worker 3: SMS]",
+      "whyItMatters": "Keeps user interfaces fast and responsive, and buffers traffic spikes safely so servers don't crash under load.",
+      "visualExplanation": "[Ride Finishes!] ──Drop Task (2ms)──► [Message Queue: Tasks Waiting in Line]\n       │                                                │\n       ▼                                                ▼\n[Rider Exits App Instantly!]            [Background Worker Computers]\n                                        (Generates PDF, Sends Email)",
       "contrast": {
-        "termA": "Synchronous Processing (Blocking)",
-        "descA": "Client waits while server performs all steps in sequence. If any step hangs or fails, the whole user request crashes.",
-        "termB": "Asynchronous Processing (Non-Blocking)",
-        "descB": "Immediate response to user; heavy tasks placed on message queue for background processing at steady, reliable pace."
+        "termA": "Asynchronous (Message Queue)",
+        "descA": "Task dropped in queue; user gets instant response; workers process in background.",
+        "termB": "Synchronous (Blocking)",
+        "descB": "User waits on frozen screen until all calculations, PDF generation, and emails complete."
       },
-      "advancedInfo": "Message Queues guarantee At-Least-Once Delivery. Dead Letter Queues (DLQs) capture poison pill messages that fail processing multiple times for engineer inspection.",
       "teacherNotes": {
-        "concept": "Message Queues, Producers & Consumers, Decoupling, Load Leveling, Dead Letter Queues",
-        "experience": "Students solved a 12-second checkout delay and HTTP 504 timeouts by offloading PDF generation and emails to background queue workers.",
-        "realWorld": "Shopify and Amazon process millions of holiday checkout transactions through distributed queue pipelines without slowing user cart flows.",
-        "question": "What happens to messages in a message queue if all background worker servers crash simultaneously?"
-      }
+        "concept": "Message Queues, Asynchronous Processing, Producers/Consumers, Kafka, RabbitMQ, Decoupling",
+        "experience": "Students learned why decoupling time-consuming work improves user experience and system reliability.",
+        "realWorld": "Kafka, RabbitMQ, and AWS SQS power asynchronous workflows at Ola, Uber, and Amazon.",
+        "question": "What happens to the tasks in a message queue if traffic suddenly triples for 10 minutes?"
+      },
+      "olaExample": "When your Ola ride ends, the server drops a 'Generate_Invoice' message into Kafka in 3 milliseconds and immediately shows 'Ride Finished!'. In the background, worker servers format your PDF receipt and email it to you while you walk into your office."
     },
-    "youtubeUrl": "https://youtu.be/J8kZA6ocM9Q?si=XOl6SqhoS6KFc1ba",
-    "videoId": "J8kZA6ocM9Q",
-    "videoTitle": "Message Queues & Asynchronous Processing"
-  },
-  {
-    "id": 25,
-    "stage": 10,
-    "sno": 25,
-    "topic": "Pub-Sub",
-    "concept": "Pub-Sub: Message distribution patterns",
-    "title": "Level 25: The Department Loudspeaker (Publish-Subscribe / Pub-Sub)",
-    "time": "Day 610 — Storewide Event Notification Scaling",
-    "usersCount": "10 Downstream Services Listening to Order Events",
-    "topicHint": "Publish-Subscribe & One-to-Many Fanout",
-    "situation": "Whenever a customer completes an order in your supermarket, multiple internal departments need to know about it: 1. Logistics needs to dispatch delivery drivers, 2. Inventory needs to deduct shelf stock, 3. Analytics needs to update revenue charts, 4. Loyalty needs to award reward points, 5. Fraud Detection needs to check transaction anomalies. Currently, your checkout service makes direct HTTP calls to all five departments one by one. Every time a new team wants order notifications, developers must modify and redeploy the checkout codebase! When the Analytics server slows down, the entire checkout pipeline freezes.",
-    "problem": "How do you broadcast business events to multiple independent listener services without tightly coupling systems or modifying checkout code?",
-    "simulationType": "pubsub_loudspeaker",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Continue adding direct, tightly-coupled point-to-point network calls from the checkout code to every single new department service.",
-        "isOptimal": false,
-        "consequenceText": "Your architecture turns into an unmaintainable spiderweb. The checkout service depends on five different external endpoints. When the Analytics service slows down or crashes, checkout requests hang and fail. Deploying a minor update requires testing and redeploying the core billing service every time.",
-        "resultState": "pubsub_spiderweb_coupling",
-        "statImpact": {
-          "latency": "Cascading Hangs",
-          "capacity": "Fragile Monolith",
-          "risk": "Tight Coupling Collapse",
-          "cost": "Maintenance Nightmare"
+    "knowledgeCheck": {
+      "question": "What is the primary benefit of using a Message Queue for Ola trip completion tasks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Riders can exit the app immediately while heavy invoice and email generation happens safely in the background.",
+          "isCorrect": true,
+          "explanation": "Correct! Message queues decouple tasks, keeping user screens fast while workers process jobs asynchronously."
         },
-        "whatHappened": {
-          "helped": "Services called each other directly via point-to-point HTTP.",
-          "bottleneck": "Tight coupling meant that a slowdown in a non-critical analytics service brought down core checkout!",
-          "reflectionQuestion": "Why is point-to-point coupling an anti-pattern when broadcasting events to multiple downstream services?"
+        {
+          "id": "B",
+          "text": "It guarantees that the rider will get a free ride tomorrow.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Message queues handle background server tasks, not promotional ride discounts."
+        },
+        {
+          "id": "C",
+          "text": "It deletes the driver's bank account after every trip.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Message queues manage data processing safely without destroying accounts."
         }
-      },
-      {
-        "id": "B",
-        "text": "Implement a Publish-Subscribe (Pub-Sub) pattern with an Event Topic: the checkout service publishes an \"OrderPlaced\" event to a central topic once, and all interested departments (Inventory, Logistics, Loyalty, Analytics) subscribe independently to consume the event at their own pace.",
-        "isOptimal": true,
-        "consequenceText": "Your architecture becomes clean, decoupled, and highly scalable. The checkout service publishes an \"OrderPlaced\" event to the topic in 2 milliseconds and moves on, without knowing or caring who is listening! Inventory, Logistics, Loyalty, and Analytics each receive their own copy of the event through dedicated subscription channels. If a new Marketing service wants to listen tomorrow, it simply subscribes without touching a single line of checkout code!",
-        "resultState": "pubsub_fanout_success",
-        "statImpact": {
-          "latency": "2ms Event Broadcast",
-          "capacity": "Unlimited Subscribers",
-          "risk": "Zero Coupling",
-          "cost": "Extensible Architecture"
-        },
-        "successSummary": "The Publish-Subscribe (Pub-Sub) pattern enables one-to-many fanout, completely decoupling event publishers from downstream consumer subscribers!"
-      },
-      {
-        "id": "C",
-        "text": "Refuse to build any new features or notify other departments so the checkout service stays simple.",
-        "isOptimal": false,
-        "consequenceText": "Your business operations stagnate. Other departments operate blind: delivery drivers don't know orders are ready, loyalty points are never awarded, and executive analytics are missing, leaving your business behind competitors.",
-        "resultState": "pubsub_business_stagnation",
-        "statImpact": {
-          "latency": "No Events",
-          "capacity": "Stagnant",
-          "risk": "Blind Operations",
-          "cost": "Lost Growth"
-        },
-        "whatHappened": {
-          "helped": "The checkout service avoided broadcasting events.",
-          "bottleneck": "Refusing to broadcast business events crippled logistics, analytics, and customer loyalty programs!",
-          "reflectionQuestion": "How does event-driven architecture accelerate engineering velocity across multiple teams?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Pub-Sub",
-      "tagline": "Publish-Subscribe pattern, message topics, and one-to-many event fanout",
-      "simpleMeaning": "Pub-Sub is an event distribution pattern where a Publisher broadcasts an event to a Topic once, and all Subscribed services automatically receive their own copy.",
-      "analogy": "When an emergency occurs or a storewide announcement is made, the store manager does not run around whispering into every employee's ear one by one. She speaks into the storewide loudspeaker (Topic); every department listening acts according to its duties.",
-      "howItWorks": [
-        "1. Publisher: The service generating an event (Checkout) pushes an 'OrderPlaced' payload to a named Topic (e.g. orders-topic).",
-        "2. Message Topic: A broker (Google Pub/Sub, SNS) manages the message and handles fanout distribution.",
-        "3. Subscribers: Multiple independent services (Logistics, Inventory, Loyalty) establish subscriptions to the topic.",
-        "4. Complete Decoupling: The publisher does not know who the subscribers are, how many exist, or whether they are currently online."
       ],
-      "whyItMatters": "Enables microservice scalability and organizational independence. New teams can consume production events without requesting modifications to existing core services.",
-      "visualExplanation": "[Checkout Service] ──► Publishes 'OrderPlaced' to Topic\n                                  │\n            ┌─────────────────────┼─────────────────────┐\n            ▼                     ▼                     ▼\n    [Inventory Queue]      [Logistics Queue]     [Analytics Queue]\n      Deduct Stock          Dispatch Driver       Update BI Dash",
-      "contrast": {
-        "termA": "Point-to-Point Queue",
-        "descA": "One message is delivered to exactly one consumer worker (competing consumers pattern).",
-        "termB": "Publish-Subscribe (Pub-Sub)",
-        "descB": "One event is copied and fanned out to every subscribed consumer service simultaneously."
-      },
-      "advancedInfo": "Pub-Sub systems often support Message Filtering (subscribers receive only events matching specific attributes) and Dead Letter Topics for unroutable payloads.",
-      "teacherNotes": {
-        "concept": "Publish-Subscribe (Pub-Sub), Topics vs Queues, Fanout Pattern, Loose Coupling",
-        "experience": "Students decoupled a spiderweb of five services calling each other into a clean Pub-Sub topic that fans out 'OrderPlaced' events seamlessly.",
-        "realWorld": "Financial exchanges, Uber trip status feeds, and IoT device networks use Pub-Sub architectures to fan out millions of telemetry events per second.",
-        "question": "What is the difference in message consumption between a standard Message Queue (SQS) and a Pub-Sub Topic (SNS)?"
-      }
-    },
-    "youtubeUrl": "https://youtu.be/fKK3GXOPSJw?si=BJkXW26DVrms83F4",
-    "videoId": "fKK3GXOPSJw",
-    "videoTitle": "Pub/Sub Architectural Pattern Explained"
+      "hint": "Hint: Think about being handed a token at a bakery—you can sit down while the bakers bake your cake in the back."
+    }
   },
   {
     "id": 26,
-    "stage": 10,
+    "stage": 6,
     "sno": 26,
-    "topic": "Stream Processing & WebSockets",
-    "concept": "Stream Processing & WebSockets: Real-time pipelines, Persistent two-way communication",
-    "title": "Level 26: Picking the Right Conveyor Belt (RabbitMQ vs. Apache Kafka)",
-    "time": "Day 640 — Dual Workload Messaging Dilemma",
-    "usersCount": "Workload A: 5,000 Tasks/Sec vs Workload B: 500,000 Events/Sec",
-    "topicHint": "RabbitMQ (Smart Broker) vs. Apache Kafka (Distributed Log)",
-    "situation": "Your supermarket engineering team needs to choose a messaging infrastructure for two completely different workloads hitting the platform at the same time: Workload A: Transactional task distribution (order confirmation receipts, payment webhooks, bank retries). Messages must be routed dynamically based on priority, acknowledged individually, and deleted immediately once completed. Workload B: Clickstream and IoT telemetry (user browsing clicks, sensor logs from 10,000 supermarket smart carts and freezers). This produces 500,000 continuous events per second that must be retained for days and replayed by machine learning pipelines for analysis.",
-    "problem": "How do you select the appropriate messaging engine for individual transactional jobs versus high-throughput distributed event streaming?",
-    "simulationType": "rabbitmq_vs_kafka",
+    "topic": "Fault Tolerance and Failure Handling",
+    "concept": "Fault Tolerance and Failure Handling",
+    "title": "Level 26: What Happens When a Sub-System Dies Mid-Trip?",
+    "time": "Evening Peak — Live Ride in Progress",
+    "usersCount": "50,000 Live Trips in Progress",
+    "topicHint": "Keeping the System Running Even When Sub-Components Break",
+    "situation": "You are sitting inside an Ola cab moving down the highway. In the cloud data center, a third-party SMS marketing server crashes, and one secondary database replica disk overheats. A beginner programmer panics and suggests shutting down the entire Ola app and cancelling all 50,000 active trips on the road!",
+    "problem": "How should a robust system behave when individual secondary parts or services fail?",
+    "simulationType": "fault_tolerance_resilience",
     "choices": [
       {
         "id": "A",
-        "text": "Force Workload B (500k events/sec clickstream telemetry) through the existing RabbitMQ queue so the team doesn't have to manage two different message systems.",
-        "isOptimal": false,
-        "consequenceText": "Traditional message brokers (like RabbitMQ) track acknowledgment state and queue index for every single message. Under 500,000 events/second, RabbitMQ's memory usage explodes, queue management overhead exhausts CPU, and the cluster crashes, taking down core payment webhooks alongside click telemetry.",
-        "resultState": "broker_queue_overwhelmed",
+        "text": "Apply Fault Tolerance: isolate the failed SMS service, degrade gracefully, and let live cab rides continue smoothly.",
+        "isOptimal": true,
+        "consequenceText": "Masterful engineering! With Fault Tolerance and Graceful Degradation, core ride dispatch and live GPS tracking continue without interruption. The passenger reaches home safely, and the failed background SMS service reboots automatically behind the scenes!",
         "statImpact": {
-          "latency": "Memory Exploded",
-          "capacity": "Queue Saturated",
-          "risk": "Cluster Collapse",
-          "cost": "Lost Payments & Telemetry"
+          "latency": "25ms Smooth Trip",
+          "capacity": "Zero Interruption",
+          "risk": "High Resilience",
+          "cost": "Redundant Design"
         },
         "whatHappened": {
-          "helped": "You maintained only one messaging cluster to manage.",
-          "bottleneck": "Forcing 500k continuous stream events through a traditional message broker exploded memory tracking individual message acknowledgments!",
-          "reflectionQuestion": "Why is an append-only distributed log far more efficient for high-throughput event streaming than a traditional message broker?"
-        }
+          "helped": "Used graceful degradation and health checks to survive partial failure.",
+          "bottleneck": "Treating any single sub-component failure as fatal ruins the entire application.",
+          "reflectionQuestion": "If a car's radio stops working, should the car engine shut off on the highway?"
+        },
+        "successSummary": "Outstanding! You applied fault tolerance principles so active cab rides finished without interruption."
       },
       {
         "id": "B",
-        "text": "Match the tool to the workload: use a flexible Smart Broker (RabbitMQ) with routing keys and task acknowledgments for individual transactional tasks (Workload A), and deploy an Append-Only Distributed Commit Log (Apache Kafka) with partitioned topics and consumer group offsets for high-throughput stream ingestion and replayable telemetry (Workload B).",
-        "isOptimal": true,
-        "consequenceText": "Both workloads operate at optimal performance. RabbitMQ handles Workload A with complex routing exchanges, task priority queues, and instant message deletion upon delivery. Apache Kafka handles Workload B with partitioned distributed commit logs, ingesting 500,000 events/sec sequentially to disk with zero memory bloating. Analytics and machine learning teams can replay days of historical clicks independently without impacting live operations!",
-        "resultState": "dual_messaging_harmony",
+        "text": "Cancel all 50,000 active cab rides on the highway immediately because one secondary marketing SMS server died.",
+        "isOptimal": false,
+        "consequenceText": "Stranding 50,000 passengers on dark highways causes massive panic, police reports, and media fury. The company faces immediate regulatory bans.",
         "statImpact": {
-          "latency": "Sub-millisecond",
-          "capacity": "500k Events/Sec Ingested",
-          "risk": "Zero Downtime",
-          "cost": "Specialized Sizing"
+          "latency": "Rides Aborted",
+          "capacity": "Massive Outage",
+          "risk": "Public Disaster",
+          "cost": "Total Brand Ruin"
         },
-        "successSummary": "RabbitMQ excels as a Smart Broker for complex transactional task routing, while Apache Kafka excels as a high-throughput Append-Only Distributed Commit Log for continuous streaming!"
+        "whatHappened": {
+          "helped": "Overreacted to a minor sub-system failure.",
+          "bottleneck": "Lack of fault isolation allows non-critical failures to bring down critical workloads.",
+          "reflectionQuestion": "Why should non-critical services never bring down core transportation?"
+        }
       },
       {
         "id": "C",
-        "text": "Write all 500,000 real-time clickstream events to a single USB flash drive attached to the server.",
+        "text": "Ignore all errors, turn off crash monitoring, and pretend computer hardware never breaks.",
         "isOptimal": false,
-        "consequenceText": "The USB drive runs out of space in ten minutes and burns out under high write operations, destroying all analytics data.",
-        "resultState": "usb_drive_burnout",
+        "consequenceText": "Ignoring errors means broken servers stay broken. Unhandled crashes cascade into other services, eventually leading to a complete system blackout.",
         "statImpact": {
-          "latency": "Burned Out",
-          "capacity": "10 Mins Lifespan",
-          "risk": "Physical Drive Destruction",
-          "cost": "Lost Telemetry"
+          "latency": "Unmonitored",
+          "capacity": "Cascading Outages",
+          "risk": "Total Blackout",
+          "cost": "Uncontrollable Failure"
         },
         "whatHappened": {
-          "helped": "You avoided cloud streaming software.",
-          "bottleneck": "Writing real-time 500k stream data to a consumer flash drive destroyed the hardware in minutes!",
-          "reflectionQuestion": "Why do modern big-data pipelines rely on distributed, partitioned stream architectures?"
+          "helped": "Ignored failure handling completely.",
+          "bottleneck": "Uncontained failures cascade across distributed networks.",
+          "reflectionQuestion": "What happens if you ignore a warning light on your car dashboard?"
         }
       }
     ],
     "discovery": {
-      "badge": "RabbitMQ vs. Apache Kafka",
-      "tagline": "Smart Brokers vs. Distributed Commit Logs for messaging and streaming",
-      "simpleMeaning": "RabbitMQ is a Smart Broker designed for complex task routing where messages vanish once acknowledged; Apache Kafka is an Append-Only Distributed Commit Log built for massive stream ingestion and historical replay.",
-      "analogy": "You do not use an armored delivery dispatch service that tracks individual customer receipts to measure continuous raindrops falling on the supermarket roof. You use a smart post office for parcels, and a continuous water meter pipe for fluid flow.",
+      "badge": "Fault Tolerance & Failure Handling",
+      "tagline": "Designing systems to stay alive and functional even when parts break",
+      "simpleMeaning": "Fault Tolerance is the ability of a system to keep operating smoothly even when individual hardware or software parts fail. Key techniques include Redundancy (backup servers ready to take over), Graceful Degradation (non-essential features turn off while core features keep running), and Circuit Breakers (stopping cascading errors).",
+      "pubgExample": "If Ola's driver review rating service crashes, the app degrades gracefully: riders can still book cabs, track routes, and pay fares 100% smoothly while the review service quietly restarts in the background.",
+      "analogy": "A twin-engine passenger airplane: If one engine experiences a failure mid-flight, the plane does not fall out of the sky; it continues flying safely and lands using the second engine.",
       "howItWorks": [
-        "1. RabbitMQ (Smart Broker / Dumb Consumer): Tracks message delivery and consumer acknowledgments. Once a worker acknowledges a message, it is deleted from the queue.",
-        "2. Apache Kafka (Dumb Broker / Smart Consumer): Messages are appended sequentially to immutable partition logs on disk. The broker does not track individual delivery.",
-        "3. Consumer Offsets: Kafka consumers track their own position (offset) in the partition. Different teams can read at their own speed or replay data from yesterday.",
-        "4. Architectural Sizing: Choose RabbitMQ for transactional job routing and task scheduling; choose Kafka for real-time telemetry, clickstreams, and big-data event ingestion."
+        "1. Expect Failure: Hardware, cables, and disks WILL fail eventually in large systems.",
+        "2. Redundancy: Always have standby backup servers ready to take over in seconds.",
+        "3. Graceful Degradation: If a secondary feature (like promo codes or SMS) fails, preserve core cab booking.",
+        "4. Circuit Breakers: Stop sending requests to a broken service so it has time to recover without crashing others."
       ],
-      "whyItMatters": "Using the wrong messaging engine leads to out-of-memory crashes under high volume or extreme operational complexity for simple transactional tasks.",
-      "visualExplanation": "RabbitMQ: Producer ──► [Exchange / Routing Key] ──► Queue ──► Consumer (Deleted on Ack)\nKafka:    Producer ──► [Partitioned Commit Log] ──► Consumer Offset (Retained on Disk)",
+      "whyItMatters": "Ensures the app maintains 99.99% uptime so passengers don't get stranded on roads during server glitches.",
+      "visualExplanation": "[Core Cab Dispatch Server] ──► [Smooth Ride Continues! (100% Uptime)]\n                                        │\n[SMS Marketing Server Dies!] ──Degrades Gracefully──► (Skips SMS, but ride completes safely!)",
       "contrast": {
-        "termA": "RabbitMQ (AMQP / Message Queue)",
-        "descA": "Smart broker, complex routing rules, priority queues, individual message acknowledgments, transient data deleted on receipt.",
-        "termB": "Apache Kafka (Distributed Event Stream)",
-        "descB": "Append-only commit log, partitioned topics, massive throughput (millions/sec), sequential disk I/O, historical replay via offsets."
+        "termA": "Fault Tolerant System",
+        "descA": "Components fail independently; core features remain active; self-healing and redundant.",
+        "termB": "Fragile System",
+        "descB": "One tiny secondary error cascades and crashes the entire application for all users."
       },
-      "advancedInfo": "Kafka achieves immense throughput via OS PageCache, zero-copy network transfer (sendfile syscall), and sequential disk writes which match RAM write speeds.",
       "teacherNotes": {
-        "concept": "RabbitMQ vs. Kafka, AMQP Protocol, Append-Only Commit Logs, Consumer Offsets, Zero-Copy Architecture",
-        "experience": "Students sized messaging infrastructure across individual payment receipts (RabbitMQ) versus 500,000 clickstream events/sec (Kafka).",
-        "realWorld": "Uber uses RabbitMQ for granular dispatch tasks and Kafka for billions of GPS and trip event streams daily.",
-        "question": "What is the difference between a message queue that deletes messages on acknowledgment versus a distributed log that retains them?"
-      }
+        "concept": "Fault Tolerance, High Availability, Graceful Degradation, Circuit Breaker, Redundancy",
+        "experience": "Students learned why systems must be architected to survive inevitable component failures.",
+        "realWorld": "Netflix built 'Chaos Monkey' to intentionally terminate production servers to prove fault tolerance.",
+        "question": "What is 'graceful degradation' and how does it protect the core rider experience?"
+      },
+      "olaExample": "If Ola's driver review rating service crashes, the app degrades gracefully: riders can still book cabs, track routes, and pay fares 100% smoothly while the review service quietly restarts in the background."
     },
-    "youtubeUrl": "https://youtu.be/mG3xQb_-rV4?si=6xDWgd_MQBDTOd0e",
-    "videoId": "mG3xQb_-rV4",
-    "videoTitle": "Stream Processing System Design Architecture"
+    "knowledgeCheck": {
+      "question": "In Ola, which of the following is an example of Fault Tolerance and Graceful Degradation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "If the promotional discount service crashes, the core ride booking and live GPS tracking continue working smoothly.",
+          "isCorrect": true,
+          "explanation": "Correct! Fault tolerance ensures that a secondary failure does not bring down the core transportation experience."
+        },
+        {
+          "id": "B",
+          "text": "The cab stops on the highway and refuses to move until a new update is downloaded.",
+          "isCorrect": false,
+          "explanation": "Incorrect. That would be catastrophic system failure, the exact opposite of fault tolerance."
+        },
+        {
+          "id": "C",
+          "text": "The app uninstalls itself from your phone if you hit a traffic bump.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Road bumps have nothing to do with software fault tolerance."
+        }
+      ],
+      "hint": "Hint: Think about what happens if a reading light on a plane breaks—does the plane keep flying?"
+    }
   },
   {
     "id": 27,
-    "stage": 11,
+    "stage": 6,
     "sno": 27,
-    "topic": "Geospatial Search",
-    "concept": "Geospatial Search: Coordinates, proximity queries, spatial indexing",
-    "title": "Level 27: The Live Delivery Tracker (Stream Processing & WebSockets)",
-    "time": "Day 670 — Live Grocery Delivery Map Tracking",
-    "usersCount": "50,000 Active Shoppers Tracking Live Delivery Vans",
-    "topicHint": "WebSockets vs. HTTP Polling for Live Telemetry",
-    "situation": "Your supermarket launches express 15-minute grocery deliveries. When a shopper orders groceries, the mobile app displays an interactive live map showing the delivery van moving along city streets in real time. Currently, your mobile app uses Short Polling: every single second, 50,000 customer phones fire an HTTP GET request to your backend asking: \"Where is the van now? Where is the van now?\" 95% of requests return the exact same coordinates because the van is stuck at a red light! Your web servers are hammered by 50,000 HTTP requests per second, HTTP header overhead chokes network bandwidth, and customer phones burn through their battery within minutes.",
-    "problem": "How should you deliver continuous, real-time GPS telemetry from moving delivery vehicles to customer devices without exhausting server resources?",
-    "simulationType": "websockets_delivery_tracker",
+    "topic": "Rate Limiting",
+    "concept": "Rate Limiting",
+    "title": "Level 27: Stopping Bot Scripts from Spamming 10,000 Fake Bookings",
+    "time": "Morning Rush — Security Alert",
+    "usersCount": "1 Malicious Bot Script vs 500,000 Normal Riders",
+    "topicHint": "Limiting Request Speed to Protect Servers from Spam",
+    "situation": "A malicious attacker writes an automated computer bot script that sends 10,000 fake ride booking requests and OTP requests every single second to Ola's servers. The dispatch servers get so overwhelmed answering the bot's spam that legitimate passengers trying to book cabs get connection timeouts and cannot go to work!",
+    "problem": "How can Ola protect its servers and real passengers from being flooded by spam bots?",
+    "simulationType": "rate_limiter_turnstile",
     "choices": [
       {
         "id": "A",
-        "text": "Force the customer's phone to send a brand new HTTP request every second (Short Polling) to ask for coordinates.",
-        "isOptimal": false,
-        "consequenceText": "Short Polling creates severe server strain. Millions of HTTP requests per minute establish and tear down TCP connections, repeatedly sending bulky HTTP request headers (cookies, user-agents). Your servers suffer CPU exhaustion, and mobile users complain that the app drains their phone battery and lags continuously.",
-        "resultState": "ws_short_polling_overload",
+        "text": "Apply Rate Limiting: enforce a limit of 10 requests per minute per user/IP; block or throttle excess bot spam.",
+        "isOptimal": true,
+        "consequenceText": "Security victory! With Rate Limiting, the bot's spam is instantly blocked with HTTP 429 'Too Many Requests'. The bot is neutralized, server CPU drops back to normal, and real passengers enjoy fast, uninterrupted cab booking!",
         "statImpact": {
-          "latency": "High HTTP Overhead",
-          "capacity": "Server CPU Exhaustion",
-          "risk": "Battery Drain & Lag",
-          "cost": "Wasted Bandwidth"
+          "latency": "20ms Normal",
+          "capacity": "Protected Fleet",
+          "risk": "Zero Bot Flooding",
+          "cost": "Spam Throttled"
         },
         "whatHappened": {
-          "helped": "You used familiar stateless HTTP endpoints.",
-          "bottleneck": "Firing 50,000 HTTP GET requests every second established redundant TCP handshakes, burned mobile batteries, and choked servers!",
-          "reflectionQuestion": "Why is HTTP Short Polling an inefficient design pattern for high-frequency real-time updates?"
-        }
+          "helped": "Enforced rate limiting to throttle excessive requests from abusive clients.",
+          "bottleneck": "Unconstrained API endpoints allow a single malicious client to consume all server resources.",
+          "reflectionQuestion": "Why does a bank ATM limit you to 3 incorrect PIN attempts?"
+        },
+        "successSummary": "Awesome! You implemented rate limiting to protect dispatch servers from abusive bot attacks."
       },
       {
         "id": "B",
-        "text": "Establish a persistent, bi-directional WebSocket connection between the customer's phone and the backend telemetry server. When the delivery driver's GPS coordinates change, push the tiny coordinate payload instantly down the open socket.",
-        "isOptimal": true,
-        "consequenceText": "The real-time tracking experience operates with buttery smoothness. A single TCP handshake upgrades the connection to the WebSocket protocol. The connection stays open persistently. When the delivery van turns a corner, the backend pushes tiny 2-byte coordinate frames to the client in under 5 milliseconds! Zero HTTP header overhead, zero battery drain, and the delivery van glides across the map with silky precision!",
-        "resultState": "ws_connection_success",
+        "text": "Allow the bot to send unlimited requests with no restrictions until server memory fills up and crashes for everyone.",
+        "isOptimal": false,
+        "consequenceText": "The bot exhausts all server memory and network connections. The booking portal crashes, and 500,000 real riders cannot book cabs.",
         "statImpact": {
-          "latency": "5ms Instant Push",
-          "capacity": "50,000 Open Sockets",
-          "risk": "Zero Polling Overhead",
-          "cost": "Minimal Battery & Bandwidth"
+          "latency": "Crashed",
+          "capacity": "Memory Exhausted",
+          "risk": "Denial of Service",
+          "cost": "Total Blackout"
         },
-        "successSummary": "WebSockets establish a persistent, low-latency, full-duplex connection that allows the server to push real-time GPS telemetry directly to clients without HTTP polling overhead!"
+        "whatHappened": {
+          "helped": "Left endpoints open without limits.",
+          "bottleneck": "Unchecked request volume leads to denial of service.",
+          "reflectionQuestion": "What happens if 10,000 people try to enter a small shop at the exact same second?"
+        }
       },
       {
         "id": "C",
-        "text": "Disable live location tracking completely. Make shoppers stand outside on the street for two hours looking down the road to spot the delivery van.",
+        "text": "Disconnect all human riders from the app so the server can spend 100% of its power answering the bot.",
         "isOptimal": false,
-        "consequenceText": "Customer satisfaction drops dramatically. In the modern era of instant delivery apps, customers refuse to wait blindly without tracking visibility. Shoppers cancel orders and switch to competitors that provide live GPS visibility.",
-        "resultState": "ws_tracking_disabled",
+        "consequenceText": "Banning human riders to serve a spam bot completely defeats the purpose of running a business. All riders leave permanently.",
         "statImpact": {
-          "latency": "Blind Waiting",
-          "capacity": "Customers Lost",
-          "risk": "Competitor Wipeout",
-          "cost": "Order Cancellations"
+          "latency": "Absurd",
+          "capacity": "Zero Real Users",
+          "risk": "Business Destroyed",
+          "cost": "Total Failure"
         },
         "whatHappened": {
-          "helped": "You removed all telemetry network connections.",
-          "bottleneck": "Forcing customers to wait blindly on the street caused massive order cancellations and lost market share!",
-          "reflectionQuestion": "Why has persistent real-time streaming become an essential expectation in modern consumer applications?"
+          "helped": "Sacrificed users to satisfy an attacker.",
+          "bottleneck": "Systems exist to serve legitimate users, not attackers.",
+          "reflectionQuestion": "Why would an online service prioritize bots over real paying passengers?"
         }
       }
     ],
     "discovery": {
-      "badge": "WebSockets & Stream Processing",
-      "tagline": "Persistent bi-directional sockets, real-time telemetry streaming, and server push",
-      "simpleMeaning": "WebSockets maintain an open, full-duplex communication channel over a single TCP connection, allowing servers to push live data (like moving GPS coordinates) instantly to clients.",
-      "analogy": "If you want to know when your delivery has arrived, you do not walk out to the driveway every three seconds, open the front gate, look around, and walk back inside. You install a two-way intercom wire connected directly to the gate so the driver speaks to you the instant they arrive.",
+      "badge": "Rate Limiting",
+      "tagline": "Controlling the speed of incoming requests to protect servers from spam and attacks",
+      "simpleMeaning": "Rate Limiting means setting a maximum number of requests a user, IP address, or device can make in a given time period (for example, maximum 10 requests per minute). If a script or bot sends requests faster than the limit, the server temporarily blocks them with an HTTP 429 'Too Many Requests' response.",
+      "pubgExample": "If an attacker tries to spam the 'Send OTP' or 'Book Cab' button 5,000 times a minute using a bot, Ola's Rate Limiter allows the first few requests and immediately blocks the rest, protecting the server for real riders.",
+      "analogy": "A security bouncer at a popular club entrance: The bouncer allows 5 people through the door per minute so the dance floor doesn't get dangerously crushed.",
       "howItWorks": [
-        "1. HTTP Upgrade Handshake: The client initiates a standard HTTP request with an 'Upgrade: websocket' header; the server returns HTTP 101 Switching Protocols.",
-        "2. Persistent Full-Duplex Connection: The TCP socket remains open indefinitely, allowing both client and server to send messages freely at any moment.",
-        "3. Lightweight Framing: Unlike HTTP with large text headers, WebSocket messages travel inside tiny binary frames with only 2 to 6 bytes of overhead.",
-        "4. Stream Processing Engine: Real-time driver telemetry streams through Apache Flink or Kafka Streams, calculating ETA updates in milliseconds before pushing down the socket."
+        "1. Set Threshold: Define a safe limit (e.g., 5 booking requests per minute per phone number).",
+        "2. Token Bucket Algorithm: Tracks incoming request tokens in fast memory.",
+        "3. Allow Normal Traffic: Real passengers tapping naturally never hit the limit.",
+        "4. Throttle Abuse: Bots sending hundreds of requests per second are blocked with HTTP 429."
       ],
-      "whyItMatters": "Eliminates the massive CPU, network bandwidth, and battery drain caused by millions of polling HTTP requests every second.",
-      "visualExplanation": "Driver GPS Moves ──► Telemetry Server ──► WebSocket Frame (2 bytes) ──► Instant Smooth Map Glide!\n                                       [Zero Polling • Zero HTTP Headers]",
+      "whyItMatters": "Protects systems against Denial of Service (DoS) attacks, brute-force OTP guessing, and runaway bugs that flood servers.",
+      "visualExplanation": "[Real Rider: 1 Req/Min] ─────Allowed!───► [Ola Server: Healthy (20ms)]\n[Bot Script: 5,000 Req/Sec] ──Blocked!───► [Rate Limiter (HTTP 429 Too Many Requests)]",
       "contrast": {
-        "termA": "HTTP Short Polling",
-        "descA": "Client repeatedly sends new HTTP requests on a timer. Creates massive header overhead, high latency, and severe server load.",
-        "termB": "WebSockets (Full Duplex)",
-        "descB": "Single persistent TCP connection. Bi-directional communication with sub-millisecond server push and negligible frame overhead."
+        "termA": "Rate Limited API",
+        "descA": "Restricts request frequency per user/IP; shields servers from spam bots and DDoS attacks.",
+        "termB": "Unprotected API",
+        "descB": "Accepts unlimited requests; a single spam script can exhaust server memory and crash the app."
       },
-      "advancedInfo": "For one-way server-to-client notifications where clients never send data back, Server-Sent Events (SSE) over HTTP/2 provides an alternative lightweight streaming option.",
       "teacherNotes": {
-        "concept": "WebSockets, HTTP Polling vs Long Polling vs WebSockets, Server-Sent Events (SSE), Full-Duplex Streaming",
-        "experience": "Students solved a 50,000 req/sec short-polling server meltdown by upgrading to a persistent WebSocket telemetry stream.",
-        "realWorld": "Trading platforms like Robinhood and ride-hailing apps like Uber use WebSockets to stream stock ticks and vehicle coordinates in real time.",
-        "question": "When should you choose WebSockets over Server-Sent Events (SSE) in system design?"
-      }
+        "concept": "Rate Limiting, DoS/DDoS Mitigation, Token Bucket, Leaky Bucket, HTTP 429",
+        "experience": "Students learned why rate limiting is essential to preserve server availability under malicious spam.",
+        "realWorld": "Cloudflare, Ola, Twitter, and payment gateways enforce strict rate limits per IP and API key.",
+        "question": "What is the standard HTTP error status code returned when a rate limit is exceeded?"
+      },
+      "olaExample": "If an attacker tries to spam the 'Send OTP' or 'Book Cab' button 5,000 times a minute using a bot, Ola's Rate Limiter allows the first few requests and immediately blocks the rest, protecting the server for real riders."
     },
-    "youtubeUrl": "https://youtu.be/ENbivJwB3BY?si=QfQF6Rmr5fBdodmF",
-    "videoId": "ENbivJwB3BY",
-    "videoTitle": "Designing Location-Based Systems | Geohashing vs Quadtrees"
+    "knowledgeCheck": {
+      "question": "Why does Ola enforce Rate Limiting on ride booking and OTP verification requests?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To prevent spam bots and malicious scripts from flooding the servers and crashing the app for real riders.",
+          "isCorrect": true,
+          "explanation": "Correct! Rate limiting caps request volume so malicious scripts cannot overwhelm and crash the backend."
+        },
+        {
+          "id": "B",
+          "text": "To limit drivers to driving only 10 kilometers per day.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Rate limiting is a server network protection tool, not a limit on car driving distance."
+        },
+        {
+          "id": "C",
+          "text": "To force riders to delete their account after 5 minutes.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Rate limiting protects servers so riders can book rides safely."
+        }
+      ],
+      "hint": "Hint: Think about why a club bouncer limits how many people can enter at once."
+    }
   },
   {
     "id": 28,
-    "stage": 11,
+    "stage": 7,
     "sno": 28,
-    "topic": "Inverted Indexes & BM25",
-    "concept": "Inverted Indexes & BM25: Search indexing, relevance ranking, ranking signals",
-    "title": "Level 28: Finding Nearby Stores (Geospatial Search & Spatial Indexing)",
-    "time": "Day 700 — Proximity Store Locator & Radius Queries",
-    "usersCount": "100,000 Stores Nationwide & Millions of Proximity Queries",
-    "topicHint": "Geospatial Indexing (Geohash & Quadtrees)",
-    "situation": "Your supermarket enterprise has expanded to 100,000 partner retail stores, pickup lockers, and dark stores across the nation. When a user opens the mobile app, the home screen needs to answer: \"Find the nearest 10 stores within a 5 km radius of my current GPS location (12.9716° N, 77.5946° E).\" Currently, your database runs a raw mathematical distance formula (the Haversine formula) across all 100,000 store rows on every single app open! Every query executes square roots, sines, and cosines across the entire database table. With 50,000 users searching simultaneously, database CPU utilization hits 100% and queries take 8 seconds to return.",
-    "problem": "How do you index two-dimensional geographic coordinates (Latitude and Longitude) to perform lightning-fast proximity and radius searches?",
+    "topic": "Geospatial Search and Indexing",
+    "concept": "Geospatial Search and Indexing",
+    "title": "Level 28: Matching the Nearest Available Cab Within 2 Kilometers",
+    "time": "Live Ride Search — Koramangala 5th Block",
+    "usersCount": "100,000 Moving Cabs in City",
+    "topicHint": "Finding Nearest Locations Fast Using Spatial Grids (Geohash / QuadTree)",
+    "situation": "A rider stands outside a cafe in Bangalore and taps 'Book Cab'. There are 100,000 active cabs driving across the entire state of Karnataka. Calculating mathematical distance (using square roots and latitude/longitude math) between this rider and all 100,000 moving cars takes 8 seconds of heavy CPU calculation on the server, causing dispatch to lag!",
+    "problem": "How can Ola locate the closest available cabs within 2 kilometers in 5 milliseconds without checking all 100,000 cars?",
     "simulationType": "geospatial_spatial_indexing",
     "choices": [
       {
         "id": "A",
-        "text": "Whenever a user opens the app, run a raw mathematical distance calculation (Haversine formula with sines and cosines) across all 100,000 stores in the database table.",
-        "isOptimal": false,
-        "consequenceText": "Your database performance collapses as customer traffic grows. Calculating trigonometric distance formulas across 100,000 rows for every single search forces full table scans on every query. Standard B-Tree indexes cannot index two dimensions simultaneously. Search latency spikes to 8 seconds, database CPUs peg at 100%, and location lookups timeout.",
-        "resultState": "geo_haversine_table_scan",
+        "text": "Use Geospatial Indexing (like Geohash or QuadTrees) to divide the city map into grid boxes and search only the rider's local box.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant! Geospatial Indexing divides the world map into numbered grid boxes (like Geohashes or Google S2 cells). Instead of calculating distance to 100,000 cars across the state, the server queries only the 15 cabs inside the rider's local 2km grid box in just 4 milliseconds!",
         "statImpact": {
-          "latency": "8s Trigonometric Scans",
-          "capacity": "Full Table Scans",
-          "risk": "100% CPU Collapse",
-          "cost": "Search Timeouts"
+          "latency": "4ms Instant Match",
+          "capacity": "100,000 Cabs Scaled",
+          "risk": "Zero Dispatch Lag",
+          "cost": "Optimized Routing"
         },
         "whatHappened": {
-          "helped": "You avoided setting up spatial indexing data structures.",
-          "bottleneck": "Running raw trigonometric Haversine math across 100,000 rows on every search triggered full table scans and melted database CPUs!",
-          "reflectionQuestion": "Why are standard one-dimensional B-Tree database indexes incapable of efficiently indexing two-dimensional coordinates?"
-        }
+          "helped": "Indexed geographic coordinates into spatial grids for instant nearest-neighbor lookups.",
+          "bottleneck": "Calculating trigonometric distances across 100,000 moving points in real time melts server CPUs.",
+          "reflectionQuestion": "Why does a postal system use PIN codes instead of measuring distance between every house?"
+        },
+        "successSummary": "Masterclass! You used geospatial indexing to match nearby cabs in single-digit milliseconds."
       },
       {
         "id": "B",
-        "text": "Implement Geospatial Indexing: map the physical world into spatial partitions using Geohashing (hierarchical grid strings) or Quadtrees / Google S2. Index the spatial grid keys so the database only searches stores located inside the user's immediate bounding box in milliseconds.",
-        "isOptimal": true,
-        "consequenceText": "Location queries return in milliseconds. The earth's surface is partitioned into hierarchical bounding grids (Geohashes or Quadtree cells). When a user searches near Bangalore, their GPS coordinates map to a prefix like `tdr1v`. Instead of scanning 100,000 nationwide stores, the database performs a lightning-fast B-Tree prefix lookup on `tdr1v*`, evaluating only the 15 stores in that immediate neighborhood! Search times plummet from 8 seconds to 4 milliseconds!",
-        "resultState": "geo_spatial_index_success",
+        "text": "Calculate distance by measuring distance to every single car in India, including cabs 2,000 km away in Kashmir.",
+        "isOptimal": false,
+        "consequenceText": "Calculating distance across hundreds of thousands of irrelevant cars freezes the server CPU. Ride searches take 20 seconds, and the server crashes.",
         "statImpact": {
-          "latency": "4ms Spatial Lookup",
-          "capacity": "Millions of Concurrent Queries",
-          "risk": "Zero Trigonometric Overload",
-          "cost": "Highly Optimized"
+          "latency": "20-Second Freeze",
+          "capacity": "CPU Melted",
+          "risk": "Dispatch Crash",
+          "cost": "Massive Compute Waste"
         },
-        "successSummary": "Geospatial Indexing (Geohash / Quadtrees / Google S2) partitions 2D Earth coordinates into hierarchical grid cells, turning complex trigonometric scans into lightning-fast prefix lookups!"
+        "whatHappened": {
+          "helped": "Used brute-force distance math without spatial indexing.",
+          "bottleneck": "Linear geometric distance calculations fail at scale.",
+          "reflectionQuestion": "Why would a rider in Bangalore care about cars in Kashmir?"
+        }
       },
       {
         "id": "C",
-        "text": "Group stores broadly by entire states or countries only. If a user in South Bangalore wants milk, return every store in Karnataka, even if it is 600 km away in Bidar.",
+        "text": "Assign a random cab from another state, sending a driver 800 km away to pick up the rider.",
         "isOptimal": false,
-        "consequenceText": "The search results are practically useless. A customer standing in Bangalore is recommended a store 500 km away in another city because both stores share the same state ID. Shoppers get frustrated by irrelevant recommendations and uninstall the app.",
-        "resultState": "geo_coarse_partitioning",
+        "consequenceText": "The app tells the rider: 'Your cab is arriving in 16 hours from Hyderabad.' The passenger cancels in disbelief and uninstalls the app.",
         "statImpact": {
-          "latency": "Irrelevant",
-          "capacity": "Useless Results",
-          "risk": "Customer Churn",
-          "cost": "Ruined Experience"
+          "latency": "16 Hours ETA",
+          "capacity": "Absurd Dispatch",
+          "risk": "Total Brand Ruin",
+          "cost": "Unusable"
         },
         "whatHappened": {
-          "helped": "You grouped stores with simple state identifiers.",
-          "bottleneck": "Coarse state-level grouping recommended stores 500 km away, creating useless search results and alienating users!",
-          "reflectionQuestion": "How do hierarchical spatial indexes provide granular proximity searches without evaluating every record in a country?"
+          "helped": "Ignored geographic proximity.",
+          "bottleneck": "Ride-hailing requires tight geographical proximity matching.",
+          "reflectionQuestion": "How close should a cab be when assigned to a rider?"
         }
       }
     ],
     "discovery": {
-      "badge": "Geospatial Search & Spatial Indexing",
-      "tagline": "Two-dimensional spatial indexing, Geohashing, Quadtrees, and radius queries",
-      "simpleMeaning": "Geospatial Indexing converts 2D coordinates (latitude and longitude) into hierarchical grid cells (like Geohash strings or Quadtrees) so proximity queries execute in single-digit milliseconds.",
-      "analogy": "If you are looking for a lost child in a giant shopping mall, security does not calculate mathematical distance vectors to every person standing across the entire building. They identify the specific zone (e.g. 'Zone B, Second Floor') and search only within that section and its adjoining corridors.",
+      "badge": "Geospatial Search and Indexing",
+      "tagline": "Organizing geographic coordinates into spatial grids for instant nearby lookups",
+      "simpleMeaning": "Geospatial Indexing is a way of organizing latitude and longitude coordinates into fast lookup structures (like Geohashes, QuadTrees, or Google S2 cells). Instead of calculating distances to every car on Earth, the system divides the world into grid cells so it can find nearest drivers in single-digit milliseconds.",
+      "pubgExample": "When you tap 'Book Auto' in Indiranagar, Ola converts your GPS coordinates into a quick Geohash grid box (e.g. `tdr1v9`). The database checks only the cabs currently located inside that same grid box and assigns driver Ramesh in 3 milliseconds.",
+      "analogy": "Postal PIN Codes: Instead of a postman measuring the physical distance from his office to every house in the country, letters are sorted by Postal PIN Code (e.g., 560034) so only local delivery hubs handle local houses.",
       "howItWorks": [
-        "1. The 2D Indexing Challenge: Standard database B-Trees index one dimension (X > 5). Latitude and longitude represent a two-dimensional plane that cannot be sorted on a single number line.",
-        "2. Geohash Encoding: Interleaves binary bits of latitude and longitude, encoding coordinates into a base32 string (e.g., `tdr1v9`).",
-        "3. Prefix Proximity: Points sharing the same Geohash prefix are physically close together. Searching `tdr1v*` instantly bounds queries to an ~1.2 km x ~600 m rectangle.",
-        "4. Quadtrees & Google S2: Hierarchically sub-divide physical space into 4 quadrants recursively, providing dynamic resolution that scales seamlessly from rural fields to dense urban centers."
+        "1. Spatial Grid: The Earth's surface is divided into a hierarchical grid of cells (like Geohash strings).",
+        "2. Fast Prefix Matching: Nearby locations share the exact same starting prefix characters (e.g., `tdr1v*`).",
+        "3. Instant Nearest Neighbor: The system queries only cabs inside the rider's immediate and 8 adjacent neighbor grid cells.",
+        "4. Single-Digit Milliseconds: Dispatches the closest cab in 4 milliseconds, keeping battery usage low and response instant."
       ],
-      "whyItMatters": "Without spatial indexing, proximity searches (like Uber finding nearby drivers or Yelp finding restaurants) require full table scans with expensive trigonometric math that bring down databases.",
-      "visualExplanation": "Earth Plane ──► Divided into Bounding Grids (Quadtrees / Geohashes)\nUser Location (12.97° N, 77.59° E) ──► Maps to Geohash 'tdr1v'\nDatabase Query: SELECT * FROM stores WHERE geohash LIKE 'tdr1v%' ──► 4ms Result!",
+      "whyItMatters": "Powers proximity matching in ride-hailing apps (Ola, Uber), food delivery (Swiggy, Zomato), quick commerce (Blinkit, Zepto), and maps.",
+      "visualExplanation": "[Rider at Lat 12.97, Long 77.59] ──► [Maps to Geohash: 'tdr1v']\n                                               │\n┌──────────────────────────────────────────────┴──────────────────────────────────────────────┐\n▼                                                                                             ▼\n[Search inside 'tdr1v' Grid: 12 Local Cabs (4ms)]                              [Skip 99,988 Cabs Elsewhere!]\nNearest Cab Found: Driver Ramesh (3 Mins Away!)",
       "contrast": {
-        "termA": "Geohashing",
-        "descA": "Encodes 2D coordinates into alphanumeric strings using Z-order space-filling curves. Ideal for fast prefix lookups in standard B-Tree/NoSQL databases.",
-        "termB": "Quadtrees",
-        "descB": "Tree data structure where each internal node has exactly four children. Adapts dynamically to point density, creating smaller boxes in dense cities."
+        "termA": "Geospatially Indexed Search",
+        "descA": "Divides map into spatial grid cells; nearest cabs found in 4 milliseconds; low CPU usage.",
+        "termB": "Brute-Force Coordinate Math",
+        "descB": "Calculates trigonometric distance across 100,000 cars; melts CPU and freezes booking."
       },
-      "advancedInfo": "Boundary edge cases in Geohash (where two points are right next to each other across a grid boundary) are handled by querying the target cell plus its 8 immediate neighbor cells (3x3 grid search).",
       "teacherNotes": {
-        "concept": "Geospatial Indexing, Geohash, Quadtrees, Google S2 Geometry, R-Trees, Proximity Queries",
-        "experience": "Students replaced a full-table Haversine formula scan across 100,000 stores with a 4ms Geohash prefix lookup.",
-        "realWorld": "Uber, Google Maps, and Tinder use Google S2 and Quadtrees to match millions of riders, restaurants, and users in real time.",
-        "question": "Why do points right next to each other sometimes have completely different Geohash prefixes, and how is this solved?"
-      }
+        "concept": "Geospatial Indexing, Geohash, QuadTrees, Google S2, Spatial Databases (PostGIS, Redis GEO)",
+        "experience": "Students learned how spatial indexes solve location-based search without brute-force math.",
+        "realWorld": "Ola, Uber, and Swiggy rely on Redis GEO and Google S2 to match millions of drivers and orders every second.",
+        "question": "Why is dividing a map into grid cells faster than calculating distance to every single coordinate?"
+      },
+      "olaExample": "When you tap 'Book Auto' in Indiranagar, Ola converts your GPS coordinates into a quick Geohash grid box (e.g. `tdr1v9`). The database checks only the cabs currently located inside that same grid box and assigns driver Ramesh in 3 milliseconds."
     },
-    "youtubeUrl": "https://youtu.be/ty9DQhM32mM?si=ZCmfoXgNdPFqnhQk",
-    "videoId": "ty9DQhM32mM",
-    "videoTitle": "Search Indexes & Relevance Ranking"
+    "knowledgeCheck": {
+      "question": "How does Geospatial Indexing help the Ola app assign the closest cab in just 4 milliseconds?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It divides the map into spatial grid boxes so the server only searches cabs inside the rider's local neighborhood grid.",
+          "isCorrect": true,
+          "explanation": "Correct! Geospatial indexing bounds queries to local grid boxes, finding nearest drivers in milliseconds."
+        },
+        {
+          "id": "B",
+          "text": "It teleports the cab through a magical wormhole into the rider's living room.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Geospatial indexing routes data over servers; it does not teleport physical objects."
+        },
+        {
+          "id": "C",
+          "text": "It forces all drivers to park their cars and sleep.",
+          "isCorrect": false,
+          "explanation": "Incorrect. Geospatial indexing helps active drivers get ride assignments quickly."
+        }
+      ],
+      "hint": "Hint: Think about sorting packages by postal PIN codes instead of measuring distance to every house in the country."
+    }
   }
 ];
 
@@ -3557,17 +4307,21 @@ const LEVELS = [
 if (typeof window !== 'undefined') {
   window.GAME_STAGES = STAGES;
   window.GAME_LEVELS = LEVELS;
+  window.STAGES = STAGES;
+  window.LEVELS = LEVELS;
 }
 
+// Expose to Node.js environments if running server-side
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { STAGES, LEVELS };
+  module.exports = { STAGES, LEVELS, GAME_STAGES: STAGES, GAME_LEVELS: LEVELS };
 }
 
 
 /* === FILE: diorama-engine.js === */
 /**
  * RideQuest - Isometric Diorama Game Engine (AAA Visual Standard)
- * Implements 2.5D/3D character-driven, animated miniature game worlds across all 9 System Design levels.
+ * Implements 2.5D/3D character-driven, animated miniature game worlds across all 28 System Design levels.
+ * Theme: Ola Cab Booking Architecture (Bangalore Tech Corridor, City Roads, Dispatch Towers, Datacenters).
  * 
  * Strict 3-State Simulation Pipeline:
  * State 1: Initial Problem (choice === null) — Demonstrates the real-world operational bottleneck.
@@ -3597,7 +4351,7 @@ var DioramaEngine;
 
   const DioramaEngine = {
     // Stage Wrapper with HUD Overlay & Contextual Footers
-    wrapScene({ theme = 'day', badgeText, badgeType = 'problem', telemetryText = '', footerIcon = '', footerTitle = '', footerDesc = '', svgContent = '' }) {
+    wrapScene({ theme = 'city', badgeText, badgeType = 'problem', telemetryText = '', footerIcon = '', footerTitle = '', footerDesc = '', svgContent = '' }) {
       const hudBadgeClass = badgeType === 'solution' ? 'hud-solution' : (badgeType === 'warning' ? 'hud-warning' : 'hud-problem');
       const footerClass = badgeType === 'solution' ? 'footer-success' : (badgeType === 'problem' ? 'footer-danger' : 'footer-warning');
       const skyThemeClass = 'diorama-sky-' + theme;
@@ -3610,30 +4364,48 @@ var DioramaEngine;
         '<div class="diorama-viewport">' +
           '<svg class="diorama-svg-world" viewBox="0 0 640 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">' +
             '<defs>' +
-              '<radialGradient id="sunGlow" cx="50%" cy="30%" r="60%">' +
-                '<stop offset="0%" stop-color="#fff8e7" stop-opacity="0.35"/>' +
-                '<stop offset="100%" stop-color="#fff8e7" stop-opacity="0"/>' +
-              '</radialGradient>' +
-              '<radialGradient id="stormGlow" cx="50%" cy="30%" r="70%">' +
-                '<stop offset="0%" stop-color="#1e293b" stop-opacity="0.8"/>' +
-                '<stop offset="100%" stop-color="#090d16" stop-opacity="0.95"/>' +
-              '</radialGradient>' +
-              '<linearGradient id="blueprintGrid" x1="0%" y1="0%" x2="100%" y2="100%">' +
-                '<stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>' +
-                '<stop offset="100%" stop-color="#0369a1" stop-opacity="0.4"/>' +
-              '</linearGradient>' +
-              '<linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="100%">' +
-                '<stop offset="0%" stop-color="#fef08a"/>' +
+              '<linearGradient id="olaYellowBody" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#fde047"/>' +
                 '<stop offset="50%" stop-color="#eab308"/>' +
                 '<stop offset="100%" stop-color="#ca8a04"/>' +
               '</linearGradient>' +
-              '<linearGradient id="steelVaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">' +
-                '<stop offset="0%" stop-color="#94a3b8"/>' +
-                '<stop offset="50%" stop-color="#475569"/>' +
-                '<stop offset="100%" stop-color="#1e293b"/>' +
+              '<linearGradient id="olaYellowSide" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#ca8a04"/>' +
+                '<stop offset="100%" stop-color="#a16207"/>' +
               '</linearGradient>' +
+              '<linearGradient id="cabRoofDark" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#1e293b"/>' +
+                '<stop offset="100%" stop-color="#0f172a"/>' +
+              '</linearGradient>' +
+              '<linearGradient id="windshieldGlass" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.85"/>' +
+                '<stop offset="100%" stop-color="#0284c7" stop-opacity="0.7"/>' +
+              '</linearGradient>' +
+              '<radialGradient id="headlightBeam" cx="10%" cy="50%" r="90%">' +
+                '<stop offset="0%" stop-color="#fef08a" stop-opacity="0.75"/>' +
+                '<stop offset="60%" stop-color="#fef08a" stop-opacity="0.25"/>' +
+                '<stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>' +
+              '</radialGradient>' +
+              '<linearGradient id="serverBladeRack" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#334155"/>' +
+                '<stop offset="50%" stop-color="#1e293b"/>' +
+                '<stop offset="100%" stop-color="#0f172a"/>' +
+              '</linearGradient>' +
+              '<linearGradient id="asphaltRoad" x1="0%" y1="0%" x2="100%" y2="100%">' +
+                '<stop offset="0%" stop-color="#2d3748"/>' +
+                '<stop offset="100%" stop-color="#1a202c"/>' +
+              '</linearGradient>' +
+              '<filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">' +
+                '<feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#38bdf8"/>' +
+              '</filter>' +
+              '<filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">' +
+                '<feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#22c55e"/>' +
+              '</filter>' +
+              '<filter id="glowRed" x="-20%" y="-20%" width="140%" height="140%">' +
+                '<feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ef4444"/>' +
+              '</filter>' +
               '<filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">' +
-                '<feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.3)"/>' +
+                '<feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.45)"/>' +
               '</filter>' +
             '</defs>' +
             svgContent +
@@ -3650,2080 +4422,964 @@ var DioramaEngine;
     },
 
     // =========================================================================
-    // 3D ISOMETRIC PROCEDURAL PRIMITIVES
+    // AAA PROCEDURAL 3D ISOMETRIC PRIMITIVES
     // =========================================================================
 
-    renderGrid(cols, rows, ox = 320, oy = 110, theme = 'market') {
-      const tw = 46;
-      const th = 23;
+    // City Road & Sidewalk Grid
+    renderCityRoadGrid(cols = 12, rows = 8, ox = 320, oy = 90, theme = 'city') {
+      const tw = 48;
+      const th = 24;
       let tiles = '';
-
-      let fill1 = '#1a2332', fill2 = '#161e2b', lineCol = '#253549', edgeFill = '#0e141d';
-      if (theme === 'market') {
-        fill1 = '#2d3748'; fill2 = '#232c3b'; lineCol = '#3f4f68'; edgeFill = '#171f2b';
-      } else if (theme === 'blueprint') {
-        fill1 = '#0f2942'; fill2 = '#0b1d30'; lineCol = '#1e4d79'; edgeFill = '#071524';
-      } else if (theme === 'vault') {
-        fill1 = '#1c1917'; fill2 = '#141210'; lineCol = '#292524'; edgeFill = '#0c0a09';
-      } else if (theme === 'city') {
-        fill1 = '#1e293b'; fill2 = '#172033'; lineCol = '#334155'; edgeFill = '#0f172a';
-      }
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const x = ox + (c - r) * (tw / 2);
           const y = oy + (c + r) * (th / 2);
-          const f = (r + c) % 2 === 0 ? fill1 : fill2;
-          tiles += '<polygon points="' + x + ',' + y + ' ' + (x + tw/2) + ',' + (y + th/2) + ' ' + x + ',' + (y + th) + ' ' + (x - tw/2) + ',' + (y + th/2) + '" fill="' + f + '" stroke="' + lineCol + '" stroke-width="0.8"/>';
+          const isRoad = (r === 3 || r === 4 || c === 5 || c === 6);
+          const f = isRoad ? ((r + c) % 2 === 0 ? '#1e293b' : '#172033') : ((r + c) % 2 === 0 ? '#334155' : '#273549');
+          const stroke = isRoad ? '#0f172a' : '#475569';
+          tiles += '<polygon points="' + x + ',' + y + ' ' + (x + tw/2) + ',' + (y + th/2) + ' ' + x + ',' + (y + th) + ' ' + (x - tw/2) + ',' + (y + th/2) + '" fill="' + f + '" stroke="' + stroke + '" stroke-width="0.8"/>';
+
+          // Road lane markings (dashed yellow & white lines)
+          if (r === 3 && (c % 2 === 0)) {
+            tiles += '<line x1="' + (x - 8) + '" y1="' + (y + 12) + '" x2="' + (x + 8) + '" y2="' + (y + 12) + '" stroke="#fef08a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.85"/>';
+          }
         }
       }
 
       const bTip = oy + (cols + rows) * (th / 2);
       return '<g class="iso-grid-base">' +
-        '<ellipse cx="' + ox + '" cy="' + (bTip + 16) + '" rx="' + ((cols + rows) * 16) + '" ry="26" fill="rgba(0,0,0,0.35)" filter="blur(8px)"/>' +
+        '<ellipse cx="' + ox + '" cy="' + (bTip + 16) + '" rx="' + ((cols + rows) * 16) + '" ry="26" fill="rgba(0,0,0,0.4)" filter="blur(8px)"/>' +
         tiles +
-        '<path d="M' + (ox - rows * (tw / 2)) + ',' + (oy + rows * (th / 2)) + ' L' + ox + ',' + bTip + ' L' + ox + ',' + (bTip + 16) + ' L' + (ox - rows * (tw / 2)) + ',' + (oy + rows * (th / 2) + 16) + ' Z" fill="' + edgeFill + '"/>' +
-        '<path d="M' + ox + ',' + bTip + ' L' + (ox + cols * (tw / 2)) + ',' + (oy + cols * (th / 2)) + ' L' + (ox + cols * (tw / 2)) + ',' + (oy + cols * (th / 2) + 16) + ' L' + ox + ',' + (bTip + 16) + ' Z" fill="' + edgeFill + '" opacity="0.85"/>' +
+        '<path d="M' + (ox - rows * (tw / 2)) + ',' + (oy + rows * (th / 2)) + ' L' + ox + ',' + bTip + ' L' + ox + ',' + (bTip + 18) + ' L' + (ox - rows * (tw / 2)) + ',' + (oy + rows * (th / 2) + 18) + ' Z" fill="#090d16"/>' +
+        '<path d="M' + ox + ',' + bTip + ' L' + (ox + cols * (tw / 2)) + ',' + (oy + cols * (th / 2)) + ' L' + (ox + cols * (tw / 2)) + ',' + (oy + cols * (th / 2) + 18) + ' L' + ox + ',' + (bTip + 18) + ' Z" fill="#0f172a" opacity="0.9"/>' +
       '</g>';
     },
 
-    renderHuman(x, y, role = 'shopper', mood = 'normal', label = '') {
-      let bodyColor = '#f59e0b';
-      if (role === 'clerk') bodyColor = '#3b82f6';
-      else if (role === 'architect') bodyColor = '#10b981';
-      else if (role === 'security') bodyColor = '#6366f1';
-      else if (role === 'worker') bodyColor = '#f97316';
+    // Ola Yellow Cab (AAA Isometric Sedan Model with Glowing Headlights & Taxi Beacon)
+    renderOlaCab(x, y, heading = 'SE', status = 'available', label = 'Ola Prime') {
+      const isCrash = status === 'crash';
+      const isDispatched = status === 'dispatched';
+      const isMoving = status === 'moving';
 
-      let moodIcon = '';
-      if (mood === 'alert') {
-        moodIcon = '<circle cx="' + (x + 10) + '" cy="' + (y - 30) + '" r="6" fill="#ef4444"/><text x="' + (x + 10) + '" y="' + (y - 26) + '" text-anchor="middle" font-size="8" fill="#fff" font-weight="900">!</text>';
-      } else if (mood === 'happy') {
-        moodIcon = '<circle cx="' + (x + 10) + '" cy="' + (y - 30) + '" r="6" fill="#22c55e"/><text x="' + (x + 10) + '" y="' + (y - 26) + '" text-anchor="middle" font-size="8" fill="#fff" font-weight="900">✓</text>';
-      } else if (mood === 'confused') {
-        moodIcon = '<circle cx="' + (x + 10) + '" cy="' + (y - 30) + '" r="6" fill="#f59e0b"/><text x="' + (x + 10) + '" y="' + (y - 26) + '" text-anchor="middle" font-size="8" fill="#fff" font-weight="900">?</text>';
+      // Heading orientation: SE (facing right-down), SW (facing left-down), NE, NW
+      let flip = (heading === 'SW' || heading === 'NW') ? ' transform="scale(-1, 1)"' : '';
+      let headlightBeamSvg = '';
+      if (!isCrash) {
+        headlightBeamSvg = '<polygon points="18,10 75,28 50,55 12,18" fill="url(#headlightBeam)" opacity="0.6"/>';
       }
 
-      return '<g class="iso-character" transform="translate(' + x + ',' + y + ')">' +
-        '<ellipse cx="0" cy="2" rx="9" ry="4.5" fill="rgba(0,0,0,0.3)"/>' +
-        '<line x1="-3" y1="0" x2="-3" y2="-8" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round"/>' +
-        '<line x1="3" y1="0" x2="3" y2="-8" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round"/>' +
-        '<rect x="-6" y="-20" width="12" height="13" rx="3" fill="' + bodyColor + '"/>' +
-        '<circle cx="0" cy="-25" r="5.5" fill="#fde68a"/>' +
-        '<path d="M-5,-27 C-5,-32 5,-32 5,-27 Z" fill="#451a03"/>' +
-        moodIcon +
-        (label ? '<rect x="-30" y="8" width="60" height="15" rx="4" fill="#0f172a" opacity="0.9"/><text x="0" y="19" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="800" fill="#f8fafc">' + label + '</text>' : '') +
+      let auraRing = '';
+      if (isDispatched) {
+        auraRing = '<ellipse cx="0" cy="12" rx="34" ry="17" fill="none" stroke="#22c55e" stroke-width="2.5" filter="url(#glowGreen)"><animate attributeName="rx" values="32;38;32" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.8s" repeatCount="indefinite"/></ellipse>';
+      } else if (isCrash) {
+        auraRing = '<ellipse cx="0" cy="12" rx="30" ry="15" fill="rgba(239, 68, 68, 0.25)" filter="url(#glowRed)"/>';
+      }
+
+      return '<g class="iso-ola-cab" transform="translate(' + x + ',' + y + ')">' +
+        // Soft ground shadow
+        '<ellipse cx="0" cy="14" rx="28" ry="12" fill="rgba(0,0,0,0.55)" filter="blur(3px)"/>' +
+        auraRing +
+        '<g' + flip + '>' +
+          headlightBeamSvg +
+          // Lower Chassis & Wheels
+          '<rect x="-20" y="8" width="8" height="10" rx="3" fill="#0f172a"/>' +
+          '<rect x="12" y="8" width="8" height="10" rx="3" fill="#0f172a"/>' +
+          // Isometric Car Body Base
+          '<polygon points="-24,4 0,-8 24,4 0,16" fill="url(#olaYellowBody)"/>' +
+          '<polygon points="-24,4 0,16 0,22 -24,10" fill="url(#olaYellowSide)"/>' +
+          '<polygon points="0,16 24,4 24,10 0,22" fill="#854d0e"/>' +
+          // Cabin Roof & Glass
+          '<polygon points="-14,-2 0,-9 14,-2 0,5" fill="url(#cabRoofDark)"/>' +
+          '<polygon points="-12,-2 0,-8 12,-2 0,4" fill="url(#windshieldGlass)"/>' +
+          // Taxi Beacon on Roof (Green glowing pill)
+          '<ellipse cx="0" cy="-10" rx="5" ry="2.5" fill="' + (isCrash ? '#ef4444' : '#22c55e') + '" filter="' + (isCrash ? 'url(#glowRed)' : 'url(#glowGreen)') + '"/>' +
+          '<text x="0" y="-9" text-anchor="middle" font-size="4" font-family="sans-serif" font-weight="900" fill="#ffffff">OLA</text>' +
+          // Dual Headlights
+          '<circle cx="21" cy="5" r="2.2" fill="' + (isCrash ? '#64748b' : '#fef08a') + '"/>' +
+          '<circle cx="16" cy="10" r="2.2" fill="' + (isCrash ? '#64748b' : '#fef08a') + '"/>' +
+          // Taillights
+          '<circle cx="-22" cy="5" r="1.8" fill="#ef4444"/>' +
+        '</g>' +
+        (isCrash ? '<text x="0" y="-18" text-anchor="middle" font-size="16">💥</text>' : '') +
+        (label ? '<rect x="-42" y="24" width="84" height="16" rx="4" fill="#0f172a" stroke="#eab308" stroke-width="0.8"/>' +
+          '<text x="0" y="35" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="800" fill="#fef08a">' + label + '</text>' : '') +
       '</g>';
     },
 
-    renderShoppingCart(x, y, state = 'empty') {
-      return '<g class="iso-cart" transform="translate(' + x + ',' + y + ')">' +
-        '<ellipse cx="0" cy="2" rx="7" ry="3.5" fill="rgba(0,0,0,0.25)"/>' +
-        '<polygon points="-8,-2 0,-6 8,-2 0,2" fill="#94a3b8" stroke="#cbd5e1" stroke-width="1"/>' +
-        '<polygon points="-8,-2 0,2 0,10 -8,6" fill="#64748b"/>' +
-        '<polygon points="0,2 8,-2 8,6 0,10" fill="#475569"/>' +
-        (state === 'full' ? '<rect x="-4" y="-8" width="8" height="6" rx="1" fill="#22c55e"/>' : '') +
+    // Ola Passenger / Rider on Sidewalk holding Smartphone
+    renderOlaRider(x, y, status = 'waiting', label = 'Rider') {
+      const isMatched = status === 'matched';
+      const isError = status === 'error';
+      const beaconColor = isMatched ? '#22c55e' : (isError ? '#ef4444' : '#38bdf8');
+      const filterId = isMatched ? 'url(#glowGreen)' : (isError ? 'url(#glowRed)' : 'url(#glowCyan)');
+
+      return '<g class="iso-ola-rider" transform="translate(' + x + ',' + y + ')">' +
+        // Ground shadow
+        '<ellipse cx="0" cy="4" rx="10" ry="4.5" fill="rgba(0,0,0,0.4)"/>' +
+        // Pulsating smartphone GPS radar wave
+        '<ellipse cx="6" cy="-14" rx="14" ry="7" fill="none" stroke="' + beaconColor + '" stroke-width="1.5" filter="' + filterId + '">' +
+          '<animate attributeName="rx" values="10;18;10" dur="1.5s" repeatCount="indefinite"/>' +
+          '<animate attributeName="opacity" values="0.9;0.2;0.9" dur="1.5s" repeatCount="indefinite"/>' +
+        '</ellipse>' +
+        // Legs
+        '<line x1="-3" y1="2" x2="-3" y2="-7" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round"/>' +
+        '<line x1="3" y1="2" x2="3" y2="-7" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round"/>' +
+        // Torso / Jacket
+        '<rect x="-6" y="-19" width="12" height="13" rx="3" fill="#0284c7"/>' +
+        // Head
+        '<circle cx="0" cy="-24" r="5.5" fill="#fde68a"/>' +
+        '<path d="M-5,-26 C-5,-31 5,-31 5,-26 Z" fill="#334155"/>' +
+        // Smartphone in hand
+        '<rect x="4" y="-17" width="5" height="8" rx="1" fill="#0f172a" stroke="' + beaconColor + '" stroke-width="0.8"/>' +
+        '<rect x="4.8" y="-16" width="3.4" height="6" fill="' + beaconColor + '" opacity="0.9"/>' +
+        (isMatched ? '<circle cx="8" cy="-28" r="6" fill="#22c55e"/><text x="8" y="-24" text-anchor="middle" font-size="8" fill="#fff" font-weight="900">✓</text>' : '') +
+        (isError ? '<circle cx="8" cy="-28" r="6" fill="#ef4444"/><text x="8" y="-24" text-anchor="middle" font-size="8" fill="#fff" font-weight="900">!</text>' : '') +
+        (label ? '<rect x="-32" y="8" width="64" height="15" rx="4" fill="#0f172a" opacity="0.92"/>' +
+          '<text x="0" y="19" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="800" fill="#f8fafc">' + label + '</text>' : '') +
       '</g>';
     },
 
-    renderForklift(x, y, status = 'moving', label = 'Restock Forklift') {
+    // Ola Central Cloud Dispatch Datacenter / Server Tower
+    renderOlaDispatchServer(x, y, name = 'Ola Cloud Dispatch', status = 'healthy', load = '25%') {
+      const isCrash = status === 'crash' || status === 'overheated';
+      const isHealthy = status === 'healthy' || status === 'active';
+      const auraColor = isCrash ? '#ef4444' : '#38bdf8';
+      const towerFill = isCrash ? '#7f1d1d' : '#1e293b';
+
+      return '<g class="iso-ola-server" transform="translate(' + x + ',' + y + ')">' +
+        '<ellipse cx="0" cy="18" rx="38" ry="18" fill="rgba(0,0,0,0.5)" filter="blur(4px)"/>' +
+        // Tower base block
+        '<polygon points="-28,0 0,-14 28,0 0,14" fill="' + (isCrash ? '#991b1b' : '#334155') + '"/>' +
+        '<polygon points="-28,0 0,14 0,48 -28,34" fill="' + towerFill + '"/>' +
+        '<polygon points="0,14 28,0 28,34 0,48" fill="' + (isCrash ? '#450a0a' : '#0f172a') + '"/>' +
+        // Glowing Server Blade Slots (LED indicators)
+        '<rect x="-20" y="8" width="16" height="3" rx="1" fill="' + (isCrash ? '#ef4444' : '#22c55e') + '" filter="' + (isCrash ? 'url(#glowRed)' : 'url(#glowGreen)') + '"/>' +
+        '<rect x="-20" y="15" width="16" height="3" rx="1" fill="' + (isCrash ? '#ef4444' : '#38bdf8') + '"/>' +
+        '<rect x="-20" y="22" width="16" height="3" rx="1" fill="' + (isCrash ? '#ef4444' : '#22c55e') + '"/>' +
+        '<rect x="-20" y="29" width="16" height="3" rx="1" fill="' + (isCrash ? '#f59e0b' : '#38bdf8') + '"/>' +
+        // Rooftop Antenna with Dispatch Radio Waves
+        '<line x1="0" y1="-14" x2="0" y2="-38" stroke="#94a3b8" stroke-width="2.5"/>' +
+        '<circle cx="0" cy="-38" r="4.5" fill="' + auraColor + '" filter="' + (isCrash ? 'url(#glowRed)' : 'url(#glowCyan)') + '"/>' +
+        (isHealthy ? '<circle cx="0" cy="-38" r="10" fill="none" stroke="#38bdf8" stroke-width="1.2" opacity="0.6"><animate attributeName="r" values="6;16;6" dur="2s" repeatCount="indefinite"/></circle>' : '') +
+        (isCrash ? '<text x="0" y="-45" text-anchor="middle" font-size="16">🔥</text>' : '') +
+        // Server label & status badge
+        '<rect x="-50" y="52" width="100" height="20" rx="4" fill="#0f172a" stroke="' + auraColor + '" stroke-width="1"/>' +
+        '<text x="0" y="63" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#ffffff">' + name + '</text>' +
+        '<text x="0" y="70" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="' + (isCrash ? '#f87171' : '#4ade80') + '">CPU ' + load + '</text>' +
+      '</g>';
+    },
+
+    // Single Bedroom Laptop (Used for Level 1 Problem comparison)
+    renderBedroomLaptop(x, y, status = 'overheated') {
+      const isCrash = status === 'crashed' || status === 'fire';
+      return '<g class="iso-bedroom-laptop" transform="translate(' + x + ',' + y + ')">' +
+        // Desk shadow
+        '<ellipse cx="0" cy="12" rx="28" ry="12" fill="rgba(0,0,0,0.4)"/>' +
+        // Laptop base
+        '<polygon points="-22,2 0,-8 22,2 0,12" fill="#475569"/>' +
+        '<polygon points="-22,2 0,12 0,16 -22,6" fill="#334155"/>' +
+        '<polygon points="0,12 22,2 22,6 0,16" fill="#1e293b"/>' +
+        // Screen angled up
+        '<polygon points="-18,-18 0,-26 18,-18 0,-8" fill="' + (isCrash ? '#1e293b' : '#0284c7') + '"/>' +
+        (isCrash ? '<text x="0" y="-30" text-anchor="middle" font-size="20">💥</text>' +
+                   '<polygon points="-18,-18 0,-26 18,-18 0,-8" fill="#ef4444" opacity="0.6"/>' :
+                   '<text x="0" y="-12" text-anchor="middle" font-size="6" fill="#fff" font-weight="800">CPU 99%</text>') +
+        // Label
+        '<rect x="-44" y="20" width="88" height="18" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>' +
+        '<text x="0" y="32" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#f87171">Single Home Laptop</text>' +
+      '</g>';
+    },
+
+    // Database Vault (Postgres / SQL / NoSQL)
+    renderDatabaseVault(x, y, name = 'Ola SQL Database', status = 'online') {
       const isCrash = status === 'crashed';
-      return '<g class="iso-forklift" transform="translate(' + x + ',' + y + ')">' +
-        '<ellipse cx="0" cy="4" rx="22" ry="11" fill="rgba(0,0,0,0.4)"/>' +
-        '<polygon points="-16,-4 0,-14 16,-4 0,6" fill="' + (isCrash ? '#dc2626' : '#f59e0b') + '"/>' +
-        '<polygon points="-16,-4 0,6 0,14 -16,4" fill="' + (isCrash ? '#991b1b' : '#d97706') + '"/>' +
-        '<polygon points="0,6 16,-4 16,4 0,14" fill="' + (isCrash ? '#7f1d1d' : '#b45309') + '"/>' +
-        // Fork prongs
-        '<line x1="8" y1="-2" x2="26" y2="7" stroke="#475569" stroke-width="3" stroke-linecap="round"/>' +
-        '<line x1="12" y1="-4" x2="30" y2="5" stroke="#475569" stroke-width="3" stroke-linecap="round"/>' +
-        // Pallet box
-        '<rect x="18" y="-6" width="12" height="10" rx="1" fill="#78350f" stroke="#b45309"/>' +
-        (isCrash ? '<text x="0" y="-18" text-anchor="middle" font-size="14">💥</text>' : '') +
-        '<rect x="-40" y="18" width="80" height="15" rx="4" fill="#0f172a" opacity="0.9"/>' +
-        '<text x="0" y="29" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="800" fill="' + (isCrash ? '#f87171' : '#fcd34d') + '">' + label + '</text>' +
+      const colTop = isCrash ? '#991b1b' : '#0284c7';
+      const colSide = isCrash ? '#7f1d1d' : '#0369a1';
+
+      return '<g class="iso-db-vault" transform="translate(' + x + ',' + y + ')">' +
+        '<ellipse cx="0" cy="22" rx="30" ry="14" fill="rgba(0,0,0,0.45)"/>' +
+        // Cylinder 1 (Bottom disk)
+        '<path d="M-22,6 C-22,0 22,0 22,6 L22,18 C22,24 -22,24 -22,18 Z" fill="' + colSide + '"/>' +
+        '<ellipse cx="0" cy="6" rx="22" ry="7" fill="' + colTop + '"/>' +
+        // Cylinder 2 (Top disk)
+        '<path d="M-22,-8 C-22,-14 22,-14 22,-8 L22,4 C22,10 -22,10 -22,4 Z" fill="' + colSide + '"/>' +
+        '<ellipse cx="0" cy="-8" rx="22" ry="7" fill="' + colTop + '"/>' +
+        // LED indicator
+        '<circle cx="0" cy="-6" r="2.5" fill="' + (isCrash ? '#ef4444' : '#22c55e') + '"/>' +
+        (isCrash ? '<text x="0" y="-18" text-anchor="middle" font-size="14">⚠️</text>' : '') +
+        '<rect x="-45" y="26" width="90" height="16" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>' +
+        '<text x="0" y="37" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#93c5fd">' + name + '</text>' +
       '</g>';
     },
 
-    renderServiceDesk(x, y, status = 'open') {
-      return '<g class="iso-servicedesk" transform="translate(' + x + ',' + y + ')">' +
-        '<ellipse cx="0" cy="8" rx="36" ry="18" fill="rgba(0,0,0,0.3)"/>' +
-        '<polygon points="-28,-8 0,-22 28,-8 0,6" fill="#3b82f6" stroke="#60a5fa" stroke-width="1.2"/>' +
-        '<polygon points="-28,-8 0,6 0,20 -28,6" fill="#1d4ed8"/>' +
-        '<polygon points="0,6 28,-8 28,6 0,20" fill="#2563eb"/>' +
-        // Cashier terminal monitor
-        '<rect x="-6" y="-30" width="12" height="9" rx="1" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>' +
-        '<rect x="-4" y="-28" width="8" height="5" fill="#38bdf8" opacity="0.8"/>' +
-        '<rect x="-35" y="24" width="70" height="16" rx="4" fill="#0f172a"/>' +
-        '<text x="0" y="35" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="800" fill="#93c5fd">SERVICE DESK</text>' +
-      '</g>';
-    },
-
-    renderStorageVault(x, y, name = 'Inventory Vault', status = 'secure') {
-      const isBreach = status === 'breached';
-      const wallColor = isBreach ? '#7f1d1d' : '#1e293b';
-      const doorColor = isBreach ? '#ef4444' : '#38bdf8';
-
-      return '<g class="iso-vault" transform="translate(' + x + ',' + y + ')">' +
-        '<ellipse cx="0" cy="18" rx="44" ry="22" fill="rgba(0,0,0,0.38)"/>' +
-        '<polygon points="-36,0 0,-18 36,0 0,18" fill="' + wallColor + '" stroke="#334155" stroke-width="1.5"/>' +
-        '<polygon points="-36,0 0,18 0,44 -36,26" fill="#0f172a"/>' +
-        '<polygon points="0,18 36,0 36,26 0,44" fill="#1e293b"/>' +
-        // Heavy blast door circle
-        '<ellipse cx="18" cy="22" rx="10" ry="14" fill="' + doorColor + '" opacity="0.9"/>' +
-        '<circle cx="18" cy="22" r="3" fill="#ffffff"/>' +
-        '<rect x="-45" y="50" width="90" height="18" rx="4" fill="#0f172a" stroke="' + doorColor + '" stroke-width="1"/>' +
-        '<text x="0" y="62" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="#ffffff">' + name + '</text>' +
+    // Floating Smartphone Client View
+    renderPhoneClient(x, y, label = 'Ola Rider App', status = 'booking') {
+      return '<g class="iso-phone-client" transform="translate(' + x + ',' + y + ')">' +
+        '<ellipse cx="0" cy="28" rx="26" ry="12" fill="rgba(0,0,0,0.4)"/>' +
+        // Phone body
+        '<rect x="-24" y="-36" width="48" height="64" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>' +
+        // Screen
+        '<rect x="-20" y="-30" width="40" height="52" rx="4" fill="#1e293b"/>' +
+        // Mini map UI with green pickup dot & yellow cab icon
+        '<circle cx="-8" cy="-10" r="4" fill="#22c55e"/>' +
+        '<line x1="-8" y1="-10" x2="8" y2="8" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3,2"/>' +
+        '<circle cx="8" cy="8" r="4.5" fill="#facc15"/>' +
+        // Book Mini button
+        '<rect x="-16" y="14" width="32" height="6" rx="2" fill="#22c55e"/>' +
+        '<text x="0" y="19" text-anchor="middle" font-size="4.5" font-family="sans-serif" font-weight="900" fill="#fff">CONFIRM CAB</text>' +
+        '<text x="0" y="36" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#f8fafc">' + label + '</text>' +
       '</g>';
     },
 
     // =========================================================================
-    // 9 SCENARIO-SPECIFIC SCENE RENDERERS (SNO 1 through 9)
+    // LEVEL 1: 50,000 RIDERS BOOK CABS AT 6:00 PM (OLA RUSH HOUR)
     // =========================================================================
-
-    // LEVEL 1: Supermarket Blueprint & 4-Tier Architecture
-    renderSupermarketBlueprintScene(choice) {
+    renderOlaRushHourScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isUnplanned = choice && choice.id === 'A';
-      const isWarehouseWalk = choice && choice.id === 'C';
+      const isLaptopFail = choice && choice.id === 'B';
+      const isOfflineFail = choice && choice.id === 'C';
 
-      let badgeText = 'INITIAL PROBLEM: EMPTY PLOT & NO PLAN';
+      let badgeText = '6:00 PM MONSOON RUSH: 50,000 RIDERS HIT THE APP';
       let badgeType = 'problem';
-      let telemetryText = 'Status: Architecture Required';
-      let footerTitle = 'Operational Dilemma';
-      let footerDesc = 'Building without designated shopping, checkout, and inventory zones causes instant gridlock.';
+      let telemetryText = 'Traffic: 50,000 req/sec • Single Laptop at Risk';
+      let footerTitle = 'Evening Rush Hour Bottleneck';
+      let footerDesc = 'Bangalore tech park workers open Ola simultaneously. One computer cannot process 50,000 rides at the same second.';
       let footerIcon = '⚠️';
 
       if (isOptimal) {
-        badgeText = 'BLUEPRINT SUCCESS: 4-TIER ARCHITECTURE';
+        badgeText = 'SYSTEM DESIGN SUCCESS: DISTRIBUTED OLA CLOUD';
         badgeType = 'solution';
-        telemetryText = 'Flow: 100% Organized • Latency: 12ms';
-        footerTitle = 'Master Architecture Deployed';
-        footerDesc = 'Discrete client, storefront, checkout, and vault tiers operate with zero collision bottlenecks.';
-        footerIcon = '🏛️';
-      } else if (isUnplanned) {
-        badgeText = 'COLLISION GRIDLOCK: RANDOM UNPLANNED WALLS';
+        telemetryText = 'Latency: 25ms • 50,000 Riders Balanced • Zero Downtime';
+        footerTitle = 'Distributed Architecture Victory';
+        footerDesc = 'The planned multi-server cluster dispatches Driver Ramesh in 3 minutes. Traffic is balanced smoothly with zero app lag.';
+        footerIcon = '✅';
+      } else if (isLaptopFail) {
+        badgeText = 'CRITICAL FAILURE: LAPTOP HARDWARE OVERLOAD';
         badgeType = 'problem';
-        telemetryText = 'Status: FORKLIFT COLLISION • FROZEN';
-        footerTitle = 'Operational Failure';
-        footerDesc = 'Restocking forklifts ram straight into checkout queues! Entrance doors are completely blocked.';
+        telemetryText = 'CPU: 100% FATAL • RAM: Out of Memory • App Crashed';
+        footerTitle = 'Hardware Meltdown';
+        footerDesc = 'Computers cannot magically upgrade themselves. The bedroom laptop overheats and crashes, stranding 50,000 riders in the rain.';
         footerIcon = '💥';
-      } else if (isWarehouseWalk) {
-        badgeText = 'WAREHOUSE INVASION: UNRESTRICTED ACCESS';
-        badgeType = 'problem';
-        telemetryText = 'Status: RECORDS CORRUPTED';
-        footerTitle = 'Storage Disaster';
-        footerDesc = 'Customers wander into wholesale pallets, damaging goods and corrupting inventory records.';
-        footerIcon = '❌';
+      } else if (isOfflineFail) {
+        badgeText = 'COMMUNICATION FAILURE: NO INTERNET / NO SYSTEM';
+        badgeType = 'warning';
+        telemetryText = 'Connection: Dropped • 0 Cabs Dispatched';
+        footerTitle = 'Isolated Network Failure';
+        footerDesc = 'Ride hailing requires a live central system. Without internet and servers, passengers cannot see nearby cabs or share coordinates.';
+        footerIcon = '📵';
       }
 
-      let content = this.renderGrid(7, 7, 320, 90, isOptimal ? 'market' : 'blueprint');
-
-      if (!choice) {
-        // Initial Problem state
-        content += '<text x="320" y="65" text-anchor="middle" font-size="14" font-weight="900" fill="#38bdf8" letter-spacing="1">EMPTY SUPERMARKET PLOT (PLAN REQUIRED)</text>';
-        content += this.renderHuman(220, 160, 'architect', 'alert', 'Civil Architect');
-        content += this.renderForklift(400, 200, 'moving', 'Unrouted Forklift');
-        content += this.renderHuman(280, 240, 'shopper', 'confused', 'Customer');
-        content += this.renderShoppingCart(300, 245, 'empty');
-      } else if (isOptimal) {
-        // Correct Choice B: Master Architectural Blueprint
-        content += '<text x="320" y="55" text-anchor="middle" font-size="12" font-weight="900" fill="#22c55e">MASTER ARCHITECTURAL BLUEPRINT ACTIVE</text>';
-        // 4 Tiers rendered visually
-        content += this.renderHuman(180, 220, 'shopper', 'happy', 'Client: Shoppers');
-        content += this.renderShoppingCart(205, 225, 'full');
-        content += this.renderServiceDesk(320, 200, 'open');
-        content += this.renderHuman(320, 170, 'clerk', 'happy', 'App Tier: Cashier');
-        content += this.renderStorageVault(460, 180, 'DB Tier: Vault', 'secure');
-        content += '<line x1="220" y1="210" x2="280" y2="195" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="4,4" class="data-stream-anim"/>';
-        content += '<line x1="360" y1="190" x2="420" y2="180" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4,4" class="data-stream-anim"/>';
-      } else if (isUnplanned) {
-        // Choice A: Collision
-        content += this.renderForklift(310, 190, 'crashed', 'FORKLIFT CRASH!');
-        content += this.renderHuman(290, 210, 'shopper', 'alert', 'Stranded Shopper');
-        content += this.renderShoppingCart(270, 215, 'empty');
-        content += this.renderServiceDesk(380, 240, 'blocked');
-      } else {
-        // Choice C: Warehouse invasion
-        content += this.renderStorageVault(320, 170, 'Warehouse', 'breached');
-        content += this.renderHuman(280, 210, 'shopper', 'alert', 'Lost Shopper');
-        content += this.renderHuman(360, 200, 'shopper', 'alert', 'Tampering');
-        content += '<text x="320" y="260" text-anchor="middle" font-size="11" font-weight="900" fill="#ef4444">UNRESTRICTED STORAGE COMPROMISE</text>';
+      // Rain streaks
+      let rainStreaks = '';
+      for (let i = 0; i < 24; i++) {
+        const rx = 40 + (i * 24);
+        const ry = 30 + ((i * 17) % 180);
+        rainStreaks += '<line x1="' + rx + '" y1="' + ry + '" x2="' + (rx - 8) + '" y2="' + (ry + 22) + '" stroke="#7dd3fc" stroke-width="1.2" opacity="0.45"/>';
       }
+
+      // Dynamic animated data connection beam
+      let connectionBeam = '';
+      if (isOptimal) {
+        connectionBeam = '<path d="M150,220 Q240,140 330,170 T480,210" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="6,4" filter="url(#glowGreen)"><animate attributeName="stroke-dashoffset" values="40;0" dur="0.8s" repeatCount="indefinite"/></path>';
+      } else if (isLaptopFail) {
+        connectionBeam = '<path d="M150,220 Q240,160 330,220" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,4"/>';
+      }
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        rainStreaks +
+        connectionBeam +
+        // Left: Waiting Rider
+        this.renderOlaRider(150, 230, isOptimal ? 'matched' : (isLaptopFail || isOfflineFail ? 'error' : 'waiting'), 'Rider Rahul (Tech Park)') +
+        // Center: The Computing Unit
+        (isOptimal ? 
+          this.renderOlaDispatchServer(330, 150, 'Ola Cloud Cluster (10 Servers)', 'healthy', '25%') : 
+          this.renderBedroomLaptop(330, 210, isLaptopFail ? 'crashed' : 'overheated')) +
+        // Right: Ola Yellow Cab on the Road
+        this.renderOlaCab(480, 220, 'SW', isOptimal ? 'dispatched' : (isLaptopFail ? 'crash' : 'available'), isOptimal ? 'Cab KA-01 • Ramesh (3m)' : 'Ola Prime Sedan');
 
       return this.wrapScene({
         theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        badgeText,
+        badgeType,
+        telemetryText,
+        footerIcon,
+        footerTitle,
+        footerDesc,
+        svgContent
       });
     },
 
-    // LEVEL 2: Functional vs Non-Functional Requirements
+    // =========================================================================
+    // LEVEL 2: FUNCTIONAL VS NON-FUNCTIONAL REQUIREMENTS
+    // =========================================================================
     renderRequirementsStressScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isFeatureOnly = choice && choice.id === 'A';
-      const isBunkerOnly = choice && choice.id === 'C';
+      const isSlow = choice && choice.id === 'B';
 
-      let badgeText = 'INITIAL PROBLEM: FESTIVAL CROWD SURGE RISK';
-      let badgeType = 'problem';
-      let telemetryText = 'Stress: 80x Surge Pending';
-      let footerTitle = 'Requirements Scoping Dilemma';
-      let footerDesc = 'Planning only daily features leaves the store vulnerable to electrical blackouts and crowd surges.';
-      let footerIcon = '⚡';
+      let badgeText = 'REQUIREMENTS EVALUATION: BOOKING SUCCESS + RESPONSE SPEED';
+      let badgeType = isOptimal ? 'solution' : (isSlow ? 'problem' : 'problem');
+      let telemetryText = isOptimal ? 'Latency: 1.4s (Pass) • 100% Ride Success' : 'Latency: 45.0s (Failed SLA) • Timeout Alert';
 
-      if (isOptimal) {
-        badgeText = 'RESILIENT FACILITY: FR + NFR SCALED';
-        badgeType = 'solution';
-        telemetryText = 'Uptime: 99.99% • Capacity: 80,000 req/s';
-        footerTitle = 'Dual Engineering Success';
-        footerDesc = 'Wide emergency exits and redundant generators absorb the 15,000 shopper festival rush with ease.';
-        footerIcon = '🛡️';
-      } else if (isFeatureOnly) {
-        badgeText = 'ELECTRICAL BLACKOUT & STAMPEDE FAILURE';
-        badgeType = 'problem';
-        telemetryText = 'Load: 15,000 Shoppers • Breaker Blown';
-        footerTitle = 'Structural Collapse';
-        footerDesc = 'The electrical grid crashed and narrow exits jammed under the festival crowd surge!';
-        footerIcon = '🔥';
-      } else if (isBunkerOnly) {
-        badgeText = 'EMPTY BUNKER: NO SHOPPING FEATURES';
-        badgeType = 'problem';
-        telemetryText = 'Features: None • Revenue: $0';
-        footerTitle = 'Functional Failure';
-        footerDesc = '50 fire exits exist, but zero shelves or registers were built. The store cannot sell groceries.';
-        footerIcon = '⚠️';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, isOptimal ? 'market' : 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="13" font-weight="900" fill="#f59e0b">FESTIVAL PROMOTIONAL SALE: 15,000 CROWD INCOMING</text>';
-        content += this.renderHuman(240, 180, 'architect', 'alert', 'Civil Architect');
-        content += this.renderHuman(380, 200, 'shopper', 'alert', 'Crowd Surge');
-        content += this.renderHuman(410, 220, 'shopper', 'alert', 'Surge');
-      } else if (isOptimal) {
-        // Redundant generators + wide doors
-        content += '<text x="320" y="55" text-anchor="middle" font-size="12" font-weight="900" fill="#22c55e">NFR BENCHMARKS SATISFIED (LATENCY <80ms, 99.99% UPTIME)</text>';
-        content += this.renderServiceDesk(240, 200, 'open');
-        content += this.renderServiceDesk(360, 200, 'open');
-        content += this.renderHuman(240, 160, 'clerk', 'happy', 'Register 1');
-        content += this.renderHuman(360, 160, 'clerk', 'happy', 'Register 2');
-        content += this.renderHuman(460, 210, 'architect', 'happy', 'Backup Generator');
-        content += '<rect x="440" y="225" width="40" height="25" rx="3" fill="#15803d" stroke="#4ade80"/>';
-        content += '<text x="460" y="240" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">UPS 100%</text>';
-      } else if (isFeatureOnly) {
-        // Blackout spark
-        content += '<rect x="180" y="120" width="280" height="160" fill="rgba(0,0,0,0.7)" rx="8"/>';
-        content += '<text x="320" y="190" text-anchor="middle" font-size="28">⚡💥⚡</text>';
-        content += '<text x="320" y="225" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">ELECTRICAL GRID BLOWN • JAMMED EXITS</text>';
-      } else {
-        // Empty bunker
-        content += '<text x="320" y="190" text-anchor="middle" font-size="12" font-weight="900" fill="#f59e0b">50 EMERGENCY DOORS • ZERO GROCERIES ON DISPLAY</text>';
-        content += this.renderHuman(320, 210, 'shopper', 'confused', 'Confused Shopper');
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Rider on left
+        this.renderOlaRider(160, 220, isOptimal ? 'matched' : (isSlow ? 'error' : 'waiting'), 'Rider Aditi') +
+        // Dispatch Engine
+        this.renderOlaDispatchServer(320, 160, 'Ola Dispatch Engine', isOptimal ? 'healthy' : 'overheated', isOptimal ? '15%' : '94%') +
+        // Cab on right
+        this.renderOlaCab(470, 220, 'SW', isOptimal ? 'dispatched' : 'available', isOptimal ? 'Arriving in 2m' : 'Waiting on Dispatch') +
+        // Speedometer HUD in center
+        '<g transform="translate(320, 90)">' +
+          '<rect x="-65" y="-18" width="130" height="36" rx="6" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="1.5"/>' +
+          '<text x="0" y="-3" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#4ade80' : '#f87171') + '">' +
+            (isOptimal ? 'SPEED: 1.4s (NON-FUNCTIONAL PASS)' : 'SPEED: 45s (TOO SLOW!)') +
+          '</text>' +
+          '<text x="0" y="11" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill="#94a3b8">' +
+            (isOptimal ? 'Functional: Booked • Non-Functional: Fast' : 'Functional: Booked • Non-Functional: Failed') +
+          '</text>' +
+        '</g>';
 
       return this.wrapScene({
         theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        badgeText,
+        badgeType,
+        telemetryText,
+        footerIcon: isOptimal ? '⚡' : '⏱️',
+        footerTitle: isOptimal ? 'Optimal Requirements Met' : 'Non-Functional SLA Breach',
+        footerDesc: isOptimal ? 'Both what the app does (booking) and how fast it performs (under 2 seconds) are satisfied!' : 'Booking worked, but 45 seconds latency causes riders to abandon the app.',
+        svgContent
       });
     },
 
-    // LEVEL 3: Client-Server Architecture (Request & Response)
+    // =========================================================================
+    // LEVEL 3 & 4: CLIENT-SERVER & 3-TIER ARCHITECTURE
+    // =========================================================================
     renderClientServerClerkScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isDirectAccess = choice && choice.id === 'A';
+      const isDirectDbFail = choice && choice.id === 'B';
 
-      let badgeText = 'INITIAL PROBLEM: UNVERIFIED INTERNAL DATA ACCESS';
-      let badgeType = 'problem';
-      let telemetryText = 'Status: Price Verification Needed';
-      let footerTitle = 'Request Boundary Dilemma';
-      let footerDesc = 'Shoppers need product prices, but allowing direct access to back-office ledgers corrupts private data.';
-      let footerIcon = '❓';
+      let badgeText = isOptimal ? '3-TIER ARCHITECTURE: PHONE → SERVER → DATABASE' : 'TIER COUPLING PROBLEM';
+      let badgeType = isOptimal ? 'solution' : 'problem';
+      let telemetryText = isOptimal ? 'Flow: Encapsulated & Secure • Latency: 12ms' : 'Direct Access Risk • Database Lock';
 
+      let dataLine = '';
       if (isOptimal) {
-        badgeText = 'CLIENT-SERVER SUCCESS: STRUCTURED REQUEST-RESPONSE';
-        badgeType = 'solution';
-        telemetryText = 'Cycle: Request ──► Process ──► Response (200 OK)';
-        footerTitle = 'Request-Response Decoupling';
-        footerDesc = 'The clerk validates the request, accesses private data safely, and returns the exact verified answer.';
-        footerIcon = '🔄';
-      } else if (isDirectAccess) {
-        badgeText = 'DIRECT LEDGER CORRUPTION & SPILL';
-        badgeType = 'problem';
-        telemetryText = 'Integrity: COMPROMISED • Coffee Spilled';
-        footerTitle = 'Data Corruption Disaster';
-        footerDesc = 'Shoppers spilled coffee on ledgers, altered price tags, and deleted supplier records!';
-        footerIcon = '☕';
-      } else {
-        badgeText = 'LOCKED SHUTTER & RANDOM PRICE GUESSING';
-        badgeType = 'problem';
-        telemetryText = 'Error: 500 Unpredictable Pricing';
-        footerTitle = 'Service Failure';
-        footerDesc = 'The store locked all access and guessed random prices, driving customers away.';
-        footerIcon = '❌';
+        dataLine = '<path d="M160,200 L320,170 L480,200" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="5,4" filter="url(#glowGreen)"><animate attributeName="stroke-dashoffset" values="20;0" dur="1s" repeatCount="indefinite"/></path>';
       }
 
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += this.renderHuman(220, 210, 'shopper', 'confused', 'Shopper (Client)');
-        content += this.renderStorageVault(440, 180, 'Private Ledgers', 'secure');
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">HOW DOES THE CLIENT QUERY PRIVATE SERVER RECORDS?</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="12" font-weight="900" fill="#22c55e">CLIENT (REQUEST) ──► SERVER (PROCESS) ──► CLIENT (RESPONSE: 200 OK)</text>';
-        content += this.renderHuman(180, 210, 'shopper', 'happy', 'Client: Shopper');
-        content += this.renderServiceDesk(320, 195, 'open');
-        content += this.renderHuman(320, 160, 'clerk', 'happy', 'Server: Clerk');
-        content += this.renderStorageVault(460, 175, 'Database', 'secure');
-        // Visual flow tickets
-        content += '<rect x="220" y="195" width="45" height="14" rx="3" fill="#3b82f6"/><text x="242" y="205" text-anchor="middle" font-size="7" font-weight="800" fill="#fff">REQUEST</text>';
-        content += '<rect x="220" y="215" width="45" height="14" rx="3" fill="#22c55e"/><text x="242" y="225" text-anchor="middle" font-size="7" font-weight="800" fill="#fff">RESPONSE</text>';
-      } else if (isDirectAccess) {
-        content += this.renderStorageVault(320, 180, 'Ledger Room', 'breached');
-        content += this.renderHuman(340, 210, 'shopper', 'alert', 'Spilling Coffee');
-        content += '<text x="320" y="240" text-anchor="middle" font-size="11" font-weight="900" fill="#ef4444">PRICE TAGS ALTERED • RECORDS DELETED</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#f59e0b">SERVICE SHUTTER SHUT • PRICE: $999 GUESS</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        dataLine +
+        // Tier 1: Client (Frontend Phone)
+        this.renderPhoneClient(160, 200, 'Tier 1: Rider Phone (UI)', isOptimal ? 'ready' : 'error') +
+        // Tier 2: Backend Server (Logic)
+        this.renderOlaDispatchServer(320, 160, 'Tier 2: Ola Backend API', isOptimal ? 'healthy' : 'crash', '22%') +
+        // Tier 3: Database (Memory)
+        this.renderDatabaseVault(480, 200, 'Tier 3: Driver & Trip DB', isOptimal ? 'online' : 'crashed');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: isOptimal ? 'day' : 'night',
+        badgeText,
+        badgeType,
+        telemetryText,
+        footerIcon: isOptimal ? '🏗️' : '⚠️',
+        footerTitle: isOptimal ? 'Clean 3-Tier Separation' : 'Direct Coupling Failure',
+        footerDesc: isOptimal ? 'Screen (Frontend), Brain (Backend), and Memory (Database) work together seamlessly without interfering.' : 'Allowing mobile apps to talk directly to the database disk creates severe security and locking problems.',
+        svgContent
       });
     },
 
-    // LEVEL 4: Networking Fundamentals (IP Addresses, DNS, Ports)
+    // =========================================================================
+    // LEVEL 5: CONNECTING THE FULL OLA DISPATCH SYSTEM (BLUEPRINT)
+    // =========================================================================
+    renderSupermarketBlueprintScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Central Cloud Gateway
+        this.renderOlaDispatchServer(320, 150, 'Ola API Gateway & Core', isOptimal ? 'healthy' : 'crash', '35%') +
+        // Rider Phone
+        this.renderPhoneClient(150, 210, 'Rider App (Client)', 'ready') +
+        // Driver Cab
+        this.renderOlaCab(480, 210, 'SW', isOptimal ? 'dispatched' : 'available', 'Driver App (In-Cab)') +
+        // Database
+        this.renderDatabaseVault(320, 260, 'Central Dispatch Ledger', 'online');
+
+      return this.wrapScene({
+        theme: 'blueprint',
+        badgeText: isOptimal ? 'COMPLETE OLA BLUEPRINT: FULLY CONNECTED' : 'SYSTEM ARCHITECTURE BLUEPRINT',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'All Components Linked • 25ms Response' : 'Architecture Blueprint Required',
+        footerIcon: '📐',
+        footerTitle: isOptimal ? 'Architectural Blueprint Verified' : 'Connecting the Full System',
+        footerDesc: isOptimal ? 'Rider apps, driver apps, API gateways, and databases are organized so hundreds of thousands of rides run cleanly.' : 'Without a planned blueprint, individual components cannot coordinate during traffic spikes.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 6: NETWORKING FUNDAMENTALS (DNS, IP, PORTS)
+    // =========================================================================
     renderNetworkingDnsPortsScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isRawGps = choice && choice.id === 'A';
 
-      let badgeText = 'INITIAL PROBLEM: GPS COORDINATES & SINGLE DOOR';
-      let badgeType = 'problem';
-      let telemetryText = 'Address: 11.0168°N, 76.9558°E';
-      let footerTitle = 'Navigation & Traffic Dilemma';
-      let footerDesc = 'Raw GPS numbers confuse drivers, and single doors cause delivery truck collisions.';
-      let footerIcon = '📍';
-
-      if (isOptimal) {
-        badgeText = 'DNS & PORTS SUCCESS: FRESHMART (DOOR 80 & 443)';
-        badgeType = 'solution';
-        telemetryText = 'DNS: freshmart.com ──► 142.250.190.46:443';
-        footerTitle = 'Domain Resolution & Port Routing';
-        footerDesc = 'Friendly name maps to IP address; Door 80 handles shoppers while Door 443 routes bank couriers.';
-        footerIcon = '🌐';
-      } else if (isRawGps) {
-        badgeText = 'GPS MISTYPE DITCH & REVOLVING DOOR CRASH';
-        badgeType = 'problem';
-        telemetryText = 'Status: LOST IN DITCH • DOOR RAMMED';
-        footerTitle = 'Navigation Disaster';
-        footerDesc = 'Shoppers mistyped coordinates into navigation apps, while freight trucks rammed customer doors!';
-        footerIcon = '💥';
-      } else {
-        badgeText = 'MOVING SUPERMARKET BANKRUPTCY';
-        badgeType = 'problem';
-        telemetryText = 'Status: LOCATION UNKNOWN (404)';
-        footerTitle = 'Discovery Failure';
-        footerDesc = 'Changing the physical building location daily made customer discovery impossible.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">11.0168° N, 76.9558° E (UNREGISTERED BRAND)</text>';
-        content += this.renderHuman(200, 200, 'shopper', 'confused', 'Lost Driver');
-        content += this.renderForklift(420, 200, 'moving', 'Truck Heading to Door');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="12" font-weight="900" fill="#22c55e">DNS RESOLUTION: freshmart.com ──► PORT 80 (HTTP) & PORT 443 (HTTPS)</text>';
-        // Neon Sign
-        content += '<rect x="240" y="80" width="160" height="26" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>';
-        content += '<text x="320" y="98" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">FreshMart.com</text>';
-        // Doors
-        content += '<rect x="220" y="170" width="50" height="35" rx="3" fill="#15803d" stroke="#4ade80"/>';
-        content += '<text x="245" y="190" text-anchor="middle" font-size="9" font-weight="900" fill="#fff">DOOR 80</text>';
-        content += '<text x="245" y="200" text-anchor="middle" font-size="7" font-weight="800" fill="#bbf7d0">Shoppers</text>';
-        content += this.renderHuman(245, 230, 'shopper', 'happy', 'Shopper');
-
-        content += '<rect x="370" y="170" width="55" height="35" rx="3" fill="#1e3a8a" stroke="#60a5fa"/>';
-        content += '<text x="397" y="190" text-anchor="middle" font-size="9" font-weight="900" fill="#fff">DOOR 443</text>';
-        content += '<text x="397" y="200" text-anchor="middle" font-size="7" font-weight="800" fill="#93c5fd">Bank Van (TLS)</text>';
-      } else if (isRawGps) {
-        content += '<text x="320" y="180" text-anchor="middle" font-size="14">💥 TRUCK RAMS REVOLVING DOOR 💥</text>';
-        content += this.renderForklift(320, 210, 'crashed', 'Collision at Single Door');
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">404 DESTINATION NOT FOUND</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Left: Rider App requesting api.olacabs.com
+        this.renderOlaRider(150, 220, isOptimal ? 'matched' : 'waiting', 'Query: api.olacabs.com') +
+        // Center: Holographic DNS Phonebook Directory
+        '<g transform="translate(320, 140)">' +
+          '<rect x="-55" y="-22" width="110" height="44" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" filter="url(#glowCyan)"/>' +
+          '<text x="0" y="-8" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="#38bdf8">DNS PHONEBOOK</text>' +
+          '<text x="0" y="5" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#f8fafc">api.olacabs.com</text>' +
+          '<text x="0" y="16" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="900" fill="#4ade80">↓ 104.22.15.82</text>' +
+        '</g>' +
+        // Right: Server on Port 443
+        this.renderOlaDispatchServer(480, 190, 'Ola Server IP 104.22.15.82:443', isOptimal ? 'healthy' : 'crash', '18%');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'night',
+        badgeText: isOptimal ? 'DNS RESOLUTION SUCCESSFUL' : 'DNS & IP LOOKUP',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Resolved in 8ms • Connected via Port 443' : 'Domain Lookup Required',
+        footerIcon: '🌐',
+        footerTitle: isOptimal ? 'DNS Translated Domain to IP' : 'Finding the Server',
+        footerDesc: isOptimal ? 'Your phone asked DNS for api.olacabs.com, received the IP address, and knocked on Port 443 safely.' : 'Computers need numeric IP addresses and port numbers to deliver ride requests to the correct machine.',
+        svgContent
       });
     },
 
-    // LEVEL 5: Networking Protocols (TCP/IP, HTTP/HTTPS, HTTP/2-3)
+    // =========================================================================
+    // LEVEL 7: PROTOCOLS (HTTP VS HTTPS FOR OLA MONEY)
+    // =========================================================================
     renderProtocolsTransportScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isPlainBikes = choice && choice.id === 'A';
+      const isPlainHttp = choice && choice.id === 'B';
 
-      let badgeText = 'INITIAL PROBLEM: UNSECURED ROADWAY TRANSPORT';
-      let badgeType = 'problem';
-      let telemetryText = 'Cargo: Fragile Glass & Live Audio Stream';
-      let footerTitle = 'Transport Protocol Dilemma';
-      let footerDesc = 'Fragile financial receipts need receipt confirmations; live broadcasts need speed without stalling.';
-      let footerIcon = '📦';
-
-      if (isOptimal) {
-        badgeText = 'PROTOCOLS SUCCESS: TCP (RECEIPTS) + UDP (STREAM) + TLS (ENCRYPTION)';
-        badgeType = 'solution';
-        telemetryText = 'TCP: In-Order 3-Way Handshake • HTTPS: AES Encrypted';
-        footerTitle = 'Protocol Specialization Deployed';
-        footerDesc = 'TCP guarantees banking receipts; UDP streams live music with zero latency; TLS encrypts credit cards.';
-        footerIcon = '🔒';
-      } else if (isPlainBikes) {
-        badgeText = 'SHATTERED GLASS & EXPOSED CREDIT CARD POSTCARDS';
-        badgeType = 'problem';
-        telemetryText = 'Loss: 50% Glass Smashed • Cards Sniffed';
-        footerTitle = 'Transport Failure';
-        footerDesc = 'Fragile goods smashed without receipts, and roadside thieves read plain-text credit cards off postcards!';
-        footerIcon = '💥';
-      } else {
-        badgeText = 'MANUAL FOOT TRAVEL PARALYSIS';
-        badgeType = 'problem';
-        telemetryText = 'Speed: 2 km/h • Orders Collapsed';
-        footerTitle = 'Network Refusal';
-        footerDesc = 'Walking on foot with paper cash took hours and collapsed the digital supermarket orders.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">TWO CARGOS: CRITICAL BANK RECEIPTS vs LIVE AUDIO STREAM</text>';
-        content += this.renderHuman(240, 200, 'worker', 'alert', 'Fragile Goods');
-        content += this.renderHuman(380, 200, 'clerk', 'normal', 'Live Stream');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">TCP (SIGNED RECEIPT) • UDP (STREAM BIKE) • HTTPS (TITANIUM VAULT)</text>';
-        // TCP Audited Van
-        content += '<rect x="180" y="170" width="80" height="35" rx="4" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="220" y="188" text-anchor="middle" font-size="8" font-weight="900" fill="#4ade80">TCP COURIER</text>';
-        content += '<text x="220" y="198" text-anchor="middle" font-size="7" font-weight="800" fill="#fff">Signed Receipts</text>';
-
-        // Titanium briefcases (TLS)
-        content += '<rect x="290" y="175" width="60" height="25" rx="3" fill="#334155" stroke="#facc15" stroke-width="1.5"/>';
-        content += '<text x="320" y="191" text-anchor="middle" font-size="8" font-weight="900" fill="#facc15">🔒 TLS / AES</text>';
-
-        // UDP Bike
-        content += '<rect x="380" y="170" width="80" height="35" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="420" y="188" text-anchor="middle" font-size="8" font-weight="900" fill="#38bdf8">UDP STREAM</text>';
-        content += '<text x="420" y="198" text-anchor="middle" font-size="7" font-weight="800" fill="#fff">Ultra-Fast 0-RTT</text>';
-      } else if (isPlainBikes) {
-        content += '<text x="320" y="180" text-anchor="middle" font-size="14">💥 GLASS SHATTERED ON ROAD 💥</text>';
-        content += '<rect x="260" y="200" width="120" height="30" rx="3" fill="#fee2e2" stroke="#ef4444"/>';
-        content += '<text x="320" y="218" text-anchor="middle" font-size="8" font-weight="900" fill="#dc2626">CREDIT CARDS SNIFFED</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">FOOT TRANSPORT TIMED OUT</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Left: Rider paying with wallet
+        this.renderPhoneClient(150, 200, 'Ola Money Wallet', 'ready') +
+        // Center: Security Tunnel
+        '<g transform="translate(320, 170)">' +
+          '<rect x="-60" y="-20" width="120" height="40" rx="6" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="2"/>' +
+          '<text x="0" y="-5" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#4ade80' : '#f87171') + '">' +
+            (isOptimal ? '🔒 HTTPS ENCRYPTED TUNNEL' : '🔓 PLAIN HTTP (UNENCRYPTED)') +
+          '</text>' +
+          '<text x="0" y="10" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#94a3b8">' +
+            (isOptimal ? 'Payload: *** AES-256 SCRAMBLED ***' : 'Payload: Card: 4532, CVV: 891') +
+          '</text>' +
+        '</g>' +
+        // Right: Payments Server
+        this.renderOlaDispatchServer(480, 200, 'Ola Payments Gateway', isOptimal ? 'healthy' : 'crash', '12%');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'vault',
+        badgeText: isOptimal ? 'ENCRYPTED HTTPS CONNECTION ACTIVE' : 'HTTP VS HTTPS SECURITY CHECK',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'TLS 1.3 Active • Wallet Balance Safe' : 'Plaintext Vulnerability Detected',
+        footerIcon: isOptimal ? '🔒' : '⚠️',
+        footerTitle: isOptimal ? 'Zero Data Theft with HTTPS' : 'Insecure Data Transmission',
+        footerDesc: isOptimal ? 'Payment cards and OTPs are encrypted into unreadable scrambled gibberish before flying through the air.' : 'Without encryption, anyone on public Wi-Fi can spy on credit card numbers and passwords.',
+        svgContent
       });
     },
 
-    // LEVEL 6: API Design (REST, GraphQL, gRPC, Versioning)
+    // =========================================================================
+    // LEVEL 8 & 9: APIS AND JSON / REST ARCHITECTURE
+    // =========================================================================
     renderApiContractsScannersScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isInformal = choice && choice.id === 'A';
 
-      let badgeText = 'INITIAL PROBLEM: INCOMPATIBLE DEVICE DIALECTS';
-      let badgeType = 'problem';
-      let telemetryText = 'Devices: 500 Scanners, Kiosks & Suppliers';
-      let footerTitle = 'Interface Agreement Dilemma';
-      let footerDesc = 'Hardware devices inventing contradictory messaging formats crash the central inventory office.';
-      let footerIcon = '📱';
-
-      if (isOptimal) {
-        badgeText = 'API SPECIFICATION SUCCESS: STANDARDIZED REST & VERSIONING';
-        badgeType = 'solution';
-        telemetryText = 'Contract: /api/v1/products ──► 200 OK (JSON)';
-        footerTitle = 'Structured API Contract';
-        footerDesc = 'Standard verbs (GET/POST), status codes, and URI versioning let legacy scanners and new kiosks coexist.';
-        footerIcon = '📜';
-      } else if (isInformal) {
-        badgeText = 'SYNTAX ERROR 500: UNSTRUCTURED DIALECT CRASH';
-        badgeType = 'problem';
-        telemetryText = 'Status: FAILED TO PARSE INCOMING STRING';
-        footerTitle = 'Contract Failure';
-        footerDesc = 'Updating one product field name in the office crashed half the store barcode scanners!';
-        footerIcon = '💥';
-      } else {
-        badgeText = 'HARDCODED TIGHT COUPLING FREEZE';
-        badgeType = 'problem';
-        telemetryText = 'Recall: 500 Physical Hardware Replacements';
-        footerTitle = 'Coupling Catastrophe';
-        footerDesc = 'Zero flexibility; simple tax rule updates required recalling all physical scanners.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">500 SCANNER KIOSKS SPEAKING CONTRADICTORY DIALECTS</text>';
-        content += this.renderHuman(220, 190, 'worker', 'confused', 'Barcode Scanner');
-        content += this.renderHuman(420, 190, 'clerk', 'alert', 'Main Office');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">API CONTRACT: GET /api/v1/products/42 ──► 200 OK { id: 42, price: 9.99 }</text>';
-        // API Contract billboard
-        content += '<rect x="230" y="150" width="180" height="50" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>';
-        content += '<text x="320" y="168" text-anchor="middle" font-size="9" font-weight="900" fill="#38bdf8">REST API SPECIFICATION</text>';
-        content += '<text x="320" y="180" text-anchor="middle" font-size="8" font-family="monospace" fill="#a5f3fc">GET /api/v1/orders (200 OK)</text>';
-        content += '<text x="320" y="192" text-anchor="middle" font-size="8" font-family="monospace" fill="#a5f3fc">POST /api/v1/checkout (201)</text>';
-        content += this.renderHuman(180, 210, 'worker', 'happy', 'Scanner v1');
-        content += this.renderHuman(460, 210, 'clerk', 'happy', 'Self-Checkout v2');
-      } else if (isInformal) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">PARSE ERROR 500: UNKNOWN SYNTAX</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" font-weight="700" fill="#fca5a5">Barcode Scanners Crashed</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">500 SCANNERS RECALLED & BRICKED</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderPhoneClient(150, 200, 'Rider Phone', 'ready') +
+        // Center: JSON Payload Card
+        '<g transform="translate(320, 160)">' +
+          '<rect x="-70" y="-30" width="140" height="60" rx="6" fill="#0f172a" stroke="#eab308" stroke-width="1.2"/>' +
+          '<text x="0" y="-16" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="#facc15">POST /api/v1/rides (JSON)</text>' +
+          '<text x="-60" y="-2" font-size="6" font-family="monospace" fill="#93c5fd">{"pickup": "Indiranagar",</text>' +
+          '<text x="-60" y="8" font-size="6" font-family="monospace" fill="#93c5fd"> "drop": "Koramangala",</text>' +
+          '<text x="-60" y="18" font-size="6" font-family="monospace" fill="#4ade80"> "cab": "Prime"}</text>' +
+        '</g>' +
+        this.renderOlaDispatchServer(480, 200, 'Ola REST API Gateway', isOptimal ? 'healthy' : 'active', '20%');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'blueprint',
+        badgeText: isOptimal ? 'REST API CONTRACT VERIFIED' : 'APIS AND JSON DATA EXCHANGE',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'HTTP 201 Created • Response: 14ms' : 'Standard JSON Contract Required',
+        footerIcon: '📋',
+        footerTitle: isOptimal ? 'Universal JSON Communication' : 'API Data Exchange',
+        footerDesc: isOptimal ? 'The phone sent structured JSON and the server responded with cab details using standard REST endpoints.' : 'APIs allow different devices and computers to understand each other using clean JSON text.',
+        svgContent
       });
     },
 
-    // LEVEL 7: Authentication (Identity Verification, Hashing, Sessions)
-    renderAuthIdentityVerificationScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isNotepad = choice && choice.id === 'A';
-
-      let badgeText = 'INITIAL PROBLEM: UNVERIFIED IDENTITY CLAIM';
-      let badgeType = 'problem';
-      let telemetryText = 'Claim: Customer "Pranesh" requesting 10,000 pts';
-      let footerTitle = 'Identity Verification Dilemma';
-      let footerDesc = 'Verbal claims risk fraud, while storing plaintext passwords in a notepad leaks customer secrets.';
-      let footerIcon = '👤';
-
-      if (isOptimal) {
-        badgeText = 'AUTH SUCCESS: ONE-WAY HASHING (BCRYPT) & SESSION TOKEN';
-        badgeType = 'solution';
-        telemetryText = 'Crypto: Salt + Bcrypt Hash • Session: Temporary Token';
-        footerTitle = 'Secure Identity Gate';
-        footerDesc = 'Passwords are never stored in plain text; salted hashes defeat rainbow tables; session token expires safely.';
-        footerIcon = '🔑';
-      } else if (isNotepad) {
-        badgeText = 'PLAIN PASSWORD NOTEPAD THEFT & ACCOUNT DRAIN';
-        badgeType = 'problem';
-        telemetryText = 'Breach: Plaintext Passwords Leaked Online';
-        footerTitle = 'Credential Leak Catastrophe';
-        footerDesc = 'A fraudster walked off with the spiral notepad from the counter, exposing thousands of customer accounts!';
-        footerIcon = '🔓';
-      } else {
-        badgeText = '5 WITNESSES PER LOAF: QUEUE CHOKE';
-        badgeType = 'problem';
-        telemetryText = 'Queue Time: 4 Hours Per Shopper';
-        footerTitle = 'Usability Paralysis';
-        footerDesc = 'Burdening customers with government witnesses paralyzed everyday store operations.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">CUSTOMER CLAIMS: "I AM PRANESH. GIVE ME 10,000 POINTS"</text>';
-        content += this.renderHuman(220, 200, 'shopper', 'alert', 'Claimant');
-        content += this.renderServiceDesk(360, 195, 'open');
-        content += this.renderHuman(360, 160, 'clerk', 'confused', 'Clerk');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">ONE-WAY HASHING (BCRYPT + SALT) ──► VERIFIED IDENTITY ──► EXPIRING TOKEN</text>';
-        content += this.renderHuman(180, 210, 'shopper', 'happy', 'Pranesh Verified');
-        content += this.renderServiceDesk(320, 195, 'open');
-        content += this.renderHuman(320, 160, 'clerk', 'happy', 'Auth Gate');
-        // Glowing Token
-        content += '<rect x="235" y="195" width="55" height="18" rx="4" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="262" y="208" text-anchor="middle" font-size="8" font-weight="900" fill="#4ade80">TOKEN ✓</text>';
-      } else if (isNotepad) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">NOTEPAD STOLEN FROM COUNTER</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" font-weight="700" fill="#fca5a5">50,000 Plaintext Passwords Leaked</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">4 HOUR QUEUE WRAPPED AROUND BLOCK</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 8: Authorization (OAuth 2.0, JWT, RBAC)
-    renderAuthzRbacVaultScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isUniversal = choice && choice.id === 'A';
-
-      let badgeText = 'INITIAL PROBLEM: VALID BADGE AT EXECUTIVE VAULT DOOR';
-      let badgeType = 'problem';
-      let telemetryText = 'Worker: Shelf-Stocker attempting Executive Vault';
-      let footerTitle = 'Authorization Dilemma';
-      let footerDesc = 'The worker is authenticated as an employee, but should that badge open the company cash safe?';
-      let footerIcon = '🚪';
-
-      if (isOptimal) {
-        badgeText = 'AUTHORIZATION SUCCESS: RBAC + LEAST PRIVILEGE + JWT';
-        badgeType = 'solution';
-        telemetryText = 'Stocker ──► Vault: 403 FORBIDDEN • Aisle: 200 ALLOWED';
-        footerTitle = 'Principle of Least Privilege Active';
-        footerDesc = 'Roles dictate access: stockers restock aisles, while vault doors remain securely locked.';
-        footerIcon = '🛡️';
-      } else if (isUniversal) {
-        badgeText = 'UNIVERSAL ACCESS: INTERNAL THEFT & PAYROLL LEAK';
-        badgeType = 'problem';
-        telemetryText = 'Security: COMPROMISED • Cash Vault Looted';
-        footerTitle = 'Authorization Collapse';
-        footerDesc = 'Valid employee badge opened the executive vault, allowing unauthorized salary alterations and theft!';
-        footerIcon = '💸';
-      } else {
-        badgeText = 'LOCKED EMPTY STORE: SPOILED PRODUCE';
-        badgeType = 'problem';
-        telemetryText = 'Staff: 0 Allowed • Store Bankrupt';
-        footerTitle = 'Operational Freeze';
-        footerDesc = 'Firing all workers prevented theft, but groceries spoiled and the business shut down.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'vault');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="#38bdf8">VALID EMPLOYEE BADGE ──► ATTEMPTING EXECUTIVE CASH VAULT</text>';
-        content += this.renderHuman(240, 200, 'worker', 'alert', 'Shelf Stocker');
-        content += this.renderStorageVault(420, 180, 'Executive Vault', 'secure');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">RBAC CHECK: Role = "Stocker" ──► Vault Access = 403 FORBIDDEN (LOCKED)</text>';
-        content += this.renderHuman(200, 210, 'worker', 'happy', 'Stocker at Aisles');
-        content += this.renderHuman(300, 190, 'security', 'alert', 'Vault Guard');
-        content += this.renderStorageVault(440, 175, 'Executive Safe', 'secure');
-        // 403 badge
-        content += '<rect x="360" y="195" width="60" height="20" rx="3" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="390" y="209" text-anchor="middle" font-size="8" font-weight="900" fill="#fca5a5">403 LOCKED</text>';
-      } else if (isUniversal) {
-        content += this.renderStorageVault(320, 180, 'Executive Vault', 'breached');
-        content += this.renderHuman(340, 210, 'worker', 'alert', 'Altering Payroll');
-        content += '<text x="320" y="240" text-anchor="middle" font-size="11" font-weight="900" fill="#ef4444">CONFIDENTIAL PAYROLL LEAKED ONLINE</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">STORE PARALYZED • GOODS SPOILING</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 9: Database Design (SQL vs NoSQL & Polyglot Persistence)
+    // =========================================================================
+    // LEVEL 10 & 11: SQL VS NOSQL & RELATIONAL DESIGN
+    // =========================================================================
     renderDatabasePolyglotScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isSingleDb = choice && choice.id === 'A';
 
-      let badgeText = 'INITIAL PROBLEM: DUAL WORKLOAD STORAGE CONFLICT';
-      let badgeType = 'problem';
-      let telemetryText = 'Workloads: ACID Financial Ledger vs 5M Dynamic Products';
-      let footerTitle = 'Database Architecture Dilemma';
-      let footerDesc = 'Strict financial transactions require ACID guarantees; 5 million products & cart clicks require elastic speed.';
-      let footerIcon = '💾';
-
-      if (isOptimal) {
-        badgeText = 'POLYGLOT PERSISTENCE SUCCESS: SQL (ACID) + NOSQL (ELASTIC)';
-        badgeType = 'solution';
-        telemetryText = 'SQL: Zero Double-Selling • NoSQL/Redis: 1ms Cart Speed';
-        footerTitle = 'Polyglot Persistence Architecture';
-        footerDesc = 'Relational PostgreSQL enforces financial ACID consistency; NoSQL MongoDB & Redis handle dynamic catalogs and carts.';
-        footerIcon = '💎';
-      } else if (isSingleDb) {
-        badgeText = 'DATABASE I/O DEADLOCK & DOUBLE-SELLING DISASTER';
-        badgeType = 'problem';
-        telemetryText = 'Conflict: Disk 100% Thrashing • Ledger Corrupted';
-        footerTitle = 'Single Storage Failure';
-        footerDesc = 'Forcing all workloads into one engine caused database locking under cart clicks and double-selling out-of-stock formula!';
-        footerIcon = '💥';
-      } else {
-        badgeText = 'STICKY NOTES BLOWN AWAY BY BREEZE';
-        badgeType = 'problem';
-        telemetryText = 'Durability: 0% • Orders Lost Forever';
-        footerTitle = 'Physical Loss';
-        footerDesc = 'A gust of wind blew sticky paper notes off the cork board, permanently erasing business records.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="65" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">FINANCIAL LEDGER (STRICT ACID) vs 5M CATALOG PRODUCTS (ELASTIC NOSQL)</text>';
-        content += this.renderStorageVault(240, 180, 'Financial Ledger', 'secure');
-        content += this.renderStorageVault(400, 180, '5M Product Catalog', 'secure');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">POLYGLOT PERSISTENCE: POSTGRESQL (ACID) + MONGODB (DOCUMENTS) + REDIS (CARTS)</text>';
-        // SQL Engine
-        content += this.renderStorageVault(200, 175, 'PostgreSQL (ACID)', 'secure');
-        content += '<rect x="160" y="240" width="80" height="20" rx="3" fill="#15803d"/><text x="200" y="253" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">ACID GUARANTEES</text>';
-
-        // NoSQL Engine
-        content += this.renderStorageVault(340, 175, 'MongoDB (Catalog)', 'secure');
-        content += '<rect x="300" y="240" width="80" height="20" rx="3" fill="#0369a1"/><text x="340" y="253" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">DYNAMIC SCHEMA</text>';
-
-        // Redis In-Memory Cache
-        content += this.renderStorageVault(460, 175, 'Redis (Carts 1ms)', 'secure');
-        content += '<rect x="420" y="240" width="80" height="20" rx="3" fill="#b91c1c"/><text x="460" y="253" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">IN-MEMORY O(1)</text>';
-      } else if (isSingleDb) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">DATABASE DISK I/O 100% DEADLOCK</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" font-weight="700" fill="#fca5a5">Double-Selling Out-Of-Stock Inventory</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">PAPER NOTES BLOWN AWAY • ALL ORDERS LOST</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Left: SQL Database (Wallet Balances)
+        this.renderDatabaseVault(190, 180, 'SQL: Wallet & Trips', 'online') +
+        // Right: NoSQL Database (Live GPS Pings)
+        this.renderDatabaseVault(450, 180, 'NoSQL: 100k GPS Pings/sec', 'online') +
+        // Moving Cab streaming GPS pings
+        this.renderOlaCab(320, 230, 'SE', 'moving', 'Cab GPS Pings (NoSQL)');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'vault',
+        badgeText: isOptimal ? 'POLYGLOT STORAGE SUCCESS' : 'SQL VS NOSQL STORAGE STRATEGY',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'SQL: 100% Strict Ledger • NoSQL: 100k pings/sec' : 'Storage Assignment Required',
+        footerIcon: '💾',
+        footerTitle: isOptimal ? 'Right Database for the Right Job' : 'Matching Data to Storage',
+        footerDesc: isOptimal ? 'SQL protects money with strict balance rules; NoSQL absorbs millions of fast-moving cab GPS coordinates without slowing down.' : 'Trying to store fast GPS coordinates in a strict bank database causes disk lockup.',
+        svgContent
       });
     },
 
-
     // =========================================================================
-    // LEVELS 10-18 SCENARIOS (OLTP/OLAP, ACID, REPLICATION, CACHE, CDN, SCALING, LB, RATE LIMIT, SHARDING)
+    // LEVEL 12: ACID PROPERTIES (PAYING ₹350 FOR A RIDE)
     // =========================================================================
-
-    // LEVEL 10: Cash Register vs Accountant's Ledger (OLTP vs OLAP)
-    renderOltpOlapRegistersScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isShared = choice && choice.id === 'A';
-      const isBlind = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: DUAL WORKLOAD LOCKOUT';
-      let badgeType = 'problem';
-      let telemetryText = 'Workload: 100 Checkout Counters + 5-Year CFO Audit Query';
-      let footerTitle = 'OLTP vs OLAP Workload Conflict';
-      let footerDesc = 'Heavy analytical queries lock database rows, freezing live checkout counters on the floor.';
-      let footerIcon = '⚡';
-
-      if (isOptimal) {
-        badgeText = 'DUAL ARCHITECTURE SUCCESS: OLTP (BILLING) + OLAP (DATA WAREHOUSE)';
-        badgeType = 'solution';
-        telemetryText = 'OLTP: Sub-50ms Scans • OLAP: 5-Year Queries in 2s (ETL Synced)';
-        footerTitle = 'Separation of Transactional and Analytical Engines';
-        footerDesc = 'Normalized row-based SQL handles checkout billing; nightly ETL loads columnar warehouse for the CFO.';
-        footerIcon = '📊';
-      } else if (isShared) {
-        badgeText = 'DATABASE TABLE LOCK DEADLOCK • CHECKOUT FREEZE';
-        badgeType = 'problem';
-        telemetryText = 'Latency: 30s+ • 100 Cash Registers Frozen';
-        footerTitle = 'Single Ledger Shared Lockout';
-        footerDesc = 'CFO analytical scan locked 50,000 rows. Cashiers cannot scan groceries, queue stretches out the door!';
-        footerIcon = '🔒';
-      } else if (isBlind) {
-        badgeText = 'BLIND MANAGEMENT • INVENTORY SPOILAGE & TAX AUDIT';
-        badgeType = 'problem';
-        telemetryText = 'Analytics: 0% • Spoilage: 40% • Tax Fines Pending';
-        footerTitle = 'Banning Analytics Disaster';
-        footerDesc = 'Store operates blind without historical sales data, leading to severe dairy spoilage and tax penalties.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">100 CHECKOUT LANES (OLTP) vs CFO 5-YEAR AUDIT (OLAP)</text>';
-        content += this.renderServiceDesk(200, 190, 'open');
-        content += this.renderHuman(160, 210, 'shopper', 'alert', 'Shopper In Line');
-        content += this.renderStorageVault(320, 170, 'Shared Database', 'secure');
-        content += '<rect x="420" y="160" width="80" height="40" rx="4" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>';
-        content += '<text x="460" y="180" text-anchor="middle" font-size="8" font-weight="900" fill="#fcd34d">CFO DESK</text>';
-        content += '<text x="460" y="192" text-anchor="middle" font-size="7" fill="#cbd5e1">5-Year Query</text>';
-        content += this.renderHuman(520, 195, 'clerk', 'confused', 'CFO Analyst');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">OLTP REGISTERS (ROW-BASED) ──► NIGHTLY ETL ──► OLAP COLUMNAR WAREHOUSE</text>';
-        // Front OLTP
-        content += this.renderServiceDesk(180, 190, 'open');
-        content += '<rect x="140" y="240" width="80" height="20" rx="3" fill="#15803d"/><text x="180" y="253" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">OLTP (SUB-50ms)</text>';
-        content += this.renderHuman(130, 205, 'shopper', 'happy', 'Fast Checkout');
-        // ETL Pipe
-        content += '<line x1="230" y1="190" x2="390" y2="190" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,4"/>';
-        content += '<rect x="280" y="178" width="60" height="18" rx="3" fill="#0369a1"/><text x="310" y="190" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">ETL SYNC</text>';
-        // Back OLAP
-        content += this.renderStorageVault(440, 175, 'OLAP Warehouse', 'secure');
-        content += '<rect x="400" y="240" width="80" height="20" rx="3" fill="#0284c7"/><text x="440" y="253" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">COLUMNAR BI</text>';
-        content += this.renderHuman(530, 190, 'clerk', 'happy', 'CFO Insights');
-      } else if (isShared) {
-        content += '<rect x="220" y="160" width="200" height="50" rx="4" fill="#450a0a" stroke="#ef4444" stroke-width="1.5"/>';
-        content += '<text x="320" y="180" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">EXCLUSIVE TABLE LOCK HELD</text>';
-        content += '<text x="320" y="195" text-anchor="middle" font-size="8" font-weight="700" fill="#fca5a5">All 100 Checkout Scanners Blocked!</text>';
-        content += this.renderHuman(160, 210, 'shopper', 'alert', 'Furious Line');
-      } else {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#374151" stroke="#9ca3af"/>';
-        content += '<text x="320" y="190" text-anchor="middle" font-size="10" font-weight="900" fill="#f3f4f6">ZERO BUSINESS REPORTING</text>';
-        content += '<text x="320" y="202" text-anchor="middle" font-size="8" fill="#d1d5db">Perishables Spoiling • Tax Audit Penalty</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 11: The Multi-Step Vault Deposit (ACID Deep Dive)
     renderAcidAtomicVaultScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isBlackoutFail = choice && choice.id === 'A';
-      const isFraud = choice && choice.id === 'C';
 
-      let badgeText = 'INITIAL PROBLEM: POWER BLACKOUT MID-TRANSFER';
-      let badgeType = 'problem';
-      let telemetryText = 'Step 1: Wallet -Rs.1,000 [DONE] • Step 2: Store Vault +Rs.1,000 [POWER CUT]';
-      let footerTitle = 'Multi-Statement Transaction Failure';
-      let footerDesc = 'A sudden power failure strikes right after debiting the customer, before crediting the store ledger.';
-      let footerIcon = '⚡';
-
-      if (isOptimal) {
-        badgeText = 'ATOMIC TRANSACTION ROLLBACK: ZERO MONEY LOST';
-        badgeType = 'solution';
-        telemetryText = 'WAL Log Replay: Step 1 Rolled Back • Rs.1,000 Restored to Wallet';
-        footerTitle = 'ACID Transaction Engine';
-        footerDesc = 'All-or-nothing atomicity and Write-Ahead Logging (WAL) rolled back the uncommitted debit upon reboot.';
-        footerIcon = '🛡️';
-      } else if (isBlackoutFail) {
-        badgeText = 'FUNDS VANISHED INTO THE VOID • LEGAL LAWSUIT';
-        badgeType = 'problem';
-        telemetryText = 'Customer Wallet: -Rs.1,000 • Supermarket Ledger: Rs.0';
-        footerTitle = 'Partial Write Disaster';
-        footerDesc = 'Rs. 1,000 was deducted but never credited. Money vanished, sparking a customer fraud lawsuit!';
-        footerIcon = '💥';
-      } else if (isFraud) {
-        badgeText = 'MANUAL REFUND FRAUD SCAM INVASION';
-        badgeType = 'problem';
-        telemetryText = 'Deficit: Rs.500,000 in Fake Blackout Claims';
-        footerTitle = 'Honor System Exploitation';
-        footerDesc = 'Dishonest customers faked phone disconnects to claim double refunds, draining store finances.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'vault');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">⚡ BLACKOUT STRIKES BETWEEN STEP 1 AND STEP 2 ⚡</text>';
-        content += this.renderHuman(180, 200, 'shopper', 'alert', 'Shopper (Wallet)');
-        content += '<line x1="220" y1="190" x2="380" y2="190" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,4"/>';
-        content += '<text x="300" y="180" text-anchor="middle" font-size="16">⚡</text>';
-        content += this.renderStorageVault(440, 175, 'Store Vault', 'secure');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">ACID RECOVERY: WRITE-AHEAD LOG (WAL) RESTORES WALLET BALANCE</text>';
-        content += this.renderHuman(180, 200, 'shopper', 'happy', 'Wallet Restored (Rs.1,000)');
-        content += '<rect x="250" y="170" width="140" height="40" rx="4" fill="#14532d" stroke="#22c55e" stroke-width="1.2"/>';
-        content += '<text x="320" y="186" text-anchor="middle" font-size="8" font-weight="900" fill="#86efac">ATOMIC ROLLBACK</text>';
-        content += '<text x="320" y="198" text-anchor="middle" font-size="7" font-weight="700" fill="#bbf7d0">All-Or-Nothing Invariant Intact</text>';
-        content += this.renderStorageVault(440, 175, 'Store Vault', 'secure');
-      } else if (isBlackoutFail) {
-        content += '<rect x="230" y="170" width="180" height="45" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">MONEY DROPPED MID-FLIGHT</text>';
-        content += '<text x="320" y="202" text-anchor="middle" font-size="8" fill="#fca5a5">-Rs.1,000 Lost In Power Outage</text>';
-        content += this.renderHuman(160, 210, 'shopper', 'alert', 'Angry Customer');
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">STORE BANKRUPTED BY FAKE REFUND FRAUD</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Left: Rider Account (-₹350)
+        '<g transform="translate(180, 200)">' +
+          '<rect x="-50" y="-20" width="100" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>' +
+          '<text x="0" y="-5" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#93c5fd">Rider Rahul Wallet</text>' +
+          '<text x="0" y="10" text-anchor="middle" font-size="9" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#f87171' : '#f87171') + '">-₹350</text>' +
+        '</g>' +
+        // Center: ACID Commit Lock
+        '<g transform="translate(320, 150)">' +
+          '<circle cx="0" cy="0" r="24" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="2" filter="' + (isOptimal ? 'url(#glowGreen)' : 'url(#glowRed)') + '"/>' +
+          '<text x="0" y="4" text-anchor="middle" font-size="10" font-family="sans-serif" font-weight="900" fill="#fff">' + (isOptimal ? 'ACID' : 'FAIL') + '</text>' +
+        '</g>' +
+        // Right: Driver Account (+₹350)
+        '<g transform="translate(460, 200)">' +
+          '<rect x="-50" y="-20" width="100" height="40" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1.2"/>' +
+          '<text x="0" y="-5" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="800" fill="#86efac">Driver Ramesh Bank</text>' +
+          '<text x="0" y="10" text-anchor="middle" font-size="9" font-family="sans-serif" font-weight="900" fill="#4ade80">+₹350</text>' +
+        '</g>';
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'vault',
+        badgeText: isOptimal ? 'ACID ATOMIC TRANSACTION COMMITTED' : 'ACID FINANCIAL INTEGRITY CHECK',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Atomic: Both Succeeded • Zero Money Lost' : 'Risk: Inconsistent Account Balances',
+        footerIcon: '⚖️',
+        footerTitle: isOptimal ? 'All-Or-Nothing Transaction' : 'Atomicity Guard',
+        footerDesc: isOptimal ? 'Both rider deduction and driver credit succeeded at the exact same millisecond. If Wi-Fi dropped, the entire payment would roll back safely.' : 'Without ACID, money deducted from the passenger could vanish before reaching the driver.',
+        svgContent
       });
     },
 
-    // LEVEL 12: The Backup Store Ledgers (Database Replication)
-    renderDbReplicationClusterScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isSingleMaster = choice && choice.id === 'A';
-      const isSplitBrain = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: OVERLOADED SINGLE DATABASE SPOF';
-      let badgeType = 'problem';
-      let telemetryText = '100 Registers hammering 1 Database Server • Disk I/O 99% • 8s Price Scans';
-      let footerTitle = 'Single Point of Failure Bottleneck';
-      let footerDesc = 'Every checkout register queries the same database disk, grinding transactions to a halt.';
-      let footerIcon = '🔥';
-
-      if (isOptimal) {
-        badgeText = 'PRIMARY-REPLICA REPLICATION SUCCESS: 3ms LOOKUPS';
-        badgeType = 'solution';
-        telemetryText = 'Primary: Dedicated to Writes • 3 Replicas: 100 Registers Read in Parallel';
-        footerTitle = 'High Availability & Read Scalability';
-        footerDesc = 'Sales writes route to Primary; price reads scale horizontally across synced read replicas.';
-        footerIcon = '⚡';
-      } else if (isSingleMaster) {
-        badgeText = 'HARD DRIVE OVERHEATED • STOREWIDE CRASH';
-        badgeType = 'problem';
-        telemetryText = 'Hardware Failure: Disk Burnout • 100 Lanes Paralyzed';
-        footerTitle = 'Single Point of Failure Disaster';
-        footerDesc = 'The single database disk overheated and died at 2 PM Saturday. 1,500 shoppers turned away!';
-        footerIcon = '💥';
-      } else if (isSplitBrain) {
-        badgeText = 'ISOLATED DESYNCHRONIZED LEDGER DISASTER';
-        badgeType = 'problem';
-        telemetryText = 'Price Drift: $20 vs $50 vs $0 • Inventory Double-Sold';
-        footerTitle = 'Split-Brain Inventory Inconsistency';
-        footerDesc = 'Registers operated isolated local ledgers without syncing, double-selling out-of-stock inventory!';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">100 CASHIERS CROWDING A SINGLE OVERHEATING HARD DRIVE</text>';
-        content += this.renderStorageVault(320, 160, 'Single DB (99% CPU)', 'breached');
-        content += this.renderHuman(220, 220, 'clerk', 'alert', 'Register 1');
-        content += this.renderHuman(320, 230, 'clerk', 'alert', 'Register 50');
-        content += this.renderHuman(420, 220, 'clerk', 'alert', 'Register 100');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">PRIMARY (WRITES) ──► CONTINUOUS REPLICATION STREAM ──► READ REPLICAS</text>';
-        // Primary Node
-        content += this.renderStorageVault(320, 140, 'Primary (Writes)', 'secure');
-        // Replication arrows
-        content += '<line x1="280" y1="160" x2="190" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,3"/>';
-        content += '<line x1="320" y1="170" x2="320" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,3"/>';
-        content += '<line x1="360" y1="160" x2="450" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,3"/>';
-        // 3 Replicas
-        content += this.renderStorageVault(170, 210, 'Read Replica 1', 'secure');
-        content += this.renderStorageVault(320, 210, 'Read Replica 2', 'secure');
-        content += this.renderStorageVault(470, 210, 'Read Replica 3', 'secure');
-      } else if (isSingleMaster) {
-        content += '<rect x="220" y="160" width="200" height="50" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="182" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">HARD DISK SMOKE & FAILURE</text>';
-        content += '<text x="320" y="196" text-anchor="middle" font-size="8" fill="#fca5a5">All 100 Lanes Shut Down • Store Closed</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">PRICE CHAOS • DOUBLE-SELLING OUT OF STOCK</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 13: The Cashier's Sticky Notepad (Caching Strategies)
-    renderCachingStickyNotepadScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isDiskOnly = choice && choice.id === 'A';
-      const isHumanOnly = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: DISK I/O REPETITIVE LOOKUP THRASHING';
-      let badgeType = 'problem';
-      let telemetryText = '80,000 Queries/Hour fetching the same 5 hot summer items from spinning disk';
-      let footerTitle = 'Redundant Disk Query Overhead';
-      let footerDesc = 'Cashiers repeatedly hit mechanical disk storage for the price of water and soda, creating long queues.';
-      let footerIcon = '💾';
-
-      if (isOptimal) {
-        badgeText = 'IN-MEMORY CACHING SUCCESS: 0.2ms LOOKUPS (90% DISK OFF-LOAD)';
-        badgeType = 'solution';
-        telemetryText = 'Cache Hit: 90% (RAM 0.2ms) • Cache Miss: 10% (Loaded to Cache + LRU)';
-        footerTitle = 'In-Memory Cache (Redis) Architecture';
-        footerDesc = 'Frequently scanned items reside in ultra-fast RAM; LRU policy evicts stale entries automatically.';
-        footerIcon = '⚡';
-      } else if (isDiskOnly) {
-        badgeText = 'DISK HEAD THRASHING • SLOW QUEUES';
-        badgeType = 'problem';
-        telemetryText = 'Disk I/O: 100% Saturated • High Energy Waste';
-        footerTitle = 'Disk Thrashing Fatigue';
-        footerDesc = 'Scanning disk 80,000 times an hour for the same $1 soda caused mechanical latency and hot queues.';
-        footerIcon = '🐢';
-      } else if (isHumanOnly) {
-        badgeText = 'HUMAN MEMORY MISCHARGING DISASTER';
-        badgeType = 'problem';
-        telemetryText = 'Accuracy: 70% • Customer Overcharges & Discrepancies';
-        footerTitle = 'Human Memory Failure';
-        footerDesc = 'Cashiers guessed outdated prices, leading to customer disputes and severe revenue loss.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">80,000 QUERIES/HR HITTING DISK FOR SODA & WATER</text>';
-        content += this.renderServiceDesk(220, 190, 'open');
-        content += this.renderHuman(160, 205, 'shopper', 'alert', 'Waiting Shopper');
-        content += '<line x1="260" y1="200" x2="420" y2="200" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>';
-        content += this.renderStorageVault(460, 175, 'Replica Disk', 'secure');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">CACHE HIT IN 0.2ms (RAM) ──► 90% OF DISK QUERIES ELIMINATED</text>';
-        // Service Desk with Glowing Sticky Notepad (Redis)
-        content += this.renderServiceDesk(220, 190, 'open');
-        // Yellow sticky note
-        content += '<polygon points="255,160 285,160 285,190 255,190" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>';
-        content += '<text x="270" y="175" text-anchor="middle" font-size="7" font-weight="900" fill="#854d0e">REDIS</text>';
-        content += '<text x="270" y="185" text-anchor="middle" font-size="6" font-weight="700" fill="#854d0e">0.2ms</text>';
-        content += this.renderHuman(150, 205, 'shopper', 'happy', 'Instant Scan');
-        // Database Disk idle
-        content += this.renderStorageVault(460, 175, 'Database Disk (Idle)', 'secure');
-        content += '<text x="460" y="245" text-anchor="middle" font-size="8" font-weight="800" fill="#22c55e">✓ 90% Relieved</text>';
-      } else if (isDiskOnly) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">DISK I/O 100% SATURATED</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#fca5a5">Unnecessary disk head thrashing!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">HUMAN MISCHARGES • CUSTOMER DISPUTES</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 14: Kiosks Across the State (Content Delivery Networks - CDN)
-    renderCdnEdgeKiosksScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isSlowTransit = choice && choice.id === 'A';
-      const isPlainText = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: 500KM OPTICAL TRANSIT LATENCY';
-      let badgeType = 'problem';
-      let telemetryText = 'Coimbatore Origin ──► Chennai (500km): 6s Photo Flyer Download';
-      let footerTitle = 'Geographical Network Latency Bottleneck';
-      let footerDesc = 'Distant shoppers download heavy 5 MB brochures across hundreds of kilometers of optical fiber.';
-      let footerIcon = '🌐';
-
-      if (isOptimal) {
-        badgeText = 'CDN EDGE POPS SUCCESS: 20ms LOCAL FLYER DELIVERY';
-        badgeType = 'solution';
-        telemetryText = 'Chennai PoP: 20ms • Madurai PoP: 18ms • Origin Bandwidth Saved: 85%';
-        footerTitle = 'Content Delivery Network (CDN) Architecture';
-        footerDesc = 'Static photos and flyers cache at local Edge PoPs; Origin server handles dynamic checkout only.';
-        footerIcon = '🚀';
-      } else if (isSlowTransit) {
-        badgeText = 'BANDWIDTH CONGESTION • 6-SECOND LOAD TIMES';
-        badgeType = 'problem';
-        telemetryText = 'Coimbatore Pipe: 100% Choked • High Abandonment';
-        footerTitle = 'Single Origin Saturation';
-        footerDesc = 'Thousands of statewide downloads overloaded Coimbatore servers, freezing remote shoppers!';
-        footerIcon = '🐢';
-      } else if (isPlainText) {
-        badgeText = '1985 TERMINAL DISASTER • MASS CUSTOMER CHURN';
-        badgeType = 'problem';
-        telemetryText = 'Design: Plaintext • Conversion: -80% • App Uninstalled';
-        footerTitle = 'Aesthetic Stripping Failure';
-        footerDesc = 'Stripping photos turned the app into an ugly terminal; customers uninstalled in favor of rivals.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">COIMBATORE ORIGIN TO CHENNAI (500 KM OPTICAL FIBER DELAY)</text>';
-        content += this.renderStorageVault(180, 180, 'Coimbatore Origin', 'secure');
-        content += '<line x1="220" y1="190" x2="420" y2="190" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>';
-        content += '<text x="320" y="180" text-anchor="middle" font-size="8" font-weight="900" fill="#fcd34d">500 KM FIBER (6s)</text>';
-        content += this.renderHuman(460, 190, 'shopper', 'alert', 'Chennai Shopper');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">LOCAL EDGE POPS: CHENNAI, MADURAI, SALEM SERVE ASSETS IN 20ms</text>';
-        // Coimbatore Origin
-        content += this.renderStorageVault(160, 180, 'Origin Server', 'secure');
-        // CDN Edge Kiosks
-        content += '<rect x="290" y="140" width="70" height="35" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>';
-        content += '<text x="325" y="155" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">Salem Edge PoP</text>';
-        content += '<text x="325" y="167" text-anchor="middle" font-size="6" fill="#e0f2fe">20ms Local</text>';
-
-        content += '<rect x="440" y="120" width="80" height="35" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>';
-        content += '<text x="480" y="135" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">Chennai Edge PoP</text>';
-        content += '<text x="480" y="147" text-anchor="middle" font-size="6" fill="#e0f2fe">20ms Local</text>';
-
-        content += '<rect x="360" y="210" width="80" height="35" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>';
-        content += '<text x="400" y="225" text-anchor="middle" font-size="7" font-weight="900" fill="#fff">Madurai Edge PoP</text>';
-        content += '<text x="400" y="237" text-anchor="middle" font-size="6" fill="#e0f2fe">18ms Local</text>';
-
-        content += this.renderHuman(540, 150, 'shopper', 'happy', 'Chennai User');
-      } else if (isSlowTransit) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">NETWORK PIPE 100% SATURATED</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#fca5a5">Distant users experiencing 6s delays!</text>';
-      } else {
-        content += '<rect x="220" y="160" width="200" height="50" rx="4" fill="#052e16" stroke="#22c55e"/>';
-        content += '<text x="320" y="182" text-anchor="middle" font-size="9" font-family="monospace" fill="#86efac">> 1985 TEXT TERMINAL</text>';
-        content += '<text x="320" y="196" text-anchor="middle" font-size="7" font-family="monospace" fill="#86efac">> Shoppers uninstalled app</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 15: Outgrowing the Property (Horizontal vs. Vertical Scaling)
-    renderScalingClusterNodesScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isVertical = choice && choice.id === 'A';
-      const isMeltdown = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: 95% CPU PEGGED AT 200,000 VISITORS';
-      let badgeType = 'problem';
-      let telemetryText = 'Traffic: 200,000 Users • CPU: 95% Screaming Fans • Single Machine Exhaustion';
-      let footerTitle = 'Hardware Resource Exhaustion';
-      let footerDesc = 'Customer growth from 2,000 to 200,000 pushed the single server to near-thermal collapse.';
-      let footerIcon = '🔥';
-
-      if (isOptimal) {
-        badgeText = 'HORIZONTAL SCALING (SCALE OUT) SUCCESS: 4-NODE CLUSTER';
-        badgeType = 'solution';
-        telemetryText = 'Nodes: 4x Commodity Servers • CPU: 24% Balanced • Zero Downtime';
-        footerTitle = 'Horizontal Cluster Architecture';
-        footerDesc = 'Adding commodity server nodes shares load flexibly, eliminates SPOF, and scales elastically.';
-        footerIcon = '🚀';
-      } else if (isVertical) {
-        badgeText = 'VERTICAL UPGRADE HIT PHYSICAL MANUFACTURING CEILING';
-        badgeType = 'problem';
-        telemetryText = 'Cost: 10x Enterprise Premium • Ceiling Reached: No Bigger Chips On Earth';
-        footerTitle = 'Vertical Scaling Physical Ceiling';
-        footerDesc = 'Upgrading the single machine cost 10x, required downtime, and hit hard physical CPU limits!';
-        footerIcon = '🧱';
-      } else if (isMeltdown) {
-        badgeText = 'THERMAL SHUTDOWN MELTDOWN • REVENUE LOST';
-        badgeType = 'problem';
-        telemetryText = 'Hardware Alert: 105°C Thermal Trip • Connections Dropped';
-        footerTitle = 'Neglected Overload Failure';
-        footerDesc = 'Ignoring 95% CPU utilization caused automatic thermal shutdown, crashing the entire weekend!';
-        footerIcon = '💥';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">SINGLE SERVER GROANING UNDER 200,000 DAILY SHOPPERS</text>';
-        content += this.renderStorageVault(320, 160, 'Single Server (95% CPU)', 'breached');
-        content += '<text x="320" y="235" text-anchor="middle" font-size="18">🔥 ⚠️ 🔥</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">HORIZONTAL CLUSTER: 4 COMMODITY NODES SHARING LOAD AT 24% CPU</text>';
-        content += this.renderStorageVault(170, 160, 'Node 1 (24%)', 'secure');
-        content += this.renderStorageVault(270, 160, 'Node 2 (24%)', 'secure');
-        content += this.renderStorageVault(370, 160, 'Node 3 (24%)', 'secure');
-        content += this.renderStorageVault(470, 160, 'Node 4 (24%)', 'secure');
-        content += '<rect x="220" y="240" width="200" height="20" rx="4" fill="#15803d"/><text x="320" y="253" text-anchor="middle" font-size="8" font-weight="900" fill="#fff">ELASTIC COMMODITY FLEET</text>';
-      } else if (isVertical) {
-        content += '<rect x="250" y="130" width="140" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>';
-        content += '<text x="320" y="155" text-anchor="middle" font-size="9" font-weight="900" fill="#fcd34d">MONSTER 128-CORE BOX</text>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="7" fill="#fca5a5">10x Cost • Downtime Required</text>';
-        content += '<text x="320" y="195" text-anchor="middle" font-size="7" font-weight="700" fill="#ef4444">"No larger chips made on Earth"</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="14" font-weight="900" fill="#ef4444">💥 THERMAL MELTDOWN • REVENUE LOST 💥</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 16: The Highway Traffic Director (Load Balancing)
-    renderLoadBalancerTrafficScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isRandom = choice && choice.id === 'A';
-      const isRelapse = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: 95% TRAFFIC CLUMPED ON SERVER 1';
-      let badgeType = 'problem';
-      let telemetryText = 'Server 1: 95% CPU (Catching Fire!) • Servers 2, 3, 4: 0% CPU (Completely Idle)';
-      let footerTitle = 'Traffic Imbalance Bottleneck';
-      let footerDesc = 'Clients hardcoded Server 1 IP, crushing it while three healthy servers sat unused.';
-      let footerIcon = '⚠️';
-
-      if (isOptimal) {
-        badgeText = 'LOAD BALANCER SUCCESS: SMART ROUND-ROBIN DISTRIBUTION';
-        badgeType = 'solution';
-        telemetryText = 'Even Load: 25% across all 4 nodes • Active Health Checks: Dead Nodes Detached';
-        footerTitle = 'Load Balancer Architecture';
-        footerDesc = 'Single Virtual IP distributes traffic evenly and isolates unhealthy servers via /healthz heartbeat.';
-        footerIcon = '⚖️';
-      } else if (isRandom) {
-        badgeText = 'RANDOM CLIENT ROUTING • TRAFFIC SENT TO DEAD IP';
-        badgeType = 'problem';
-        telemetryText = 'Clumping: Uneven • Failure: Sent traffic to crashed Server 3';
-        footerTitle = 'Uncontrolled Routing Failure';
-        footerDesc = 'Clients randomly chose IPs, sending thousands of shoppers to crashed Server 3!';
-        footerIcon = '💥';
-      } else if (isRelapse) {
-        badgeText = 'MONOLITHIC RELAPSE DISASTER';
-        badgeType = 'problem';
-        telemetryText = 'Shutting down idle servers crashed Server 1 instantly!';
-        footerTitle = 'Relapse Failure';
-        footerDesc = 'Forcing Server 1 to handle all load alone re-triggered the Level 15 outage immediately.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">95% TRAFFIC CLUMPING ON SERVER 1 (SERVERS 2-4 SITTING IDLE)</text>';
-        content += this.renderStorageVault(170, 170, 'Server 1 (95% FIRE)', 'breached');
-        content += this.renderStorageVault(270, 170, 'Server 2 (0% Idle)', 'secure');
-        content += this.renderStorageVault(370, 170, 'Server 3 (0% Idle)', 'secure');
-        content += this.renderStorageVault(470, 170, 'Server 4 (0% Idle)', 'secure');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">LOAD BALANCER: EVEN 25% DISTRIBUTION WITH CONTINUOUS HEALTH CHECKS</text>';
-        // Load Balancer
-        content += '<rect x="270" y="110" width="100" height="35" rx="5" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="125" text-anchor="middle" font-size="8" font-weight="900" fill="#fff">LOAD BALANCER</text>';
-        content += '<text x="320" y="137" text-anchor="middle" font-size="7" fill="#e0f2fe">Round-Robin VIP</text>';
-        // 4 lines
-        content += '<line x1="280" y1="145" x2="170" y2="185" stroke="#22c55e" stroke-width="2"/>';
-        content += '<line x1="300" y1="145" x2="270" y2="185" stroke="#22c55e" stroke-width="2"/>';
-        content += '<line x1="340" y1="145" x2="370" y2="185" stroke="#22c55e" stroke-width="2"/>';
-        content += '<line x1="360" y1="145" x2="470" y2="185" stroke="#22c55e" stroke-width="2"/>';
-        // 4 balanced nodes
-        content += this.renderStorageVault(170, 185, 'Node 1 (25%)', 'secure');
-        content += this.renderStorageVault(270, 185, 'Node 2 (25%)', 'secure');
-        content += this.renderStorageVault(370, 185, 'Node 3 (25%)', 'secure');
-        content += this.renderStorageVault(470, 185, 'Node 4 (25%)', 'secure');
-      } else if (isRandom) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">DEAD SERVER TRAFFIC FAILURE</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#fca5a5">Clients sent traffic to dead Server 3 IP!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">SERVER 1 CRASHED • STORE OFFLINE</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 17: The Gate Turnstile & Scalper Rush (Rate Limiting)
-    renderRateLimiterTurnstileScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal);
-      const isStampede = choice && choice.id === 'A';
-      const isShutDown = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: 50,000 BOT REQ/SEC SCALPER STORM';
-      let badgeType = 'problem';
-      let telemetryText = 'Sunday 9:00 AM Flash Sale: Scalper bots flooding API • Real shoppers timed out';
-      let footerTitle = 'Automated Scalper Bot Stampede';
-      let footerDesc = 'Bots fire 50,000 req/sec at 9:00 AM, exhausting network sockets and denying real families.';
-      let footerIcon = '🤖';
-
-      if (isOptimal) {
-        badgeText = 'RATE LIMITER SUCCESS: TOKEN BUCKET SHIELD (HTTP 429)';
-        badgeType = 'solution';
-        telemetryText = 'Bots Throttled: HTTP 429 Too Many Requests • Humans: 5 Req/Min Flowing Fairly';
-        footerTitle = 'Token Bucket Rate Limiting Architecture';
-        footerDesc = 'Token Bucket algorithm permits fair human shopping while instantly shielding APIs from bot storms.';
-        footerIcon = '🛡️';
-      } else if (isStampede) {
-        badgeText = 'DENIAL OF SERVICE CRASH • 100% SOCKETS CONSUMED';
-        badgeType = 'problem';
-        telemetryText = 'API Saturated: Connection Timeouts • Bots Scalped All Inventory in 3s';
-        footerTitle = 'Unthrottled API Collapse';
-        footerDesc = 'Unlimited request policy allowed scalpers to overwhelm servers and steal all inventory!';
-        footerIcon = '💥';
-      } else if (isShutDown) {
-        badgeText = 'ONLINE STORE SHUT DOWN • 90% REVENUE LOSS';
-        badgeType = 'problem';
-        telemetryText = 'Sales: 90% Plummet • Busy Phone Tone Disaster';
-        footerTitle = 'Digital Commerce Abandonment';
-        footerDesc = 'Replacing online store with phone orders alienated shoppers and ruined business revenue.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">50,000 BOT REQ/SEC STORMING UNPROTECTED CHECKOUT DOORS</text>';
-        content += this.renderHuman(140, 190, 'worker', 'alert', 'Scalper Bot 1');
-        content += this.renderHuman(180, 220, 'worker', 'alert', 'Scalper Bot 2');
-        content += '<text x="240" y="200" text-anchor="middle" font-size="14">🤖⚡🤖⚡</text>';
-        content += this.renderStorageVault(420, 175, 'Checkout API', 'breached');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">TOKEN BUCKET TURNSTILE: BOTS HIT HTTP 429 • FAMILIES PASS FAIRLY</text>';
-        // Scalper bots blocked
-        content += this.renderHuman(140, 190, 'worker', 'alert', 'Bot (500 req/s)');
-        content += '<line x1="180" y1="190" x2="250" y2="190" stroke="#ef4444" stroke-width="3"/>';
-        // Rate Limiter Shield
-        content += '<rect x="260" y="150" width="100" height="55" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.8"/>';
-        content += '<text x="310" y="170" text-anchor="middle" font-size="8" font-weight="900" fill="#a5b4fc">RATE LIMITER</text>';
-        content += '<text x="310" y="182" text-anchor="middle" font-size="7" font-weight="800" fill="#ef4444">HTTP 429 SHIELD</text>';
-        content += '<text x="310" y="195" text-anchor="middle" font-size="6" fill="#c7d2fe">Token Bucket: 5/min</text>';
-        // Human Shopper passing
-        content += this.renderHuman(210, 240, 'shopper', 'happy', 'Family Shopper');
-        content += '<line x1="260" y1="240" x2="410" y2="240" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,2"/>';
-        // Backend API Protected
-        content += this.renderStorageVault(460, 175, 'Checkout API (Safe)', 'secure');
-      } else if (isStampede) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">100% NETWORK SOCKETS CHOKED</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#fca5a5">Real shoppers locked out in DoS storm!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">STORE SHUT DOWN • 90% REVENUE LOST</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 18: Splitting the Master Ledger (Database Sharding)
+    // =========================================================================
+    // LEVEL 13, 15, 16: INDEXING, PARTITIONING, SHARDING
+    // =========================================================================
     renderDatabaseShardingLedgersScene(choice) {
       const isOptimal = Boolean(choice && choice.isOptimal);
-      const isExhausted = choice && choice.id === 'A';
-      const isDeleteRecords = choice && choice.id === 'C';
 
-      let badgeText = 'INITIAL PROBLEM: 2 BILLION ROWS FILLING DISK TO 98%';
-      let badgeType = 'problem';
-      let telemetryText = '50 Million Accounts • 2 Billion Rows • Write backlog reaching multi-minute delays';
-      let footerTitle = 'Monolithic Database Write Boundary';
-      let footerDesc = 'Even read replicas cannot solve write volume on a single master table exceeding disk limits.';
-      let footerIcon = '💾';
-
-      if (isOptimal) {
-        badgeText = 'DATABASE SHARDING SUCCESS: 4 INDEPENDENT PARTITIONS';
-        badgeType = 'solution';
-        telemetryText = 'Sharding Key: hash(UserID) % 4 • 500M Rows per Shard • Sub-15ms Writes';
-        footerTitle = 'Horizontal Sharding Architecture';
-        footerDesc = 'Partitioning tables horizontally across independent server nodes unlocks limitless write capacity.';
-        footerIcon = '🗄️';
-      } else if (isExhausted) {
-        badgeText = 'DISK EXHAUSTION DISASTER • 100% INODE FULL';
-        badgeType = 'problem';
-        telemetryText = 'OS Alert: No Space Left On Device • Indexes Thrashing';
-        footerTitle = 'Single Machine Disk Overflow';
-        footerDesc = 'Single machine ran out of disk space under 2 billion rows, bringing down the nationwide store!';
-        footerIcon = '💥';
-      } else if (isDeleteRecords) {
-        badgeText = 'LEGAL AUDIT DISASTER • PURCHASE HISTORIES DELETED';
-        badgeType = 'problem';
-        telemetryText = 'Warranties: Erased • Tax Compliance: Fines Imposed';
-        footerTitle = 'Arbitrary Data Deletion Catastrophe';
-        footerDesc = 'Erasing history broke warranties and triggered severe legal tax penalties for missing records.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">SINGLE 2-BILLION ROW LEDGER CRUSHING DISK (98% FULL)</text>';
-        content += this.renderStorageVault(320, 160, 'Single Ledger (98% Disk)', 'breached');
-        content += '<text x="320" y="235" text-anchor="middle" font-size="10" font-weight="900" fill="#ef4444">2,000,000,000 Rows Backlog</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">DATABASE SHARDING: HASH(USER_ID) % 4 ROUTING ACROSS 4 INDEPENDENT SHARDS</text>';
-        // Router Layer
-        content += '<rect x="250" y="110" width="140" height="28" rx="4" fill="#0369a1" stroke="#38bdf8" stroke-width="1.2"/>';
-        content += '<text x="320" y="128" text-anchor="middle" font-size="8" font-weight="900" fill="#fff">SHARD ROUTER: HASH(USER_ID)</text>';
-        // 4 Shard Vaults
-        content += this.renderStorageVault(160, 185, 'Shard 1 (0-25%)', 'secure');
-        content += this.renderStorageVault(270, 185, 'Shard 2 (25-50%)', 'secure');
-        content += this.renderStorageVault(370, 185, 'Shard 3 (50-75%)', 'secure');
-        content += this.renderStorageVault(480, 185, 'Shard 4 (75-100%)', 'secure');
-        content += '<text x="320" y="255" text-anchor="middle" font-size="8" font-weight="800" fill="#22c55e">✓ Limitless Horizontal Write Scaling</text>';
-      } else if (isExhausted) {
-        content += '<rect x="220" y="170" width="200" height="40" rx="4" fill="#450a0a" stroke="#ef4444"/>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">DISK CAPACITY EXHAUSTED</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#fca5a5">Single machine disk failure under 2B rows!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">WARRANTIES ERASED • TAX AUDIT FINES</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderDatabaseVault(150, 190, 'Delhi Shard (Cab DB)', 'online') +
+        this.renderDatabaseVault(320, 160, 'Mumbai Shard (Cab DB)', 'online') +
+        this.renderDatabaseVault(490, 190, 'Bangalore Shard (Cab DB)', 'online');
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'day',
+        badgeText: isOptimal ? 'DATABASE SHARDING & INDEXING ACTIVE' : 'DATA DISTRIBUTION STRATEGY',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Indexed Lookup: 2ms • Queries Routed by City' : 'Scanning 50M Records (Slow)',
+        footerIcon: '🗂️',
+        footerTitle: isOptimal ? 'Divided Across City Shards' : 'Managing Millions of Records',
+        footerDesc: isOptimal ? 'Indexing lets servers find a driver by phone number in 2ms, while sharding splits data by city so no single database gets overwhelmed.' : 'Searching through millions of unindexed records from top to bottom freezes the database.',
+        svgContent
       });
     },
 
-    
     // =========================================================================
-    // LEVELS 19-28 SCENARIO-SPECIFIC SCENE RENDERERS
+    // LEVEL 14: DATABASE REPLICATION
     // =========================================================================
+    renderDbReplicationClusterScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
 
-    // LEVEL 19: The Severed Telephone Wire (CAP Theorem)
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Primary Leader (Mumbai)
+        this.renderDatabaseVault(200, 170, 'Primary Server (Leader)', isOptimal ? 'online' : 'crashed') +
+        // Secondary Replica (Bangalore)
+        this.renderDatabaseVault(440, 170, 'Replica Server (Follower)', 'online') +
+        // Replication sync arrow
+        '<path d="M250,170 L390,170" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,3" filter="url(#glowGreen)"><animate attributeName="stroke-dashoffset" values="14;0" dur="1s" repeatCount="indefinite"/></path>';
+
+      return this.wrapScene({
+        theme: 'storm',
+        badgeText: isOptimal ? 'ACTIVE REPLICATION CLUSTER' : 'SINGLE POINT OF FAILURE DETECTED',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Replication Lag: 12ms • Automatic Failover Ready' : 'Zero Backups Available',
+        footerIcon: '🔄',
+        footerTitle: isOptimal ? 'Data Safe Across Server Replicas' : 'Database Replication',
+        footerDesc: isOptimal ? 'If the primary database loses power, the secondary replica in Bangalore immediately takes over with zero lost ride records.' : 'Without replication, a single power outage wipes out app access for all users.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 17: CAP THEOREM (NETWORK PARTITION BETWEEN CITIES)
+    // =========================================================================
     renderCapNetworkPartitionScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isSellAnyway = choice && choice.id === 'A';
-      const isManualMessengers = choice && choice.id === 'C';
+      const isOptimal = Boolean(choice && choice.isOptimal);
 
-      let badgeText = 'NETWORK PARTITION: FIBER OPTIC CABLE SEVERED';
-      let badgeType = 'problem';
-      let telemetryText = 'Partition: ACTIVE • North Store <---> South Store Offline';
-      let footerTitle = 'CAP Theorem Tradeoff Dilemma';
-      let footerDesc = 'A fallen tree severed communication between branches. You can guarantee Consistency or Availability, never both.';
-      let footerIcon = '⚡';
-
-      if (isOptimal) {
-        badgeText = 'CONSISTENCY (CP) PRESERVED: ZERO OVERSOLD ITEMS';
-        badgeType = 'solution';
-        telemetryText = 'Consistency: 100% • 1 Espresso Machine Intact • Partition Safe';
-        footerTitle = 'Consistency Over Availability Chosen';
-        footerDesc = 'Pausing remote sales while the network is severed guaranteed inventory accuracy and prevented duplicate sales.';
-        footerIcon = '🛡️';
-      } else if (isSellAnyway) {
-        badgeText = 'AVAILABILITY (AP) OVER CONSISTENCY: DOUBLE SALE DISASTER';
-        badgeType = 'problem';
-        telemetryText = 'Machines in Stock: 1 • Machines Sold: 2 • Conflict: FATAL';
-        footerTitle = 'Split-Brain Inventory Collision';
-        footerDesc = 'Both stores sold the single remaining machine simultaneously. Two furious customers arrived for one box!';
-        footerIcon = '💥';
-      } else if (isManualMessengers) {
-        badgeText = 'MANUAL MESSENGER BACKLOG: 24-HOUR LATENCY';
-        badgeType = 'problem';
-        telemetryText = 'Runner Latency: 4 Hours • Customers Left in Disgust';
-        footerTitle = 'Impractical Manual Sync';
-        footerDesc = 'Dispatching runners on bicycles was too slow, leaving queues stalled for hours.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, isOptimal ? 'market' : 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">⚡ SEVERED FIBER TRUNK BETWEEN NORTH &amp; SOUTH STORES ⚡</text>';
-        content += this.renderStorageVault(180, 175, 'North Branch (1 Machine)', 'secure');
-        content += this.renderStorageVault(460, 175, 'South Branch (1 Machine)', 'secure');
-        content += '<line x1="240" y1="185" x2="300" y2="185" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>';
-        content += '<text x="320" y="190" text-anchor="middle" font-size="20">⚡🌲⚡</text>';
-        content += '<line x1="340" y1="185" x2="400" y2="185" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,4"/>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">CP MODE: CONSISTENCY OVER AVAILABILITY (SAFE LOCKING)</text>';
-        content += this.renderStorageVault(180, 175, 'North: Machine Sold', 'secure');
-        content += this.renderStorageVault(460, 175, 'South: Sale Paused (CP)', 'secure');
-        content += '<rect x="250" y="165" width="140" height="35" rx="4" fill="#065f46" stroke="#10b981" stroke-width="1.2"/>';
-        content += '<text x="320" y="180" text-anchor="middle" font-size="8" font-weight="900" fill="#a7f3d0">PARTITION GUARD ACTIVE</text>';
-        content += '<text x="320" y="192" text-anchor="middle" font-size="7" font-weight="700" fill="#d1fae5">Zero Phantom Sales Allowed</text>';
-      } else if (isSellAnyway) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#ef4444">AP COLLISION: BOTH BRANCHES SOLD THE SAME UNIT!</text>';
-        content += this.renderStorageVault(180, 175, 'North: Sold Machine #101', 'breached');
-        content += this.renderStorageVault(460, 175, 'South: Sold Machine #101', 'breached');
-        content += '<rect x="240" y="165" width="160" height="40" rx="4" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="182" text-anchor="middle" font-size="9" font-weight="900" fill="#fca5a5">DOUBLE-BOOKING DISASTER</text>';
-        content += '<text x="320" y="196" text-anchor="middle" font-size="7" fill="#fecaca">2 Buyers Claim Same Item</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">RUNNERS STUCK IN TRAFFIC • CUSTOMERS WALKED OUT</text>';
-      }
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderOlaDispatchServer(180, 170, 'Delhi Server Cluster', 'healthy', '30%') +
+        this.renderOlaDispatchServer(460, 170, 'Bangalore Server Cluster', 'healthy', '30%') +
+        // Cut Fiber Cable with sparks
+        '<line x1="240" y1="170" x2="300" y2="170" stroke="#ef4444" stroke-width="3"/>' +
+        '<line x1="340" y1="170" x2="400" y2="170" stroke="#ef4444" stroke-width="3"/>' +
+        '<text x="320" y="165" text-anchor="middle" font-size="14">⚡</text>' +
+        '<rect x="-40" y="8" width="80" height="14" rx="3" fill="#0f172a" transform="translate(320, 170)"/>' +
+        '<text x="320" y="188" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="900" fill="#ef4444">FIBER CABLE CUT</text>';
 
       return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 20: The Relaxed Ledger (BASE Model)
-    renderBaseEventualConsistencyScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isStrictAcid = choice && choice.id === 'A';
-      const isVolatileRam = choice && choice.id === 'C';
-
-      let badgeText = 'INITIAL PROBLEM: 10,000 SHOPPERS CLICKING THUMBS-UP';
-      let badgeType = 'problem';
-      let telemetryText = 'Traffic: 10k clicks/sec • Database Lock Contention Warning';
-      let footerTitle = 'Consistency Spectrum Tradeoff';
-      let footerDesc = 'Strict ACID locking on casual social counters freezes database registers across the store.';
-      let footerIcon = '👍';
-
-      if (isOptimal) {
-        badgeText = 'BASE MODEL SUCCESS: EVENTUAL CONSISTENCY (2ms RESPONSE)';
-        badgeType = 'solution';
-        telemetryText = 'Availability: 99.999% • Latency: 2ms • Gossip Sync: Converged';
-        footerTitle = 'Basically Available, Soft State, Eventual Consistency';
-        footerDesc = 'Clicks register instantly in local caches and converge asynchronously in the background with zero lock wait.';
-        footerIcon = '⚡';
-      } else if (isStrictAcid) {
-        badgeText = 'STRICT ACID LOCKOUT: CHECKOUT BAYS FROZEN';
-        badgeType = 'problem';
-        telemetryText = 'Lock Wait: 14.8 seconds • 10,000 Shoppers Blocked at Registers';
-        footerTitle = 'ACID Overkill Bottleneck';
-        footerDesc = 'Locking the entire database row for every social like brought shopping checkouts to a dead halt.';
-        footerIcon = '🔒';
-      } else if (isVolatileRam) {
-        badgeText = 'VOLATILE MEMORY LOSS: COUNTER RESET TO ZERO';
-        badgeType = 'problem';
-        telemetryText = 'Reboot Triggered • 50,000 Thumbs-Up Erased';
-        footerTitle = 'Total Data Loss';
-        footerDesc = 'Storing counters purely in volatile RAM wiped out all social proof upon server restart.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">10,000 SHOPPERS TAPPING THUMBS-UP REVIEW BUTTON</text>';
-        content += '<rect x="250" y="150" width="140" height="50" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="175" text-anchor="middle" font-size="18">👍 8,421</text>';
-        content += '<text x="320" y="192" text-anchor="middle" font-size="8" fill="#94a3b8">Incoming Click Surge: High</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">BASE ARCHITECTURE: ASYNC REPLICATION &amp; SOFT STATE CONVERGENCE</text>';
-        content += '<rect x="250" y="140" width="140" height="40" rx="8" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="320" y="162" text-anchor="middle" font-size="14" font-weight="900" fill="#86efac">👍 10,000 LIKES</text>';
-        content += '<text x="320" y="173" text-anchor="middle" font-size="7" fill="#bbf7d0">Eventual Consistency Achieved</text>';
-        content += this.renderHuman(160, 200, 'shopper', 'happy', 'Instant UI (2ms)');
-        content += this.renderHuman(480, 200, 'clerk', 'happy', 'Registers Free');
-      } else if (isStrictAcid) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="11" font-weight="900" fill="#fca5a5">DATABASE ROW LOCK CONFLICT</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">Locked for 10,000 sequential writes!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">SERVER REBOOTED • LIKE COUNTER RESET TO 0</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 21: The Power Outage Drill (Fault Tolerance and Resilience)
-    renderFaultToleranceResilienceScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isTotalBlackout = choice && choice.id === 'A';
-      const isOverEngineered = choice && choice.id === 'C';
-
-      let badgeText = 'MONSOON LIGHTNING DRILL: SUBSTATION GRID FAILURE';
-      let badgeType = 'problem';
-      let telemetryText = 'Grid Power: 0V • Substation Tripped • Storm Category 4';
-      let footerTitle = 'Fault Tolerance & Resilience Required';
-      let footerDesc = 'Systems must withstand sudden node failure through redundancy and graceful degradation.';
-      let footerIcon = '⚡';
-
-      if (isOptimal) {
-        badgeText = 'RESILIENCE SUCCESS: UPS BATTERY + GRACEFUL DEGRADATION';
-        badgeType = 'solution';
-        telemetryText = 'Vital Systems: 100% ONLINE • Disco Neon: OFF • 0 Data Lost';
-        footerTitle = 'Graceful Degradation Deployed';
-        footerDesc = 'Non-essential neon displays switched off while checkout terminals and freezer chillers ran on backup power.';
-        footerIcon = '🛡️';
-      } else if (isTotalBlackout) {
-        badgeText = 'TOTAL SYSTEM COLLAPSE: PITCH-BLACK STORE CHAOS';
-        badgeType = 'problem';
-        telemetryText = 'Status: TOTAL BLACKOUT • Doors Locked • Cashiers Paralyzed';
-        footerTitle = 'Single Point of Electrical Failure';
-        footerDesc = 'With zero battery backup, every scanner shut down and shoppers dropped groceries in the dark.';
-        footerIcon = '💥';
-      } else if (isOverEngineered) {
-        badgeText = 'BUDGET EXHAUSTION: BANKRUPT FROM SATELLITE MICROGRID';
-        badgeType = 'problem';
-        telemetryText = 'Cost: $50,000,000 • Company Bankrupt';
-        footerTitle = 'Excessive Over-Engineering';
-        footerDesc = 'An orbital satellite microgrid exceeded store revenue by 100x before the store even turned a profit.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, isOptimal ? 'market' : 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">⚡ SEVERE MONSOON LIGHTNING THREATENING POWER GRID ⚡</text>';
-        content += '<rect x="280" y="130" width="80" height="50" rx="4" fill="#1e293b" stroke="#eab308" stroke-width="2"/>';
-        content += '<text x="320" y="155" text-anchor="middle" font-size="10" font-weight="900" fill="#fde047">MAIN GRID</text>';
-        content += '<text x="320" y="170" text-anchor="middle" font-size="14">⚡ 220V ⚡</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">DUAL-REDUNDANT UPS &amp; EMERGENCY GENERATOR ACTIVATED</text>';
-        content += '<rect x="200" y="140" width="110" height="45" rx="4" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="255" y="160" text-anchor="middle" font-size="8" font-weight="900" fill="#86efac">BATTERY UPS (ONLINE)</text>';
-        content += '<text x="255" y="174" text-anchor="middle" font-size="7" fill="#bbf7d0">Registers &amp; Freezers Safe</text>';
-        content += '<rect x="330" y="140" width="110" height="45" rx="4" fill="#1e293b" stroke="#94a3b8"/>';
-        content += '<text x="385" y="160" text-anchor="middle" font-size="8" font-weight="900" fill="#94a3b8">NON-ESSENTIAL (OFF)</text>';
-        content += '<text x="385" y="174" text-anchor="middle" font-size="7" fill="#cbd5e1">Neon &amp; Music Shed Load</text>';
-      } else if (isTotalBlackout) {
-        content += '<rect x="180" y="120" width="280" height="150" fill="rgba(0,0,0,0.85)" rx="8"/>';
-        content += '<text x="320" y="190" text-anchor="middle" font-size="28">⚡💀⚡</text>';
-        content += '<text x="320" y="220" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">COMPLETE STORE BLACKOUT • REVENUE HALTED</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">SATELLITE MICROGRID BANKRUPTED THE COMPANY</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 22: The Frantic Double-Tap (Idempotency)
-    renderIdempotencyDoubleClickScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isMultiplyCharge = choice && choice.id === 'A';
-      const isFrontEndLock = choice && choice.id === 'C';
-
-      let badgeText = 'NETWORK DELAY: SHOPPER TAPPING PAY 5 TIMES IN PANIC';
-      let badgeType = 'problem';
-      let telemetryText = 'Shopper Action: 5x Clicks in 2s • 3G Mobile Lag';
-      let footerTitle = 'Duplicate Execution Dilemma';
-      let footerDesc = 'Slow networks tempt users to click repeatedly. Non-idempotent endpoints cause catastrophic multi-charging.';
-      let footerIcon = '💳';
-
-      if (isOptimal) {
-        badgeText = 'IDEMPOTENCY SUCCESS: EXACTLY 1 CHARGE OF Rs. 4,500';
-        badgeType = 'solution';
-        telemetryText = 'Idempotency Key: UUID-7701 • Duplicate Clicks: 4 Filtered • Charged: Rs. 4,500';
-        footerTitle = 'Idempotency Key Deduplication';
-        footerDesc = 'The server recognized the unique transaction token, processed the debit once, and safely returned the cached receipt.';
-        footerIcon = '🛡️';
-      } else if (isMultiplyCharge) {
-        badgeText = 'NO IDEMPOTENCY: 5 SEPARATE DEBITS (Rs. 22,500 DRAINED)';
-        badgeType = 'problem';
-        telemetryText = 'Customer Charged: Rs. 22,500 • Police Report Filed • Chargebacks';
-        footerTitle = 'Catastrophic Multi-Debit Failure';
-        footerDesc = 'Each tap was executed as a new charge, completely draining the customer bank balance!';
-        footerIcon = '💥';
-      } else if (isFrontEndLock) {
-        badgeText = 'FRONTEND-ONLY LOCK: BYPASSED ON BROWSER REFRESH';
-        badgeType = 'problem';
-        telemetryText = 'Button Disabled on UI • User Refreshed Page • Double Charged';
-        footerTitle = 'Inadequate Client-Only Validation';
-        footerDesc = 'Disabling the button in JavaScript was easily bypassed by refreshing the page or using back buttons.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">SHOPPER REPEATEDLY TAPPING "PAY NOW" OVER LAGGING 3G</text>';
-        content += this.renderHuman(200, 200, 'shopper', 'alert', 'Impatient Shopper');
-        content += '<rect x="360" y="155" width="130" height="45" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="425" y="175" text-anchor="middle" font-size="9" font-weight="900" fill="#38bdf8">PAYMENT GATEWAY</text>';
-        content += '<text x="425" y="190" text-anchor="middle" font-size="8" fill="#94a3b8">5 Incoming Requests</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">IDEMPOTENT REDIS TOKEN LOCK: EXACTLY ONE WRITE APPLIED</text>';
-        content += '<rect x="240" y="145" width="160" height="45" rx="6" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="320" y="165" text-anchor="middle" font-size="9" font-weight="900" fill="#86efac">IDEMPOTENCY KEY CHECKED</text>';
-        content += '<text x="320" y="178" text-anchor="middle" font-size="7" fill="#bbf7d0">Token UUID-7701 → Cached Receipt</text>';
-        content += this.renderHuman(160, 200, 'shopper', 'happy', 'Single Rs.4,500 Debit');
-      } else if (isMultiplyCharge) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">5x CHARGES APPLIED!</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">Rs. 22,500 Deducted from Customer</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">BROWSER REFRESH BYPASSED BUTTON DISABLE</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 23: The Cross-Department Promise (Distributed Transactions & Saga Pattern)
-    renderSagaDistributedTransactionsScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option C
-      const isBrokenPartial = choice && choice.id === 'A';
-      const isTwoPhaseLock = choice && choice.id === 'B';
-
-      let badgeText = 'WAREHOUSE ACCIDENT: LAST MICROWAVE DROPPED & SHATTERED';
-      let badgeType = 'problem';
-      let telemetryText = 'Order: Placed • Payment: Rs. 8,000 Deducted • Inventory: 0 (DAMAGED)';
-      let footerTitle = 'Multi-Service Distributed Transaction';
-      let footerDesc = 'When one microservice step fails after payment is debited, the system must coordinate automatic rollback.';
-      let footerIcon = '📦';
-
-      if (isOptimal) {
-        badgeText = 'SAGA PATTERN SUCCESS: AUTOMATIC COMPENSATING REFUND';
-        badgeType = 'solution';
-        telemetryText = 'Compensating Tx: EXECUTED • Rs. 8,000 Refunded • Customer Notified';
-        footerTitle = 'Saga Compensating Rollback Succeeded';
-        footerDesc = 'Upon inventory failure, the Saga Orchestrator triggered a compensating transaction to refund the payment automatically.';
-        footerIcon = '🔄';
-      } else if (isBrokenPartial) {
-        badgeText = 'INCONSISTENT STATE: MONEY GONE & ZERO PRODUCT SHIPPED';
-        badgeType = 'problem';
-        telemetryText = 'Customer Paid: Rs. 8,000 • Delivered: NOTHING • Support Jammed';
-        footerTitle = 'Partial Failure Nightmare';
-        footerDesc = 'Without distributed coordination, money was taken while the warehouse had nothing to ship!';
-        footerIcon = '💥';
-      } else if (isTwoPhaseLock) {
-        badgeText = 'TWO-PHASE COMMIT BOTTLENECK: CHECKOUTS FROZEN WORLDWIDE';
-        badgeType = 'problem';
-        telemetryText = 'Global Locks Held: 42 • Latency: 25 seconds • Cascading Timeouts';
-        footerTitle = '2PC Distributed Locking Freeze';
-        footerDesc = 'Holding global database locks across distributed network services created catastrophic latency bottlenecks.';
-        footerIcon = '🔒';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">WAREHOUSE WORKER DROPPED LAST MICROWAVE DURING FULFILLMENT</text>';
-        content += this.renderStorageVault(180, 175, 'Payment Service (Rs. 8,000 Taken)', 'secure');
-        content += this.renderStorageVault(460, 175, 'Warehouse (Microwave Smashed)', 'breached');
-        content += '<text x="320" y="190" text-anchor="middle" font-size="24">💥📦💥</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">SAGA ORCHESTRATOR: TRIGGERING COMPENSATING REFUND TRANSACTION</text>';
-        content += '<rect x="230" y="145" width="180" height="45" rx="6" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="320" y="165" text-anchor="middle" font-size="9" font-weight="900" fill="#86efac">SAGA COMPENSATING ACTION</text>';
-        content += '<text x="320" y="178" text-anchor="middle" font-size="7" fill="#bbf7d0">InventoryFailed → RefundPayment(Rs.8,000)</text>';
-        content += this.renderHuman(160, 200, 'shopper', 'happy', 'Refund Received');
-        content += this.renderStorageVault(460, 175, 'Warehouse Logged', 'secure');
-      } else if (isBrokenPartial) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">UNRESOLVED DESYNC</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">Money debited, no goods, no refund!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">GLOBAL 2PC LOCKS FROZE ALL STORES WORLDWIDE</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 24: The Order Inbox Tray (Message Queues and Asynchronous Processing)
-    renderMessageQueuesAsyncScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isSyncBlock = choice && choice.id === 'A';
-      const isDropOrders = choice && choice.id === 'C';
-
-      let badgeText = 'FLASH SALE SURGE: 500 SANDWICH ORDERS FLOOD REGISTER';
-      let badgeType = 'problem';
-      let telemetryText = 'Incoming Orders: 500 • Kitchen Prep Time: 12 seconds/order';
-      let footerTitle = 'Asynchronous Decoupling Dilemma';
-      let footerDesc = 'Synchronously waiting for long kitchen tasks freezes front-desk registers and triggers web server timeouts.';
-      let footerIcon = '🥪';
-
-      if (isOptimal) {
-        badgeText = 'MESSAGE QUEUE SUCCESS: 40ms REGISTER ACK &amp; WORKER POOL';
-        badgeType = 'solution';
-        telemetryText = 'Register Latency: 40ms • Queue Buffer: 500 • 4 Chefs Processing';
-        footerTitle = 'Decoupled Asynchronous Processing';
-        footerDesc = 'Cashiers dropped order tickets into a durable FIFO queue and served the next customer in 40ms while chefs worked steadily.';
-        footerIcon = '⚡';
-      } else if (isSyncBlock) {
-        badgeText = 'SYNCHRONOUS FREEZE: 504 GATEWAY TIMEOUT CRASH';
-        badgeType = 'problem';
-        telemetryText = 'Queue Latency: 100 minutes • Registers: FROZEN • 504 Errors';
-        footerTitle = 'Synchronous Blocking Deadlock';
-        footerDesc = 'Customers stood frozen at the register for 12 seconds per sandwich until lines spilled into the parking lot.';
-        footerIcon = '💥';
-      } else if (isDropOrders) {
-        badgeText = 'ORDER REJECTION: 490 ANGRY SHOPPERS TURNED AWAY';
-        badgeType = 'problem';
-        telemetryText = 'Orders Accepted: 10 • Orders Rejected: 490 (98% Revenue Lost)';
-        footerTitle = 'Rejection Catastrophe';
-        footerDesc = 'Refusing to queue orders caused the store to lose 98% of potential flash sale revenue.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#f87171">500 CUSTOMERS WAITING IN LINE WHILE CHEF GRILLS SLOWLY</text>';
-        content += this.renderHuman(180, 200, 'shopper', 'alert', 'Surge Line (500)');
-        content += this.renderServiceDesk(320, 180, 'open');
-        content += this.renderHuman(460, 200, 'worker', 'alert', 'Overworked Chef');
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">FIFO MESSAGE QUEUE BUFFER: DECOUPLING FRONTEND FROM WORKERS</text>';
-        content += '<rect x="250" y="145" width="140" height="40" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="162" text-anchor="middle" font-size="8" font-weight="900" fill="#38bdf8">RABBITMQ / SQS QUEUE</text>';
-        content += '<text x="320" y="174" text-anchor="middle" font-size="7" fill="#94a3b8">Buffer: 500 msgs • 40ms Ack</text>';
-        content += this.renderHuman(160, 200, 'clerk', 'happy', 'Register Free (40ms)');
-        content += this.renderHuman(480, 200, 'worker', 'happy', 'Chef Pool Active');
-      } else if (isSyncBlock) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">504 GATEWAY TIMEOUT</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">Register locked for 12 seconds per item!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">490 ORDERS THROWN IN THE TRASH</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 25: The Department Loudspeaker (Publish-Subscribe / Pub-Sub)
-    renderPubSubLoudspeakerScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isPointToPoint = choice && choice.id === 'A';
-      const isPollingDb = choice && choice.id === 'C';
-
-      let badgeText = 'CROSS-DEPARTMENT EVENT: NEW SALE REQUIRES 5 CONSUMERS';
-      let badgeType = 'problem';
-      let telemetryText = 'Sale Event: #9042 • Interested: Inventory, SMS, Loyalty, Analytics, Accounts';
-      let footerTitle = '1-to-Many Event Distribution Dilemma';
-      let footerDesc = 'Direct point-to-point coupling between the cashier and 5 downstream services risks total cascade failures.';
-      let footerIcon = '📢';
-
-      if (isOptimal) {
-        badgeText = 'PUB-SUB TOPIC FANOUT: 1 EMIT → ALL SUBSCRIBERS RECEIVE';
-        badgeType = 'solution';
-        telemetryText = 'Publisher Coupling: ZERO • Subscribers: 5 Independent Listeners';
-        footerTitle = 'Publish-Subscribe Decoupled Fanout';
-        footerDesc = 'Cashiers broadcast a single OrderCompleted event to the topic. All departments consumed at their own pace without slowing the register.';
-        footerIcon = '⚡';
-      } else if (isPointToPoint) {
-        badgeText = 'POINT-TO-POINT CASCADE: SMS TIMEOUT CRASHED BILLING';
-        badgeType = 'problem';
-        telemetryText = 'SMS Server: DOWN • Cashier Frozen • Customer Receipt Blocked';
-        footerTitle = 'Tight Coupling Failure';
-        footerDesc = 'A slow SMS gateway dragged down the cashier payment loop, preventing checkout receipts from printing.';
-        footerIcon = '💥';
-      } else if (isPollingDb) {
-        badgeText = 'DATABASE POLLING OVERLOAD: 100% CPU SPIKE';
-        badgeType = 'problem';
-        telemetryText = '5 Services Polling SELECT * every 500ms • DB Disk Choked';
-        footerTitle = 'Inefficient Polling Starvation';
-        footerDesc = '5 departments constantly querying the database every second brought database performance to a crawl.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'market');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">CASHIER TRYING TO NOTIFY 5 DEPARTMENTS INDIVIDUALLY</text>';
-        content += this.renderHuman(180, 200, 'clerk', 'alert', 'Cashier');
-        content += '<text x="320" y="180" text-anchor="middle" font-size="14">📞 📞 📞 📞 📞</text>';
-        content += '<text x="320" y="200" text-anchor="middle" font-size="8" fill="#94a3b8">5 Coupled Direct Calls</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">PUB-SUB TOPIC: ZERO COUPLING BROADCAST TO ALL CONSUMERS</text>';
-        content += '<circle cx="320" cy="165" r="28" fill="#065f46" stroke="#22c55e" stroke-width="2"/>';
-        content += '<text x="320" y="162" text-anchor="middle" font-size="8" font-weight="900" fill="#86efac">PUB-SUB</text>';
-        content += '<text x="320" y="174" text-anchor="middle" font-size="7" fill="#bbf7d0">TOPIC</text>';
-        content += '<line x1="320" y1="137" x2="220" y2="120" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,3"/>';
-        content += '<line x1="320" y1="137" x2="420" y2="120" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,3"/>';
-        content += '<line x1="320" y1="193" x2="220" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,3"/>';
-        content += '<line x1="320" y1="193" x2="420" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="3,3"/>';
-        content += '<text x="210" y="115" text-anchor="middle" font-size="7" fill="#86efac">Inventory</text>';
-        content += '<text x="430" y="115" text-anchor="middle" font-size="7" fill="#86efac">Loyalty</text>';
-        content += '<text x="210" y="225" text-anchor="middle" font-size="7" fill="#86efac">SMS Gateway</text>';
-        content += '<text x="430" y="225" text-anchor="middle" font-size="7" fill="#86efac">Analytics</text>';
-      } else if (isPointToPoint) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">SMS DOWN → CASHIER BLOCKED</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">Synchronous chain failure!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">100% DATABASE CPU FROM ENDLESS POLLING</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 26: Picking the Right Conveyor Belt (RabbitMQ vs. Apache Kafka)
-    renderRabbitMqVsKafkaScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isMisusedRabbit = choice && choice.id === 'A';
-      const isSqlEvents = choice && choice.id === 'C';
-
-      let badgeText = 'ARCHITECTURE SELECTION: 500,000 EVENTS/SEC STREAM';
-      let badgeType = 'problem';
-      let telemetryText = 'Stream Rate: 500k sensor pings/sec • Requirement: Historical Replay';
-      let footerTitle = 'Message Broker vs. Distributed Commit Log';
-      let footerDesc = 'Picking the wrong messaging technology for massive stream volume causes RAM exhaustion or disk failure.';
-      let footerIcon = '⚡';
-
-      if (isOptimal) {
-        badgeText = 'OPTIMAL HYBRID SELECTION: KAFKA LOG + RABBITMQ TASKS';
-        badgeType = 'solution';
-        telemetryText = 'Kafka: 500k stream writes/sec • RabbitMQ: Smart task routing';
-        footerTitle = 'Right Tool for the Right Job';
-        footerDesc = 'Kafka partitioned commit log absorbed 500k/s IoT sensor telemetry with replay, while RabbitMQ routed transactional task queues.';
-        footerIcon = '🎯';
-      } else if (isMisusedRabbit) {
-        badgeText = 'RAM EXHAUSTION: RABBITMQ CHOKED ON 500k REPLAY LOG';
-        badgeType = 'problem';
-        telemetryText = 'RAM Usage: 100% (64GB Exceeded) • Broker Crash';
-        footerTitle = 'In-Memory Smart Broker Overload';
-        footerDesc = 'Treating RabbitMQ as a massive historical event log exhausted server RAM and crashed the broker.';
-        footerIcon = '💥';
-      } else if (isSqlEvents) {
-        badgeText = 'DISK I/O LOCK: RELATIONAL DATABASE CHOKED BY SENSORS';
-        badgeType = 'problem';
-        telemetryText = 'SQL Writes: 500,000/s • Disk I/O: 100% • System Dead';
-        footerTitle = 'Relational Table Ingestion Failure';
-        footerDesc = 'Attempting to insert 500k raw IoT events per second directly into relational tables locked the database disk completely.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">500,000 SENSOR EVENTS/SEC AWAITING INFRASTRUCTURE DECISION</text>';
-        content += '<rect x="220" y="150" width="200" height="45" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="170" text-anchor="middle" font-size="10" font-weight="900" fill="#38bdf8">RABBITMQ OR APACHE KAFKA?</text>';
-        content += '<text x="320" y="184" text-anchor="middle" font-size="8" fill="#94a3b8">Complex Routing vs. Append-Only Log</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">ARCHITECTURAL HARMONY: KAFKA FOR HIGH-THROUGHPUT STREAMS</text>';
-        content += '<rect x="180" y="145" width="130" height="45" rx="6" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="245" y="165" text-anchor="middle" font-size="8" font-weight="900" fill="#86efac">APACHE KAFKA</text>';
-        content += '<text x="245" y="178" text-anchor="middle" font-size="7" fill="#bbf7d0">500k/s Stream Replay Log</text>';
-        content += '<rect x="330" y="145" width="130" height="45" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="395" y="165" text-anchor="middle" font-size="8" font-weight="900" fill="#bae6fd">RABBITMQ</text>';
-        content += '<text x="395" y="178" text-anchor="middle" font-size="7" fill="#e0f2fe">Smart Complex Task Queue</text>';
-      } else if (isMisusedRabbit) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">OUT OF MEMORY (OOM)</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">RabbitMQ queues filled 64GB RAM!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">SQL DATABASE DISK LOCKED UNDER 500k WRITES/SEC</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 27: The Live Delivery Tracker (Stream Processing and WebSockets)
-    renderWebSocketsDeliveryTrackerScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isShortPolling = choice && choice.id === 'A';
-      const isManualRefresh = choice && choice.id === 'C';
-
-      let badgeText = 'REAL-TIME TRACKING: 10,000 PHONES TRACKING DELIVERY SCOOTER';
-      let badgeType = 'problem';
-      let telemetryText = 'Active Deliveries: 10,000 • Updates Required: Sub-second GPS pin';
-      let footerTitle = 'Full-Duplex Streaming vs. HTTP Polling';
-      let footerDesc = 'HTTP short-polling floods servers with massive header overhead and kills phone battery life.';
-      let footerIcon = '🛵';
-
-      if (isOptimal) {
-        badgeText = 'WEBSOCKETS SUCCESS: FULL-DUPLEX 30ms STREAMING';
-        badgeType = 'solution';
-        telemetryText = 'TCP Connection: 1 Persistent • Packet: 32 bytes • Latency: 30ms';
-        footerTitle = 'Persistent Full-Duplex WebSockets';
-        footerDesc = 'A single open WebSocket connection pushed live GPS delta updates with tiny 32-byte frames and zero polling battery drain.';
-        footerIcon = '⚡';
-      } else if (isShortPolling) {
-        badgeText = 'HTTP POLLING STORM: SERVER CRASHED &amp; BATTERIES DRAINED';
-        badgeType = 'problem';
-        telemetryText = 'Poll Rate: 25,000 req/sec • Header Overhead: 20MB/s • Battery: 0%';
-        footerTitle = 'HTTP Short-Polling Overhead';
-        footerDesc = 'Opening a brand-new HTTP connection every 400ms flooded servers with redundant headers and drained phone batteries in 20 minutes.';
-        footerIcon = '💥';
-      } else if (isManualRefresh) {
-        badgeText = 'MANUAL REFRESH: ANGRY CUSTOMERS CALLING SUPPORT';
-        badgeType = 'problem';
-        telemetryText = 'User Experience: Terrible • Support Calls: +4,000';
-        footerTitle = 'Static Page Reload Failure';
-        footerDesc = 'Forcing users to manually refresh web pages meant they missed arrival times and complained incessantly.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">DELIVERY VAN MOVING ACROSS CITY • REAL-TIME UPDATES REQUIRED</text>';
-        content += '<rect x="250" y="150" width="140" height="40" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="174" text-anchor="middle" font-size="16">🛵 ➡️ 🏠</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">PERSISTENT WEBSOCKET: BI-DIRECTIONAL REAL-TIME STREAMING</text>';
-        content += '<rect x="230" y="145" width="180" height="45" rx="6" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="320" y="165" text-anchor="middle" font-size="9" font-weight="900" fill="#86efac">WEBSOCKET WS:// ESTABLISHED</text>';
-        content += '<text x="320" y="178" text-anchor="middle" font-size="7" fill="#bbf7d0">Smooth 30ms GPS Pin Glide</text>';
-        content += this.renderHuman(160, 200, 'shopper', 'happy', 'Live Tracking');
-      } else if (isShortPolling) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">POLLING DDoS STORM</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">25,000 HTTP Handshakes/sec killed server!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">MANUAL REFRESH FLOODED CALL CENTER WITH COMPLAINTS</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
-      });
-    },
-
-    // LEVEL 28: Finding Nearby Stores (Geospatial Search and Spatial Indexing)
-    renderGeospatialSpatialIndexingScene(choice) {
-      const isOptimal = Boolean(choice && choice.isOptimal); // Option B
-      const isFullTableScan = choice && choice.id === 'A';
-      const isStaticCityBoxes = choice && choice.id === 'C';
-
-      let badgeText = 'GEOSPATIAL QUERY: FIND STORES WITHIN 2KM OF USER';
-      let badgeType = 'problem';
-      let telemetryText = 'Stores in Database: 100,000 • Query: Latitude, Longitude Radius';
-      let footerTitle = 'Spatial Indexing vs. Brute-Force Math';
-      let footerDesc = 'Running trigonometric Haversine math across 100,000 rows on every search spikes CPU to 100%.';
-      let footerIcon = '📍';
-
-      if (isOptimal) {
-        badgeText = 'SPATIAL INDEX SUCCESS: GEOHASH / QUADTREE (4ms LOOKUP)';
-        badgeType = 'solution';
-        telemetryText = 'Index: Geohash Bounding Box • Scanned: 14 rows • Latency: 4ms';
-        footerTitle = '2D Spatial Indexing (Geohash / Quadtrees)';
-        footerDesc = 'Partitioning earth coordinates into hierarchical Geohash prefixes converted expensive spherical math into an instant O(log N) prefix lookup.';
-        footerIcon = '⚡';
-      } else if (isFullTableScan) {
-        badgeText = 'BRUTE-FORCE HAVERSINE SCAN: 100% CPU LOCK';
-        badgeType = 'problem';
-        telemetryText = 'Full Table Scan: 100,000 Sin/Cos Ops • Query Time: 8.2s • DB Crash';
-        footerTitle = 'Trigonometric Full-Table Scan Failure';
-        footerDesc = 'Calculating spherical distance on every single store row for every user search melted the database CPU.';
-        footerIcon = '💥';
-      } else if (isStaticCityBoxes) {
-        badgeText = 'STATIC STRING MATCH: MISSED STORES 500m AWAY';
-        badgeType = 'problem';
-        telemetryText = 'City Filter: Bangalore • Missed Store across border at 500m';
-        footerTitle = 'Boundary Edge Blindspots';
-        footerDesc = 'Matching by city names produced wildly inaccurate results for users standing near municipal borders.';
-        footerIcon = '❌';
-      }
-
-      let content = this.renderGrid(7, 7, 320, 90, 'city');
-
-      if (!choice) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#38bdf8">100,000 STORES SPREAD ACROSS NATIONWIDE COORDINATE MAP</text>';
-        content += '<rect x="240" y="150" width="160" height="45" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>';
-        content += '<text x="320" y="170" text-anchor="middle" font-size="10" font-weight="900" fill="#38bdf8">RADIUS SEARCH: 2KM</text>';
-        content += '<text x="320" y="184" text-anchor="middle" font-size="8" fill="#94a3b8">User (12.9716° N, 77.5946° E)</text>';
-      } else if (isOptimal) {
-        content += '<text x="320" y="55" text-anchor="middle" font-size="11" font-weight="900" fill="#22c55e">GEOHASH PREFIX INDEX: INSTANT BOUNDING BOX LOOKUP (4ms)</text>';
-        content += '<rect x="230" y="145" width="180" height="45" rx="6" fill="#065f46" stroke="#22c55e" stroke-width="1.5"/>';
-        content += '<text x="320" y="165" text-anchor="middle" font-size="9" font-weight="900" fill="#86efac">GEOHASH PREFIX: u4pru*</text>';
-        content += '<text x="320" y="178" text-anchor="middle" font-size="7" fill="#bbf7d0">Scanned 14 stores instead of 100k</text>';
-        content += this.renderHuman(160, 200, 'shopper', 'happy', 'Found 3 Stores');
-      } else if (isFullTableScan) {
-        content += '<rect x="220" y="150" width="200" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444"/>';
-        content += '<text x="320" y="172" text-anchor="middle" font-size="10" font-weight="900" fill="#fca5a5">HAVERSINE SCAN CRASH</text>';
-        content += '<text x="320" y="188" text-anchor="middle" font-size="8" fill="#fecaca">100,000 trigonometry calculations per search!</text>';
-      } else {
-        content += '<text x="320" y="200" text-anchor="middle" font-size="12" font-weight="900" fill="#ef4444">STATIC CITY FILTER MISSED NEAREST STORES ACROSS BORDER</text>';
-      }
-
-      return this.wrapScene({
-        theme: isOptimal ? 'day' : 'storm',
-        badgeText, badgeType, telemetryText, footerIcon, footerTitle, footerDesc,
-        svgContent: content
+        theme: 'storm',
+        badgeText: isOptimal ? 'CAP THEOREM: AP AVAILABILITY MODE' : 'NETWORK PARTITION OCCURRED',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Local Cabs Booking Smoothly • Sync Later' : 'System Split Across Cities',
+        footerIcon: '⚡',
+        footerTitle: isOptimal ? 'Available During Network Cuts' : 'CAP Trade-off Dilemma',
+        footerDesc: isOptimal ? 'Choosing Availability keeps local cab booking working in Delhi and Bangalore even while the connection between them is down.' : 'During network splits, systems must choose between consistency or keeping the app running.',
+        svgContent
       });
     },
 
     // =========================================================================
-    // MAIN SCENE DISPATCHER
+    // LEVEL 18: OLTP VS OLAP
+    // =========================================================================
+    renderOltpOlapRegistersScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // OLTP Live Dispatch
+        this.renderOlaDispatchServer(190, 170, 'OLTP Live Dispatch (10ms)', 'healthy', '22%') +
+        // OLAP Data Warehouse
+        this.renderDatabaseVault(450, 170, 'OLAP Warehouse (10M Trips)', 'online') +
+        // Live cab booking
+        this.renderOlaCab(190, 240, 'SE', 'dispatched', 'Live Cab Booking');
+
+      return this.wrapScene({
+        theme: 'day',
+        badgeText: isOptimal ? 'SEPARATE OLTP & OLAP ARCHITECTURE' : 'OLTP VS OLAP WORKLOADS',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Live Booking: 10ms • Analytics Runs Separately' : 'Heavy Query Blocking Live Rides',
+        footerIcon: '📊',
+        footerTitle: isOptimal ? 'Fast Dispatch + Deep Analytics' : 'Workload Isolation',
+        footerDesc: isOptimal ? 'Live riders book cabs in milliseconds on OLTP, while business analysts run heavy surge pricing studies on OLAP without slowing down the app.' : 'Running giant analytical reports on the live booking database freezes the app for riders.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 19 & 21: SCALING (HORIZONTAL VS VERTICAL & MICROSERVICES)
+    // =========================================================================
+    renderScalingClusterNodesScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Cluster of modular servers
+        this.renderOlaDispatchServer(160, 160, 'Server Pod 1', 'healthy', '25%') +
+        this.renderOlaDispatchServer(320, 140, 'Server Pod 2', 'healthy', '25%') +
+        this.renderOlaDispatchServer(480, 160, 'Server Pod 3', 'healthy', '25%') +
+        this.renderOlaCab(320, 230, 'SE', 'moving', 'Monsoon Fleet Dispatched');
+
+      return this.wrapScene({
+        theme: 'day',
+        badgeText: isOptimal ? 'HORIZONTAL SCALING SUCCESS' : 'SYSTEM SCALING DECISION',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? '3 Nodes Active • 25% Load Per Machine' : 'Single Machine Bottleneck',
+        footerIcon: '📈',
+        footerTitle: isOptimal ? 'Elastic Horizontal Scaling' : 'Scaling Strategy',
+        footerDesc: isOptimal ? 'Adding multiple affordable cloud servers handles monsoon rain traffic effortlessly without needing an impossible supercomputer.' : 'Upgrading one machine has strict physical limits and risks total failure.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 20: AUTHENTICATION AND AUTHORIZATION
+    // =========================================================================
+    renderAuthIdentityVerificationScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderOlaRider(160, 210, 'matched', 'Rider Rahul (OTP Verified)') +
+        // Security Gate
+        '<g transform="translate(320, 170)">' +
+          '<rect x="-65" y="-22" width="130" height="44" rx="6" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="1.5"/>' +
+          '<text x="0" y="-8" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#4ade80' : '#f87171') + '">' +
+            (isOptimal ? 'VERIFIED: RIDER PERMISSIONS' : 'SECURITY BREACH RISK') +
+          '</text>' +
+          '<text x="0" y="5" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#94a3b8">AuthN: Logged In via OTP</text>' +
+          '<text x="0" y="15" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#22c55e' : '#ef4444') + '">' +
+            (isOptimal ? 'AuthZ: Rider View Only (Admin Blocked)' : 'AuthZ: Missing! Anyone can edit prices') +
+          '</text>' +
+        '</g>' +
+        this.renderDatabaseVault(480, 190, 'Ola Admin Financials', 'online');
+
+      return this.wrapScene({
+        theme: 'vault',
+        badgeText: isOptimal ? 'AUTHN & AUTHZ VERIFIED' : 'AUTHENTICATION VS AUTHORIZATION',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Role-Based Access Enforced • Zero Privilege Leak' : 'Unchecked Access Danger',
+        footerIcon: '🛡️',
+        footerTitle: isOptimal ? 'Identity & Permissions Separated' : 'Access Control Check',
+        footerDesc: isOptimal ? 'Authentication proves who you are (via OTP); Authorization decides what you are allowed to do (riders cannot touch driver earnings).' : 'Without authorization, any logged-in user could alter financial settings.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 22: LOAD BALANCING (100,000 RIDERS EVENLY DISTRIBUTED)
+    // =========================================================================
+    renderLoadBalancerTrafficScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Load Balancer Distributor
+        '<g transform="translate(180, 170)">' +
+          '<circle cx="0" cy="0" r="28" fill="#0f172a" stroke="#22c55e" stroke-width="2" filter="url(#glowGreen)"/>' +
+          '<text x="0" y="-4" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="#4ade80">LOAD</text>' +
+          '<text x="0" y="7" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="900" fill="#4ade80">BALANCER</text>' +
+        '</g>' +
+        // Split arrows to backend servers
+        this.renderOlaDispatchServer(360, 120, 'Server 1 (25k req)', 'healthy', '25%') +
+        this.renderOlaDispatchServer(480, 150, 'Server 2 (25k req)', 'healthy', '25%') +
+        this.renderOlaDispatchServer(360, 220, 'Server 3 (25k req)', 'healthy', '25%') +
+        this.renderOlaDispatchServer(480, 250, 'Server 4 (25k req)', 'healthy', '25%');
+
+      return this.wrapScene({
+        theme: 'night',
+        badgeText: isOptimal ? 'LOAD BALANCER: TRAFFIC DISTRIBUTED EVENLY' : 'UNBALANCED TRAFFIC COLLAPSE',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? '100,000 Riders Split Across 4 Nodes (25k each)' : 'Server 1 Overloaded (100% CPU)',
+        footerIcon: '⚖️',
+        footerTitle: isOptimal ? 'Zero Overheating with Load Balancing' : 'Traffic Distribution',
+        footerDesc: isOptimal ? 'The smart Load Balancer channels 25,000 requests to each server, keeping all machines relaxed at 25% CPU.' : 'Without a load balancer, all 100,000 users slam a single server and crash the app.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 23: CACHING (REDIS IN-MEMORY DRIVER PROFILE IN 2MS)
+    // =========================================================================
+    renderCachingStickyNotepadScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderOlaRider(150, 210, 'matched', 'Rider App (Fast Read)') +
+        // Fast Redis RAM Cache
+        '<g transform="translate(320, 140)">' +
+          '<rect x="-60" y="-20" width="120" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2" filter="url(#glowCyan)"/>' +
+          '<text x="0" y="-5" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="900" fill="#38bdf8">⚡ REDIS RAM CACHE</text>' +
+          '<text x="0" y="8" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="900" fill="#4ade80">Latency: 2ms (99% HIT)</text>' +
+        '</g>' +
+        // Slow Disk Database below
+        this.renderDatabaseVault(480, 210, 'Slow Magnetic Disk (120ms)', 'online');
+
+      return this.wrapScene({
+        theme: 'day',
+        badgeText: isOptimal ? 'CACHE HIT: 2MS INSTANT RESPONSE' : 'CACHING STRATEGY',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'RAM Speed: 2ms • Disk Reads Avoided' : 'Disk Bottleneck: 120ms Latency',
+        footerIcon: '⚡',
+        footerTitle: isOptimal ? 'Fast In-Memory RAM Caching' : 'Reducing Disk Reads',
+        footerDesc: isOptimal ? 'Frequently requested driver ratings and car photos are served straight from ultra-fast RAM in 2 milliseconds.' : 'Reading from mechanical disk for every map refresh slows down the entire application.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 24: CDN (EDGE KIOSKS SERVING MAP TILES & CAR ICONS)
+    // =========================================================================
+    renderCdnEdgeKiosksScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderOlaDispatchServer(150, 170, 'Kolkata Edge CDN (15ms)', 'healthy', '10%') +
+        this.renderOlaDispatchServer(320, 140, 'Bangalore Origin Datacenter', 'healthy', '20%') +
+        this.renderOlaDispatchServer(490, 170, 'Delhi Edge CDN (15ms)', 'healthy', '10%') +
+        this.renderOlaCab(320, 230, 'SE', 'moving', 'Downloading Car Icons & Maps');
+
+      return this.wrapScene({
+        theme: 'day',
+        badgeText: isOptimal ? 'CDN EDGE CACHING ACROSS INDIA' : 'CONTENT DELIVERY NETWORK (CDN)',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Edge Latency: 15ms • Origin Bandwidth Saved' : 'Origin Overload: 2,000km Delay',
+        footerIcon: '🌍',
+        footerTitle: isOptimal ? 'Assets Served from Nearby Cities' : 'Global Asset Distribution',
+        footerDesc: isOptimal ? 'Riders in Delhi and Kolkata download map tiles and car icons from local edge servers in 15ms instead of contacting Bangalore.' : 'Forcing millions of users to fetch large images from one central server causes severe buffering.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 25: MESSAGE QUEUES & ASYNCHRONOUS PROCESSING
+    // =========================================================================
+    renderMessageQueuesAsyncScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderPhoneClient(150, 190, 'Rider App (Trip Ended in 0.1s)', 'ready') +
+        // Conveyor queue of background jobs
+        '<g transform="translate(320, 160)">' +
+          '<rect x="-65" y="-18" width="130" height="36" rx="6" fill="#0f172a" stroke="#eab308" stroke-width="1.5"/>' +
+          '<text x="0" y="-3" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="#facc15">KAFKA MESSAGE QUEUE</text>' +
+          '<text x="0" y="9" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#93c5fd">✉️ [Invoice #9021] ✉️ [SMS]</text>' +
+        '</g>' +
+        this.renderOlaDispatchServer(480, 190, 'Background Worker Server', 'healthy', '15%');
+
+      return this.wrapScene({
+        theme: 'night',
+        badgeText: isOptimal ? 'ASYNC QUEUE DECOUPLING ACTIVE' : 'MESSAGE QUEUES & BACKGROUND PROCESSING',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'App Unlocked in 0.1s • Heavy Invoices Queued' : 'App Frozen Waiting for PDF Generator',
+        footerIcon: '📨',
+        footerTitle: isOptimal ? 'Instant Checkout with Background Queues' : 'Asynchronous Processing',
+        footerDesc: isOptimal ? 'The rider screen unfreezes instantly, while slow PDF receipt generation and bank transfers run safely in the background queue.' : 'Making passengers wait 15 seconds for PDF invoices to generate before unlocking the app causes terrible frustration.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 26: FAULT TOLERANCE & FAILURE HANDLING
+    // =========================================================================
+    renderFaultToleranceResilienceScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        this.renderOlaDispatchServer(200, 170, 'Core Ride Dispatch Service', 'healthy', '25%') +
+        // Circuit Breaker Switch
+        '<g transform="translate(330, 170)">' +
+          '<rect x="-35" y="-18" width="70" height="36" rx="4" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="1.5"/>' +
+          '<text x="0" y="-3" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#4ade80' : '#f87171') + '">' +
+            (isOptimal ? 'CIRCUIT OPEN' : 'CIRCUIT CLOSED') +
+          '</text>' +
+          '<text x="0" y="8" text-anchor="middle" font-size="6" font-family="sans-serif" font-weight="700" fill="#94a3b8">' +
+            (isOptimal ? 'ISOLATED' : 'CASCADE RISK') +
+          '</text>' +
+        '</g>' +
+        this.renderOlaDispatchServer(460, 170, 'Dead SMS Marketing API', 'crash', '0%');
+
+      return this.wrapScene({
+        theme: 'storm',
+        badgeText: isOptimal ? 'CIRCUIT BREAKER ISOLATES FAILURE' : 'FAULT TOLERANCE & RESILIENCE',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Cab Dispatch: 100% Operational • Broken SMS Quarantined' : 'Cascading App Hang',
+        footerIcon: '🛡️',
+        footerTitle: isOptimal ? 'Resilient Fault Isolation' : 'Preventing Cascading Failures',
+        footerDesc: isOptimal ? 'When the external SMS marketing server died, the circuit breaker tripped open so riders could still book cabs smoothly.' : 'Without failure isolation, one broken secondary service freezes the entire application.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 27: RATE LIMITING (BLOCKING BOT SPAM)
+    // =========================================================================
+    renderRateLimiterTurnstileScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Genuine rider phone
+        this.renderPhoneClient(150, 190, 'Genuine Rider (1 req/sec)', 'ready') +
+        // Rate Limiting Turnstile Gate
+        '<g transform="translate(320, 160)">' +
+          '<rect x="-60" y="-20" width="120" height="40" rx="6" fill="#0f172a" stroke="' + (isOptimal ? '#22c55e' : '#ef4444') + '" stroke-width="1.8"/>' +
+          '<text x="0" y="-6" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="' + (isOptimal ? '#4ade80' : '#f87171') + '">' +
+            (isOptimal ? '🛡️ TOKEN BUCKET LIMITER' : 'UNPROTECTED GATE') +
+          '</text>' +
+          '<text x="0" y="7" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#94a3b8">' +
+            (isOptimal ? 'Bot: 429 Too Many Requests' : 'Bot Flood Allowed') +
+          '</text>' +
+        '</g>' +
+        this.renderOlaDispatchServer(480, 190, 'Ola Dispatch Gateway', isOptimal ? 'healthy' : 'crash', '20%');
+
+      return this.wrapScene({
+        theme: 'vault',
+        badgeText: isOptimal ? 'RATE LIMITER BLOCKS MALICIOUS BOTS' : 'RATE LIMITING DEFENSE',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Genuine Riders Pass • 10,000 Bot Spams Blocked' : 'Server Crashing Under Bot Spam',
+        footerIcon: '🛑',
+        footerTitle: isOptimal ? 'Fair Usage Enforced with Rate Limiting' : 'Bot Protection',
+        footerDesc: isOptimal ? 'The Token Bucket algorithm allows real human riders through while rejecting spam bots with HTTP 429 Too Many Requests.' : 'Without rate limiting, malicious scripts can overwhelm servers with thousands of fake bookings.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 28: GEOSPATIAL SEARCH AND INDEXING (2KM RADIUS MATCHING)
+    // =========================================================================
+    renderGeospatialSpatialIndexingScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Radar circle on street around rider
+        '<ellipse cx="320" cy="200" rx="140" ry="65" fill="rgba(56, 189, 248, 0.12)" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4" filter="url(#glowCyan)">' +
+          '<animate attributeName="rx" values="130;150;130" dur="2s" repeatCount="indefinite"/>' +
+          '<animate attributeName="ry" values="60;70;60" dur="2s" repeatCount="indefinite"/>' +
+        '</ellipse>' +
+        // Rider in center
+        this.renderOlaRider(320, 200, 'matched', 'Rider (Indiranagar)') +
+        // 3 Nearest Cabs within 2km radius
+        this.renderOlaCab(240, 170, 'SE', 'dispatched', 'Cab #1 (350m)') +
+        this.renderOlaCab(410, 180, 'SW', 'dispatched', 'Cab #2 (700m)') +
+        this.renderOlaCab(280, 250, 'SE', 'dispatched', 'Cab #3 (1.1km)');
+
+      return this.wrapScene({
+        theme: 'night',
+        badgeText: isOptimal ? '2KM GEOSPATIAL QUAD-TREE MATCH' : 'GEOSPATIAL SPATIAL SEARCH',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Matched in 4ms • Only 2km Radius Searched' : 'Scanning 100,000 Cabs in State (Slow)',
+        footerIcon: '📍',
+        footerTitle: isOptimal ? 'Fast Spatial Indexing in 4ms' : 'Geospatial Search',
+        footerDesc: isOptimal ? 'Spatial indexing carves the city into a grid, searching only the 2km cell around the rider to find the nearest cab in 4 milliseconds.' : 'Calculating distance to all 100,000 cabs in the entire state one by one takes over 40 seconds.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // MAIN DISPATCHER: MAPS ALL SIMULATION TYPES TO SCENES
     // =========================================================================
     renderScene(simType, choiceMade, level) {
       switch (simType) {
-        case 'supermarket_blueprint':
-          return this.renderSupermarketBlueprintScene(choiceMade);
+        case 'ola_rush_hour':
+          return this.renderOlaRushHourScene(choiceMade);
         case 'requirements_stress':
           return this.renderRequirementsStressScene(choiceMade);
         case 'client_server_clerk':
           return this.renderClientServerClerkScene(choiceMade);
+        case 'supermarket_blueprint':
+        case 'ola_system_blueprint':
+          return this.renderSupermarketBlueprintScene(choiceMade);
         case 'networking_dns_ports':
           return this.renderNetworkingDnsPortsScene(choiceMade);
         case 'protocols_transport':
@@ -5731,59 +5387,54 @@ var DioramaEngine;
         case 'api_contracts_scanners':
           return this.renderApiContractsScannersScene(choiceMade);
         case 'auth_identity_verification':
-          return this.renderAuthIdentityVerificationScene(choiceMade);
         case 'authz_rbac_vault':
-          return this.renderAuthzRbacVaultScene(choiceMade);
+          return this.renderAuthIdentityVerificationScene(choiceMade);
         case 'database_polyglot':
+        case 'database_selection':
+        case 'schema_design':
           return this.renderDatabasePolyglotScene(choiceMade);
-        case 'oltp_olap_registers':
-          return this.renderOltpOlapRegistersScene(choiceMade);
         case 'acid_atomic_vault':
           return this.renderAcidAtomicVaultScene(choiceMade);
-        case 'db_replication_cluster':
-          return this.renderDbReplicationClusterScene(choiceMade);
-        case 'caching_sticky_notepad':
-          return this.renderCachingStickyNotepadScene(choiceMade);
-        case 'cdn_edge_kiosks':
-          return this.renderCdnEdgeKiosksScene(choiceMade);
-        case 'scaling_cluster_nodes':
-          return this.renderScalingClusterNodesScene(choiceMade);
-        case 'load_balancer_traffic':
-          return this.renderLoadBalancerTrafficScene(choiceMade);
-        case 'rate_limiter_turnstile':
-          return this.renderRateLimiterTurnstileScene(choiceMade);
         case 'database_sharding_ledgers':
           return this.renderDatabaseShardingLedgersScene(choiceMade);
+        case 'db_replication_cluster':
+          return this.renderDbReplicationClusterScene(choiceMade);
         case 'cap_network_partition':
           return this.renderCapNetworkPartitionScene(choiceMade);
-        case 'base_eventual_consistency':
-          return this.renderBaseEventualConsistencyScene(choiceMade);
-        case 'fault_tolerance_resilience':
-          return this.renderFaultToleranceResilienceScene(choiceMade);
-        case 'idempotency_double_click':
-          return this.renderIdempotencyDoubleClickScene(choiceMade);
-        case 'saga_distributed_transactions':
-          return this.renderSagaDistributedTransactionsScene(choiceMade);
+        case 'oltp_olap_registers':
+          return this.renderOltpOlapRegistersScene(choiceMade);
+        case 'scaling_cluster_nodes':
+        case 'scaling_strategies':
+        case 'monolith_vs_microservices':
+          return this.renderScalingClusterNodesScene(choiceMade);
+        case 'load_balancer_traffic':
+        case 'load_balancing':
+          return this.renderLoadBalancerTrafficScene(choiceMade);
+        case 'caching_sticky_notepad':
+        case 'caching_strategy':
+          return this.renderCachingStickyNotepadScene(choiceMade);
+        case 'cdn_edge_kiosks':
+        case 'cdn_distribution':
+          return this.renderCdnEdgeKiosksScene(choiceMade);
         case 'message_queues_async':
+        case 'message_queues':
           return this.renderMessageQueuesAsyncScene(choiceMade);
-        case 'pubsub_loudspeaker':
-          return this.renderPubSubLoudspeakerScene(choiceMade);
-        case 'rabbitmq_vs_kafka':
-          return this.renderRabbitMqVsKafkaScene(choiceMade);
-        case 'websockets_delivery_tracker':
-          return this.renderWebSocketsDeliveryTrackerScene(choiceMade);
+        case 'fault_tolerance_resilience':
+        case 'fault_tolerance':
+          return this.renderFaultToleranceResilienceScene(choiceMade);
+        case 'rate_limiter_turnstile':
+        case 'rate_limiting':
+          return this.renderRateLimiterTurnstileScene(choiceMade);
         case 'geospatial_spatial_indexing':
           return this.renderGeospatialSpatialIndexingScene(choiceMade);
         default:
-          return this.renderSupermarketBlueprintScene(choiceMade);
+          return this.renderOlaRushHourScene(choiceMade);
       }
     }
   };
 
   return DioramaEngine;
 });
-
-
 
 
 /* === FILE: simulation.js === */
@@ -9017,12 +8668,17 @@ window.BossCanvasEngine = BossCanvasEngine;
 
 /* === FILE: game.js === */
 /**
- * RideQuest - Core Game State & Controller
- * Story-Driven 3D System Design Learning Game for First-Year Students
+ * System Design Learning Game - Core Game State & Controller
+ * Ola Cab Booking Architecture Edition for First-Year Students
  * 
- * Strict Learning Flow for Every Level:
- * Story -> Problem Question -> 2-3 Options -> Answer Feedback -> 
- * Concept Explanation Popup -> Continue -> YouTube Lesson -> Video Completed -> Next Level Unlocked
+ * Strict 7-Step Learning Flow for Every Topic:
+ * STEP 1: Story Introduction (Ola Cab scenario in simple English)
+ * STEP 2: Think and Choose (3 balanced options: A, B, C)
+ * STEP 3: Show the Result (Outcome explanation + retry on wrong choice)
+ * STEP 4: Teach the Concept (Name, Simple Definition, Why Needed, Analogy)
+ * STEP 5: Visual Explanation (Labeled component flow diagram)
+ * STEP 6: Knowledge Check (Brand new distinct question with hints & retry)
+ * STEP 7: Completion (Gated progression: unlocks next topic only after Knowledge Check is passed)
  */
 
 class GameController {
@@ -9030,12 +8686,10 @@ class GameController {
     this.currentLevelIndex = 0;
     this.xp = 0;
     this.completedLevelIds = new Set();
-    this.completedVideoLevelIds = new Set();
+    this.learningProgress = {}; // Tracks: storyViewed, firstDecisionCompleted, conceptExplanationViewed, knowledgeCheckCompleted, attempts, isCompleted
     this.selectedChoice = null;
     this.isEvaluating = false;
     this.simulationEngine = null;
-    this.ytPlayer = null;
-    this.isVideoCompleted = false;
     this.isTeacherModeOpen = false;
     this.isCodexOpen = false;
 
@@ -9056,45 +8710,25 @@ class GameController {
     this.loadState();
     this.simulationEngine = new window.SimulationEngine('sim-viewport');
 
-    // Attach global YouTube message listener for iframe completion events
-    this.setupYouTubeMessageListener();
-
     // Pre-render current level
     this.loadLevel(this.currentLevelIndex);
 
     if (this.currentLevelIndex > 0 || this.completedLevelIds.size > 0) {
       const startBtn = document.getElementById('btn-start-journey');
-      if (startBtn) startBtn.innerText = "CONTINUE YOUR ADVENTURE →";
+      if (startBtn) startBtn.innerText = "CONTINUE YOUR MISSION →";
     }
-  }
-
-  setupYouTubeMessageListener() {
-    window.addEventListener('message', (event) => {
-      try {
-        let data = event.data;
-        if (typeof data === 'string') {
-          data = JSON.parse(data);
-        }
-        // YouTube Player postMessage ended event has info === 0 or event === "onStateChange" & info === 0
-        if (data && (data.info === 0 || (data.event === 'onStateChange' && data.info === 0))) {
-          console.log('YouTube iframe reported video ENDED state!');
-          this.handleVideoEnded();
-        }
-      } catch (e) {
-        // Not a JSON message or unrelated iframe
-      }
-    });
   }
 
   loadState() {
     try {
-      const saved = localStorage.getItem('ridequest_save');
+      const saved = localStorage.getItem('ola_sysdesign_save') || localStorage.getItem('ridequest_save') || localStorage.getItem('pubg_sysdesign_save');
       if (saved) {
         const data = JSON.parse(saved);
-        this.currentLevelIndex = typeof data.currentLevelIndex === 'number' ? Math.min(data.currentLevelIndex, (window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27)) : 0;
+        const maxIdx = window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27;
+        this.currentLevelIndex = typeof data.currentLevelIndex === 'number' ? Math.min(data.currentLevelIndex, maxIdx) : 0;
         this.xp = data.xp || 0;
         this.completedLevelIds = new Set(data.completedLevelIds || []);
-        this.completedVideoLevelIds = new Set(data.completedVideoLevelIds || []);
+        this.learningProgress = data.learningProgress || {};
       }
     } catch (e) {
       console.warn('Failed to load save state:', e);
@@ -9107,19 +8741,23 @@ class GameController {
         currentLevelIndex: this.currentLevelIndex,
         xp: this.xp,
         completedLevelIds: Array.from(this.completedLevelIds),
-        completedVideoLevelIds: Array.from(this.completedVideoLevelIds)
+        learningProgress: this.learningProgress || {}
       };
-      localStorage.setItem('ridequest_save', JSON.stringify(data));
+      localStorage.setItem('ola_sysdesign_save', JSON.stringify(data));
+      localStorage.setItem('pubg_sysdesign_save', JSON.stringify(data));
+      localStorage.setItem('ridequest_save', JSON.stringify(data)); // backward compatibility
     } catch (e) {}
   }
 
   resetProgress() {
     if (confirm("Reset all learning progress back to Level 1?")) {
+      localStorage.removeItem('ola_sysdesign_save');
+      localStorage.removeItem('pubg_sysdesign_save');
       localStorage.removeItem('ridequest_save');
       this.currentLevelIndex = 0;
       this.xp = 0;
       this.completedLevelIds.clear();
-      this.completedVideoLevelIds.clear();
+      this.learningProgress = {};
       window.location.reload();
     }
   }
@@ -9155,10 +8793,24 @@ class GameController {
     }
     this.currentLevelIndex = index;
     this.selectedChoice = null;
-    this.isVideoCompleted = false;
-    this.saveState();
 
     const level = window.GAME_LEVELS[this.currentLevelIndex];
+
+    // Initialize or update learning progress for this level (Step 1: Story Viewed)
+    if (!this.learningProgress) this.learningProgress = {};
+    if (!this.learningProgress[level.id]) {
+      this.learningProgress[level.id] = {
+        storyViewed: true,
+        firstDecisionCompleted: false,
+        conceptExplanationViewed: false,
+        knowledgeCheckCompleted: false,
+        attempts: 0,
+        isCompleted: false
+      };
+    } else {
+      this.learningProgress[level.id].storyViewed = true;
+    }
+    this.saveState();
 
     // Ensure standard gameplay screen is visible only when not on landing screen
     const landing = document.getElementById('screen-landing');
@@ -9168,7 +8820,7 @@ class GameController {
     } else {
       document.getElementById('screen-gameplay')?.classList.add('hidden');
     }
-    document.getElementById('screen-video-lesson')?.classList.add('hidden');
+
     document.getElementById('discovery-modal')?.classList.add('hidden');
     document.getElementById('screen-victory')?.classList.add('hidden');
 
@@ -9179,12 +8831,12 @@ class GameController {
 
   updateTopBar(level) {
     const stage = window.GAME_STAGES?.find(s => s.id === level.stage);
-    this.setElementText('stage-badge-text', stage ? stage.name.toUpperCase() : 'SYSTEM FOUNDATIONS');
+    this.setElementText('stage-badge-text', stage ? stage.name.toUpperCase() : 'MODULE 1: SYSTEM DESIGN FUNDAMENTALS');
     const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-    this.setElementText('level-indicator-text', `Level ${level.id} / ${totalLevels}`);
+    this.setElementText('level-indicator-text', `Topic ${level.id} / ${totalLevels}`);
     this.setElementText('xp-count-val', `${this.xp}`);
 
-    // Stepper dots for all 9 levels
+    // Stepper dots for all 28 topics
     const stepperContainer = document.getElementById('stage-stepper-dots');
     if (stepperContainer && window.GAME_LEVELS) {
       stepperContainer.innerHTML = window.GAME_LEVELS.map((lvl, idx) => {
@@ -9192,19 +8844,20 @@ class GameController {
         const isCurrent = lvl.id === level.id;
         const dotClass = isCurrent ? 'dot current' : (isDone ? 'dot done' : 'dot pending');
         const connector = idx < window.GAME_LEVELS.length - 1 ? `<div class="dot-connector ${isDone ? 'active' : ''}"></div>` : '';
-        return `<div class="${dotClass}" title="Level ${lvl.id}: ${lvl.title}" onclick="window.game.jumpToLevel(${idx})"></div>${connector}`;
+        return `<div class="${dotClass}" title="Topic ${lvl.id}: ${lvl.topic}" onclick="window.game.jumpToLevel(${idx})"></div>${connector}`;
       }).join('');
     }
 
-    this.setElementText('challenge-topic-text', `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2" class="rq-icon btn-icon"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2" fill="#f39c12"/></svg> Mission: ${level.topicHint || level.title}`);
+    this.setElementText('challenge-topic-text', `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2" class="rq-icon btn-icon"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2" fill="#f39c12"/></svg> Mission: ${level.topicHint || level.topic}`);
 
     const progressFill = document.getElementById('progress-bar-fill');
     if (progressFill) progressFill.style.width = `${((level.id) / totalLevels) * 100}%`;
   }
 
   jumpToLevel(idx) {
-    // Only allow jumping if level is completed or adjacent
-    if (idx <= this.currentLevelIndex || this.completedLevelIds.has(idx + 1)) {
+    const targetLevelId = idx + 1;
+    // Allow jumping to any level up to current or any completed level (allows revisiting completed topics)
+    if (idx <= this.currentLevelIndex || this.completedLevelIds.has(targetLevelId)) {
       window.soundEngine?.click?.();
       this.loadLevel(idx);
     }
@@ -9229,8 +8882,8 @@ class GameController {
     }
   }
 
+  // STEP 1 & STEP 2: Render Scenario and 3 Balanced Answer Options
   renderLevelView(level) {
-    // Hide all overlays & feedback cards
     document.getElementById('discovery-modal')?.classList.add('hidden');
     document.getElementById('consequence-feedback-card')?.classList.add('hidden');
     document.getElementById('success-feedback-banner')?.classList.add('hidden');
@@ -9238,16 +8891,16 @@ class GameController {
 
     this.isEvaluating = false;
 
-    // Populate Story & Problem screen (everyday English, no technical jargon)
+    // STEP 1: Story & Problem (Simple English, PUBG/BGMI scenario)
     this.setElementText('lvl-time', level.time);
     this.setElementText('lvl-users', level.usersCount);
     this.setElementText('lvl-title', level.title);
     this.setElementText('lvl-situation', level.situation);
     this.setElementText('lvl-problem', level.problem);
 
-    this.updateCompanionState('thinking', `“Review the situation carefully. What decision should we make?”`);
+    this.updateCompanionState('thinking', `“Review the Ola cab booking situation. What decision should we make?”`);
 
-    // Render 2 or 3 beginner-friendly choices
+    // STEP 2: Exactly 3 beginner-friendly choices (A, B, C)
     const optionsContainer = document.getElementById('options-grid');
     if (optionsContainer) {
       optionsContainer.innerHTML = '';
@@ -9266,7 +8919,7 @@ class GameController {
       });
     }
 
-    // Render State 1: Initial Problem 3D Simulation
+    // Render 3D Simulation
     if (this.simulationEngine) {
       this.simulationEngine.render(level, null);
     }
@@ -9280,6 +8933,7 @@ class GameController {
     });
   }
 
+  // STEP 3: Show the Result (Outcome explanation + retry on wrong choice)
   makeChoice(choice) {
     if (this.isEvaluating) return;
     this.isEvaluating = true;
@@ -9287,7 +8941,6 @@ class GameController {
     this.selectedChoice = choice;
     const level = window.GAME_LEVELS[this.currentLevelIndex];
 
-    // Lock choices and highlight
     this.setChoicesDisabled(true);
 
     const allCards = document.querySelectorAll('.choice-card');
@@ -9305,14 +8958,13 @@ class GameController {
 
     this.updateCompanionState('observing', `“Testing Option ${choice.id}... Let's observe the result!”`);
 
-    // Render State 2: Selected Answer Consequence in 3D Diorama
     if (this.simulationEngine) {
       this.simulationEngine.render(level, choice);
     }
     this.updateTeacherMode();
 
     if (!choice.isOptimal) {
-      // Suboptimal choice consequence
+      // Suboptimal choice: show outcome and allow retry
       setTimeout(() => {
         window.soundEngine?.overload?.();
         this.updateCompanionState('curious', `“Look at what happened. That created an unexpected bottleneck!”`);
@@ -9320,7 +8972,10 @@ class GameController {
         this.isEvaluating = false;
       }, 1100);
     } else {
-      // Correct choice success
+      // Optimal choice: mark firstDecisionCompleted and reveal Concept Explanation
+      if (this.learningProgress && this.learningProgress[level.id]) {
+        this.learningProgress[level.id].firstDecisionCompleted = true;
+      }
       setTimeout(() => {
         window.soundEngine?.success?.();
         this.updateCompanionState('celebrating', `“Brilliant! The solution works! Everything flows smoothly!”`);
@@ -9339,7 +8994,7 @@ class GameController {
     if (card) {
       card.classList.remove('hidden');
       const wh = choice.whatHappened || {};
-      this.setElementText('consequence-title', `Option ${choice.id} Result: Practical Bottleneck`);
+      this.setElementText('consequence-title', `Option ${choice.id} Result: System Bottleneck`);
       this.setElementText('consequence-body', choice.consequenceText || wh.bottleneck || "This choice led to an operational breakdown.");
     }
   }
@@ -9375,7 +9030,6 @@ class GameController {
     const level = window.GAME_LEVELS[this.currentLevelIndex];
     this.updateCompanionState('thinking', `“Let's rethink our approach. Which solution should we test next?”`);
 
-    // Reset 3D simulation to clean problem state
     if (this.simulationEngine) {
       this.simulationEngine.render(level, null);
     }
@@ -9400,27 +9054,29 @@ class GameController {
     document.getElementById('what-happened-modal')?.classList.add('hidden');
   }
 
-  // =========================================================================
-  // STAGE 3: CONCEPT EXPLANATION POPUP (7 Required Sections)
-  // =========================================================================
+  // STEP 4 & STEP 5: Teach the Concept & Visual Diagram
   showDiscoveryModal(level, choice) {
     const modal = document.getElementById('discovery-modal');
     if (!modal) return;
     modal.classList.remove('hidden');
 
+    if (this.learningProgress && this.learningProgress[level.id]) {
+      this.learningProgress[level.id].conceptExplanationViewed = true;
+    }
+
     const disc = level.discovery;
 
-    // 1. Technical Concept Name from Excel
+    // 1. Concept Name & Tagline
     this.setElementText('disc-badge-title', disc.badge);
     this.setElementText('disc-tagline', disc.tagline);
 
-    // 2. Simple Meaning
+    // 2. Simple Meaning (Plain English)
     this.setElementText('disc-simple-meaning', disc.simpleMeaning || disc.tagline);
 
     // 3. Everyday Analogy
     this.setElementText('disc-analogy', disc.analogy);
 
-    // 4. How It Works (3 to 5 numbered steps)
+    // 4. How It Works (Step-by-step process)
     const howItWorksContainer = document.getElementById('disc-how-it-works-list');
     if (howItWorksContainer && disc.howItWorks) {
       howItWorksContainer.innerHTML = disc.howItWorks.map(step => `
@@ -9433,7 +9089,7 @@ class GameController {
     // 5. Why It Matters
     this.setElementText('disc-why-it-matters', disc.whyItMatters || "Ensures predictable operations, high speed, and fault resilience.");
 
-    // 6. Visual Explanation Diagram
+    // STEP 5: Visual Explanation Diagram
     this.setElementText('disc-visual-diagram', disc.visualExplanation || `${disc.badge} Flow Demonstration`);
 
     // Contrast cards
@@ -9445,17 +9101,156 @@ class GameController {
     }
 
     // Advanced Notes
-    this.setElementText('disc-advanced-text', disc.advancedInfo || "");
+    this.setElementText('disc-advanced-text', disc.teacherNotes?.realWorld || disc.advancedInfo || "");
     const advPanel = document.getElementById('advanced-panel');
     if (advPanel) advPanel.classList.add('hidden');
 
-    // Award XP
-    if (!this.completedLevelIds.has(level.id)) {
-      this.completedLevelIds.add(level.id);
-      this.xp += 150;
-      this.updateTopBar(level);
+    // STEP 6: Render Knowledge Check (Mandatory learning checkpoint)
+    this.renderKnowledgeCheck(level);
+  }
+
+  // STEP 6: Interactive Knowledge Check
+  renderKnowledgeCheck(level) {
+    const kc = level.knowledgeCheck;
+    if (!kc) return;
+
+    this.setElementText('kc-question-text', kc.question);
+
+    const optGrid = document.getElementById('kc-options-grid');
+    const feedbackBox = document.getElementById('kc-feedback-box');
+
+    const progress = this.learningProgress?.[level.id] || {};
+    const isAlreadyPassed = progress.knowledgeCheckCompleted || false;
+
+    if (feedbackBox) {
+      feedbackBox.classList.add('hidden');
+      feedbackBox.innerHTML = '';
+    }
+
+    if (optGrid) {
+      optGrid.innerHTML = kc.options.map(opt => {
+        let extraClass = '';
+        if (isAlreadyPassed && opt.isCorrect) {
+          extraClass = 'passed-correct';
+        }
+        return `
+          <button class="kc-option-card ${extraClass}" id="kc-opt-${opt.id}" onclick="window.game.handleKnowledgeCheckAnswer('${opt.id}')">
+            <div class="kc-opt-badge">${opt.id}</div>
+            <div class="kc-opt-text">${opt.text}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    if (isAlreadyPassed) {
+      this.unlockNextLevelButton(level);
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-success-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">✅ Knowledge Check Completed!</div>
+          <div class="kc-fb-text">You have mastered this concept! Feel free to revisit or proceed to the next topic.</div>
+        `;
+      }
+    } else {
+      this.lockNextLevelButton();
+    }
+  }
+
+  handleKnowledgeCheckAnswer(optId) {
+    const level = window.GAME_LEVELS[this.currentLevelIndex];
+    if (!level || !level.knowledgeCheck) return;
+
+    const kc = level.knowledgeCheck;
+    const selectedOpt = kc.options.find(o => o.id === optId);
+    if (!selectedOpt) return;
+
+    if (!this.learningProgress[level.id]) {
+      this.learningProgress[level.id] = {
+        storyViewed: true,
+        firstDecisionCompleted: true,
+        conceptExplanationViewed: true,
+        knowledgeCheckCompleted: false,
+        attempts: 0,
+        isCompleted: false
+      };
+    }
+
+    this.learningProgress[level.id].attempts += 1;
+
+    const feedbackBox = document.getElementById('kc-feedback-box');
+    const allOptButtons = document.querySelectorAll('.kc-option-card');
+
+    if (selectedOpt.isCorrect) {
+      // Step 6 Passed Correctly!
+      window.soundEngine?.success?.();
+      allOptButtons.forEach(btn => btn.classList.remove('kc-incorrect', 'kc-correct'));
+      const chosenBtn = document.getElementById(`kc-opt-${optId}`);
+      if (chosenBtn) chosenBtn.classList.add('kc-correct');
+
+      this.learningProgress[level.id].knowledgeCheckCompleted = true;
+      this.learningProgress[level.id].isCompleted = true;
+
+      // STEP 7: Award XP and mark level completed only after Knowledge Check is passed!
+      if (!this.completedLevelIds.has(level.id)) {
+        this.completedLevelIds.add(level.id);
+        this.xp += 150;
+        this.updateTopBar(level);
+        this.animateXpGain();
+      }
       this.saveState();
-      this.animateXpGain();
+
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-success-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">🎉 Correct! Concept Mastered!</div>
+          <div class="kc-fb-text">${selectedOpt.explanation}</div>
+        `;
+      }
+
+      this.unlockNextLevelButton(level);
+
+    } else {
+      // Wrong choice in Step 6: provide hint and allow another attempt
+      window.soundEngine?.click?.();
+      const chosenBtn = document.getElementById(`kc-opt-${optId}`);
+      if (chosenBtn) chosenBtn.classList.add('kc-incorrect');
+
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'kc-feedback-box kc-error-feedback';
+        feedbackBox.innerHTML = `
+          <div class="kc-fb-title">❌ Not quite right (Attempt ${this.learningProgress[level.id].attempts})</div>
+          <div class="kc-fb-text">${selectedOpt.explanation}</div>
+          <div class="kc-fb-hint">${kc.hint || "Think about the main concept explained above and try again!"}</div>
+        `;
+      }
+
+      this.lockNextLevelButton();
+    }
+  }
+
+  lockNextLevelButton() {
+    const nextBtn = document.getElementById('btn-continue-next-level');
+    if (nextBtn) {
+      nextBtn.disabled = true;
+      nextBtn.classList.add('btn-locked');
+      nextBtn.innerHTML = `Answer Step 6 to Unlock Next Topic 🔒`;
+    }
+  }
+
+  unlockNextLevelButton(level) {
+    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
+    const nextBtn = document.getElementById('btn-continue-next-level');
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('btn-locked');
+      if (level.id >= totalLevels) {
+        nextBtn.innerHTML = `Complete All 28 Topics & View Certificate 🏆 →`;
+      } else {
+        nextBtn.innerHTML = `Unlock Next Topic (Topic ${level.id + 1}) → 🚀`;
+      }
     }
   }
 
@@ -9467,150 +9262,44 @@ class GameController {
     }
   }
 
-  // =========================================================================
-  // STAGE 4: YOUTUBE VIDEO LESSON EMBEDDED INSIDE THE GAME
-  // =========================================================================
-  continueToVideo() {
+  // STEP 7: Gated Completion - Advance to Next Level Only After Knowledge Check
+  nextLevelDirect() {
+    const level = window.GAME_LEVELS[this.currentLevelIndex];
+    const progress = this.learningProgress?.[level?.id];
+
+    if (!progress?.knowledgeCheckCompleted) {
+      alert("Please answer the Step 6 Knowledge Check correctly before continuing!");
+      return;
+    }
+
     window.soundEngine?.select?.();
 
-    // Close discovery popup
     document.getElementById('discovery-modal')?.classList.add('hidden');
     this.hideConsequenceCard();
     this.hideSuccessBanner();
     this.hideWhatHappenedModal();
 
-    // Switch screen to Video Lesson
-    document.getElementById('screen-gameplay')?.classList.add('hidden');
-    const videoScreen = document.getElementById('screen-video-lesson');
-    if (videoScreen) {
-      videoScreen.classList.remove('hidden');
-    }
-    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
-
-    const level = window.GAME_LEVELS[this.currentLevelIndex];
-    this.isVideoCompleted = this.completedVideoLevelIds.has(level.id);
-
-    // Populate Lesson Header & Info
-    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-    this.setElementText('video-lesson-level-badge', `Level ${level.id} of ${totalLevels}`);
-    this.setElementText('video-lesson-title', level.videoTitle || level.discovery.badge);
-    this.setElementText('video-lesson-concept', level.concept);
-
-    // Reset completion banner and next level button
-    const banner = document.getElementById('video-completion-banner');
-    const nextBtn = document.getElementById('btn-video-next-level');
-
-    if (this.isVideoCompleted) {
-      if (banner) banner.classList.remove('hidden');
-      if (nextBtn) {
-        nextBtn.removeAttribute('disabled');
-        nextBtn.classList.remove('btn-locked');
-        nextBtn.innerHTML = level.id === totalLevels ? `Complete Game & View Certificate 🏆 →` : `Next Level (Level ${level.id + 1}) →`;
-      }
-      this.setElementText('video-status-text', 'Status: ✅ Lesson previously completed!');
-    } else {
-      if (banner) banner.classList.add('hidden');
-      if (nextBtn) {
-        nextBtn.setAttribute('disabled', 'true');
-        nextBtn.classList.add('btn-locked');
-        nextBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Next Level (Locked — Watch video to complete)`;
-      }
-      this.setElementText('video-status-text', 'Status: 🔴 Playing Lesson... (Watch through to unlock next level)');
-    }
-
-    // Embed YouTube Player with API
-    this.embedYouTubeVideo(level.videoId);
-  }
-
-  embedYouTubeVideo(videoId) {
-    const playerContainer = document.getElementById('youtube-player-container');
-    if (!playerContainer) return;
-
-    // Use responsive embedded iframe with enablejsapi=1
-    playerContainer.innerHTML = `
-      <iframe 
-        id="yt-active-iframe" 
-        src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0&modestbranding=1" 
-        title="RideQuest System Design Video Lesson" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-    `;
-
-    // Try initializing YT.Player if YouTube API is loaded
-    if (window.YT && window.YT.Player) {
-      try {
-        if (this.ytPlayer && typeof this.ytPlayer.destroy === 'function') {
-          this.ytPlayer.destroy();
-        }
-        this.ytPlayer = new window.YT.Player('yt-active-iframe', {
-          events: {
-            'onStateChange': (event) => {
-              // 0 = YT.PlayerState.ENDED
-              if (event.data === 0) {
-                this.handleVideoEnded();
-              }
-            }
-          }
-        });
-      } catch (e) {
-        console.warn('YT.Player wrapper fallback active:', e);
-      }
-    }
-  }
-
-  handleVideoEnded() {
-    const level = window.GAME_LEVELS[this.currentLevelIndex];
-    if (this.isVideoCompleted) return;
-
-    this.isVideoCompleted = true;
-    this.completedVideoLevelIds.add(level.id);
-    this.saveState();
-
-    window.soundEngine?.success?.();
-
-    // Show completion celebration banner
-    const banner = document.getElementById('video-completion-banner');
-    if (banner) banner.classList.remove('hidden');
-
-    this.setElementText('video-status-text', 'Status: 🎉 Video completed! Next level unlocked!');
-
-    // Unlock Next Level button
-    const nextBtn = document.getElementById('btn-video-next-level');
-    if (nextBtn) {
-      nextBtn.removeAttribute('disabled');
-      nextBtn.classList.remove('btn-locked');
-      nextBtn.classList.add('pulse-glow');
-      const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
-        nextBtn.innerHTML = level.id === totalLevels ? `Complete Game & View Certificate 🏆 →` : `Next Level (Level ${level.id + 1}) →`;
-    }
-  }
-
-  manualCompleteVideoFallback() {
-    window.soundEngine?.click?.();
-    if (confirm("Confirm that you have watched and completed this System Design video lesson?")) {
-      this.handleVideoEnded();
-    }
-  }
-
-  nextLevelFromVideo() {
-    window.soundEngine?.select?.();
-
     const maxLevelIdx = window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27;
     if (this.currentLevelIndex >= maxLevelIdx) {
-      // Completed All Levels — Show Graduation Victory Screen!
+      // Completed all 28 topics!
       this.showVictoryScreen();
       return;
     }
 
-    // Advance to next level in exact order
     const nextIdx = this.currentLevelIndex + 1;
     this.loadLevel(nextIdx);
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+  }
+
+  continueToVideo() {
+    this.nextLevelDirect();
+  }
+
+  nextLevelFromVideo() {
+    this.nextLevelDirect();
   }
 
   showVictoryScreen() {
-    document.getElementById('screen-video-lesson')?.classList.add('hidden');
     document.getElementById('screen-gameplay')?.classList.add('hidden');
     document.getElementById('discovery-modal')?.classList.add('hidden');
 
@@ -9643,11 +9332,11 @@ class GameController {
     const level = window.GAME_LEVELS[this.currentLevelIndex];
     if (!level) return;
 
-    this.setElementText('teach-level-title', `Level ${level.id}: ${level.title}`);
+    this.setElementText('teach-level-title', `Topic ${level.id}: ${level.topic}`);
     this.setElementText('teach-concept-revealed', level.concept);
-    this.setElementText('teach-experience', level.discovery.teacherNotes.experience);
-    this.setElementText('teach-realworld', level.discovery.teacherNotes.realWorld);
-    this.setElementText('teach-question', level.discovery.teacherNotes.question);
+    this.setElementText('teach-experience', level.discovery.teacherNotes?.experience || "");
+    this.setElementText('teach-realworld', level.discovery.teacherNotes?.realWorld || "");
+    this.setElementText('teach-question', level.discovery.teacherNotes?.question || "");
 
     const choiceInfo = document.getElementById('teach-student-choice');
     if (this.selectedChoice) {
@@ -9658,7 +9347,7 @@ class GameController {
         </span>
       `;
     } else {
-      choiceInfo.innerHTML = `<span class="text-muted">Student is thinking and evaluating options...</span>`;
+      choiceInfo.innerHTML = `<span class="text-muted">Student is evaluating options...</span>`;
     }
 
     const select = document.getElementById('teach-jump-select');
@@ -9666,7 +9355,7 @@ class GameController {
       window.GAME_LEVELS.forEach((lvl, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.innerText = `Level ${lvl.id}: ${lvl.concept}`;
+        opt.innerText = `Topic ${lvl.id}: ${lvl.topic}`;
         select.appendChild(opt);
       });
       select.value = this.currentLevelIndex;
@@ -9695,14 +9384,21 @@ class GameController {
     if (!list) return;
     list.innerHTML = '';
 
-    window.GAME_LEVELS.forEach(lvl => {
+    window.GAME_LEVELS.forEach((lvl, idx) => {
       const isUnlocked = this.completedLevelIds.has(lvl.id);
       const card = document.createElement('div');
       card.className = `codex-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+      card.style.cursor = isUnlocked ? 'pointer' : 'default';
+      card.onclick = () => {
+        if (isUnlocked || idx <= this.currentLevelIndex) {
+          this.toggleCodex();
+          this.loadLevel(idx);
+        }
+      };
       card.innerHTML = `
-        <div class="codex-num">Level ${lvl.id} • ${lvl.topic}</div>
-        <div class="codex-title">${isUnlocked ? lvl.concept : '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Mystery Concept'}</div>
-        <div class="codex-desc">${isUnlocked ? lvl.discovery.tagline : 'Complete this level challenge and video lesson to unlock.'}</div>
+        <div class="codex-num">Topic ${lvl.id} • ${lvl.topic}</div>
+        <div class="codex-title">${isUnlocked ? lvl.concept : '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Locked Concept'}</div>
+        <div class="codex-desc">${isUnlocked ? lvl.discovery.tagline : 'Complete this topic and knowledge check to unlock.'}</div>
         ${isUnlocked ? `<div class="codex-analogy"><em>"${lvl.discovery.analogy}"</em></div>` : ''}
       `;
       list.appendChild(card);
@@ -9724,8 +9420,8 @@ class GameController {
       const isHidden = panel.classList.toggle('hidden');
       if (btn) {
         btn.innerHTML = isHidden ? 
-          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M6 18h12M10 21h4"/><circle cx="12" cy="7" r="3"/><path d="M12 10v4M9 14h6"/><path d="M7 18a5 5 0 0 1 10 0"/></svg> Show Deeper Technical Insights` : 
-          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Hide Deeper Technical Insights`;
+          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M6 18h12M10 21h4"/><circle cx="12" cy="7" r="3"/><path d="M12 10v4M9 14h6"/><path d="M7 18a5 5 0 0 1 10 0"/></svg> Show Real-World Engineering Insights` : 
+          `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="rq-icon btn-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Hide Real-World Engineering Insights`;
       }
     }
   }
@@ -9741,11 +9437,11 @@ window.beginLevel1 = function() {
   if (window.game) window.game.beginLevel1();
 };
 
-function initRideQuest() {
+function initGame() {
   if (!window.game) {
     try {
       window.game = new GameController();
-      console.log('RideQuest System Design Game initialized with 28-Level curriculum!');
+      console.log('System Design Learning Game (Ola Cab Edition, 28 Topics) Initialized!');
     } catch (e) {
       console.error('Failed to initialize GameController:', e);
     }
@@ -9753,7 +9449,7 @@ function initRideQuest() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initRideQuest);
+  document.addEventListener('DOMContentLoaded', initGame);
 } else {
-  initRideQuest();
+  initGame();
 }

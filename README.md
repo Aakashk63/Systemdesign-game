@@ -1,8 +1,10 @@
-# 🛒 RideQuest – System Design Learning Game
+# 🚕 RideQuest – Ola App System Design Learning Game
 
-> **"You don't need to know System Design. Just solve the problems."**
+> **"Learn System Design through real-world Ola cab booking scenarios."**
 
-**RideQuest** is an interactive, story-driven educational 3D game designed for **first-year students and beginners** to learn System Design through intuitive supermarket scenarios, procedural 3D isometric dioramas, animated simulations, real-world analogies, and embedded YouTube video masterclasses.
+**RideQuest** is an interactive, scenario-based educational 3D game designed for **first-year students and beginners** to learn System Design through real-world **Ola App (Ride-Hailing & Mobility Cloud)** engineering challenges: rush hour concurrency, Bangalore monsoon surges, GPS driver tracking, SQL vs. NoSQL storage, database sharding, load balancing, caching, rate limiting, and geospatial indexing.
+
+Featuring procedural 3D isometric city dioramas with yellow Ola cabs, animated simulations, simple plain English, and 3-choice MCQs.
 
 ---
 
@@ -18,67 +20,59 @@ This repository is pre-configured for instant zero-configuration deployment on *
 
 ---
 
-## 🎮 Game Architecture & Curriculum (28 Complete Levels)
+## 🎮 Strict 28-Topic Curriculum (7 Modules)
 
-### Stage 1: System Foundations
-* **Level 1:** The Blueprint & Scope Framing — *Requirements Engineering (FR vs. NFR)*
-* **Level 2:** The Clerk at the Counter — *Client-Server Architecture*
+### Module 1: System Design Fundamentals
+* **Topic 1:** Introduction to System Design — *50,000 People Book Cabs at 6:00 PM*
+* **Topic 2:** Functional and Non-Functional Requirements — *What the App Does vs. How Fast It Runs*
+* **Topic 3:** Client–Server Architecture — *How Your Phone Talks to the Ola Cloud Server*
+* **Topic 4:** Frontend, Backend, and Database — *The Screen, the Brain, and the Memory*
+* **Topic 5:** Basic System Architecture — *Connecting the Full Ola Dispatch System*
 
-### Stage 2: Networking & Connectivity
-* **Level 3:** Finding the Store & The Numbered Doors — *DNS, IP Addresses, and Port Numbers*
-* **Level 4:** The Delivery Fleet — *Protocols: TCP, UDP, and HTTP*
-* **Level 5:** The Barcode Scanners — *APIs and Data Formats (JSON, XML, Protobuf)*
+### Module 2: Networking and Communication
+* **Topic 6:** Networking Fundamentals: IP Addresses, DNS, and Ports — *Finding the Ola Cloud Server in Bangalore*
+* **Topic 7:** HTTP vs. HTTPS — *Protecting Credit Cards & Ola Money with Encryption*
+* **Topic 8:** APIs and JSON — *The Universal Language Between Phone and Server*
+* **Topic 9:** API Design: REST and RESTful Architecture — *Standard Rules for Booking, Tracking, and Cancelling*
 
-### Stage 3: Security & Access Control
-* **Level 6:** The Security Guard at the Door — *Authentication (AuthN)*
-* **Level 7:** The Locked Storage Vault — *Authorization (AuthZ & RBAC)*
+### Module 3: Database Fundamentals
+* **Topic 10:** Database Fundamentals: SQL vs. NoSQL — *Rider Wallet Balances vs. Live Driver GPS Telemetry*
+* **Topic 11:** Relational Database Design — *Linking Drivers, Cabs, Riders, and Trips*
+* **Topic 12:** ACID Properties — *Paying ₹350 for a Ride with Ola Money (Zero Lost Money)*
+* **Topic 13:** Database Indexing — *Finding a Driver by Mobile Number in 2 Milliseconds*
+* **Topic 14:** Database Replication — *What if the Main Database Server Loses Power?*
+* **Topic 15:** Database Partitioning — *Splitting 50 Million Trip Receipts by Month & Year*
+* **Topic 16:** Database Sharding — *Distributing Driver Data Across City Database Servers*
+* **Topic 17:** CAP Theorem — *When the Telecom Cable Between Delhi and Bangalore Breaks*
+* **Topic 18:** OLTP vs. OLAP — *Live Ride Dispatch vs. Studying 10 Million Past Trips*
 
-### Stage 4: Workload & Requirements Scoping
-* **Level 8:** Planning for the Holiday Rush — *NFR Capacity Planning & Bottleneck Analysis*
+### Module 4: Application Architecture
+* **Topic 19:** Monolithic vs. Microservices Architecture — *All Features in One Program vs. Separate Services*
+* **Topic 20:** Authentication and Authorization — *Proving Who You Are vs. What You Are Allowed to Do*
 
-### Stage 5: Data Storage & Persistence
-* **Level 9:** Choosing the Store Ledgers — *Databases: Relational (SQL) vs. Non-Relational (NoSQL)*
-* **Level 10:** The Cash Registers vs. The CEO's Report — *OLTP vs. OLAP*
-* **Level 11:** The Midnight Power Cut — *ACID Transactions & Write-Ahead Logging (WAL)*
-* **Level 12:** The Backup Store Ledgers — *Database Replication (Primary-Replica)*
+### Module 5: Scalability and Performance
+* **Topic 21:** Scalability: Vertical vs. Horizontal Scaling — *Monsoon Rain Rush: Adding 20 Servers vs. 1 Expensive Chip*
+* **Topic 22:** Load Balancing — *Distributing 100,000 Riders Evenly Across 10 Servers*
+* **Topic 23:** Caching — *Fast Driver Profile Loading in 2ms vs 120ms Disk Reads*
+* **Topic 24:** Content Delivery Network (CDN) — *Downloading Car Icons & Map Tiles Instantly Across India*
 
-### Stage 6: Content & Delivery
-* **Level 13:** The Cashier's Sticky-Note Pad — *In-Memory Caching (Redis/Memcached)*
-* **Level 14:** The Regional Delivery Kiosks — *Content Delivery Networks (CDNs) & Edge Delivery*
+### Module 6: Asynchronous Processing and Reliability
+* **Topic 25:** Message Queues and Background Processing — *Generating Trip Invoices Without Freezing the App*
+* **Topic 26:** Fault Tolerance and Failure Handling — *What Happens When a Sub-System Dies Mid-Trip?*
+* **Topic 27:** Rate Limiting — *Stopping Bot Scripts from Spamming 10,000 Fake Bookings*
 
-### Stage 7: Scalability & Traffic
-* **Level 15:** The Holiday Rush (More Cashiers) — *Horizontal vs. Vertical Scaling*
-* **Level 16:** The Customer Line Director — *Load Balancing Algorithms*
-* **Level 17:** The Busy Entry Turnstile — *Rate Limiting (Token Bucket & Leaky Bucket)*
-
-### Stage 8: Distributed Data & Sharding
-* **Level 18:** Splitting the Master Ledger — *Database Sharding & Consistent Hashing*
-
-### Stage 9: Distributed Systems Architecture
-* **Level 19:** The Severed Telephone Wire — *CAP Theorem (Consistency vs. Availability)*
-* **Level 20:** The Relaxed Ledger — *BASE Model & Eventual Consistency*
-* **Level 21:** The Power Outage Drill — *Fault Tolerance & Graceful Degradation*
-* **Level 22:** The Panicked Double-Click — *Idempotency & Deduplication*
-* **Level 23:** The Cross-Department Promise — *Distributed Transactions & The Saga Pattern*
-
-### Stage 10: Asynchronous Messaging & Streaming
-* **Level 24:** The Order Inbox Tray — *Message Queues & Asynchronous Processing*
-* **Level 25:** The Department Loudspeaker — *Publish-Subscribe (Pub-Sub) Event Fanout*
-* **Level 26:** Picking the Right Conveyor Belt — *RabbitMQ (Smart Broker) vs. Apache Kafka (Distributed Log)*
-
-### Stage 11: Real-Time Telemetry & Search
-* **Level 27:** The Live Delivery Tracker — *Persistent WebSockets & Stream Processing*
-* **Level 28:** Finding Nearby Stores — *Geospatial Search & Spatial Indexing (Geohash / Quadtrees)*
+### Module 7: Advanced System Design
+* **Topic 28:** Geospatial Search and Indexing — *Matching the Nearest Available Cab Within 2 Kilometers*
 
 ---
 
-## 🛠️ Local Development
+## 🛠️ Local Development & Build
 
 ```bash
 # Install dependencies
 npm install
 
-# Build single-file production bundle
+# Rebuild single-file production bundle and index.html
 npm run build
 
 # Start local test server
@@ -90,4 +84,4 @@ Open `http://localhost:3000` in your web browser.
 ---
 
 ## 📜 License
-MIT License. Built for computer science students and educators.
+MIT License. Built for computer science students and system design learners.
