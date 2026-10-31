@@ -1,92 +1,45 @@
-// ============================================================
-// SYSTEM DESIGN LEARNING GAME - CURRICULUM DATA
-// 7 MODULES, EXACTLY 28 TOPICS (OLA MOBILITY EDITION)
-// DESIGNED FOR FIRST-YEAR STUDENTS WITH ZERO CS BACKGROUND
-// ============================================================
+/**
+ * RideQuest - Ola Cab Architecture Curriculum
+ * Exact 23 Topics: Day 1 (Topics 1-11), Day 2 (Topics 12-23)
+ * Beginner-Friendly Simple English with Zero Technical Words in Questions
+ */
 
 const STAGES = [
   {
     "id": 1,
-    "name": "Module 1: System Design Fundamentals",
-    "icon": "📐",
-    "desc": "Ola Core Architecture & 50,000 Rush Hour Bookings",
+    "name": "Day 1: System & Data Foundations",
+    "description": "Master core client-server architecture, protocols, security, and database design using real-world Ola cab booking scenarios.",
     "levels": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
     ]
   },
   {
     "id": 2,
-    "name": "Module 2: Networking and Communication",
-    "icon": "🌐",
-    "desc": "DNS, HTTPS Security & REST APIs",
+    "name": "Day 2: Distributed Systems & Scale",
+    "description": "Learn caching, content delivery, scaling, load balancing, sharding, fault tolerance, streaming, and geospatial search under 100,000 live rides.",
     "levels": [
-      6,
-      7,
-      8,
-      9
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Module 3: Database Fundamentals",
-    "icon": "💾",
-    "desc": "SQL vs NoSQL, ACID, Indexing, Replication & Sharding",
-    "levels": [
-      10,
-      11,
       12,
       13,
       14,
       15,
       16,
       17,
-      18
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Module 4: Application Architecture",
-    "icon": "🏗️",
-    "desc": "Monolith vs Microservices & Authentication Security",
-    "levels": [
+      18,
       19,
-      20
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Module 5: Scalability and Performance",
-    "icon": "⚡",
-    "desc": "Horizontal Scaling, Load Balancing, Redis Cache & CDN",
-    "levels": [
+      20,
       21,
       22,
-      23,
-      24
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Module 6: Asynchronous Processing and Reliability",
-    "icon": "🛡️",
-    "desc": "Kafka Queues, Fault Tolerance & Rate Limiting",
-    "levels": [
-      25,
-      26,
-      27
-    ]
-  },
-  {
-    "id": 7,
-    "name": "Module 7: Advanced System Design",
-    "icon": "🎯",
-    "desc": "Geospatial Search & 2km Radius Nearest Cab Matching",
-    "levels": [
-      28
+      23
     ]
   }
 ];
@@ -96,3366 +49,2650 @@ const LEVELS = [
     "id": 1,
     "stage": 1,
     "sno": 1,
-    "topic": "Introduction to System Design",
-    "concept": "Introduction to System Design",
-    "title": "Level 1: 50,000 People Book Cabs at 6:00 PM",
-    "time": "Evening Rush Hour — Bangalore Tech Park",
-    "usersCount": "50,000 Riders Opening Ola App",
-    "topicHint": "Handling Rush Hour Traffic Without Crashes",
-    "situation": "It is 6:00 PM on a rainy Friday evening in Bangalore. Office workers leave work, and suddenly 50,000 people open the Ola app at the exact same minute to book a cab. A junior engineer asks: \"Can we just run the entire Ola cab booking app on one single laptop under my desk?\"",
-    "problem": "What happens if you try to run an app with 50,000 riders on a single home computer?",
-    "simulationType": "ola_rush_hour",
+    "topic": "Requirements Engineering: Functional vs. Non-Functional Requirements (FR & NFR)",
+    "concept": "Functional vs. Non-Functional Requirements",
+    "title": "Level 1: What the App Does vs. How Fast It Runs",
+    "time": "6:00 PM Rush Hour — Bangalore",
+    "usersCount": "50,000 Riders Booking Cabs",
+    "topicHint": "Understanding App Features vs. Speed & Reliability",
+    "situation": "A passenger opens the Ola app and taps 'Book Cab'. The app successfully finds a nearby driver, but it takes 2 full minutes for the screen to confirm the booking.",
+    "problem": "A passenger is booking an Ola cab. The app finds a driver, but it takes 2 full minutes to confirm it on the screen. What is wrong here?",
+    "simulationType": "requirements_stress",
     "choices": [
       {
         "id": "A",
-        "text": "The laptop runs out of memory, freezes completely, and crashes the app for all 50,000 riders.",
+        "text": "The app completed the task, but it is far too slow for the user.",
         "isOptimal": true,
-        "consequenceText": "Spot on! One regular laptop cannot process 50,000 booking requests at the same second. The processor overheats, the memory fills up, and the app crashes, stranding riders in the rain. That is why we need System Design!",
+        "consequenceText": "Exactly right! Booking the cab worked (the feature succeeded), but taking 2 full minutes is unacceptable in real life. Apps must both work correctly and run quickly.",
         "statImpact": {
-          "latency": "25ms",
-          "capacity": "50,000 Riders Smooth",
-          "risk": "Zero Downtime",
-          "cost": "Well-Planned"
+          "latency": "1.2s Target",
+          "capacity": "50,000 Smooth",
+          "risk": "Low",
+          "cost": "Optimal"
         },
         "whatHappened": {
-          "helped": "Understood that big apps need organized systems of computers.",
-          "bottleneck": "A single laptop lacks the power to handle thousands of users at once.",
-          "reflectionQuestion": "Why do apps with millions of users need a planned system of computers?"
+          "helped": "Understood the difference between app features and app performance.",
+          "bottleneck": "Taking 2 minutes causes passengers to cancel and abandon the app.",
+          "reflectionQuestion": "Why must an app not only do the job, but also do it in under 2 seconds?"
         },
-        "successSummary": "Great decision! You understood why single computers fail and why system planning is required."
+        "successSummary": "Spot on! You distinguished between what the app does and how fast it performs."
       },
       {
         "id": "B",
-        "text": "The laptop automatically turns into a supercomputer with no extra planning needed.",
+        "text": "The app is completely broken and cannot book rides at all.",
         "isOptimal": false,
-        "consequenceText": "Computers cannot magically make themselves faster. When thousands of ride requests hit the laptop, it freezes instantly and no cabs can be booked.",
+        "consequenceText": "Not quite. The cab was actually booked successfully! The problem is that it took 2 minutes, which frustrates passengers.",
         "statImpact": {
-          "latency": "Frozen",
-          "capacity": "0 Cabs Dispatched",
-          "risk": "Total Crash",
-          "cost": "Lost Business"
+          "latency": "120s Slow",
+          "capacity": "Low",
+          "risk": "User Drop",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Hoped computer hardware would upgrade itself.",
-          "bottleneck": "Hardware has physical limits and cannot upgrade automatically.",
-          "reflectionQuestion": "Can software run smoothly without planning the computer hardware behind it?"
+          "helped": "Looked only at the delay rather than the booking outcome.",
+          "bottleneck": "Confusing a slow feature with a missing feature.",
+          "reflectionQuestion": "Can a feature work correctly but still fail user speed expectations?"
         }
       },
       {
         "id": "C",
-        "text": "Passengers do not need any servers or internet connection to book cabs on their phones.",
+        "text": "The driver cancelled because the car ran out of fuel.",
         "isOptimal": false,
-        "consequenceText": "An online app cannot work without computers and internet. Without a central system, riders cannot see nearby drivers or share ride destinations.",
+        "consequenceText": "Incorrect. The driver was assigned; the delay happened inside the computer system processing the request.",
         "statImpact": {
-          "latency": "Offline",
-          "capacity": "0 Rides",
-          "risk": "No Connection",
-          "cost": "Broken App"
+          "latency": "Unknown",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Thought online apps work like offline games.",
-          "bottleneck": "Ride hailing requires constant network communication.",
-          "reflectionQuestion": "How does information travel from a rider's phone to a cab driver's phone?"
+          "helped": "Guessed a physical car reason instead of software speed.",
+          "bottleneck": "Missing the software delay.",
+          "reflectionQuestion": "What part of the app is responsible when screens freeze for 2 minutes?"
         }
       }
     ],
     "discovery": {
-      "badge": "Introduction to System Design",
-      "tagline": "Planning and connecting computers so big applications run smoothly without crashing",
-      "simpleMeaning": "System Design is like planning a whole city before building it. Instead of hoping one computer does everything, you plan which computers handle cab locations, which computers handle payments, and how they talk to each other without slowing down.",
-      "pubgExample": "When 50,000 riders tap 'Book Mini' on Ola at 6:00 PM, a well-designed system distributes the requests so every rider gets a cab in 3 minutes without the app freezing.",
-      "analogy": "Building a busy highway: You cannot have just one single narrow lane for an entire city. You must plan multiple lanes, bridges, and traffic lights so thousands of vehicles move smoothly.",
+      "badge": "Requirements Engineering",
+      "tagline": "Balancing what the software does with how fast and reliably it performs",
+      "simpleMeaning": "Think of an elevator: Its basic job is to move you to the 10th floor. But if it takes 30 minutes to get there, it is not useful. Software must both complete the task and do it fast.",
+      "olaExample": "In Ola, booking a cab is the feature; doing it in under 2 seconds during peak rain is the performance requirement.",
+      "analogy": "A restaurant: Serving food is the main job, but making customers wait 3 hours makes it a bad experience.",
       "howItWorks": [
-        "1. Understand the Traffic: Know how many riders and drivers use the app every minute.",
-        "2. Divide the Work: Separate ride tracking, payments, and maps across different computers.",
-        "3. Stop Bottlenecks: Plan backup computers so the app stays fast during heavy rain or festival rushes.",
-        "4. Keep It Fast: Make sure riders get driver details in just a few milliseconds."
+        "1. Feature Requirements: Actions users can take (book cab, see driver photo, pay fare).",
+        "2. Performance Requirements: How well the system behaves (loads in 1 second, works 99.9% of the year).",
+        "3. Balancing: Engineers test both features and speed before launching."
       ],
-      "whyItMatters": "Without System Design, popular apps like Ola would crash constantly during rush hours, leaving riders stranded and drivers without trips.",
-      "visualExplanation": "[50,000 Riders with Phones] ──► [Planned Ola System] ──► Smooth Cab Dispatch in 3 Mins!",
+      "whyItMatters": "Even if your app has wonderful buttons, users will uninstall it if it takes 2 minutes to respond.",
+      "visualExplanation": "[Tap Book Cab] ──► [Feature: Cab Assigned] + [Performance: Done in 1.4s!] ──► Happy Rider",
       "contrast": {
-        "termA": "Single Computer Setup",
-        "descA": "One computer tries to do everything; quickly freezes and crashes under 50,000 users.",
-        "termB": "Planned System",
-        "descB": "Work is shared across organized computers; handles millions of ride requests smoothly."
+        "termA": "App Features",
+        "descA": "What the user can do: Book a ride, choose a car, apply coupon.",
+        "termB": "App Performance",
+        "descB": "How the app runs: Response time under 2 seconds, never crashes."
       },
       "teacherNotes": {
-        "concept": "What is System Design, Scale, Capacity, Bottlenecks",
-        "experience": "Students learned why 50,000 simultaneous users cannot run on a simple home laptop.",
-        "realWorld": "Ola, Uber, and Swiggy use distributed server clusters across India to handle millions of daily bookings.",
-        "question": "What is the difference between writing code for one person and designing a system for 10 million users?"
-      },
-      "olaExample": "When 50,000 riders tap 'Book Mini' on Ola at 6:00 PM, a well-designed system distributes the requests so every rider gets a cab in 3 minutes without the app freezing."
+        "realWorld": "Ola measures response times in milliseconds so rush-hour surges never cause app timeouts."
+      }
     },
     "knowledgeCheck": {
-      "question": "What is the main goal of System Design in a cab booking app like Ola?",
+      "question": "Which of these is an example of an app performance requirement for Ola?",
       "options": [
         {
           "id": "A",
-          "text": "To plan and organize connected computers so thousands of riders can book cabs without the app crashing.",
+          "text": "The booking confirmation screen must appear in under 2 seconds.",
           "isCorrect": true,
-          "explanation": "Correct! System Design ensures that servers, databases, and networks work together to handle heavy traffic smoothly."
+          "explanation": "Correct! Speed and responsiveness are performance requirements."
         },
         {
           "id": "B",
-          "text": "To paint all the cabs yellow and buy new tires for drivers.",
+          "text": "The app has a button to select an Ola Prime sedan.",
           "isCorrect": false,
-          "explanation": "Not quite. Painting cabs is physical car maintenance, not system design for software."
+          "explanation": "That is an app feature (what the user clicks), not a performance speed measurement."
         },
         {
           "id": "C",
-          "text": "To give everyone free unlimited cab rides without charging any money.",
+          "text": "The app displays a picture of the driver.",
           "isCorrect": false,
-          "explanation": "Incorrect. System design is about building reliable computer systems, not pricing policies."
+          "explanation": "Displaying driver photos is a functional feature, not a speed/reliability metric."
         }
       ],
-      "hint": "Hint: Think about why apps need servers, networks, and databases to work together during rush hours."
+      "hint": "Hint: Look for the option that describes how fast or reliable the app must be."
     }
   },
   {
     "id": 2,
     "stage": 1,
     "sno": 2,
-    "topic": "Functional and Non-Functional Requirements",
-    "concept": "Functional and Non-Functional Requirements",
-    "title": "Level 2: What the App Does vs. How Fast It Runs",
-    "time": "Morning Commute — Delhi Airport Terminal",
-    "usersCount": "10,000 Riders at Airport",
-    "topicHint": "App Features vs Speed & Reliability",
-    "situation": "The Ola engineering team is planning the new airport booking update. The designer says: \"We must let riders select Sedan or Prime, view the fare, and apply coupon codes.\" But the lead architect adds: \"When a rider taps Book, the cab search must finish in under 2 seconds, and the servers must stay online 99.9% of the time!\"",
-    "problem": "What is the difference between what an app DOES (Features) and how well it RUNS (Performance)?",
-    "simulationType": "requirements_stress",
+    "topic": "Client–Server Architecture: Decoupling Requesters from Central Data Stores",
+    "concept": "Client–Server Architecture",
+    "title": "Level 2: Why Your Phone Can't Change the Master Records",
+    "time": "7:00 PM — 100,000 Active Passengers",
+    "usersCount": "100,000 Rider Phones",
+    "topicHint": "Separating User Phones from the Central Brain",
+    "situation": "Thousands of passengers want cabs at the same time. A student asks: 'Why doesn't every passenger's phone just connect directly to the master disk where all drivers are listed?'",
+    "problem": "Why can't every passenger's phone directly change the master list of available cabs on its own?",
+    "simulationType": "client_server_clerk",
     "choices": [
       {
         "id": "A",
-        "text": "Functional is what the app does (booking a cab, applying coupons); Non-Functional is how well it runs (fast response, 99.9% uptime).",
+        "text": "Having one main central computer check and approve requests keeps all information safe and orderly.",
         "isOptimal": true,
-        "consequenceText": "Exactly right! Functional Requirements are the features riders click on (booking, fare estimate, cancelling). Non-Functional Requirements are the quality standards: the app must respond in under 2 seconds, never lose payments, and never crash!",
+        "consequenceText": "Brilliant! If 100,000 phones could write directly to the master disk, two riders would book the same driver at the same second. The central server checks rules and coordinates everyone cleanly.",
         "statImpact": {
-          "latency": "Sub-2s",
-          "capacity": "Reliable",
-          "risk": "Zero Downtime",
-          "cost": "Balanced"
+          "latency": "15ms",
+          "capacity": "100k Coordinated",
+          "risk": "Zero Conflicts",
+          "cost": "Protected"
         },
         "whatHappened": {
-          "helped": "Separated core features from performance and reliability metrics.",
-          "bottleneck": "Building features without performance targets creates slow apps that users hate.",
-          "reflectionQuestion": "Why is an app with great buttons useless if every button takes 20 seconds to respond?"
+          "helped": "Understood why a central coordinator is required.",
+          "bottleneck": "Uncontrolled direct disk access leads to corrupted records and security leaks.",
+          "reflectionQuestion": "What would happen if two riders booked the same driver at the exact same instant?"
         },
-        "successSummary": "Perfect! You distinguished Functional Requirements (features) from Non-Functional Requirements (speed and uptime)."
+        "successSummary": "Great work! You understood why client devices must ask a central server."
       },
       {
         "id": "B",
-        "text": "Functional means the cab has functional air conditioning; Non-Functional means the car radio is broken.",
+        "text": "Phone screens are too small to show all the cars in the country.",
         "isOptimal": false,
-        "consequenceText": "Those are physical car features, not software requirements for the Ola application system.",
+        "consequenceText": "Screen size has nothing to do with database permissions and data safety.",
         "statImpact": {
-          "latency": "Unclear",
-          "capacity": "Confused Scope",
-          "risk": "Missed Targets",
-          "cost": "Wasted Effort"
+          "latency": "Error",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Thought about car parts instead of software systems.",
-          "bottleneck": "System requirements define how software behaves and performs.",
-          "reflectionQuestion": "What does a software engineer measure when testing an app?"
+          "helped": "Focused on hardware display instead of software coordination.",
+          "bottleneck": "Overlooking data corruption.",
+          "reflectionQuestion": "Does screen size prevent computers from saving records?"
         }
       },
       {
         "id": "C",
-        "text": "Only build fancy buttons and ignore whether the app takes 5 minutes to load or crashes frequently.",
+        "text": "Drivers only accept phone calls, not app taps.",
         "isOptimal": false,
-        "consequenceText": "If the app takes 5 minutes to confirm a cab, hurried riders at the airport will delete Ola and take a regular taxi instead.",
+        "consequenceText": "Ola is a digital app where cab bookings happen through network taps, not manual telephone calls.",
         "statImpact": {
-          "latency": "5-Minute Delay",
-          "capacity": "Angry Riders",
-          "risk": "Player Churn",
-          "cost": "Lost Revenue"
+          "latency": "Slow",
+          "capacity": "0",
+          "risk": "Manual",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Focused only on visuals without speed.",
-          "bottleneck": "Slow response times destroy user trust completely.",
-          "reflectionQuestion": "Would you keep using an app that freezes for minutes every time you book?"
+          "helped": "Thought of traditional taxi booths instead of digital systems.",
+          "bottleneck": "Missing automated server dispatch.",
+          "reflectionQuestion": "How does software automate matching without phone operators?"
         }
       }
     ],
     "discovery": {
-      "badge": "Functional vs. Non-Functional Requirements",
-      "tagline": "Balancing the features users click with the speed and reliability they expect",
-      "simpleMeaning": "Functional Requirements (FR) describe WHAT the system does (features like booking a ride, showing fare estimate, or paying with wallet). Non-Functional Requirements (NFR) describe HOW WELL the system performs (booking completes in under 2 seconds, 99.9% uptime, and protecting passwords).",
-      "pubgExample": "In Ola, picking 'Ola Auto' and entering a drop location is a Functional Requirement. Having your nearby driver assigned in under 3 seconds without app freezing is a Non-Functional Requirement.",
-      "analogy": "Buying a car: Having 4 wheels, a steering wheel, and doors is Functional (what it is). Getting 20 km per liter of fuel, low maintenance, and 5-star crash safety is Non-Functional (how well and safely it works).",
+      "badge": "Client–Server Architecture",
+      "tagline": "Passenger phones (Clients) request rides; Central computers (Servers) verify and coordinate",
+      "simpleMeaning": "Think of a restaurant: Customers (clients) do not walk into the kitchen to grab food from the stove. They give their order to the waiter (server), who coordinates with the kitchen safely.",
+      "olaExample": "Your Ola app on iPhone/Android is the client. The cloud datacenter in Bangalore is the server.",
+      "analogy": "A bank: You talk to the teller through the counter window; you don't walk into the bank vault yourself.",
       "howItWorks": [
-        "1. List Features (FR): Riders can book cabs, track live driver location, and rate drivers.",
-        "2. Set Speed Targets (NFR): Cab search must return within 2 seconds.",
-        "3. Set Reliability Targets (NFR): The system must stay available 99.9% of the year.",
-        "4. Test Both: Ensure the buttons work AND that the app feels fast and smooth."
+        "1. Client asks: Phone sends 'Book me a Prime cab near Indiranagar'.",
+        "2. Server decides: Central computer checks driver availability, pricing, and safety rules.",
+        "3. Response returned: Server tells the phone 'Driver Ramesh assigned, arriving in 3 mins'."
       ],
-      "whyItMatters": "An app with 50 wonderful features is completely useless if it takes 30 seconds to load or crashes when rain starts.",
-      "visualExplanation": "Functional: [Book Cab] + [Apply Coupon]\nNon-Functional: [Response < 2s] + [99.9% Uptime] = Great Ola App!",
+      "whyItMatters": "Central servers keep data private, prevent booking collisions, and ensure drivers only get one ride at a time.",
+      "visualExplanation": "[Rider Phone (Client)] ──Request──► [Ola Cloud Server] ──Assign──► [Driver Phone (Client)]",
       "contrast": {
-        "termA": "Functional Requirements (FR)",
-        "descA": "What the app does: features and buttons riders interact with (e.g., book ride, pay fare).",
-        "termB": "Non-Functional Requirements (NFR)",
-        "descB": "How well it runs: speed, uptime, security, and scalability under heavy rush."
+        "termA": "Client (Your Phone)",
+        "descA": "Displays the map, accepts your taps, sends requests.",
+        "termB": "Server (Central Brain)",
+        "descB": "Holds master records, verifies rules, coordinates all cars."
       },
       "teacherNotes": {
-        "concept": "Functional Requirements (FR), Non-Functional Requirements (NFR), Latency, Availability, SLA",
-        "experience": "Students learned why software must balance what it does with how fast and reliably it operates.",
-        "realWorld": "Ola and Uber engineering teams define strict SLAs: 99.99% uptime and sub-200ms API response times.",
-        "question": "If an app has a working payment button (FR) but processing takes 2 minutes (NFR), is it acceptable?"
-      },
-      "olaExample": "In Ola, picking 'Ola Auto' and entering a drop location is a Functional Requirement. Having your nearby driver assigned in under 3 seconds without app freezing is a Non-Functional Requirement."
+        "realWorld": "Ola runs clusters of backend servers across India to coordinate millions of riders daily."
+      }
     },
     "knowledgeCheck": {
-      "question": "If a rider opens Ola to catch a train and the app freezes because the server is too slow, which requirement failed?",
+      "question": "What is the primary role of the client in the Ola cab booking app?",
       "options": [
         {
           "id": "A",
-          "text": "Non-Functional Requirement (Speed and performance failed).",
+          "text": "To display the user interface and send ride requests to the server.",
           "isCorrect": true,
-          "explanation": "Correct! Speed, responsiveness, and uptime are Non-Functional Requirements. Freezing means performance failed."
+          "explanation": "Correct! The client runs on the user's phone, showing the map and sending choices to the server."
         },
         {
           "id": "B",
-          "text": "Functional Requirement (The rider forgot their shoes).",
+          "text": "To store the private bank account numbers of all drivers in India.",
           "isCorrect": false,
-          "explanation": "Incorrect. Personal shoes have nothing to do with software system requirements."
+          "explanation": "Sensitive master records stay safely on central servers, never on user phones."
         },
         {
           "id": "C",
-          "text": "Color Requirement (The cab was the wrong shade of white).",
+          "text": "To control traffic lights on city roads.",
           "isCorrect": false,
-          "explanation": "Incorrect. Vehicle paint color is cosmetic, not a software requirement failure."
+          "explanation": "Ola is a ride app, not city traffic signal infrastructure."
         }
       ],
-      "hint": "Hint: Think about whether freezing is a missing button (feature) or a problem with speed and responsiveness (performance)."
+      "hint": "Hint: Think about what happens directly on your smartphone screen."
     }
   },
   {
     "id": 3,
     "stage": 1,
     "sno": 3,
-    "topic": "Client–Server Architecture",
-    "concept": "Client–Server Architecture",
-    "title": "Level 3: How Your Phone Talks to the Ola Cloud Server",
-    "time": "Evening Booking — Connaught Place, Delhi",
-    "usersCount": "Rider Phone & Nearby Cab Drivers",
-    "topicHint": "Client Requests and Server Responses",
-    "situation": "You open the Ola app on your smartphone (the Client) to go home. You need to know: \"Where are the 3 closest cabs right now?\" Your friend wonders: \"Does your phone connect directly to all 10,000 cab drivers' phones in Delhi through Bluetooth wires?\"",
-    "problem": "How should your smartphone get accurate information about nearby available cabs?",
-    "simulationType": "client_server_clerk",
+    "topic": "Networking Fundamentals: IP Addresses, DNS, and Ports",
+    "concept": "IP Addresses, DNS, and Ports",
+    "title": "Level 3: Finding the Right Computer in Bangalore",
+    "time": "Morning Office Rush — Koramangala",
+    "usersCount": "80,000 App Lookups",
+    "topicHint": "How Phones Translate App Names into Computer Addresses",
+    "situation": "When you tap the Ola app icon, your phone needs to reach the main dispatch computer. A new student wonders how millions of phones know where that computer lives on the internet.",
+    "problem": "When you open the Ola app, how does your phone find the exact computer in Bangalore that handles ride bookings?",
+    "simulationType": "networking_dns_ports",
     "choices": [
       {
         "id": "A",
-        "text": "Your phone (Client) asks the central Ola computer (Server), and the server replies with the nearest 3 cabs.",
+        "text": "It looks up the app's name in a digital address book to get that computer's unique number.",
         "isOptimal": true,
-        "consequenceText": "Perfect! Your phone is the Client (asking for nearby cabs). The central computer in the cloud is the Server (holding driver GPS data, calculating fares, and sending answers back in milliseconds).",
+        "consequenceText": "Exactly right! Just like opening your phone contacts to find a friend's phone number, the app asks the internet address book for the server's numeric address.",
         "statImpact": {
-          "latency": "30ms",
-          "capacity": "Millions Connected",
-          "risk": "Safe & Secure",
+          "latency": "8ms",
+          "capacity": "Global Lookup",
+          "risk": "Zero Confusion",
           "cost": "Standard"
         },
         "whatHappened": {
-          "helped": "The central server coordinates riders and drivers safely.",
-          "bottleneck": "Connecting phones directly to each other would cause massive confusion and security risks.",
-          "reflectionQuestion": "Why is a central server needed when matching strangers for cab rides?"
+          "helped": "Understood that human-friendly names map to numeric computer addresses.",
+          "bottleneck": "Without address translation, phones would not know where to send ride requests.",
+          "reflectionQuestion": "Why do computers use numbers while humans prefer names like olacabs.com?"
         },
-        "successSummary": "Correct! Client-Server architecture allows millions of phones to communicate through a central system."
+        "successSummary": "Spot on! The digital address book translated the name into the right computer address in 8 milliseconds."
       },
       {
         "id": "B",
-        "text": "Your phone connects directly to thousands of drivers' phones using Bluetooth wires across the entire city.",
+        "text": "It guesses random numbers until a computer answers.",
         "isOptimal": false,
-        "consequenceText": "Bluetooth only works over a few meters and cannot connect across a city. Connecting thousands of phones directly causes connection chaos.",
+        "consequenceText": "Random guessing would take hours and could connect your phone to a stranger's computer or a foreign website.",
         "statImpact": {
-          "latency": "Failed",
-          "capacity": "0 Drivers Found",
-          "risk": "High Disconnections",
-          "cost": "Unworkable"
+          "latency": "Hours",
+          "capacity": "0",
+          "risk": "Connection Fail",
+          "cost": "Wasted"
         },
         "whatHappened": {
-          "helped": "Tried to bypass the central server.",
-          "bottleneck": "Direct phone-to-phone connections cannot scale across city distances.",
-          "reflectionQuestion": "Can Bluetooth on your phone reach a driver 5 kilometers away?"
+          "helped": "Realized that computers cannot guess addresses randomly.",
+          "bottleneck": "Lack of organized address lookups.",
+          "reflectionQuestion": "Can a letter reach your house without an address written on the envelope?"
         }
       },
       {
         "id": "C",
-        "text": "Your phone guesses where cabs are using magic without sending any messages over the internet.",
+        "text": "It sends an open shout to every phone in your city.",
         "isOptimal": false,
-        "consequenceText": "Smartphones cannot magically guess real-world locations. Without internet communication, your screen would show an empty map.",
+        "consequenceText": "Broadcasting to all phones in the city would clog cellular towers with junk noise and violate user privacy.",
         "statImpact": {
-          "latency": "Offline",
-          "capacity": "0 Cabs",
-          "risk": "No Data",
-          "cost": "Broken"
+          "latency": "Tower Jam",
+          "capacity": "0",
+          "risk": "Privacy Breach",
+          "cost": "Illegal"
         },
         "whatHappened": {
-          "helped": "Thought phones can know live data without internet.",
-          "bottleneck": "Every live update requires network messages between client and server.",
-          "reflectionQuestion": "How does live location data travel from a moving cab to your screen?"
+          "helped": "Saw why broadcasting to everybody is not how internet communication works.",
+          "bottleneck": "Network saturation.",
+          "reflectionQuestion": "How does targeted messaging protect network speed?"
         }
       }
     ],
     "discovery": {
-      "badge": "Client–Server Architecture",
-      "tagline": "Separating the user's mobile screen (Client) from the central brain (Server)",
-      "simpleMeaning": "Client-Server architecture is a system where the Client (your phone or browser) makes requests, and the Server (a powerful computer in the cloud) processes the request and sends back the answer.",
-      "pubgExample": "When you tap 'Confirm Booking' in Ola, your phone (Client) sends a request over 4G/5G. The Ola Server receives it, finds the nearest driver, and sends a response back with the driver's name and car number.",
-      "analogy": "A restaurant: You are the Customer (Client) reading the menu and ordering food. The Kitchen is the Server cooking the food and sending it back to your table.",
+      "badge": "Networking Fundamentals",
+      "tagline": "Names become numbers (Addresses), and numbers open specific software doors (Ports)",
+      "simpleMeaning": "An address book: You don't memorize 10-digit phone numbers for all your friends. You tap their name, and your phone calls their number. The internet does the same thing for computers.",
+      "olaExample": "Your phone looks up api.olacabs.com, gets numeric address 104.22.15.82, and connects to Door 443 (the secure web door).",
+      "analogy": "Sending postal mail: The building name is the address, and the apartment number is the specific door.",
       "howItWorks": [
-        "1. Client (Mobile App): Shows the map, accepts your finger taps, and sends a Request.",
-        "2. Internet Network: Carries the request from your phone to the cloud data center.",
-        "3. Server: Checks available cabs, validates your wallet balance, and generates a Response.",
-        "4. Response Delivered: Your app receives the driver's location and animates the cab on your screen."
+        "1. Human Name: Your phone requests 'api.olacabs.com'.",
+        "2. Address Book (DNS): Translates the name into computer number '104.22.15.82'.",
+        "3. Numbered Door (Port): Connects to Door 443, where the Ola ride service is waiting."
       ],
-      "whyItMatters": "It keeps heavy computing, driver verification, and billing safe in central servers rather than running everything on slow phones.",
-      "visualExplanation": "[Rider Mobile: Client] ──Request: 'Find Cab'──► [Ola Cloud: Server] ──Response: 'Cab Arriving'──► [Rider Mobile]",
+      "whyItMatters": "Without address lookups, phones could never find the right company servers across the worldwide internet.",
+      "visualExplanation": "[Phone: api.olacabs.com] ──► [Address Book] ──► [Server IP: 104.22.15.82 : Port 443]",
       "contrast": {
-        "termA": "Client (Your Phone)",
-        "descA": "Displays UI, captures taps, sends requests, and shows the incoming cab on the map.",
-        "termB": "Server (Cloud Computer)",
-        "descB": "Central brain that verifies drivers, calculates shortest routes, and manages payments."
+        "termA": "Server Address (IP)",
+        "descA": "The unique number that identifies which computer in the world to reach.",
+        "termB": "Door Number (Port)",
+        "descB": "The numbered entrance on that computer for a specific program."
       },
       "teacherNotes": {
-        "concept": "Client, Server, Request, Response, Client-Server Architecture",
-        "experience": "Students learned how mobile devices interact with remote server infrastructure.",
-        "realWorld": "Ola, Uber, Zomato, and Amazon all operate on Client-Server communication over HTTPS.",
-        "question": "What is your mobile phone called when it asks the Ola server for nearby cabs?"
-      },
-      "olaExample": "When you tap 'Confirm Booking' in Ola, your phone (Client) sends a request over 4G/5G. The Ola Server receives it, finds the nearest driver, and sends a response back with the driver's name and car number."
+        "realWorld": "Ola uses global DNS providers so riders anywhere in India connect to the closest regional gateway."
+      }
     },
     "knowledgeCheck": {
-      "question": "In the Ola cab booking app, what is the role of the 'Server'?",
+      "question": "What is the job of the internet's digital address book (DNS)?",
       "options": [
         {
           "id": "A",
-          "text": "To receive booking requests from rider phones, check available drivers, and send back trip details.",
+          "text": "To translate human-friendly website names into numeric computer addresses.",
           "isCorrect": true,
-          "explanation": "Correct! The server is the central computer that processes requests and manages game/app logic."
+          "explanation": "Correct! It converts names like olacabs.com into numbers computers can connect to."
         },
         {
           "id": "B",
-          "text": "To act as the steering wheel inside the physical cab.",
+          "text": "To recharge your phone battery when you run out of power.",
           "isCorrect": false,
-          "explanation": "Incorrect. A server is a computer in a data center, not a steering wheel."
+          "explanation": "DNS is a software lookup system, not a battery charger."
         },
         {
           "id": "C",
-          "text": "To physically drive the cab to your house in place of the human driver.",
+          "text": "To count how many kilometers the cab driver drove.",
           "isCorrect": false,
-          "explanation": "Incorrect. The server coordinates information; human drivers or cars do the physical driving."
+          "explanation": "Distance tracking is calculated from GPS, not from the address book."
         }
       ],
-      "hint": "Hint: Think about which computer receives your request, finds a cab, and sends the answer back."
+      "hint": "Hint: Think about why you use a phone contact list instead of memorizing digits."
     }
   },
   {
     "id": 4,
     "stage": 1,
     "sno": 4,
-    "topic": "Frontend, Backend, and Database",
-    "concept": "Frontend, Backend, and Database",
-    "title": "Level 4: The Screen, the Brain, and the Memory",
-    "time": "Morning Rush — Mumbai Suburban Stations",
-    "usersCount": "100,000 Morning Passengers",
-    "topicHint": "3 Essential Layers of Every Software System",
-    "situation": "A passenger opens Ola to book a ride from Andheri station. The app displays a beautiful map with a green 'Book Ride' button. When tapped, the system must calculate the ₹240 fare, match a driver, and permanently record the trip receipt so the driver gets paid tomorrow.",
-    "problem": "Where do the visual buttons, the fare calculation logic, and the permanent trip records live?",
-    "simulationType": "client_server_clerk",
+    "topic": "Networking Protocols: TCP vs. UDP and HTTP vs. HTTPS",
+    "concept": "Reliable & Encrypted Communication",
+    "title": "Level 4: Protecting Payments from Prying Eyes",
+    "time": "Evening Commute — Public Café Wi-Fi",
+    "usersCount": "40,000 Wallet Recharges",
+    "topicHint": "Guaranteed Delivery and Secret Envelopes for Sensitive Data",
+    "situation": "A rider sitting in a public coffee shop adds ₹500 to their Ola Money wallet. Other people are using the same public Wi-Fi network.",
+    "problem": "When you pay for a cab ride using your card, why must the app guarantee that every single detail arrives safely and secretly?",
+    "simulationType": "protocols_transport",
     "choices": [
       {
         "id": "A",
-        "text": "Frontend is the screen you touch; Backend is the brain that calculates fare; Database is the memory that saves trip records.",
+        "text": "So no payment information gets lost, scrambled, or stolen along the way.",
         "isOptimal": true,
-        "consequenceText": "Brilliant! The 3-tier structure runs all modern software. Frontend = the mobile UI; Backend = the server business logic (calculating distance and surge fare); Database = permanent disk memory saving trip receipts.",
+        "consequenceText": "Spot on! Financial data must be enclosed in a secret encrypted digital envelope so hackers on public Wi-Fi cannot read your card number or CVV.",
         "statImpact": {
-          "latency": "Fast & Clean",
-          "capacity": "Organized 3-Tier",
-          "risk": "Zero Data Loss",
-          "cost": "Standard"
+          "latency": "18ms",
+          "capacity": "Encrypted TLS",
+          "risk": "Zero Fraud",
+          "cost": "Protected"
         },
         "whatHappened": {
-          "helped": "Separated presentation, business logic, and permanent storage.",
-          "bottleneck": "Mixing all three into the phone makes apps heavy, insecure, and easy to hack.",
-          "reflectionQuestion": "Why should your phone not store other drivers' bank account details?"
+          "helped": "Recognized the critical need for encrypted and guaranteed delivery.",
+          "bottleneck": "Sending payment numbers in open plain text allows anyone on the Wi-Fi to steal funds.",
+          "reflectionQuestion": "Why should sensitive payments use secret encryption while casual car map updates don't need heavy locks?"
         },
-        "successSummary": "Great job! You mastered the three core layers: Frontend, Backend, and Database."
+        "successSummary": "Payment secured! The transaction completed through a locked digital tunnel with zero stolen data."
       },
       {
         "id": "B",
-        "text": "Save all 100,000 passengers' bank details and passwords inside the rider's phone memory.",
+        "text": "So the driver gets paid before the passenger even gets into the car.",
         "isOptimal": false,
-        "consequenceText": "Saving other people's bank details on someone's phone is a massive security disaster! Hackers could easily steal everyone's money.",
+        "consequenceText": "Incorrect. Fares are settled after the ride begins or ends, not before matching.",
         "statImpact": {
-          "latency": "Dangerous",
-          "capacity": "Data Leak",
-          "risk": "Total Security Breach",
-          "cost": "Huge Fines"
+          "latency": "Premature",
+          "capacity": "0",
+          "risk": "Dispute",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Put confidential database records onto a user device.",
-          "bottleneck": "User devices cannot be trusted with central database records.",
-          "reflectionQuestion": "Where should sensitive passwords and payment records be stored safely?"
+          "helped": "Confused payment security with trip billing timing.",
+          "bottleneck": "Incorrect billing logic.",
+          "reflectionQuestion": "What protects data as it flies through the radio waves?"
         }
       },
       {
         "id": "C",
-        "text": "Delete the database so the app forgets all trips, rides, and driver payments as soon as the phone closes.",
+        "text": "So the phone battery does not drain while paying.",
         "isOptimal": false,
-        "consequenceText": "Without a database, drivers will never get paid for their hard work, and riders have no proof of past trips. Drivers will strike immediately.",
+        "consequenceText": "Encryption protects privacy and data safety, not battery life.",
         "statImpact": {
-          "latency": "Forgotten",
-          "capacity": "0 Records",
-          "risk": "Unpaid Drivers",
-          "cost": "Company Collapse"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Security Breach",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Removed permanent storage.",
-          "bottleneck": "Commercial apps must persist financial and trip data safely.",
-          "reflectionQuestion": "Can a business operate if it forgets every sale the moment it closes?"
+          "helped": "Equated security with hardware power consumption.",
+          "bottleneck": "Ignoring cybersecurity risks.",
+          "reflectionQuestion": "Why do bank websites show a padlock icon on your screen?"
         }
       }
     ],
     "discovery": {
-      "badge": "Frontend, Backend, and Database",
-      "tagline": "The three essential layers of every web and mobile application",
-      "simpleMeaning": "Frontend is what the user sees and touches (the mobile screen). Backend is the invisible brain running on servers (calculating fares and matching drivers). Database is the permanent digital filing cabinet that safely stores rider accounts, driver details, and trip receipts.",
-      "pubgExample": "In Ola: Frontend = The map, buttons, and car icons on your phone. Backend = The server algorithms calculating traffic and assigning the driver. Database = The storage storing your phone number, trip history, and wallet balance.",
-      "analogy": "A restaurant: Frontend is the dining room and menu. Backend is the chefs cooking in the kitchen. Database is the refrigerator and pantry storing the ingredients.",
+      "badge": "Protocols & Encryption",
+      "tagline": "Guaranteed delivery (No lost pieces) and Secret envelopes (No stolen secrets)",
+      "simpleMeaning": "A postcard vs. a locked bank deposit box: Sending payment details over plain HTTP is like writing your card PIN on a postcard where every mail carrier can read it. HTTPS puts your details in a locked metal box that only the bank can open.",
+      "olaExample": "Ola uses HTTPS for wallet recharges and booking payments, turning your card number into scrambled text as it flies through public Wi-Fi.",
+      "analogy": "A registered courier: The courier gets your signature confirming delivery and keeps the contents sealed in a tamper-proof bag.",
       "howItWorks": [
-        "1. Frontend (UI): Rider enters pickup and drop points and taps 'Confirm'.",
-        "2. Backend (Server): Computes route distance, adds surge multiplier, and locates nearest driver.",
-        "3. Database (Storage): Saves Trip ID #98214 with fare ₹240 and timestamps to permanent disk.",
-        "4. All in Sync: The backend sends confirmation to both rider and driver frontends."
+        "1. Handshake: Phone and server agree on a secret scrambling key.",
+        "2. Encryption: Your card numbers become scrambled gibberish like '#!$*92&'.",
+        "3. Verified Arrival: Server decrypts the message and confirms every byte arrived safely."
       ],
-      "whyItMatters": "Keeping these three layers separate makes apps secure, fast, and easy to maintain by different engineering teams.",
-      "visualExplanation": "[Frontend: Mobile App] ──Requests──► [Backend: Cloud Server] ──Saves──► [Database: Storage Vault]",
+      "whyItMatters": "Without encryption, cyber criminals sitting in public cafés could steal passwords and drain rider bank accounts.",
+      "visualExplanation": "[Phone Card Data] ──Locked Tunnel (HTTPS)──► [Hacker Sees Noise: ?%#$] ──► [Ola Bank Server]",
       "contrast": {
-        "termA": "Frontend",
-        "descA": "Visual interface on the user's phone; collects inputs and displays maps and trip status.",
-        "termB": "Backend & Database",
-        "descB": "Server brain that calculates business rules, and permanent database that safeguards records."
+        "termA": "Open Plaintext (HTTP)",
+        "descA": "Like an open postcard: readable by anyone inspecting the network.",
+        "termB": "Encrypted Tunnel (HTTPS)",
+        "descB": "Like a tamper-proof locked box: only the intended computer can read it."
       },
       "teacherNotes": {
-        "concept": "Frontend, Backend, Database, 3-Tier Architecture, Client-Side vs Server-Side",
-        "experience": "Students understood the clear division between UI presentation, server logic, and persistent storage.",
-        "realWorld": "Ola uses React Native / Android Native (Frontend), Java / Go microservices (Backend), and MySQL / DynamoDB (Database).",
-        "question": "Which layer is responsible for permanently remembering how much money is in your Ola Money wallet?"
-      },
-      "olaExample": "In Ola: Frontend = The map, buttons, and car icons on your phone. Backend = The server algorithms calculating traffic and assigning the driver. Database = The storage storing your phone number, trip history, and wallet balance."
+        "realWorld": "All modern financial transactions mandate TLS 1.3 encryption for PCI-DSS security compliance."
+      }
     },
     "knowledgeCheck": {
-      "question": "When you book an Ola cab and receive a digital receipt for ₹250, which layer is responsible for permanently saving that receipt?",
+      "question": "What happens to your credit card number when it is sent through an encrypted HTTPS connection?",
       "options": [
         {
           "id": "A",
-          "text": "The Database (the permanent digital filing cabinet).",
+          "text": "It is scrambled into secret text so strangers on the network cannot read it.",
           "isCorrect": true,
-          "explanation": "Correct! The database safely and permanently stores trip history, payments, and account balances."
+          "explanation": "Correct! Encryption scrambles the data so only the destination server can unscramble it."
         },
         {
           "id": "B",
-          "text": "The glass screen of your smartphone.",
+          "text": "It is posted on a public social media wall for everyone to verify.",
           "isCorrect": false,
-          "explanation": "Incorrect. The glass screen is hardware for touching, not permanent storage."
+          "explanation": "That would be a catastrophic privacy disaster."
         },
         {
           "id": "C",
-          "text": "The car tires of the cab.",
+          "text": "It is permanently deleted so no one can ever be charged.",
           "isCorrect": false,
-          "explanation": "Incorrect. Car tires are vehicle parts, not digital data storage."
+          "explanation": "The payment must still be processed by the bank; it is protected, not deleted."
         }
       ],
-      "hint": "Hint: Think about which component acts as the permanent digital filing cabinet that remembers records."
+      "hint": "Hint: Think about why bank websites use secret scrambling."
     }
   },
   {
     "id": 5,
     "stage": 1,
     "sno": 5,
-    "topic": "Basic System Architecture",
-    "concept": "Basic System Architecture",
-    "title": "Level 5: Connecting the Full Ola Dispatch System",
-    "time": "Evening Peak — Hyderabad Cyber Towers",
-    "usersCount": "Full City Deployment: 50,000 Riders & 8,000 Cabs",
-    "topicHint": "Connecting Clients, Gateway, Dispatchers, and Data",
-    "situation": "You are connecting all the pieces of Ola for an entire city. Rider phones, driver phones, API security gateways, dispatch servers, and database storage vaults must all communicate smoothly. An intern asks: \"Can we just connect every rider phone directly to our raw financial database without any security server in the middle?\"",
-    "problem": "Why must every component be organized into a proper system architecture instead of letting phones touch the database directly?",
-    "simulationType": "ola_system_blueprint",
+    "topic": "API Design & RESTful Architecture: Standardized Communication Contracts",
+    "concept": "Standardized API Contracts",
+    "title": "Level 5: Standard Rules for Booking, Tracking, and Cancelling",
+    "time": "Midday Cab Dispatches",
+    "usersCount": "120,000 Connected Apps",
+    "topicHint": "Predictable Actions for Ride Operations",
+    "situation": "A rider's phone needs to create a new ride booking, check where the assigned cab is, or cancel the ride if plans change. The app and server need a clear set of standard rules.",
+    "problem": "How do the passenger's phone and the company's computers talk to each other without misunderstanding what the user wants?",
+    "simulationType": "api_contracts_scanners",
     "choices": [
       {
         "id": "A",
-        "text": "Organize traffic through an API Gateway and Backend Servers so phones never touch raw databases directly.",
+        "text": "They use a standard set of clear commands like 'create ride', 'show ride', and 'cancel ride'.",
         "isOptimal": true,
-        "consequenceText": "Masterful architecture! By placing an API Gateway and Backend servers between phones and databases, requests are checked for security and balanced evenly. Sensitive databases remain completely protected!",
+        "consequenceText": "Exactly right! Using standard actions (create, read, update, delete) ensures the server always knows whether the passenger wants to start a ride or cancel one.",
         "statImpact": {
-          "latency": "20ms",
-          "capacity": "50,000 Smooth",
-          "risk": "High Security",
-          "cost": "Well-Architected"
+          "latency": "14ms",
+          "capacity": "Standard REST",
+          "risk": "Zero Confusion",
+          "cost": "Clean"
         },
         "whatHappened": {
-          "helped": "Followed layered system architecture with security boundaries.",
-          "bottleneck": "Allowing direct client access to databases exposes sensitive tables to attacks and corruption.",
-          "reflectionQuestion": "Why does a bank have teller counters instead of letting customers walk directly into the money vault?"
+          "helped": "Understood the value of standard, predictable request actions.",
+          "bottleneck": "Unstructured messages cause servers to guess, leading to accidental cancellations or double bookings.",
+          "reflectionQuestion": "Why is it important to use separate specific commands for creating versus cancelling a ride?"
         },
-        "successSummary": "Brilliant! You connected the complete basic system architecture with secure layers."
+        "successSummary": "Standard contract applied! All ride operations communicate cleanly."
       },
       {
         "id": "B",
-        "text": "Let all 50,000 rider phones connect directly to the raw database files and edit fares as they wish.",
+        "text": "The passenger types free-form text messages to an employee.",
         "isOptimal": false,
-        "consequenceText": "Dishonest riders edit their fare from ₹500 to ₹0, and delete other riders' accounts. The database crashes within 3 minutes.",
+        "consequenceText": "Having humans read free-form text messages for millions of rides would require an army of staff and take 20 minutes per cab booking.",
         "statImpact": {
-          "latency": "Corrupted",
-          "capacity": "Cheaters Everywhere",
-          "risk": "Total Bankruptcy",
-          "cost": "Disaster"
+          "latency": "20 Mins",
+          "capacity": "Tiny",
+          "risk": "Human Error",
+          "cost": "Huge"
         },
         "whatHappened": {
-          "helped": "Removed middle security servers to save money.",
-          "bottleneck": "Unfiltered direct database access destroys data integrity.",
-          "reflectionQuestion": "What happens if any random user can edit database numbers directly?"
+          "helped": "Saw why automated standard software commands beat manual messaging.",
+          "bottleneck": "Manual human bottlenecks.",
+          "reflectionQuestion": "How do apps automate bookings instantly without human chat operators?"
         }
       },
       {
         "id": "C",
-        "text": "Disconnect all servers and make drivers call every phone number in the phonebook one by one.",
+        "text": "The phone takes screenshots of the screen and emails them to the driver.",
         "isOptimal": false,
-        "consequenceText": "Calling thousands of numbers manually takes days. Passengers give up and walk, and the cab company goes bankrupt.",
+        "consequenceText": "Emailing screenshots is completely unworkable for instant cab dispatching and cannot be parsed by automated dispatch computers.",
         "statImpact": {
-          "latency": "Hours Delay",
-          "capacity": "Manual Failure",
-          "risk": "Zero Modern Tech",
-          "cost": "Unusable"
+          "latency": "Hours",
+          "capacity": "0",
+          "risk": "Total Failure",
+          "cost": "Wasted"
         },
         "whatHappened": {
-          "helped": "Abandoned automated system architecture.",
-          "bottleneck": "Modern scale requires automated digital systems.",
-          "reflectionQuestion": "Can telephone operators manually coordinate 50,000 live rides simultaneously?"
+          "helped": "Realized that automated systems need structured commands, not picture attachments.",
+          "bottleneck": "Unparsable file formats.",
+          "reflectionQuestion": "Why do computers prefer structured text over images for basic commands?"
         }
       }
     ],
     "discovery": {
-      "badge": "Basic System Architecture",
-      "tagline": "Connecting clients, gateways, application servers, and databases into a safe flow",
-      "simpleMeaning": "Basic System Architecture is the blueprint that organizes how software pieces fit together. Riders connect through an API Gateway, which sends requests to Application Servers (Dispatch, Payments, Maps), which then talk to secure Databases.",
-      "pubgExample": "When an Ola rider requests a ride: (1) App sends request -> (2) API Gateway checks login -> (3) Dispatch Server matches driver -> (4) Database records trip -> (5) Confirmation sent back to rider and driver.",
-      "analogy": "An airport: Passengers don't walk directly onto the runway. They pass through the Entrance -> Security Check -> Boarding Gate -> Airplane. Each step has a clear job.",
+      "badge": "API Design & Contracts",
+      "tagline": "Standardized commands that computers understand without guesswork",
+      "simpleMeaning": "A restaurant menu: You point to Item #4 ('Masala Dosa'). You don't write an essay explaining how to cook potatoes. Standardized requests make operations fast and error-free.",
+      "olaExample": "Your phone sends POST /rides to create a booking, GET /rides/123 to check location, and DELETE /rides/123 to cancel.",
+      "analogy": "A vending machine: You press B4 for chips; clear numbered buttons prevent wrong snacks.",
       "howItWorks": [
-        "1. User Layer: Rider and Driver mobile apps running on smartphones.",
-        "2. Gateway Layer: API Gateway verifies security tokens and routes requests.",
-        "3. Service Layer: Dispatch, Fare Calculation, and Tracking services process trip logic.",
-        "4. Data Layer: Databases and caches store persistent records securely."
+        "1. Action Verb: 'Create', 'Fetch', 'Update', or 'Cancel'.",
+        "2. Clear Resource: '/rides/4592'.",
+        "3. Clean Data: Simple details enclosed like pickup location and car type."
       ],
-      "whyItMatters": "Protects company data, stops fraud, prevents crashes, and ensures riders and drivers get accurate service in seconds.",
-      "visualExplanation": "[Rider & Driver Apps] ──► [API Gateway] ──► [Dispatch Backend] ──► [Secure Database]",
+      "whyItMatters": "Standard API rules allow iPhone, Android, and web apps to talk to the same server smoothly.",
+      "visualExplanation": "[Phone: POST /rides] ──► [Ola Gateway] ──► [HTTP 201: Ride #4592 Created!]",
       "contrast": {
-        "termA": "Layered Architecture",
-        "descA": "Organized layers protect databases, balance traffic, and allow independent scaling.",
-        "termB": "Direct Unprotected Access",
-        "descB": "Phones talk directly to databases; leads to security hacks, data theft, and server crashes."
+        "termA": "Standard API Rules",
+        "descA": "Clear, universal actions understood by any programming language.",
+        "termB": "Messy Custom Messages",
+        "descB": "Unstructured requests that easily cause errors and crashes."
       },
       "teacherNotes": {
-        "concept": "System Architecture, Layered Design, API Gateway, Tier Separation, Security Boundaries",
-        "experience": "Students learned how all the individual components connect into an end-to-end architecture.",
-        "realWorld": "Every modern mobility platform (Ola, Uber, Lyft) uses multi-layered service architecture.",
-        "question": "What is the job of the API Gateway sitting between rider phones and backend servers?"
-      },
-      "olaExample": "When an Ola rider requests a ride: (1) App sends request -> (2) API Gateway checks login -> (3) Dispatch Server matches driver -> (4) Database records trip -> (5) Confirmation sent back to rider and driver."
+        "realWorld": "RESTful conventions make it effortless for mobile developers to integrate new features."
+      }
     },
     "knowledgeCheck": {
-      "question": "Why should Ola never allow rider phones to connect directly to the raw financial database?",
+      "question": "Which standard command should a phone send to cancel an existing ride booking?",
       "options": [
         {
           "id": "A",
-          "text": "Because riders could maliciously change fares or steal private bank details; backend servers must check security first.",
+          "text": "A standard remove / cancel command specifically targeting that ride number.",
           "isCorrect": true,
-          "explanation": "Correct! Backend servers act as a secure referee to validate all actions before touching database records."
+          "explanation": "Correct! Standard APIs use clear removal actions targeting the specific ride ID."
         },
         {
           "id": "B",
-          "text": "Because databases can only be touched by drivers wearing yellow uniforms.",
+          "text": "A create ride command with all passenger names erased.",
           "isCorrect": false,
-          "explanation": "Incorrect. Database access is controlled by software security protocols, not driver uniforms."
+          "explanation": "That would create a new blank ride instead of cancelling the existing one."
         },
         {
           "id": "C",
-          "text": "Because rider phones will physically melt if they touch database cables.",
+          "text": "Turning off the car's headlights.",
           "isCorrect": false,
-          "explanation": "Incorrect. Phone hardware does not melt; the problem is software data security and fraud."
+          "explanation": "Car headlights are physical car hardware, not software booking commands."
         }
       ],
-      "hint": "Hint: Think about what could happen if anyone could edit their own ride balance without a server checking first."
+      "hint": "Hint: Think about the clean difference between creating something new and cancelling an existing item."
     }
   },
   {
     "id": 6,
-    "stage": 2,
+    "stage": 1,
     "sno": 6,
-    "topic": "Networking Fundamentals – IP Addresses, DNS, and Ports",
-    "concept": "Networking Fundamentals – IP Addresses, DNS, and Ports",
-    "title": "Level 6: Finding the Ola Cloud Server in Bangalore",
-    "time": "Morning Commute — Koramangala, Bangalore",
-    "usersCount": "Rider Phone Locating Ola Cloud",
-    "topicHint": "IP Addresses (Street Address), DNS (Phonebook), Ports (Apartment Number)",
-    "situation": "Your Ola app needs to connect to the Ola server over the internet. The server has an IP address like '142.250.190.46'. But humans cannot remember long strings of numbers for every website and service! When you tap Book, your app contacts 'api.olacabs.com'.",
-    "problem": "How does your phone convert the friendly name 'api.olacabs.com' into the real computer IP address?",
-    "simulationType": "networking_dns_ports",
+    "topic": "Authentication (AuthN) & Token-Based Sessions: Cryptographic Identity Verification",
+    "concept": "Authentication & Digital Passes",
+    "title": "Level 6: Remembering Who You Are Without Asking Every Second",
+    "time": "Daily Login Sessions",
+    "usersCount": "1,000,000 Active Logins",
+    "topicHint": "Verifying Identity and Issuing Safe Session Passes",
+    "situation": "You open the Ola app, enter your phone number, and type the secret 4-digit code sent by SMS. You are logged in successfully.",
+    "problem": "After you type your secret code to log into Ola, how does the app remember it is still you every time you open it?",
+    "simulationType": "auth_identity_verification",
     "choices": [
       {
         "id": "A",
-        "text": "The phone asks DNS (the internet's phonebook), which translates 'api.olacabs.com' into the server's exact IP address.",
+        "text": "The central computer gives your phone a digital pass that proves who you are for future requests.",
         "isOptimal": true,
-        "consequenceText": "Spot on! DNS (Domain Name System) acts like your phone's contact list. You type 'api.olacabs.com', and DNS immediately tells your phone the exact computer IP address and Port 443 to connect to!",
+        "consequenceText": "Exactly right! The server hands your phone a temporary digital stamp (like a concert wristband). Your phone shows this pass with every tap so you never have to re-type your code.",
         "statImpact": {
-          "latency": "5ms DNS",
-          "capacity": "Instant Lookups",
-          "risk": "Zero Connection Failures",
-          "cost": "Standard"
+          "latency": "2ms",
+          "capacity": "Token Verified",
+          "risk": "Protected",
+          "cost": "Low"
         },
         "whatHappened": {
-          "helped": "Used DNS to resolve domain names into numerical IP addresses.",
-          "bottleneck": "Without DNS, users would have to memorize 12-digit number codes for every service.",
-          "reflectionQuestion": "Why do we save friends' names in our phone instead of memorizing their 10-digit phone numbers?"
+          "helped": "Understood digital passes and session tokens.",
+          "bottleneck": "Asking for passwords on every screen frustrates users; storing passwords openly is dangerous.",
+          "reflectionQuestion": "Why is a temporary wristband safer than carrying your birth certificate everywhere?"
         },
-        "successSummary": "Awesome! You understood IP Addresses, DNS lookups, and Ports."
+        "successSummary": "Identity verified! The digital pass keeps the rider logged in securely."
       },
       {
         "id": "B",
-        "text": "Force all riders to memorize long 12-digit IP numbers and type them into their app every morning.",
+        "text": "You must type your secret code again every two seconds.",
         "isOptimal": false,
-        "consequenceText": "Nobody wants to memorize '142.250.190.46:443' just to call a cab! Riders will make typos, get connection errors, and stop using Ola.",
+        "consequenceText": "Asking users to type an SMS code every two seconds would make the app completely unusable.",
         "statImpact": {
-          "latency": "Slow & Frustrating",
-          "capacity": "Typo Errors",
-          "risk": "Lost Customers",
-          "cost": "High Support Costs"
+          "latency": "Annoying",
+          "capacity": "0",
+          "risk": "Abandon App",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Expected users to act like network routers.",
-          "bottleneck": "Humans prefer memorable text names rather than raw binary or decimal numbers.",
-          "reflectionQuestion": "Would you use Google if you had to type 172.217.16.206 into the browser every time?"
+          "helped": "Realized that apps need a way to remember verified users automatically.",
+          "bottleneck": "Excessive login friction.",
+          "reflectionQuestion": "How do apps balance user convenience with high security?"
         }
       },
       {
         "id": "C",
-        "text": "The phone transmits radio signals into outer space hoping an alien satellite forwards it to Ola.",
+        "text": "The app checks your face through the camera non-stop.",
         "isOptimal": false,
-        "consequenceText": "Satellites in outer space do not route city cab requests. Signals get lost, and riders are left waiting endlessly.",
+        "consequenceText": "Running camera face recognition constantly drains phone battery in 10 minutes and violates user camera privacy.",
         "statImpact": {
-          "latency": "Lost in Space",
-          "capacity": "0 Connection",
-          "risk": "100% Failure",
-          "cost": "Broken"
+          "latency": "Battery Dead",
+          "capacity": "0",
+          "risk": "Privacy Issue",
+          "cost": "Extreme"
         },
         "whatHappened": {
-          "helped": "Ignored internet networking standards.",
-          "bottleneck": "Internet traffic follows organized IP and DNS routing protocols.",
-          "reflectionQuestion": "How does internet traffic travel reliably through local network cables and towers?"
+          "helped": "Saw why continuous biometric scanning is impractical.",
+          "bottleneck": "Heavy battery drain and privacy invasion.",
+          "reflectionQuestion": "Why are lightweight digital passes better than non-stop camera scans?"
         }
       }
     ],
     "discovery": {
-      "badge": "IP Addresses, DNS, and Ports",
-      "tagline": "How computers find each other across the worldwide internet",
-      "simpleMeaning": "An IP Address is like a house's street address (where the computer lives). DNS (Domain Name System) is the internet's phonebook that translates names like 'olacabs.com' into IP addresses. A Port number is like an apartment door number, telling the computer which specific program to deliver the message to.",
-      "pubgExample": "When you tap 'Book Cab', your phone asks DNS: \"Where is api.olacabs.com?\" DNS answers: \"Go to IP 142.250.190.46 at Port 443.\" Your phone connects directly in 5 milliseconds.",
-      "analogy": "Sending a parcel: The IP Address is the building street address. The DNS is looking up the person's name in a directory. The Port number is the specific Flat Number (e.g. Flat 443) inside the building.",
+      "badge": "Authentication & Sessions",
+      "tagline": "Prove who you are once, receive a digital pass, and stay safely logged in",
+      "simpleMeaning": "A theme park wristband: When you buy a ticket, the staff checks your ID and puts a colored wristband on your arm. For the rest of the day, you just show the wristband at every ride instead of pulling out your passport each time.",
+      "olaExample": "You verify your mobile number via OTP once. Ola gives your phone a secure token pass that lasts for weeks.",
+      "analogy": "A hotel keycard: You show your ID at the front desk once, and they give you a plastic keycard for your room.",
       "howItWorks": [
-        "1. Domain Name: User app asks for 'api.olacabs.com'.",
-        "2. DNS Lookup: Internet directory returns IP address '142.250.190.46'.",
-        "3. Port Selection: Connects to Port 443 (the standard secure web door).",
-        "4. Connection Established: Rider phone and Ola dispatch server begin talking."
+        "1. Proving Identity: You enter your phone number and 4-digit secret SMS code.",
+        "2. Pass Issued: Server confirms the code is correct and issues a signed digital token pass.",
+        "3. Reusing the Pass: Every time you search for a cab, your phone attaches the pass automatically."
       ],
-      "whyItMatters": "Without IP addresses, DNS, and ports, computers on the internet would have no way to find each other or route messages.",
-      "visualExplanation": "[Phone: 'api.olacabs.com'] ──► [DNS Server] ──Returns IP──► [Connects to IP: 142.250.190.46 : Port 443]",
+      "whyItMatters": "Token passes allow millions of riders to book rides instantly without re-entering passwords every minute.",
+      "visualExplanation": "[Login with OTP] ──► [Server Issues Digital Pass] ──► [Phone Attaches Pass to Every Ride Request]",
       "contrast": {
-        "termA": "DNS (Domain Name System)",
-        "descA": "Human-friendly names like 'olacabs.com'; automatically looked up in milliseconds.",
-        "termB": "IP Address & Port",
-        "descB": "Machine-readable numerical destination (IP: 142.250.190.46) and door number (Port: 443)."
+        "termA": "Full Login (Authentication)",
+        "descA": "Proving who you are with your password or one-time code.",
+        "termB": "Session Pass (Token)",
+        "descB": "A temporary proof badge that lets you stay logged in seamlessly."
       },
       "teacherNotes": {
-        "concept": "IP Address (IPv4/IPv6), DNS Resolution, Port Numbers, TCP/IP",
-        "experience": "Students learned how domain names resolve to IP addresses and how ports direct traffic to specific services.",
-        "realWorld": "Every network call in Ola, Google, and Netflix relies on DNS resolvers (like Cloudflare 1.1.1.1 and Google 8.8.8.8).",
-        "question": "What is the internet phonebook called that converts domain names into IP addresses?"
-      },
-      "olaExample": "When you tap 'Book Cab', your phone asks DNS: \"Where is api.olacabs.com?\" DNS answers: \"Go to IP 142.250.190.46 at Port 443.\" Your phone connects directly in 5 milliseconds."
+        "realWorld": "JSON Web Tokens (JWT) allow stateless server verification across thousands of cloud instances."
+      }
     },
     "knowledgeCheck": {
-      "question": "Why does your phone use DNS when opening the Ola app instead of connecting directly by raw numbers?",
+      "question": "What is the main benefit of giving the user's phone a digital pass after they log in?",
       "options": [
         {
           "id": "A",
-          "text": "DNS translates friendly names like 'api.olacabs.com' into the server's exact IP address so humans don't have to memorize numbers.",
+          "text": "The user stays logged in safely without typing their password for every single tap.",
           "isCorrect": true,
-          "explanation": "Correct! DNS translates names into IP addresses automatically so we never have to type raw numbers."
+          "explanation": "Correct! The digital pass proves identity smoothly for all subsequent requests."
         },
         {
           "id": "B",
-          "text": "DNS turns the cab's headlights on during night rides.",
+          "text": "The phone gets free unlimited mobile data from the telecom tower.",
           "isCorrect": false,
-          "explanation": "Incorrect. DNS is an internet network service, not a physical car component."
+          "explanation": "Session tokens do not provide telecom mobile data plans."
         },
         {
           "id": "C",
-          "text": "DNS gives the driver a 50% discount on road toll taxes.",
+          "text": "The cab driver drives twice as fast.",
           "isCorrect": false,
-          "explanation": "Incorrect. DNS handles domain name lookups, not highway toll pricing."
+          "explanation": "Speed on the road depends on traffic laws and safety, not app login passes."
         }
       ],
-      "hint": "Hint: Think about why you use a contact list instead of memorizing 10-digit phone numbers for all your friends."
+      "hint": "Hint: Think about avoiding repetitive password typing on your phone."
     }
   },
   {
     "id": 7,
-    "stage": 2,
+    "stage": 1,
     "sno": 7,
-    "topic": "HTTP vs. HTTPS",
-    "concept": "HTTP vs. HTTPS",
-    "title": "Level 7: Protecting Credit Cards & Ola Money with Encryption",
-    "time": "Evening Payment — Paying ₹450 Ride Fare",
-    "usersCount": "1,000,000 Daily Online Payments",
-    "topicHint": "Plain Text (HTTP) vs Encrypted Security (HTTPS)",
-    "situation": "You reach your destination and pay ₹450 using your credit card or Ola Money wallet. If the app uses unencrypted HTTP, your card number and CVV are sent over open Wi-Fi like a clear postcard. A hacker sitting at a nearby tea stall with a laptop could easily read your bank details!",
-    "problem": "How should Ola send your payment details over public networks without anyone spying on them?",
-    "simulationType": "protocols_transport",
+    "topic": "Authorization (AuthZ) & Access Control Models: Role-Based Access Control & Principle of Least Privilege",
+    "concept": "Authorization & Permissions",
+    "title": "Level 7: What You Are Allowed to Do on the App",
+    "time": "Ola Admin Center",
+    "usersCount": "Riders, Drivers, and Support Staff",
+    "topicHint": "Separating Passenger Powers from Driver and Admin Powers",
+    "situation": "A rider logs in with their verified phone number. They open the app settings and notice a button titled 'Change Driver Payout Rates for All Cabs'.",
+    "problem": "Why should a regular passenger not be allowed to change how much drivers get paid per kilometer?",
+    "simulationType": "authz_rbac_vault",
     "choices": [
       {
         "id": "A",
-        "text": "Use HTTPS (encrypted): scrambles your payment details into secret code so only the Ola server can read it.",
+        "text": "Different people should only have permission to do the specific tasks meant for them.",
         "isOptimal": true,
-        "consequenceText": "Brilliant security! The 'S' in HTTPS stands for Secure (using SSL/TLS encryption). Even if someone intercepts your network packets, all they see is scrambled gibberish! Your card details and wallet remain 100% safe.",
+        "consequenceText": "Spot on! Authentication checks WHO you are; Authorization checks WHAT you are allowed to do. Passengers should only book rides, while only authorized managers should set financial rates.",
         "statImpact": {
-          "latency": "Encrypted & Fast",
-          "capacity": "Safe Payments",
-          "risk": "Zero Card Thefts",
+          "latency": "1ms",
+          "capacity": "Role Enforced",
+          "risk": "Zero Breach",
           "cost": "Protected"
         },
         "whatHappened": {
-          "helped": "Enforced end-to-end TLS encryption on all mobile communications.",
-          "bottleneck": "Unencrypted HTTP leaves financial data vulnerable to packet sniffing and theft.",
-          "reflectionQuestion": "Why would you send a secret letter in a sealed steel locker instead of writing it on a transparent postcard?"
+          "helped": "Understood the critical separation between identity and permission.",
+          "bottleneck": "Letting any user edit company settings destroys the entire business.",
+          "reflectionQuestion": "What is the difference between showing your ID card and having the keys to the vault?"
         },
-        "successSummary": "Success! You used HTTPS encryption to safeguard passenger credit cards and wallet balances."
+        "successSummary": "Permissions protected! Passengers can only book rides; admin controls stay locked."
       },
       {
         "id": "B",
-        "text": "Use unencrypted HTTP and send raw credit card numbers in plain readable text across public Wi-Fi.",
+        "text": "Passengers already get discounts, so they do not need that screen.",
         "isOptimal": false,
-        "consequenceText": "Hackers easily intercept the plain text. Thousands of riders have their bank accounts emptied, and Ola faces devastating legal lawsuits.",
+        "consequenceText": "Discounts have nothing to do with security permissions and financial safety rules.",
         "statImpact": {
-          "latency": "Unsecure",
-          "capacity": "Stolen Cards",
-          "risk": "Catastrophic Breach",
-          "cost": "Bankruptcy & Fines"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Dangerous",
+          "cost": "Loss"
         },
         "whatHappened": {
-          "helped": "Saved a tiny fraction of encryption CPU time.",
-          "bottleneck": "Plain text transmission over public networks is an unforgivable security breach.",
-          "reflectionQuestion": "Would you shout your bank PIN number out loud in a crowded train station?"
+          "helped": "Confused marketing discounts with system security access.",
+          "bottleneck": "Overlooking system access boundaries.",
+          "reflectionQuestion": "Why must every system verify user permissions regardless of pricing?"
         }
       },
       {
         "id": "C",
-        "text": "Stop taking online payments completely and force all riders to pay in gold coins.",
+        "text": "The button was removed simply because there was no space left on the screen.",
         "isOptimal": false,
-        "consequenceText": "Nobody carries gold coins to take an auto rickshaw. Riders cannot pay, and the business collapses immediately.",
+        "consequenceText": "Permissions are not about visual screen space; they are strict security rules enforced by the central computer.",
         "statImpact": {
-          "latency": "Ancient",
-          "capacity": "Zero Modern Riders",
-          "risk": "Unusable",
-          "cost": "Lost Business"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Breach",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Avoided modern digital security.",
-          "bottleneck": "Modern commerce requires secure digital payment infrastructure.",
-          "reflectionQuestion": "How do modern apps accept digital payments securely?"
+          "helped": "Equated permission controls with graphic layout design.",
+          "bottleneck": "Missing backend security checks.",
+          "reflectionQuestion": "Where should permissions be checked: on the phone screen or inside the server?"
         }
       }
     ],
     "discovery": {
-      "badge": "HTTP vs. HTTPS",
-      "tagline": "Protecting user data and passwords with end-to-end encryption",
-      "simpleMeaning": "HTTP sends messages in plain readable text. Anyone tapping into the Wi-Fi can read it. HTTPS adds encryption (SSL/TLS), locking your message inside a secret digital code that only your phone and the Ola server have the key to open.",
-      "pubgExample": "When you enter your CVV or Ola Money PIN, HTTPS encrypts 'PIN: 4892' into a scrambled string like 'x9#kL!982a'. Even if a hacker intercepts it, they cannot read your PIN.",
-      "analogy": "HTTP is like sending a postcard through the mail where any postal worker can read your message. HTTPS is like locking your letter in a tamper-proof titanium safe before mailing it.",
+      "badge": "Authorization & Permissions",
+      "tagline": "Proving identity is one thing; having permission to perform actions is another",
+      "simpleMeaning": "An office badge: Your badge proves you work for the company (Authentication). But your badge only opens your floor, not the CEO's private safe (Authorization).",
+      "olaExample": "A passenger role can only request rides and view receipts. An admin role can approve drivers and adjust city surge rules.",
+      "analogy": "An airplane: Passengers have tickets to sit in seats; only the pilot has authorization to enter the cockpit and fly the plane.",
       "howItWorks": [
-        "1. TLS Handshake: Phone and Server verify security certificates and agree on a secret encryption key.",
-        "2. Encryption on Phone: Rider's payment details are locked using the secret key.",
-        "3. Safe Transit: Scrambled data travels safely over mobile networks and public Wi-Fi.",
-        "4. Decryption on Server: Only the authentic Ola server unlocks the data and processes the payment."
+        "1. User Role: Every user is tagged with a role (Passenger, Driver, Support Agent, Admin).",
+        "2. Action Check: Before changing any record, the server verifies if the user's role allows it.",
+        "3. Rejection: If an unauthorized user tries to touch admin settings, the server says 'Access Denied'."
       ],
-      "whyItMatters": "Protects passengers from identity theft, card fraud, and stops malicious actors from tampering with ride prices.",
-      "visualExplanation": "HTTP:  [Card: 4521...] ──Plain Text Over Wi-Fi──► Hacker can steal!\nHTTPS: [Card: 4521...] ──Scrambled Secret Code──► 100% Protected!",
+      "whyItMatters": "Strict access control prevents rogue users from modifying prices, stealing driver earnings, or seeing private trip histories.",
+      "visualExplanation": "[Rider Rahul] ──► Books Cab: [ALLOWED] | ──► Edits Payouts: [403 FORBIDDEN - ACCESS DENIED]",
       "contrast": {
-        "termA": "HTTPS (Secure)",
-        "descA": "Encrypted with SSL/TLS; scrambles data so eavesdroppers see only meaningless code.",
-        "termB": "HTTP (Unencrypted)",
-        "descB": "Sent in open plain text; vulnerable to snooping, man-in-the-middle attacks, and theft."
+        "termA": "Who You Are (AuthN)",
+        "descA": "Verifying identity: 'Yes, this is Rahul's phone number'.",
+        "termB": "What You Can Do (AuthZ)",
+        "descB": "Checking permissions: 'Rahul is a passenger; he cannot edit driver bank rates'."
       },
       "teacherNotes": {
-        "concept": "HTTP, HTTPS, SSL/TLS, Symmetric & Asymmetric Encryption, Certificates",
-        "experience": "Students learned the critical security difference between plain-text HTTP and encrypted HTTPS.",
-        "realWorld": "Google, Ola, Apple, and banks reject all plain HTTP connections and require HTTPS everywhere.",
-        "question": "What does the letter 'S' in HTTPS stand for?"
-      },
-      "olaExample": "When you enter your CVV or Ola Money PIN, HTTPS encrypts 'PIN: 4892' into a scrambled string like 'x9#kL!982a'. Even if a hacker intercepts it, they cannot read your PIN."
+        "realWorld": "Role-Based Access Control (RBAC) ensures least-privilege security across all microservices."
+      }
     },
     "knowledgeCheck": {
-      "question": "What does HTTPS do to protect your payment information when booking a ride on Ola?",
+      "question": "What is the difference between Authentication and Authorization?",
       "options": [
         {
           "id": "A",
-          "text": "It encrypts (scrambles) the payment data so eavesdroppers on public Wi-Fi cannot read it.",
+          "text": "Authentication confirms who you are; Authorization decides what you have permission to do.",
           "isCorrect": true,
-          "explanation": "Correct! HTTPS encrypts all network traffic, ensuring passwords and credit cards remain completely private."
+          "explanation": "Correct! One verifies identity, and the other checks permissions."
         },
         {
           "id": "B",
-          "text": "It washes the cab so it looks clean upon arrival.",
+          "text": "Authentication is for cars; Authorization is for bicycles.",
           "isCorrect": false,
-          "explanation": "Incorrect. HTTPS is an internet security protocol, not a car washing service."
+          "explanation": "Both are software security concepts applicable to any application."
         },
         {
           "id": "C",
-          "text": "It prevents the cab from getting stuck in red traffic lights.",
+          "text": "Authentication is free; Authorization costs ₹500 per month.",
           "isCorrect": false,
-          "explanation": "Incorrect. HTTPS protects digital data; it cannot control physical street traffic lights."
+          "explanation": "These are foundational security mechanisms, not subscription products."
         }
       ],
-      "hint": "Hint: Think about what happens when you lock a message inside a secret code that only the receiver can read."
+      "hint": "Hint: Think about showing your ID card vs having a key to a specific door."
     }
   },
   {
     "id": 8,
-    "stage": 2,
+    "stage": 1,
     "sno": 8,
-    "topic": "APIs and JSON",
-    "concept": "APIs and JSON",
-    "title": "Level 8: The Universal Language Between Phone and Server",
-    "time": "Afternoon Booking — Indiranagar, Bangalore",
-    "usersCount": "Rider Phone Sending Ride Request",
-    "topicHint": "APIs (The Messenger) and JSON (The Data Format)",
-    "situation": "Your Ola phone app runs on Android (written in Java/Kotlin), while the Ola cloud server runs on Linux (written in Go/Python). They are two totally different computer programs! When your phone requests a cab, how do they understand each other without misunderstanding words?",
-    "problem": "What standard messenger and data format allows different devices and servers to talk cleanly?",
-    "simulationType": "api_contracts_scanners",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use an API to define the request, and JSON as the simple text format (key: value) both computers understand.",
-        "isOptimal": true,
-        "consequenceText": "Perfect! An API (Application Programming Interface) is the menu of allowed actions (like /book-ride). JSON (JavaScript Object Notation) is the clean, human-readable format both phones and servers understand: {\"rider\": \"Priya\", \"cab\": \"Mini\", \"fare\": 240}.",
-        "statImpact": {
-          "latency": "10ms",
-          "capacity": "Universal Standard",
-          "risk": "Zero Misunderstandings",
-          "cost": "Efficient"
-        },
-        "whatHappened": {
-          "helped": "Adopted standard APIs and lightweight JSON data interchange.",
-          "bottleneck": "Without standard formats, different programming languages cannot exchange structured data.",
-          "reflectionQuestion": "Why do pilots and airport air traffic controllers all speak standard English?"
-        },
-        "successSummary": "Great work! You connected mobile apps and cloud backends using APIs and JSON."
-      },
-      {
-        "id": "B",
-        "text": "Have the phone send random audio voice memos to the server and guess what the rider wants.",
-        "isOptimal": false,
-        "consequenceText": "Processing voice memos for millions of rides is slow, prone to background noise errors, and overloads server speech models.",
-        "statImpact": {
-          "latency": "30,000ms Delay",
-          "capacity": "Speech Recognition Errors",
-          "risk": "Failed Bookings",
-          "cost": "Massive Compute"
-        },
-        "whatHappened": {
-          "helped": "Attempted to use informal human voice for machine-to-machine communication.",
-          "bottleneck": "Computers need structured, predictable data structures to execute transactions instantly.",
-          "reflectionQuestion": "Why do digital forms have labeled fields rather than blank voice notes?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Send a handwritten postcard by physical mail every time someone wants to hail an auto.",
-        "isOptimal": false,
-        "consequenceText": "By the time the physical postcard arrives 3 days later, the passenger has already walked to their destination.",
-        "statImpact": {
-          "latency": "3 Days",
-          "capacity": "0 Rides Today",
-          "risk": "Absurd",
-          "cost": "Unusable"
-        },
-        "whatHappened": {
-          "helped": "Used physical mail for digital bookings.",
-          "bottleneck": "Online ride-hailing requires sub-second digital API messaging.",
-          "reflectionQuestion": "How fast should an online ride request take?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "APIs and JSON",
-      "tagline": "The digital messenger and data language connecting apps across the world",
-      "simpleMeaning": "An API (Application Programming Interface) is like a restaurant waiter that takes your request to the kitchen and brings back the answer. JSON is the simple text language they use to write the order with clear labels and values.",
-      "pubgExample": "When you tap 'Book Cab', your app calls the Ola Booking API with this JSON message: {\"pickup\": \"MG Road\", \"drop\": \"Airport\", \"cab_type\": \"Prime\"}. The server replies with: {\"status\": \"confirmed\", \"driver\": \"Ramesh\", \"cab_no\": \"KA01AB1234\"}.",
-      "analogy": "Filling out an official form: An API is the submission counter window. JSON is the neatly labeled form with boxes like 'Name: John', 'Destination: Airport', 'Passengers: 2'.",
-      "howItWorks": [
-        "1. API Endpoint: A dedicated web address like `POST /api/v1/rides/book`.",
-        "2. JSON Request Payload: Clean text formatted in curly braces with key-value pairs.",
-        "3. Server Processing: The backend server reads the JSON fields in 1 millisecond.",
-        "4. JSON Response: The server returns structured status and driver information."
-      ],
-      "whyItMatters": "Allows iPhones, Android devices, web browsers, and cloud servers built by different companies to exchange information flawlessly.",
-      "visualExplanation": "[Rider Phone]\n       │  Sends JSON: {\"action\": \"book\", \"cab\": \"Mini\"}\n       ▼\n[Ola API Server] ──► Validates in 2ms and Returns JSON: {\"status\": \"confirmed\"}",
-      "contrast": {
-        "termA": "API (The Messenger)",
-        "descA": "The defined set of rules and addresses through which apps ask servers for services.",
-        "termB": "JSON (The Language)",
-        "descB": "Simple, lightweight text format with key-value pairs: {\"driver\": \"Ramesh\", \"eta\": 3}."
-      },
-      "teacherNotes": {
-        "concept": "APIs, JSON, Key-Value Pairs, Payloads, Endpoints, Serialization",
-        "experience": "Students learned how frontends and backends communicate using structured JSON over APIs.",
-        "realWorld": "Google Maps, Ola, Stripe, and WhatsApp communicate across billions of devices using JSON APIs.",
-        "question": "What is the simple text format called that uses curly braces and key-value pairs?"
-      },
-      "olaExample": "When you tap 'Book Cab', your app calls the Ola Booking API with this JSON message: {\"pickup\": \"MG Road\", \"drop\": \"Airport\", \"cab_type\": \"Prime\"}. The server replies with: {\"status\": \"confirmed\", \"driver\": \"Ramesh\", \"cab_no\": \"KA01AB1234\"}."
-    },
-    "knowledgeCheck": {
-      "question": "What is JSON used for when your phone talks to the Ola cloud server?",
-      "options": [
-        {
-          "id": "A",
-          "text": "It is a simple text format with key-value pairs that lets both phone and server understand ride details easily.",
-          "isCorrect": true,
-          "explanation": "Correct! JSON organizes data with clean labels (like \"fare\": 250) so any computer can read it instantly."
-        },
-        {
-          "id": "B",
-          "text": "It is a physical battery charger placed in the back seat of the cab.",
-          "isCorrect": false,
-          "explanation": "Incorrect. JSON is a software data format, not hardware in a car."
-        },
-        {
-          "id": "C",
-          "text": "It is the brand name of the gasoline used by the driver.",
-          "isCorrect": false,
-          "explanation": "Incorrect. JSON is a computer science data exchange standard, not vehicle fuel."
-        }
-      ],
-      "hint": "Hint: Think about structured text with labels like {\"name\": \"Rahul\", \"rating\": 4.8}."
-    }
-  },
-  {
-    "id": 9,
-    "stage": 2,
-    "sno": 9,
-    "topic": "API Design – REST and RESTful Architecture",
-    "concept": "API Design – REST and RESTful Architecture",
-    "title": "Level 9: Standard Rules for Booking, Tracking, and Cancelling",
-    "time": "Evening Architecture Review — Ola HQ",
-    "usersCount": "500 Software Developers Building Ola Features",
-    "topicHint": "Standard HTTP Methods (GET, POST, PUT, DELETE)",
-    "situation": "Ola has hundreds of developers building features for riders, drivers, corporate passes, and rentals. If every developer created random, chaotic names for their buttons (like /doTheCabThing, /fetchCarNow, /cancelItQuick), nobody would understand how the system works and bugs would appear everywhere.",
-    "problem": "How do professional engineering teams organize APIs using standard, predictable rules?",
-    "simulationType": "api_contracts_scanners",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use REST rules with standard HTTP verbs: GET (fetch rides), POST (book ride), PUT (update location), DELETE (cancel ride).",
-        "isOptimal": true,
-        "consequenceText": "Brilliant architecture! REST (Representational State Transfer) uses standard, intuitive HTTP verbs: GET to view, POST to create a booking, PUT/PATCH to update driver GPS, and DELETE to cancel a ride. Every developer instantly understands the system!",
-        "statImpact": {
-          "latency": "Clean & Predictable",
-          "capacity": "Easy to Maintain",
-          "risk": "Zero Confusion",
-          "cost": "Low Bug Count"
-        },
-        "whatHappened": {
-          "helped": "Followed industry-standard RESTful conventions.",
-          "bottleneck": "Inventing ad-hoc, inconsistent endpoints leads to spaghetti architecture and endless integration bugs.",
-          "reflectionQuestion": "Why do road signs use standard shapes (octagons for STOP) across the entire country?"
-        },
-        "successSummary": "Masterclass! You used RESTful API design principles with standard HTTP methods."
-      },
-      {
-        "id": "B",
-        "text": "Let every developer invent random confusing names like /pleaseGiveMeACabBro and /cancelPleaseNoCharge.",
-        "isOptimal": false,
-        "consequenceText": "Inconsistent naming creates massive confusion. When the mobile team tries to connect to the backend, features break and bookings fail.",
-        "statImpact": {
-          "latency": "Chaotic",
-          "capacity": "Broken Integrations",
-          "risk": "High Bugs",
-          "cost": "Wasted Engineering"
-        },
-        "whatHappened": {
-          "helped": "Avoided setting team conventions.",
-          "bottleneck": "Lack of standardized API contracts destroys team velocity and system reliability.",
-          "reflectionQuestion": "What happens if every player in a football team makes up their own rules during a match?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Never create any APIs; force all riders to walk to the Ola headquarters in Bangalore to book a ride.",
-        "isOptimal": false,
-        "consequenceText": "Nobody will travel 500 kilometers to an office building just to book a 10-minute cab ride across town. The company fails immediately.",
-        "statImpact": {
-          "latency": "Unusable",
-          "capacity": "0 Rides",
-          "risk": "Company Dead",
-          "cost": "Total Failure"
-        },
-        "whatHappened": {
-          "helped": "Abandoned digital APIs completely.",
-          "bottleneck": "Digital businesses require remote, standardized API interfaces.",
-          "reflectionQuestion": "Why are remote web APIs essential for smartphone apps?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "RESTful API Design",
-      "tagline": "Standardized, intuitive rules for interacting with web resources",
-      "simpleMeaning": "REST is a set of clean rules for designing APIs. It treats things in the app (like Rides, Drivers, and Receipts) as 'resources' and uses standard action words (HTTP Verbs): GET (to see), POST (to create), PUT/PATCH (to update), and DELETE (to remove).",
-      "pubgExample": "In Ola: `GET /rides/123` (view ride status), `POST /rides` (book a new ride), `PUT /rides/123/location` (update driver GPS), `DELETE /rides/123` (cancel the ride). Simple, clean, and predictable!",
-      "analogy": "Standard library operations: You can BROWSE books (GET), DONATE a new book (POST), RENEW a book (PUT), or RETURN/REMOVE a book (DELETE).",
-      "howItWorks": [
-        "1. Resources as Nouns: Use plural nouns for resources (e.g., `/cabs`, `/riders`, `/rides`).",
-        "2. Standard Verbs: Use GET to read, POST to create, PUT to update, DELETE to cancel.",
-        "3. Stateless: Each request contains all information needed to process it.",
-        "4. Clear Status Codes: Server replies with 200 OK (Success), 201 Created (Booked), 404 (Not Found)."
-      ],
-      "whyItMatters": "Makes APIs easy for hundreds of engineers and external partners (like Google Maps or payment gateways) to integrate seamlessly.",
-      "visualExplanation": "POST   /rides      ──► Creates New Cab Booking (201 Created)\nGET    /rides/123  ──► Fetches Live Driver Location (200 OK)\nDELETE /rides/123  ──► Cancels Booking Safely (200 OK)",
-      "contrast": {
-        "termA": "RESTful API",
-        "descA": "Clean nouns and standard verbs (`POST /rides`, `DELETE /rides/123`); predictable and clear.",
-        "termB": "Unstructured API",
-        "descB": "Messy, ad-hoc URLs (`/makeRideHappenNow`, `/removeTheCar`); difficult to maintain and debug."
-      },
-      "teacherNotes": {
-        "concept": "REST, HTTP Verbs (GET, POST, PUT, DELETE), Statelessness, HTTP Status Codes (200, 201, 404, 500)",
-        "experience": "Students learned how standardized REST conventions organize complex enterprise APIs.",
-        "realWorld": "Ola, Uber, GitHub, and Twitter provide RESTful APIs powering thousands of third-party apps.",
-        "question": "Which HTTP verb is used in REST to book a brand new cab ride?"
-      },
-      "olaExample": "In Ola: `GET /rides/123` (view ride status), `POST /rides` (book a new ride), `PUT /rides/123/location` (update driver GPS), `DELETE /rides/123` (cancel the ride). Simple, clean, and predictable!"
-    },
-    "knowledgeCheck": {
-      "question": "In a RESTful API for Ola, which HTTP method should be used when a rider taps 'Book Ride' to create a new booking?",
-      "options": [
-        {
-          "id": "A",
-          "text": "POST (used to create a new resource, like creating a new ride booking).",
-          "isCorrect": true,
-          "explanation": "Correct! In REST architecture, POST is the standard method used to create new resources."
-        },
-        {
-          "id": "B",
-          "text": "DELETE (used to delete all records from the server).",
-          "isCorrect": false,
-          "explanation": "Incorrect. DELETE cancels or removes resources, it does not create a new booking."
-        },
-        {
-          "id": "C",
-          "text": "PAINT (used to repaint the cab yellow).",
-          "isCorrect": false,
-          "explanation": "Incorrect. PAINT is not an HTTP method."
-        }
-      ],
-      "hint": "Hint: Think about which standard HTTP verb is used to create or submit brand new data (POST)."
-    }
-  },
-  {
-    "id": 10,
-    "stage": 3,
-    "sno": 10,
-    "topic": "Database Fundamentals – SQL vs. NoSQL",
-    "concept": "Database Fundamentals – SQL vs. NoSQL",
-    "title": "Level 10: Rider Wallet Balances vs. Live Driver GPS Telemetry",
-    "time": "Evening Peak — 10 Million Active Users",
-    "usersCount": "10,000,000 Daily Rides & GPS Pings",
-    "topicHint": "Structured Tables (SQL) vs. Rapid Flexible Streams (NoSQL)",
-    "situation": "Ola needs to store two very different kinds of information. First, rider wallet balances and bank transactions that must always be 100% strictly accurate without losing a single rupee. Second, live GPS coordinates sent by 500,000 moving drivers every 3 seconds, generating billions of temporary location points a day.",
-    "problem": "How should Ola choose between a structured SQL database and a flexible high-speed NoSQL database?",
-    "simulationType": "database_polyglot",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use SQL for structured wallet balances and payments, and NoSQL for rapid, high-speed driver GPS streams.",
-        "isOptimal": true,
-        "consequenceText": "Spot on! SQL guarantees financial accuracy in organized tables where every rupee is accounted for. NoSQL handles millions of rapid GPS coordinate streams per second without locking up tables or slowing down the dispatch system!",
-        "statImpact": {
-          "latency": "30ms",
-          "capacity": "10M Rides Safe",
-          "risk": "Zero Data Loss",
-          "cost": "Optimized"
-        },
-        "whatHappened": {
-          "helped": "Matched the right database tool to the right data workload.",
-          "bottleneck": "Using the wrong database either corrupts financial balances or locks up under GPS streams.",
-          "reflectionQuestion": "Why do money balances need strict tables while live GPS points prefer write speed?"
-        },
-        "successSummary": "Perfect choice! You used SQL for structured payments and NoSQL for rapid GPS streams."
-      },
-      {
-        "id": "B",
-        "text": "Store all rider bank details and wallet money in an unorganized text file with no safety checks.",
-        "isOptimal": false,
-        "consequenceText": "Unorganized text files have no transaction safety. When multiple rides finish at once, balances get corrupted, riders lose their money, and complaints flood support.",
-        "statImpact": {
-          "latency": "Corrupted",
-          "capacity": "Lost Money",
-          "risk": "Financial Disaster",
-          "cost": "Massive Refunds"
-        },
-        "whatHappened": {
-          "helped": "Attempted to use the simplest possible file.",
-          "bottleneck": "Flat files cannot safely handle concurrent financial writes.",
-          "reflectionQuestion": "What happens if two payments update a text file at the exact same millisecond?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Force billions of temporary GPS points into rigid financial tables, locking the entire database.",
-        "isOptimal": false,
-        "consequenceText": "Rigid relational tables lock up when flooded with billions of GPS writes. The entire Ola system freezes, and nobody can book a ride.",
-        "statImpact": {
-          "latency": "5,000ms Lag",
-          "capacity": "Database Locked",
-          "risk": "System Freeze",
-          "cost": "High CPU Waste"
-        },
-        "whatHappened": {
-          "helped": "Tried to force all data into one single relational format.",
-          "bottleneck": "High-velocity streaming telemetry overloads strict relational row locks.",
-          "reflectionQuestion": "Why should temporary live GPS logs be stored differently from permanent money receipts?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "SQL vs. NoSQL",
-      "tagline": "Choosing between rigid organized tables and flexible rapid data storage",
-      "simpleMeaning": "A database is a digital filing system. SQL databases store data in neat tables with fixed rows and columns (like a spreadsheet with strict rules). NoSQL databases store data in flexible documents without rigid tables, making them super fast for handling massive streams of changing data.",
-      "pubgExample": "Ola uses SQL (like PostgreSQL or MySQL) to manage user accounts, wallet balances, and trip invoices where mistakes cannot happen. It uses NoSQL (like Cassandra or MongoDB) to ingest millions of live driver GPS pings every minute.",
-      "analogy": "SQL is like a bank vault with numbered safety deposit boxes; NoSQL is like a high-speed conveyor belt where you can drop packages of any shape instantly.",
-      "howItWorks": [
-        "1. Structured Data (SQL): Uses strict columns like Rider_ID, Phone, Wallet_Balance, Created_At.",
-        "2. Streaming Data (NoSQL): Uses flexible documents containing dynamic GPS coordinates and timestamps.",
-        "3. Accuracy vs Speed: SQL prioritizes mathematical correctness; NoSQL prioritizes massive write speeds.",
-        "4. Polyglot Persistence: Modern companies use both SQL and NoSQL for different jobs."
-      ],
-      "whyItMatters": "Using the wrong database causes passengers to lose money or causes the app to freeze when millions of cabs stream location data.",
-      "visualExplanation": "[Wallet Balances & Receipts] ──► [SQL Database: Strict Rows & Columns]\n[Live Driver GPS Coordinates] ──► [NoSQL Database: High-Speed Stream]",
-      "contrast": {
-        "termA": "SQL Database",
-        "descA": "Strict tables, fixed columns; perfect for rider money, billing, and user profiles.",
-        "termB": "NoSQL Database",
-        "descB": "Flexible documents, high write speed; perfect for live GPS tracking, telemetry, and chats."
-      },
-      "teacherNotes": {
-        "concept": "SQL, NoSQL, Relational vs Document Storage, Polyglot Persistence",
-        "experience": "Students learned how to choose storage based on structure, safety, and speed requirements.",
-        "realWorld": "Ola, Uber, and Swiggy use PostgreSQL for billing/ledgers and Cassandra/Redis for live vehicle location streams.",
-        "question": "If you are storing a user's bank wallet balance, would you choose SQL or NoSQL?"
-      },
-      "olaExample": "Ola uses SQL (like PostgreSQL or MySQL) to manage user accounts, wallet balances, and trip invoices where mistakes cannot happen. It uses NoSQL (like Cassandra or MongoDB) to ingest millions of live driver GPS pings every minute."
-    },
-    "knowledgeCheck": {
-      "question": "Which database should Ola use to store user wallet balances and trip payments where data must never have math errors?",
-      "options": [
-        {
-          "id": "A",
-          "text": "A SQL database with structured tables and strict transactional safety rules.",
-          "isCorrect": true,
-          "explanation": "Correct! SQL databases ensure that user balances and purchase records remain completely accurate and protected from errors."
-        },
-        {
-          "id": "B",
-          "text": "A temporary notepad document saved on the driver's phone.",
-          "isCorrect": false,
-          "explanation": "Incorrect. A phone notepad file cannot handle secure central banking and payments."
-        },
-        {
-          "id": "C",
-          "text": "No database at all, just guessing wallet balances every time a rider logs in.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Without a database, user balances would be lost every time the app closes."
-        }
-      ],
-      "hint": "Hint: Think about which database uses strict, organized tables to guarantee financial accuracy."
-    }
-  },
-  {
-    "id": 11,
-    "stage": 3,
-    "sno": 11,
-    "topic": "Relational Database Design",
-    "concept": "Relational Database Design",
-    "title": "Level 11: Linking Drivers, Cabs, Riders, and Trips",
-    "time": "Morning Commute — 500,000 Daily Trips",
-    "usersCount": "Drivers, Cabs, Riders & Receipts",
-    "topicHint": "Organizing Tables with Keys instead of Duplicating Data",
-    "situation": "In Ola, every driver has a unique Driver ID. Each driver drives one cab and completes hundreds of trips. If the database copied the driver's full name, phone number, vehicle registration, and home address into every single trip receipt, the database would explode in size and create messy mistakes whenever a driver updates their phone number.",
-    "problem": "How should the database organize drivers, cabs, riders, and trips without duplicating data?",
-    "simulationType": "database_polyglot",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Create separate tables for Drivers, Cabs, and Trips, and link them using unique IDs (keys).",
-        "isOptimal": true,
-        "consequenceText": "Excellent architecture! By creating separate tables linked with IDs, each driver's info is stored once. If a driver changes their phone number, it updates in one single place, and all 500 of their past trip receipts stay perfectly accurate!",
-        "statImpact": {
-          "latency": "15ms Lookup",
-          "capacity": "Minimal Storage",
-          "risk": "Zero Duplication",
-          "cost": "Low DB Cost"
-        },
-        "whatHappened": {
-          "helped": "Normalized data into clean, linked relational tables.",
-          "bottleneck": "Duplicating text across millions of rows wastes storage and leads to out-of-sync data.",
-          "reflectionQuestion": "Why is using a unique Driver ID better than retyping the driver's name on every receipt?"
-        },
-        "successSummary": "Great job! You designed relational tables with primary and foreign keys to prevent duplication."
-      },
-      {
-        "id": "B",
-        "text": "Copy the driver's full name, home address, and vehicle engine number into every single trip row.",
-        "isOptimal": false,
-        "consequenceText": "If a driver completes 500 trips, their address is duplicated 500 times. If they move to a new house, you must find and update 500 rows, leading to broken data.",
-        "statImpact": {
-          "latency": "Slow Queries",
-          "capacity": "10x Wasted Space",
-          "risk": "Out-of-Sync Data",
-          "cost": "High Storage"
-        },
-        "whatHappened": {
-          "helped": "Kept all data in one place without thinking about relations.",
-          "bottleneck": "Massive data redundancy and update nightmares.",
-          "reflectionQuestion": "What happens if an update fails halfway through updating 500 duplicated rows?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Delete driver and cab tables completely and store everything as random unlinked numbers.",
-        "isOptimal": false,
-        "consequenceText": "Without organized tables or relations, the system cannot tell which driver completed which trip, leaving drivers unpaid and riders without receipts.",
-        "statImpact": {
-          "latency": "Broken",
-          "capacity": "Lost Records",
-          "risk": "Total Failure",
-          "cost": "Unusable"
-        },
-        "whatHappened": {
-          "helped": "Avoided table design completely.",
-          "bottleneck": "Data cannot be queried or understood without clear relational structure.",
-          "reflectionQuestion": "How does an app know which driver picked you up without a linked record?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Relational Database Design",
-      "tagline": "Organizing data into neat tables connected by unique identification keys",
-      "simpleMeaning": "Relational design means organizing information into separate tables (like Drivers, Cabs, Riders, and Trips) and connecting them using unique IDs called keys. This ensures you never have to repeat the same information over and over.",
-      "pubgExample": "Instead of writing the driver's name, car color, and license number inside every single trip receipt, the Trips table simply stores `driver_id: 101`. The app looks up the driver's full profile using that ID.",
-      "analogy": "A college student ID: The library and exam department only write your Roll Number on book receipts, not your entire home address and parent's names on every paper.",
-      "howItWorks": [
-        "1. Tables: Create dedicated tables for core entities (Drivers table, Cabs table, Trips table).",
-        "2. Primary Key: Give each record a unique identifier (e.g., `driver_id`).",
-        "3. Foreign Key: Use that unique ID in other tables to link related records cleanly.",
-        "4. Single Source of Truth: Updating a driver's phone number in one table updates what shows everywhere."
-      ],
-      "whyItMatters": "Saves massive database storage, prevents out-of-sync bugs, and makes running reports fast and reliable.",
-      "visualExplanation": "[Drivers Table]\n(ID: 101 | Name: 'Ramesh' | Phone: '98765...')\n       │ (driver_id)\n       ▼\n[Trips Table]\n(Trip: 5001 | driver_id: 101 | Fare: ₹250)\n(Trip: 5002 | driver_id: 101 | Fare: ₹320)",
-      "contrast": {
-        "termA": "Relational Design (Linked Tables)",
-        "descA": "Data stored once in dedicated tables; connected cleanly by unique IDs.",
-        "termB": "Flat Duplicated Design",
-        "descB": "Every detail copied in every row; wastes storage and causes out-of-sync bugs."
-      },
-      "teacherNotes": {
-        "concept": "Relational Database Design, Tables, Primary Keys, Foreign Keys, Normalization",
-        "experience": "Students learned how tables connect using keys instead of copy-pasting information.",
-        "realWorld": "Enterprise platforms like Ola, Amazon, and Salesforce rely on normalized relational schemas.",
-        "question": "What is the key called that links a trip back to the driver who completed it?"
-      },
-      "olaExample": "Instead of writing the driver's name, car color, and license number inside every single trip receipt, the Trips table simply stores `driver_id: 101`. The app looks up the driver's full profile using that ID."
-    },
-    "knowledgeCheck": {
-      "question": "Why does Ola link a trip receipt to a driver using their unique 'Driver ID' instead of repeating their entire profile on every receipt?",
-      "options": [
-        {
-          "id": "A",
-          "text": "It stores driver info in one place, saves storage, and updates easily if the driver changes their phone number.",
-          "isCorrect": true,
-          "explanation": "Correct! Relational design links records cleanly by ID so you store data once without messy duplication."
-        },
-        {
-          "id": "B",
-          "text": "It makes the cab travel twice as fast through street traffic.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Database schema design manages data storage, not vehicle speed."
-        },
-        {
-          "id": "C",
-          "text": "It forces riders to pay double fare for every trip.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Linking tables is an engineering best practice, not a fare penalty."
-        }
-      ],
-      "hint": "Hint: Think about what happens if a driver changes their phone number—do you want to update it in 1 place or 1,000 places?"
-    }
-  },
-  {
-    "id": 12,
-    "stage": 3,
-    "sno": 12,
-    "topic": "ACID Properties",
-    "concept": "ACID Properties",
-    "title": "Level 12: Paying ₹350 for a Ride with Ola Money (Zero Lost Money)",
-    "time": "Evening Payment — Ride Completed",
-    "usersCount": "1,000,000 Daily Wallet Transactions",
-    "topicHint": "All-or-Nothing Transactions That Protect User Money",
-    "situation": "Your ride ends and the fare is ₹350. You tap 'Pay with Ola Money'. In that exact millisecond, your mobile network drops! The server deducted ₹350 from your wallet, but the network glitch happened before the server could mark the driver's trip as paid. An inexperienced coder says: \"Too bad, the rider lost their ₹350 and the driver got nothing!\"",
-    "problem": "How should a reliable database handle payments so money is never lost during a crash?",
+    "topic": "Relational Database Design (RDBMS) & ACID Guarantees: Transactional Integrity",
+    "concept": "Relational Design & Atomic Settlements",
+    "title": "Level 8: Connecting Riders, Drivers, Cabs, and Money",
+    "time": "Trip Completion — Koramangala to Airport",
+    "usersCount": "Trip #89021 Completed",
+    "topicHint": "Linking Tables Cleanly and Making Fare Transfers Safe",
+    "situation": "A ride finishes at Bangalore Airport. The fare is ₹850. The system needs to deduct ₹850 from the rider's wallet, credit ₹850 to the driver, and update the ride receipt.",
+    "problem": "When a ride ends, why must deducting money from the rider and giving money to the driver happen together at the exact same moment?",
     "simulationType": "acid_atomic_vault",
     "choices": [
       {
         "id": "A",
-        "text": "Apply ACID rules: either both money is deducted and driver is paid, or the whole transaction cancels and refunds.",
+        "text": "To make sure money is never deducted from the passenger without reaching the driver.",
         "isOptimal": true,
-        "consequenceText": "Brilliant! This is Atomicity from ACID. A financial transaction is all-or-nothing. If any step fails, the system rolls back so you never lose your ₹350 without the ride being marked as paid!",
+        "consequenceText": "Exactly right! Both balance updates must be linked as one unbreakable transaction. If a network glitch happens midway, the entire transfer is rolled back so no money is lost.",
         "statImpact": {
-          "latency": "Instant",
-          "capacity": "100% Trust",
-          "risk": "Zero Money Loss",
-          "cost": "Protected"
+          "latency": "12ms",
+          "capacity": "Atomic Ledger",
+          "risk": "Zero Financial Loss",
+          "cost": "Exact"
         },
         "whatHappened": {
-          "helped": "Treated the payment as an atomic database transaction.",
-          "bottleneck": "Executing steps independently leads to money taken without payment credited.",
-          "reflectionQuestion": "Why must deducting money and crediting the driver happen as one single atomic unit?"
+          "helped": "Understood the principle of atomic transactions.",
+          "bottleneck": "Updating accounts separately risks losing money if the connection drops halfway through.",
+          "reflectionQuestion": "What would happen if the phone network crashed after taking money from the passenger but before paying the driver?"
         },
-        "successSummary": "Success! You used ACID properties to protect riders and drivers from lost money and corrupted balances."
+        "successSummary": "Atomic settlement complete! Both accounts balanced perfectly with zero lost funds."
       },
       {
         "id": "B",
-        "text": "Keep the rider's ₹350 deducted, but never credit the driver because the connection dropped halfway.",
+        "text": "Because the car engine automatically turns off when the ride ends.",
         "isOptimal": false,
-        "consequenceText": "Riders and drivers will be furious! Taking money without completing the transaction destroys trust and violates banking laws.",
+        "consequenceText": "The physical car engine has nothing to do with database account ledgers inside cloud servers.",
         "statImpact": {
-          "latency": "Broken",
-          "capacity": "Angry Users",
-          "risk": "Lawsuits & Chargebacks",
-          "cost": "Huge Losses"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Did not roll back the incomplete transaction.",
-          "bottleneck": "Partial database operations leave accounts in an invalid state.",
-          "reflectionQuestion": "Would you keep using an app that took your money and left your trip unpaid?"
+          "helped": "Confused mechanical vehicle hardware with software banking rules.",
+          "bottleneck": "Missing software transaction principles.",
+          "reflectionQuestion": "Where are user wallet balances stored: inside the car engine or in the cloud database?"
         }
       },
       {
         "id": "C",
-        "text": "Give the rider 50 free cab rides whenever their internet connection flickers.",
+        "text": "To save mobile data on both phones.",
         "isOptimal": false,
-        "consequenceText": "People will exploit this glitch by turning airplane mode on and off, taking millions of free rides and bankrupting the company.",
+        "consequenceText": "Transaction safety is about financial accuracy, not saving a few kilobytes of internet data.",
         "statImpact": {
-          "latency": "Exploited",
-          "capacity": "Free Ride Abuse",
-          "risk": "Massive Revenue Loss",
-          "cost": "Bankruptcy"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Money Loss",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Attempted to apologize to the user without proper validation.",
-          "bottleneck": "Uncontrolled state generation destroys business finances.",
-          "reflectionQuestion": "Why must financial transactions be strictly verified instead of handing out free rides?"
+          "helped": "Equated financial accuracy with phone data plans.",
+          "bottleneck": "Overlooking financial reconciliation.",
+          "reflectionQuestion": "Why do banks treat transaction completeness as the highest priority?"
         }
       }
     ],
     "discovery": {
-      "badge": "ACID Properties",
-      "tagline": "The four unbreakable rules that keep database transactions safe and accurate",
-      "simpleMeaning": "ACID stands for four guarantees: Atomicity (All or Nothing: all steps succeed or everything cancels), Consistency (rules are always followed), Isolation (multiple payments don't interfere with each other), and Durability (once saved, it's never lost even if the power cuts).",
-      "pubgExample": "When you pay ₹350 for an Ola ride: Atomicity ensures either both ₹350 leaves your wallet AND the driver receives it, or zero money moves. Durability ensures that once payment confirms, it stays recorded even if the server reboots seconds later.",
-      "analogy": "An ATM cash withdrawal: The machine either dispenses your ₹500 cash AND updates your bank balance, or if cash jams, it ejects your card and deducts zero rupees.",
+      "badge": "Relational Design & Transactions",
+      "tagline": "Organized tables linked together, updated as all-or-nothing operations",
+      "simpleMeaning": "A see-saw balance: You cannot push down one side without raising the other. In payments, taking ₹850 from Person A and giving ₹850 to Person B must happen as one single linked step. It either succeeds 100% together, or rolls back to the start.",
+      "olaExample": "In Ola, the 'Trips' table links the 'Rider ID' and 'Driver ID'. When trip ends, ₹850 transfers atomically between both balances.",
+      "analogy": "Swapping books: You put a book in your friend's hand at the exact moment they put their book in yours; no one walks away empty-handed.",
       "howItWorks": [
-        "1. Atomicity: The payment is treated as one single atomic action (All or Nothing).",
-        "2. Consistency: Balances cannot go below zero or violate account rules.",
-        "3. Isolation: If two people pay at the same second, each transaction runs cleanly one after the other.",
-        "4. Durability: Once the transaction confirms, the record is written to safe permanent disk storage."
+        "1. Begin Transaction: Lock both balances temporarily.",
+        "2. Perform Steps: Deduct ₹850 from rider, add ₹850 to driver, mark trip as paid.",
+        "3. Commit: If all steps succeed, commit changes. If anything fails, rollback completely."
       ],
-      "whyItMatters": "Without ACID guarantees, network glitches and server crashes would cause riders to lose money or drivers to go unpaid.",
-      "visualExplanation": "[Deduct ₹350 from Rider] ──AND──► [Credit ₹350 to Driver]\n              ▲\n              │ (ACID Rule)\n    Both Succeed OR Both Cancel!",
+      "whyItMatters": "Without linked atomic transactions, system crashes would cause riders to lose money without drivers getting paid.",
+      "visualExplanation": "[Rider Wallet: -₹850] ◄──(Atomic Link)──► [Driver Wallet: +₹850] ──► [Trip #89021: Paid ✓]",
       "contrast": {
-        "termA": "ACID Transaction",
-        "descA": "All-or-nothing guarantee; protects money and ensures data is never corrupted.",
-        "termB": "Non-ACID Steps",
-        "descB": "Steps run independently; partial failures take money without completing payments."
+        "termA": "All-or-Nothing (Atomic)",
+        "descA": "Both accounts update together perfectly, or neither updates at all.",
+        "termB": "Disconnected Updates",
+        "descB": "One account updates while the other fails, causing vanished money."
       },
       "teacherNotes": {
-        "concept": "ACID, Atomicity, Consistency, Isolation, Durability, Rollback",
-        "experience": "Students learned why critical state changes must be treated as atomic all-or-nothing transactions.",
-        "realWorld": "Payment gateways (UPI, Razorpay, Paytm) and banking apps rely on ACID relational databases.",
-        "question": "What does the letter 'A' in ACID stand for, and what does it mean?"
-      },
-      "olaExample": "When you pay ₹350 for an Ola ride: Atomicity ensures either both ₹350 leaves your wallet AND the driver receives it, or zero money moves. Durability ensures that once payment confirms, it stays recorded even if the server reboots seconds later."
-    },
-    "knowledgeCheck": {
-      "question": "What does 'Atomicity' in ACID guarantee when you pay for an Ola ride with your wallet?",
-      "options": [
-        {
-          "id": "A",
-          "text": "The transaction is all-or-nothing: either money is deducted and trip is paid, or everything cancels safely with zero loss.",
-          "isCorrect": true,
-          "explanation": "Correct! Atomicity means all steps must succeed together, or the entire operation rolls back with zero loss."
-        },
-        {
-          "id": "B",
-          "text": "The cab engine uses atomic energy to travel faster.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Atomicity is a database term about all-or-nothing actions, not vehicle fuel."
-        },
-        {
-          "id": "C",
-          "text": "The rider must pay double the fare if they ride after midnight.",
-          "isCorrect": false,
-          "explanation": "Incorrect. ACID properties protect transactions, they do not add price penalties."
-        }
-      ],
-      "hint": "Hint: Think about 'All-or-Nothing'—you either pay and get the receipt, or get a full refund if it fails."
-    }
-  },
-  {
-    "id": 13,
-    "stage": 3,
-    "sno": 13,
-    "topic": "Database Indexing",
-    "concept": "Database Indexing",
-    "title": "Level 13: Finding a Driver by Mobile Number in 2 Milliseconds",
-    "time": "Driver Login — 2,000,000 Registered Drivers",
-    "usersCount": "2,000,000 Driver Accounts in India",
-    "topicHint": "Fast Lookups Like a Book Index vs. Checking Every Row",
-    "situation": "A driver types their 10-digit mobile number to log into the Ola Driver app. Ola has 2,000,000 registered drivers in its database. Without an index, the database has to inspect driver 1, driver 2, driver 3... all the way to 2 million rows. The login screen spins for 30 seconds and times out!",
-    "problem": "How can the database locate one specific driver instantly without scanning 2,000,000 records one by one?",
-    "simulationType": "database_sharding_ledgers",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Create an Index on the Phone_Number column, allowing the database to jump directly to the driver in 2 milliseconds.",
-        "isOptimal": true,
-        "consequenceText": "Super fast! An index acts like an alphabetical phonebook or book index. Instead of scanning 2 million rows, the database uses the index to jump straight to the driver in just 2 milliseconds!",
-        "statImpact": {
-          "latency": "2ms Lookup",
-          "capacity": "2M Drivers Fast",
-          "risk": "Zero Lag",
-          "cost": "Tiny Extra Disk"
-        },
-        "whatHappened": {
-          "helped": "Added an index on the frequently searched phone number field.",
-          "bottleneck": "Full table scans read every single row on disk, wasting massive time and memory.",
-          "reflectionQuestion": "Why does a textbook have an index at the back instead of making you read every page?"
-        },
-        "successSummary": "Awesome! You added an index to turn a 30-second table scan into a 2-millisecond instant lookup."
-      },
-      {
-        "id": "B",
-        "text": "Scan all 2,000,000 driver records row by row from top to bottom every single time someone logs in.",
-        "isOptimal": false,
-        "consequenceText": "Scanning 2 million records for every login overloads the database hard drives. Logins take half a minute, and the database crashes when 5,000 drivers log in at 8:00 AM.",
-        "statImpact": {
-          "latency": "30,000ms Lag",
-          "capacity": "Disk Overload",
-          "risk": "Database Crash",
-          "cost": "Wasted Compute"
-        },
-        "whatHappened": {
-          "helped": "Relied on a full table scan without indexing.",
-          "bottleneck": "Linear search across 2 million records takes massive I/O time.",
-          "reflectionQuestion": "How long would it take to find a name in a telephone directory if names were not in alphabetical order?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Ask drivers to register a brand new account every single time they want to log in.",
-        "isOptimal": false,
-        "consequenceText": "Forcing drivers to re-register deletes their rating, earnings history, and bank links. Drivers will refuse to work for Ola.",
-        "statImpact": {
-          "latency": "Unusable",
-          "capacity": "Lost History",
-          "risk": "Driver Revolt",
-          "cost": "Total Failure"
-        },
-        "whatHappened": {
-          "helped": "Avoided solving the database lookup problem.",
-          "bottleneck": "Unacceptable user experience destroys the entire driver community.",
-          "reflectionQuestion": "Can software succeed if it forces users to restart from scratch?"
-        }
+        "realWorld": "Relational databases use Write-Ahead Logs (WAL) to ensure durability even during sudden server power cuts."
       }
-    ],
-    "discovery": {
-      "badge": "Database Indexing",
-      "tagline": "Creating quick lookup shortcuts to find specific records in milliseconds",
-      "simpleMeaning": "An index is a special lookup table created on specific columns (like Phone Number or Driver ID). Instead of reading every single row in the database, the index helps the database jump directly to the exact record you need.",
-      "pubgExample": "When a driver enters their phone number on Ola, an index on `phone_number` lets the database locate their car details, rating, and wallet instantly out of 2 million drivers.",
-      "analogy": "The index at the back of a 1,000-page book: You look up 'Cab' in the index, see page 142, and flip straight there without reading pages 1 to 141.",
-      "howItWorks": [
-        "1. Full Table Scan (Slow): Checks every row from start to end; very slow on large databases.",
-        "2. Index Structure: Keeps a sorted list of values pointing to their exact disk storage locations.",
-        "3. Instant Jump: Uses binary search or B-Trees to locate the target in just a few disk reads.",
-        "4. Trade-off: Reads become super fast, but writes take slightly longer because the index must also update."
-      ],
-      "whyItMatters": "Without indexes, searching for drivers, riders, or booking receipts would take minutes and freeze the app.",
-      "visualExplanation": "[Search: '9876543210']\n       │\n       ▼\n[Phone Index: Sorted] ──Jump──► [Row 1,421,809] (Found in 2ms!)",
-      "contrast": {
-        "termA": "Indexed Lookup",
-        "descA": "Jumps directly to target record via sorted lookup tree; takes 2 milliseconds.",
-        "termB": "Full Table Scan",
-        "descB": "Reads every single row from row 1 to 2,000,000; takes 30 seconds and freezes CPU."
-      },
-      "teacherNotes": {
-        "concept": "Database Indexing, B-Trees, Full Table Scan, Read vs Write Trade-offs",
-        "experience": "Students learned why indexes are essential for rapid lookups and how they compare to book indexes.",
-        "realWorld": "PostgreSQL, MySQL, and DynamoDB rely on B-Tree and hash indexes for sub-millisecond key lookups.",
-        "question": "What is the small trade-off of having an index when you insert a brand-new driver?"
-      },
-      "olaExample": "When a driver enters their phone number on Ola, an index on `phone_number` lets the database locate their car details, rating, and wallet instantly out of 2 million drivers."
     },
     "knowledgeCheck": {
-      "question": "Why does Ola create an index on the Driver Phone Number column in its database?",
+      "question": "What happens if a power failure occurs halfway through an atomic bank transfer in the Ola app?",
       "options": [
         {
           "id": "A",
-          "text": "To find and display the driver's profile in milliseconds without scanning millions of rows one by one.",
+          "text": "The entire transaction is cancelled and both accounts return to their original balances.",
           "isCorrect": true,
-          "explanation": "Correct! An index acts like a book index, jumping directly to the requested record immediately."
+          "explanation": "Correct! Atomic transactions roll back completely if interrupted, preserving exact balances."
         },
         {
           "id": "B",
-          "text": "To give the driver a 5-star rating automatically on every trip.",
+          "text": "The money is permanently lost and deleted forever.",
           "isCorrect": false,
-          "explanation": "Incorrect. Database indexes speed up data lookups; they have nothing to do with driver ratings."
+          "explanation": "Transactional databases prevent money from vanishing during crashes."
         },
         {
           "id": "C",
-          "text": "To hide all driver phone numbers so nobody can ever log in.",
+          "text": "The app gives both the rider and driver ₹10,000 for free.",
           "isCorrect": false,
-          "explanation": "Incorrect. Indexes make searching faster, they do not hide data."
+          "explanation": "Crashes do not create magic free money; databases protect exact numbers."
         }
       ],
-      "hint": "Hint: Think about why a textbook has an index at the back—does it help you find pages faster?"
+      "hint": "Hint: Think about what 'all-or-nothing' means when something fails midway."
     }
   },
   {
-    "id": 14,
-    "stage": 3,
-    "sno": 14,
-    "topic": "Database Replication",
-    "concept": "Database Replication",
-    "title": "Level 14: What if the Main Database Server Loses Power?",
-    "time": "Friday Night Rush — Mumbai Data Center",
-    "usersCount": "500,000 Concurrent Ride Bookings",
-    "topicHint": "Keeping Live Backup Copies (Primary & Replicas)",
-    "situation": "It is Friday night, the busiest time of the week. Half a million people across India are booking Ola rides. Suddenly, the main database server computer in the Mumbai data center suffers a sudden hardware motherboard blowout! An intern gasps: \"We only had that one single database computer...\"",
-    "problem": "How can Ola ensure the app never goes down and trip data is safe when a database server dies?",
-    "simulationType": "db_replication_cluster",
+    "id": 9,
+    "stage": 1,
+    "sno": 9,
+    "topic": "Database Architecture: Relational vs. Non-Relational (SQL vs. NoSQL Paradigm)",
+    "concept": "SQL vs. NoSQL Storage",
+    "title": "Level 9: Strict Bank Ledgers vs. Fast Moving Car Coordinates",
+    "time": "Evening Peak — 100,000 Cars Moving",
+    "usersCount": "100,000 Cabs Sending GPS Pings",
+    "topicHint": "Choosing the Right Storage System for the Right Kind of Data",
+    "situation": "Ola manages two very different types of information: (1) Passenger bank wallet balances that must never have a single rupee mistake, and (2) 100,000 moving cars sending rapid GPS coordinates every single second.",
+    "problem": "Why does Ola use strict, organized record books for wallet money, but a quick, flexible notepad for moving car locations?",
+    "simulationType": "database_polyglot",
     "choices": [
       {
         "id": "A",
-        "text": "Use Database Replication to keep exact live copies on backup replica servers that take over instantly.",
+        "text": "Money needs strict rules with zero mistakes, while moving cars need ultra-fast saving every second.",
         "isOptimal": true,
-        "consequenceText": "Lifesaver! With Database Replication, every ride is continuously copied to replica servers. When the Primary crashes, a Replica is automatically promoted to be the new Primary, and riders don't even notice a hiccup!",
+        "consequenceText": "Spot on! Financial balances require rigid safety checks where numbers always add up. But moving GPS coordinates arrive thousands of times per second and need lightning-fast saving without heavy locking.",
         "statImpact": {
-          "latency": "25ms",
-          "capacity": "Zero Downtime",
-          "risk": "Zero Data Loss",
-          "cost": "Backup Hardware"
-        },
-        "whatHappened": {
-          "helped": "Maintained continuous live replicas of the database.",
-          "bottleneck": "A single point of failure guarantees total collapse when hardware breaks.",
-          "reflectionQuestion": "What happens if you have no backup copy and your laptop hard drive breaks?"
-        },
-        "successSummary": "Outstanding! You set up database replication with automatic failover to prevent total disaster."
-      },
-      {
-        "id": "B",
-        "text": "Keep only one single database computer and accept that all rider and driver accounts are wiped out if it crashes.",
-        "isOptimal": false,
-        "consequenceText": "All driver accounts, trip histories, and wallet balances are lost. The company's reputation is destroyed, and the business faces immediate shutdown.",
-        "statImpact": {
-          "latency": "Dead",
-          "capacity": "0 Rides",
-          "risk": "100% Data Loss",
-          "cost": "Catastrophic"
-        },
-        "whatHappened": {
-          "helped": "Saved money by buying only one computer.",
-          "bottleneck": "Single point of failure leads to irrecoverable data loss.",
-          "reflectionQuestion": "Is it worth saving a few dollars if a crash destroys the entire business?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Shut down all cab operations in India for two weeks while a technician looks for replacement parts.",
-        "isOptimal": false,
-        "consequenceText": "Two weeks of downtime causes all riders to switch to competing services. Millions of dollars in revenue are lost while servers sit offline.",
-        "statImpact": {
-          "latency": "2 Weeks Offline",
-          "capacity": "0 Active",
-          "risk": "Lost Customers",
-          "cost": "Massive Revenue Drop"
-        },
-        "whatHappened": {
-          "helped": "Waited for manual hardware repair.",
-          "bottleneck": "Manual repair is far too slow for an active mobility service.",
-          "reflectionQuestion": "Why do modern online services need automated instant failover?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Database Replication",
-      "tagline": "Copying data continuously to backup servers for high availability and read sharing",
-      "simpleMeaning": "Database Replication means copying data from a main database (called the Primary) to one or more backup databases (called Replicas). If the Primary computer breaks, a Replica immediately steps in so the app keeps running smoothly.",
-      "pubgExample": "When a rider completes a trip in Ola, the Primary database saves the receipt and instantly copies it to Replicas in Bangalore and Delhi. If the main server crashes, the backup server takes over in seconds.",
-      "analogy": "Keeping a photocopy of your passport in your travel bag: if your original passport is lost, your backup copy keeps you safe.",
-      "howItWorks": [
-        "1. Primary Server: Handles all writes (new bookings, payments, driver ratings).",
-        "2. Replica Servers: Continuously copy changes from the Primary.",
-        "3. Read Distribution: Millions of riders checking their past receipts read from Replicas, taking load off the Primary.",
-        "4. Automatic Failover: If the Primary dies, a Replica becomes the new Primary within seconds."
-      ],
-      "whyItMatters": "Protects against hardware crashes, prevents data loss, and lets millions of riders inspect receipts without overloading one server.",
-      "visualExplanation": "              [Write: New Trip Receipt]\n                     │\n                     ▼\n            [Primary Database] (Crashes!)\n            ╱                ╲\n   (Syncs) ╱                  ╲ (Syncs)\n          ▼                    ▼\n   [Replica DB 1]       [Replica DB 2] ──Promoted──► New Primary!",
-      "contrast": {
-        "termA": "Replicated Cluster",
-        "descA": "Multiple live database copies; zero downtime and instant failover on crashes.",
-        "termB": "Single Database Server",
-        "descB": "One computer holds everything; hardware failure causes total shutdown and data loss."
-      },
-      "teacherNotes": {
-        "concept": "Database Replication, Primary/Replica (Master/Slave), High Availability, Failover",
-        "experience": "Students learned why critical data must be continuously replicated across independent machines.",
-        "realWorld": "AWS Aurora, PostgreSQL, and MySQL clusters use replication for 99.999% availability.",
-        "question": "Besides handling crashes, how do replica servers help when millions of riders check their past trips?"
-      },
-      "olaExample": "When a rider completes a trip in Ola, the Primary database saves the receipt and instantly copies it to Replicas in Bangalore and Delhi. If the main server crashes, the backup server takes over in seconds."
-    },
-    "knowledgeCheck": {
-      "question": "What is the main purpose of Database Replication in a 24/7 app like Ola?",
-      "options": [
-        {
-          "id": "A",
-          "text": "To keep live backup copies of the database so the app stays running if the main server fails.",
-          "isCorrect": true,
-          "explanation": "Correct! Replication ensures continuous backups and instant failover so user data is never lost."
-        },
-        {
-          "id": "B",
-          "text": "To make every cab driver fly in an airplane instead of driving on roads.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Database replication manages data backups, not physical vehicle transport."
-        },
-        {
-          "id": "C",
-          "text": "To charge riders double fare every time they book on weekends.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Replication is about system reliability, not charging riders."
-        }
-      ],
-      "hint": "Hint: Think about what happens when you keep a duplicate backup copy of your school project on a pen drive."
-    }
-  },
-  {
-    "id": 15,
-    "stage": 3,
-    "sno": 15,
-    "topic": "Database Partitioning",
-    "concept": "Database Partitioning",
-    "title": "Level 15: Splitting 50 Million Trip History Receipts by Month & Year",
-    "time": "Rider Profile Screen — Trip History",
-    "usersCount": "50,000,000 Completed Trips (2022 to 2024)",
-    "topicHint": "Dividing One Huge Table into Smaller Manageable Sections",
-    "situation": "Over the past 3 years, Ola has accumulated 50,000,000 completed trip receipts in one giant 'Trips' table. When a rider opens their app to view their ride from yesterday, the database takes 25 seconds to crawl through three years of old trips from 2022!",
-    "problem": "How can Ola organize this massive 50-million-row table so checking recent trips is lightning fast?",
-    "simulationType": "database_sharding_ledgers",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Partition the huge table into smaller sections by Year or Month (e.g., Year 2024 table, Year 2023 table).",
-        "isOptimal": true,
-        "consequenceText": "Smart move! By partitioning the table by year and month, queries for yesterday's ride only search the current month's section. The database skips 45 million old rows entirely, and receipts load in 15 milliseconds!",
-        "statImpact": {
-          "latency": "15ms History",
-          "capacity": "50M Trips Organized",
-          "risk": "Zero Sluggishness",
-          "cost": "Efficient"
-        },
-        "whatHappened": {
-          "helped": "Partitioned historical trip data by date ranges.",
-          "bottleneck": "Searching one monolithic table forces the database to scan millions of irrelevant old years.",
-          "reflectionQuestion": "Why should checking yesterday's cab receipt search through trips from 3 years ago?"
-        },
-        "successSummary": "Great work! You used partitioning to divide a gigantic table into fast, manageable monthly pieces."
-      },
-      {
-        "id": "B",
-        "text": "Permanently delete all trip records from previous years so riders can never view their tax receipts.",
-        "isOptimal": false,
-        "consequenceText": "Riders need past receipts for corporate expense claims and tax filings. Deleting their history causes huge backlash and lost corporate accounts.",
-        "statImpact": {
-          "latency": "Fast but Empty",
-          "capacity": "Lost History",
-          "risk": "Upset Riders",
-          "cost": "Lost Enterprise Clients"
-        },
-        "whatHappened": {
-          "helped": "Reduced table size by destroying user records.",
-          "bottleneck": "Deleting valuable historical data instead of organizing it cleanly.",
-          "reflectionQuestion": "Can you make searches fast without deleting user data?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Leave all 50 million rows in one giant table and tell riders to wait 25 seconds every time they open trip history.",
-        "isOptimal": false,
-        "consequenceText": "Riders get annoyed waiting half a minute just to download a receipt. Many riders abandon the app.",
-        "statImpact": {
-          "latency": "25,000ms Delay",
-          "capacity": "Unoptimized Table",
-          "risk": "Bad User Experience",
-          "cost": "High DB Load"
-        },
-        "whatHappened": {
-          "helped": "Avoided table reorganization.",
-          "bottleneck": "Monolithic tables degrade in performance as row counts grow into the tens of millions.",
-          "reflectionQuestion": "What happens to search speed as a table grows 10 times bigger?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Database Partitioning",
-      "tagline": "Splitting a giant table into smaller, faster logical sections within the same database",
-      "simpleMeaning": "Database Partitioning means dividing a giant table with millions of rows into smaller, organized pieces (called partitions) based on a rule, like Year, Month, or City. The database only searches the relevant partition instead of the whole monster table.",
-      "pubgExample": "Ola partitions its trip history table by Year and Month (e.g., Partition 2024_Oct, Partition 2024_Nov). When you view today's ride, the database searches only this month's partition.",
-      "analogy": "An office filing cabinet: Instead of dumping 5 years of receipts into one giant pile, you use separate labeled folders for 2022, 2023, and 2024.",
-      "howItWorks": [
-        "1. Choose a Partition Key: Pick a field like `trip_date` or `year_month`.",
-        "2. Divide Data: The database automatically stores records in the matching partition.",
-        "3. Partition Pruning: When querying recent rides, the database completely skips old partitions.",
-        "4. Easy Archiving: Old years can be archived or compressed without affecting live rides."
-      ],
-      "whyItMatters": "Keeps query speeds lightning fast even as the app accumulates tens of millions of historical records over years.",
-      "visualExplanation": "[Giant Trips Table: 50 Million Rows]\n                   │\n       Divided into Partitions:\n┌──────────────────┼──────────────────┐\n▼                  ▼                  ▼\n[Year 2022]        [Year 2023]        [Year 2024: Current]\n(Skipped)          (Skipped)          (Only Search Here! 15ms)",
-      "contrast": {
-        "termA": "Partitioned Table",
-        "descA": "Divided into monthly folders; queries scan only relevant data in milliseconds.",
-        "termB": "Single Monster Table",
-        "descB": "All 50M rows in one pile; queries crawl through years of old data and lag."
-      },
-      "teacherNotes": {
-        "concept": "Database Partitioning, Range Partitioning, Partition Pruning, Query Optimization",
-        "experience": "Students learned how to organize massive tables by logical boundaries like dates or months.",
-        "realWorld": "PostgreSQL, Oracle, and Google BigQuery use range partitioning for fast time-series analysis.",
-        "question": "What is the process called where the database skips old partitions during a query?"
-      },
-      "olaExample": "Ola partitions its trip history table by Year and Month (e.g., Partition 2024_Oct, Partition 2024_Nov). When you view today's ride, the database searches only this month's partition."
-    },
-    "knowledgeCheck": {
-      "question": "How does dividing trip receipts into monthly partitions help an Ola rider checking yesterday's ride?",
-      "options": [
-        {
-          "id": "A",
-          "text": "The database only searches the current month's partition, making the receipt load in milliseconds.",
-          "isCorrect": true,
-          "explanation": "Correct! Partitioning allows the database to ignore millions of old records and search only the relevant month."
-        },
-        {
-          "id": "B",
-          "text": "It gives the rider 5 free rides every time they check their history.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Partitioning speeds up database lookups; it does not alter ride pricing."
-        },
-        {
-          "id": "C",
-          "text": "It cancels all other rides in the city automatically.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Partitioning organizes data storage, it is not a ride cancellation feature."
-        }
-      ],
-      "hint": "Hint: Think about searching through one small folder of today's papers versus searching a warehouse of 3 years of old papers."
-    }
-  },
-  {
-    "id": 16,
-    "stage": 3,
-    "sno": 16,
-    "topic": "Database Sharding",
-    "concept": "Database Sharding",
-    "title": "Level 16: Distributing Driver Data Across City Database Servers",
-    "time": "National Expansion — 100 Indian Cities",
-    "usersCount": "100,000,000 Nationwide Users across India",
-    "topicHint": "Splitting Data Across Multiple Physical Computers",
-    "situation": "Ola now operates across 100 cities in India. The total driver and rider profile data is over 150 Terabytes. The engineers bought the biggest, most expensive server computer available on the market, but the database hard drives are 100% full and cannot fit another city!",
-    "problem": "What do you do when one single database computer physically cannot hold all the country's drivers and riders?",
-    "simulationType": "database_sharding_ledgers",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use Database Sharding to split data across multiple separate database servers (e.g., Shard by City: Delhi, Mumbai, Bangalore).",
-        "isOptimal": true,
-        "consequenceText": "Brilliant engineering! Sharding splits the data across independent database machines (Server 1 for Delhi, Server 2 for Mumbai, Server 3 for Bangalore). You can now add as many database servers as needed to support every city in India!",
-        "statImpact": {
-          "latency": "20ms",
-          "capacity": "Nationwide Scale",
-          "risk": "Zero Hard Drive Limit",
-          "cost": "Scalable Fleet"
-        },
-        "whatHappened": {
-          "helped": "Horizontally distributed data across multiple physical database computers.",
-          "bottleneck": "Single-node hardware reaches a hard physical limit on disk and RAM.",
-          "reflectionQuestion": "Why is spreading work across 5 ordinary servers better than buying 1 impossible super-server?"
-        },
-        "successSummary": "Awesome! You used database sharding to scale storage horizontally across multiple machines."
-      },
-      {
-        "id": "B",
-        "text": "Keep trying to squeeze all 100 cities onto that one computer until the hard drive corrupts and fails.",
-        "isOptimal": false,
-        "consequenceText": "The hard drive hits 100% capacity and stops accepting writes. Driver registrations fail, trip saves corrupt, and the server crashes nationwide.",
-        "statImpact": {
-          "latency": "Dead",
-          "capacity": "Disk Full",
-          "risk": "Data Corruption",
-          "cost": "Server Crash"
-        },
-        "whatHappened": {
-          "helped": "Ignored hardware limits.",
-          "bottleneck": "Hard drives cannot hold infinite data.",
-          "reflectionQuestion": "What happens to your phone if storage reaches 100% and you try to take a 4K video?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Ban 50 cities from using Ola to free up disk space on the single machine.",
-        "isOptimal": false,
-        "consequenceText": "Shutting down Ola in half the country destroys business growth and hands the market to competitors.",
-        "statImpact": {
-          "latency": "Abandoned",
-          "capacity": "50% Market Lost",
-          "risk": "Public Outrage",
-          "cost": "Huge Revenue Loss"
-        },
-        "whatHappened": {
-          "helped": "Reduced data by throwing away paying customers.",
-          "bottleneck": "Engineering failures must be solved with architecture, not by punishing users.",
-          "reflectionQuestion": "How should a growing system expand without rejecting users?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Database Sharding",
-      "tagline": "Splitting a massive dataset across multiple separate physical database computers",
-      "simpleMeaning": "Sharding means dividing data horizontally across multiple separate database servers (called shards). Each database machine holds a portion of the data (for example, Server A holds Delhi data, Server B holds Mumbai data, Server C holds Bangalore data).",
-      "pubgExample": "When a rider in Delhi books a cab, Ola routes the request directly to Database Shard Delhi. When a rider in Mumbai books, it routes to Database Shard Mumbai. Neither server runs out of space.",
-      "analogy": "A city library that outgrows its building: The city opens a North Branch for North zone residents and a South Branch for South zone residents.",
-      "howItWorks": [
-        "1. Shard Key: Pick a field like `city_id` or `user_id` to decide where data lives.",
-        "2. Routing Layer: A router checks the City ID and sends queries directly to the correct database computer.",
-        "3. Independent Machines: Each shard has its own CPU, RAM, and hard drives.",
-        "4. Unlimited Scale: When launching in 20 new cities, simply add Shards 4, 5, and 6!"
-      ],
-      "whyItMatters": "Allows applications to expand from one city to hundreds of cities without hitting the physical limits of a single computer.",
-      "visualExplanation": "                 [Nationwide Ola Traffic]\n                            │\n              ┌─────────────┼─────────────┐\n              ▼             ▼             ▼\n       [Shard: Delhi] [Shard: Mumbai] [Shard: Bangalore]\n        (20TB Disk)    (20TB Disk)     (20TB Disk)",
-      "contrast": {
-        "termA": "Sharded Database Fleet",
-        "descA": "Data split across multiple physical computers; scales horizontally to infinite cities.",
-        "termB": "Single Database Server",
-        "descB": "All data on one computer; crashes when disk space and memory hit hardware limits."
-      },
-      "teacherNotes": {
-        "concept": "Database Sharding, Horizontal Partitioning, Shard Keys, Routing Layer",
-        "experience": "Students learned how to scale beyond single-machine limits by sharding across multiple servers.",
-        "realWorld": "Ola, Uber, Discord, and Instagram shard their database clusters by user ID or geographical region.",
-        "question": "What is the difference between Partitioning (inside one DB) and Sharding (across multiple DB computers)?"
-      },
-      "olaExample": "When a rider in Delhi books a cab, Ola routes the request directly to Database Shard Delhi. When a rider in Mumbai books, it routes to Database Shard Mumbai. Neither server runs out of space."
-    },
-    "knowledgeCheck": {
-      "question": "What is the main difference between Database Partitioning and Database Sharding in Ola?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Partitioning divides data into sections inside one database computer; Sharding distributes data across multiple separate computers.",
-          "isCorrect": true,
-          "explanation": "Correct! Partitioning splits tables on a single machine, while Sharding spreads data across multiple physical database servers."
-        },
-        {
-          "id": "B",
-          "text": "Partitioning is for autos, while Sharding is for bicycle rentals.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Both are core database architecture concepts used across all software systems."
-        },
-        {
-          "id": "C",
-          "text": "Sharding deletes user data permanently, while Partitioning duplicates it 100 times.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Sharding safely stores data across different machines without deleting anything."
-        }
-      ],
-      "hint": "Hint: Think about whether you are organizing drawers in one cabinet (partitioning) or buying multiple separate cabinets (sharding)."
-    }
-  },
-  {
-    "id": 17,
-    "stage": 3,
-    "sno": 17,
-    "topic": "CAP Theorem",
-    "concept": "CAP Theorem",
-    "title": "Level 17: When the Telecom Cable Between Delhi and Bangalore Breaks",
-    "time": "Monsoon Storms — Inter-City Network Cut",
-    "usersCount": "2 Major Regional Data Centers (Delhi & Bangalore)",
-    "topicHint": "Consistency vs. Availability During Network Partitions",
-    "situation": "Ola has two main database centers: one in Delhi and one in Bangalore. They sync driver wallet balances across both regions. Suddenly, heavy monsoon landslides cut the main fiber optic internet cable between Delhi and Bangalore! A manager demands: \"I want 100% exact instant synchronization AND 100% uninterrupted instant updates in both cities right now!\"",
-    "problem": "Under the famous CAP theorem, what trade-off must Ola make when the network connection between two servers is cut?",
-    "simulationType": "cap_network_partition",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Choose between Consistency (pause wallet updates to prevent mismatched balances) OR Availability (keep rides moving, sync balances later).",
-        "isOptimal": true,
-        "consequenceText": "Spot on! This is the CAP Theorem. When a network Partition (P) occurs, you MUST choose between Consistency (C) or Availability (A). You cannot physically have both while the cable between the cities is severed!",
-        "statImpact": {
-          "latency": "Predictable",
-          "capacity": "Realistic System",
-          "risk": "Understood Trade-off",
+          "latency": "2ms GPS / 15ms Bank",
+          "capacity": "Dual Optimized",
+          "risk": "Zero Data Corruption",
           "cost": "Balanced"
         },
         "whatHappened": {
-          "helped": "Understood the physical laws of distributed networks.",
-          "bottleneck": "Two disconnected computers cannot guarantee identical data while both accept independent writes.",
-          "reflectionQuestion": "Why can two friends not keep identical notes if their phone call drops?"
+          "helped": "Understood why different kinds of data need different kinds of storage.",
+          "bottleneck": "Using slow, rigid bank ledgers for rapid GPS coordinates causes the database to lock up and freeze.",
+          "reflectionQuestion": "Why would forcing 100,000 GPS pings per second into a bank database slow down cab booking?"
         },
-        "successSummary": "Brilliant! You mastered the CAP theorem and recognized that network splits force a trade-off between Consistency and Availability."
+        "successSummary": "Optimal storage choice! Bank money stays strictly safe; moving car locations stream smoothly."
       },
       {
         "id": "B",
-        "text": "Claim the system can magically guarantee 100% Consistency and 100% Availability simultaneously through a severed cable.",
+        "text": "Moving car locations are permanent and can never be erased.",
         "isOptimal": false,
-        "consequenceText": "Physics makes this impossible. If Delhi and Bangalore cannot talk, updates made in Delhi cannot appear in Bangalore. Claiming both leads to contradictory records and double spending.",
+        "consequenceText": "Old car coordinates from 2 hours ago become outdated quickly; they are not permanent like bank receipts.",
         "statImpact": {
-          "latency": "Impossible",
-          "capacity": "Corrupted State",
-          "risk": "Contradictory Ledgers",
-          "cost": "Financial Loss"
+          "latency": "Disk Full",
+          "capacity": "Low",
+          "risk": "Wasted Space",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Ignored the fundamental mathematical law of distributed systems.",
-          "bottleneck": "Data cannot travel across a physically severed network line.",
-          "reflectionQuestion": "Can information travel between two disconnected islands without a medium?"
+          "helped": "Confused temporary location telemetry with permanent financial records.",
+          "bottleneck": "Storing transient data permanently.",
+          "reflectionQuestion": "Does anyone care where a cab was driving 3 weeks ago at 3:15 PM?"
         }
       },
       {
         "id": "C",
-        "text": "Permanently shut down all cab booking across India whenever any network cable experiences a glitch.",
+        "text": "Bank accounts change thousands of times every second for each passenger.",
         "isOptimal": false,
-        "consequenceText": "Internet glitches happen regularly. Shutting down all operations every time a cable has an issue would mean Ola is offline dozens of days every year.",
+        "consequenceText": "A passenger pays for a ride once every few hours, not thousands of times per second.",
         "statImpact": {
-          "latency": "Zero Uptime",
-          "capacity": "0 Rides",
-          "risk": "Business Dead",
-          "cost": "Total Loss"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Overreacted to a normal network event.",
-          "bottleneck": "Systems must be resilient to partial network partitions.",
-          "reflectionQuestion": "How should a distributed system react when one network cable cuts?"
+          "helped": "Reversed the traffic frequency of bank payments vs GPS pings.",
+          "bottleneck": "Misunderstanding data velocity.",
+          "reflectionQuestion": "Which happens more often: a car sending its GPS location or a passenger paying a bill?"
         }
       }
     ],
     "discovery": {
-      "badge": "CAP Theorem",
-      "tagline": "The fundamental trade-off: Consistency vs. Availability during network failures",
-      "simpleMeaning": "The CAP theorem states that a distributed system can only guarantee two of three things at the same time: Consistency (every server sees identical data), Availability (every request gets a fast response), and Partition Tolerance (the system handles broken network links). Since cables can always break in the real world, you must choose between Consistency or Availability during a split.",
-      "pubgExample": "If the network cable between Delhi and Bangalore breaks, Ola can either pause wallet top-ups until the cable is fixed (Consistency), or let riders keep booking rides and synchronize balances once reconnected (Availability).",
-      "analogy": "Two friends taking notes over the phone: If their call drops (Partition), they can either stop writing to stay matched (Consistency) or keep writing independently (Availability), but they cannot do both simultaneously while disconnected.",
+      "badge": "SQL vs. NoSQL Databases",
+      "tagline": "Strict relational tables for finances; Flexible high-speed stores for live telemetry",
+      "simpleMeaning": "A spreadsheet vs. a whiteboard: A financial ledger is like an accountant's spreadsheet: rows and columns must balance to the penny. A live location tracker is like a whiteboard: you quickly wipe and update the latest car coordinate every second.",
+      "olaExample": "Ola uses PostgreSQL (SQL) for rider balances and invoices; it uses Redis and Cassandra (NoSQL) for high-speed live GPS coordinates.",
+      "analogy": "A bank vault vs. a sports scoreboard: The bank vault has double locks; the scoreboard updates numbers instantly as players run.",
       "howItWorks": [
-        "1. Consistency (C): Every user reads the exact same data at the same second.",
-        "2. Availability (A): The app keeps responding even if some servers are isolated.",
-        "3. Partition Tolerance (P): The system continues operating despite network cables breaking.",
-        "4. The Rule: In the real world, networks always break (P happens). You must choose C (Consistency) or A (Availability)."
+        "1. Structured Data (SQL): Strict tables, columns, and foreign keys for money and user accounts.",
+        "2. Fast Stream Data (NoSQL): Simple key-value pairs (`Cab_901: Lat 12.97, Long 77.59`) saved in milliseconds."
       ],
-      "whyItMatters": "Helps engineers make intentional trade-offs: choose strict accuracy for money (CP), or choose continuous uptime for cab matching (AP).",
-      "visualExplanation": "                 [Network Cable Snaps!]\n               (Partition Tolerance: P)\n                         │\n         ┌───────────────┴───────────────┐\n         ▼                               ▼\n  Choose CONSISTENCY (C)          Choose AVAILABILITY (A)\n  Pause updates until linked.     Keep cabs moving; sync later.",
+      "whyItMatters": "Using the right database engine keeps banking reliable while letting the map update smoothly.",
+      "visualExplanation": "[Wallet & Invoices] ──► [Strict SQL Ledger] | [100k GPS Pings/sec] ──► [Fast NoSQL Cache]",
       "contrast": {
-        "termA": "Consistency (CP System)",
-        "descA": "Pauses or rejects requests during a split to prevent mismatched data (e.g., bank payments).",
-        "termB": "Availability (AP System)",
-        "descB": "Answers every request immediately; synchronizes data differences after the network heals."
+        "termA": "Relational (SQL)",
+        "descA": "Strict structure, tables, zero mistakes, ideal for payments.",
+        "termB": "Non-Relational (NoSQL)",
+        "descB": "Ultra-fast, flexible, high volume, ideal for streaming coordinates."
       },
       "teacherNotes": {
-        "concept": "CAP Theorem, Consistency, Availability, Partition Tolerance, Distributed Trade-offs",
-        "experience": "Students learned why distributed systems cannot escape trade-offs when networks fail.",
-        "realWorld": "Banking apps choose CP (Consistency) to protect balances; ride booking and social feeds often choose AP (Availability).",
-        "question": "If you are designing a casual cab search feature, would you choose Consistency (stop search) or Availability (keep searching)?"
-      },
-      "olaExample": "If the network cable between Delhi and Bangalore breaks, Ola can either pause wallet top-ups until the cable is fixed (Consistency), or let riders keep booking rides and synchronize balances once reconnected (Availability)."
+        "realWorld": "This pattern is known as Polyglot Persistence: using specialized databases for specialized workloads."
+      }
     },
     "knowledgeCheck": {
-      "question": "When an internet cable breaks between two Ola server data centers, what does the CAP theorem state?",
+      "question": "Which database type is best suited for storing live driver GPS coordinates updated every second?",
       "options": [
         {
           "id": "A",
-          "text": "You must choose between strict Consistency (identical data) or Availability (keeping the system online).",
+          "text": "A fast, flexible non-relational database built for rapid writing.",
           "isCorrect": true,
-          "explanation": "Correct! When a network partition occurs, a system cannot guarantee both perfect instant consistency and 100% availability."
+          "explanation": "Correct! High-velocity data needs high write throughput without heavy relational locks."
         },
         {
           "id": "B",
-          "text": "All cabs on the road will run out of fuel simultaneously.",
+          "text": "A paper notebook kept inside the driver's glove compartment.",
           "isCorrect": false,
-          "explanation": "Incorrect. The CAP theorem is a computer science theorem about data trade-offs, not car fuel."
+          "explanation": "Paper notebooks cannot be read by cloud computers or mobile apps."
         },
         {
           "id": "C",
-          "text": "The app will automatically give every rider free lifetime rides.",
+          "text": "A CD-ROM disk that can only be written once.",
           "isCorrect": false,
-          "explanation": "Incorrect. The CAP theorem guides system design choices, not promotional giveaways."
+          "explanation": "CD-ROMs are slow, outdated, and cannot handle continuous updates."
         }
       ],
-      "hint": "Hint: Think about C (Consistency) and A (Availability)—when network cables cut, which trade-off must you pick?"
+      "hint": "Hint: Look for the option built for fast, frequent writes."
     }
   },
   {
-    "id": 18,
-    "stage": 3,
-    "sno": 18,
-    "topic": "OLTP vs. OLAP",
-    "concept": "OLTP vs. OLAP",
-    "title": "Level 18: Live Ride Dispatch vs. Studying 10 Million Past Trips",
-    "time": "Evening Surge — Live Dispatch vs Data Science",
-    "usersCount": "50,000 Live Trips vs 10M Historical Trips",
-    "topicHint": "Fast Live Transactions (OLTP) vs Deep Analytics Warehouses (OLAP)",
-    "situation": "Right now, 50,000 live Ola rides are running across Mumbai, updating driver GPS and meter fares every millisecond. At the exact same time, the pricing data scientist wants to run a massive query across 10,000,000 completed past trips to calculate surge pricing algorithms for the next year. A junior developer runs this giant calculation directly on the live dispatch database!",
-    "problem": "What happens when heavy historical analytics queries are run directly on the live dispatch database?",
+    "id": 10,
+    "stage": 1,
+    "sno": 10,
+    "topic": "OLTP vs. OLAP: Fast Transactional Processing vs. Deep Analytical Processing",
+    "concept": "Live Operations vs. Historical Analytics",
+    "title": "Level 10: Booking Cabs Right Now vs. Studying Last Year's Traffic",
+    "time": "Peak Evening — Ola Headquarters",
+    "usersCount": "50,000 Live Bookings + 10M Historical Reports",
+    "topicHint": "Separating Live Ride Dispatch from Heavy Business Analytics",
+    "situation": "While 50,000 passengers are actively booking cabs, a team of business analysts wants to run a massive study analyzing 10 million rides from last monsoon to calculate holiday surge prices.",
+    "problem": "Why shouldn't managers run giant reports on last year's 10 million rides on the same computer that is currently booking live cabs?",
     "simulationType": "oltp_olap_registers",
     "choices": [
       {
         "id": "A",
-        "text": "Keep them separate: use OLTP for fast live ride dispatch, and OLAP (data warehouse) for heavy historical analytics.",
+        "text": "The heavy report will slow down the computer and make live cab bookings freeze.",
         "isOptimal": true,
-        "consequenceText": "Brilliant architecture! OLTP handles fast, small transactions (booking cabs, updating GPS) in real time. OLAP is a separate data warehouse that studies millions of historical trips without slowing down live rides!",
+        "consequenceText": "Exactly right! Crunching millions of past records takes heavy memory and CPU. Running that on the live dispatch computer would cause passengers' screens to freeze and fail to book cabs.",
         "statImpact": {
-          "latency": "25ms Live / Fast Reports",
-          "capacity": "Separate Systems",
-          "risk": "Zero Interference",
-          "cost": "Well-Balanced"
+          "latency": "Live: 10ms / Analytics: Separate",
+          "capacity": "Isolated",
+          "risk": "Zero Freeze",
+          "cost": "Optimized"
         },
         "whatHappened": {
-          "helped": "Separated operational transactional workloads from analytical workloads.",
-          "bottleneck": "Heavy analytical queries lock tables and starve live dispatch transactions of CPU.",
-          "reflectionQuestion": "Why should an accountant's yearly tax report not block the cashier scanning groceries?"
+          "helped": "Understood why live transactional systems must be separated from historical analytical warehouses.",
+          "bottleneck": "Heavy analytical queries consume all disk read channels, blocking quick customer bookings.",
+          "reflectionQuestion": "Why should customers at a grocery cash register not wait for the store accountant to audit annual taxes?"
         },
-        "successSummary": "Perfect! You separated OLTP (live ride transactions) from OLAP (deep analytics warehouse)."
+        "successSummary": "Clean separation! Live dispatch stays lightning fast; analysts run heavy reports on a separate data warehouse."
       },
       {
         "id": "B",
-        "text": "Run massive analytical queries scanning 10 million past trips directly on the live dispatch server during evening rush.",
+        "text": "Past ride data could accidentally change today's cab fares.",
         "isOptimal": false,
-        "consequenceText": "The analytical query maxes out 100% of the database CPU for 10 minutes. Live bookings freeze, drivers cannot accept rides, and thousands of riders are stranded.",
+        "consequenceText": "Reading past reports doesn't overwrite current prices; the real danger is exhausting computer power and freezing live dispatch.",
         "statImpact": {
-          "latency": "10,000ms Delay",
-          "capacity": "CPU Overheated",
-          "risk": "Live Dispatch Crash",
-          "cost": "High Revenue Loss"
+          "latency": "Frozen",
+          "capacity": "0",
+          "risk": "Downtime",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Tried to save money by using only one database for everything.",
-          "bottleneck": "Heavy scans consume all database resources, stalling fast live transactions.",
-          "reflectionQuestion": "What happens if a customer asks the cashier to audit the store's whole year while 50 people wait in line?"
+          "helped": "Focused on data corruption instead of computer workload exhaustion.",
+          "bottleneck": "Resource contention.",
+          "reflectionQuestion": "What happens when a computer processor is pushed to 100% capacity?"
         }
       },
       {
         "id": "C",
-        "text": "Never analyze past trips at all, leaving pricing and demand completely unmonitored forever.",
+        "text": "Computers can only open one file per day.",
         "isOptimal": false,
-        "consequenceText": "Without analytics, Ola cannot predict rush hour demand or plan driver incentives. The business loses money and falls behind competitors.",
+        "consequenceText": "Computers can open millions of files; the challenge is sharing memory and processing power between live users and giant reports.",
         "statImpact": {
-          "latency": "Blind Operations",
-          "capacity": "Unoptimized Pricing",
-          "risk": "Business Decline",
-          "cost": "Lost Growth"
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
         },
         "whatHappened": {
-          "helped": "Avoided running analytics entirely.",
-          "bottleneck": "Modern mobility companies need data-driven insights to optimize supply and demand.",
-          "reflectionQuestion": "How do ride-hailing apps know where more cabs will be needed tomorrow without past data?"
+          "helped": "Underestimated computer capabilities.",
+          "bottleneck": "Misunderstanding multi-tasking limits.",
+          "reflectionQuestion": "Why do big companies use separate analytical data warehouses?"
         }
       }
     ],
     "discovery": {
       "badge": "OLTP vs. OLAP",
-      "tagline": "Separating fast real-time transactions from heavy historical analytics",
-      "simpleMeaning": "OLTP (Online Transaction Processing) is built for fast, everyday actions like booking a cab, updating GPS, or deducting wallet fare. OLAP (Online Analytical Processing) is a separate data warehouse built for analyzing millions of past records to find trends, calculate surge pricing, and plan fleet growth.",
-      "pubgExample": "When you book an Ola cab in Bandra, OLTP processes it in 10 milliseconds. Later that night, the Ola planning team uses OLAP to analyze 10 million rides and discover that 40% more cabs are needed at Mumbai Airport on Sunday nights.",
-      "analogy": "OLTP is the grocery store cashier scanning milk quickly in 2 seconds; OLAP is the store manager in the back office analyzing sales numbers for the entire year to plan next year's inventory.",
+      "tagline": "Fast live operations on one side; Deep historical analytics on the other",
+      "simpleMeaning": "A supermarket checkout vs. a tax audit: At the checkout register, customers need to scan items and pay in 5 seconds (OLTP). In the back office, the accountant spends 4 hours analyzing last month's receipts (OLAP). You never make customers wait at the register while the accountant audits the books.",
+      "olaExample": "Ola dispatches live cabs in 10ms using an OLTP database. Every night, ride records copy over to an OLAP warehouse (like Snowflake/BigQuery) for long business reports.",
+      "analogy": "A restaurant kitchen (making today's lunch fast) vs. a recipe book author (studying culinary trends over 10 years).",
       "howItWorks": [
-        "1. OLTP (Operational): Handles fast, simple read/write operations (e.g., Update Ride Status to Completed).",
-        "2. Background Sync (ETL): Completed trip data is copied periodically into the OLAP warehouse.",
-        "3. OLAP (Analytical): Handles complex queries scanning millions of historical records.",
-        "4. Zero Interference: Analysts can run giant queries without causing any lag for active riders.",
-        "5. High Reliability: Keeps core ride booking fast and responsive 24/7."
+        "1. Live Booking (OLTP): Small, fast reads and writes. 'Book cab, assign driver, deduct ₹250'.",
+        "2. Deep Analytics (OLAP): Giant historical queries. 'What was the average travel time on rainy Fridays across 5 years?'",
+        "3. Workload Isolation: Keep them on separate computers so live rides never lag."
       ],
-      "whyItMatters": "Running big data analytics on a live production database causes lag spikes and freezes ride booking for real users.",
-      "visualExplanation": "[Live Ride Booking: Tap 'Book'] ──► [OLTP Database: Fast & Instant (10ms)]\n                                              │\n                                     (Copies data overnight)\n                                              ▼\n[Data Scientist: Surge Pricing] ──► [OLAP Warehouse: Analyzes 10M Trips]",
+      "whyItMatters": "Separating live booking from business reporting ensures passengers never experience app freezes because an executive ran a big report.",
+      "visualExplanation": "[Live Bookings (10ms)] ──► [Live OLTP Server] | [10M Past Rides] ──► [Separate OLAP Warehouse]",
       "contrast": {
-        "termA": "OLTP (Transactions)",
-        "descA": "Fast, simple operations on current data; keeps live ride booking running with zero lag.",
-        "termB": "OLAP (Analytics)",
-        "descB": "Complex queries on massive historical data; used for surge pricing and business planning."
+        "termA": "Live Operations (OLTP)",
+        "descA": "Handles millions of tiny, fast transactions happening right now.",
+        "termB": "Analytical Warehouse (OLAP)",
+        "descB": "Scans millions of past records for charts, trends, and business decisions."
       },
       "teacherNotes": {
-        "concept": "OLTP, OLAP, Data Warehousing, ETL, Workload Isolation",
-        "experience": "Students learned why live transactional operations must be isolated from analytical reporting.",
-        "realWorld": "Companies use PostgreSQL/MySQL for OLTP and Snowflake/Google BigQuery/Amazon Redshift for OLAP analytics.",
-        "question": "What would happen to live Ola riders if the analytics team ran a 10-minute report on the live database?"
-      },
-      "olaExample": "When you book an Ola cab in Bandra, OLTP processes it in 10 milliseconds. Later that night, the Ola planning team uses OLAP to analyze 10 million rides and discover that 40% more cabs are needed at Mumbai Airport on Sunday nights."
+        "realWorld": "Data pipelines extract, transform, and load (ETL) operational data into cloud analytical warehouses."
+      }
     },
     "knowledgeCheck": {
-      "question": "Which system should Ola use to study passenger travel trends across 10 million past trips to optimize surge pricing?",
+      "question": "What is the main purpose of an analytical data warehouse (OLAP)?",
       "options": [
         {
           "id": "A",
-          "text": "An OLAP data warehouse designed for deep analysis of large amounts of historical data.",
+          "text": "To study large amounts of past data and business trends without slowing down live users.",
           "isCorrect": true,
-          "explanation": "Correct! OLAP systems are built specifically to analyze massive historical datasets without slowing down live operations."
+          "explanation": "Correct! It isolates heavy analysis from the live customer booking system."
         },
         {
           "id": "B",
-          "text": "The live dispatch OLTP database while 50,000 riders are actively booking cabs.",
+          "text": "To assign a nearby driver to a passenger in 2 milliseconds.",
           "isCorrect": false,
-          "explanation": "Incorrect. Running heavy reports on the live OLTP database freezes the app for active riders."
+          "explanation": "Live cab matching is an OLTP operational task, not an analytical warehouse job."
         },
         {
           "id": "C",
-          "text": "A driver's personal smartphone memory card.",
+          "text": "To sound a loud horn inside the driver's car.",
           "isCorrect": false,
-          "explanation": "Incorrect. A single phone memory card cannot hold or compute 10 million historical trips."
+          "explanation": "Car horns are physical automotive hardware, not data warehousing."
         }
       ],
-      "hint": "Hint: Think about which system is designed for Analytical processing of millions of past records (OLAP)."
+      "hint": "Hint: Think about why managers study long-term business trends."
     }
   },
   {
-    "id": 19,
-    "stage": 4,
-    "sno": 19,
-    "topic": "Monolithic vs. Microservices Architecture",
-    "concept": "Monolithic vs. Microservices Architecture",
-    "title": "Level 19: All Features in One Giant Program vs. Separate Services",
-    "time": "System Architecture Review — Ola Tech Hub",
-    "usersCount": "Dispatch, Wallet, Driver GPS & Invoices",
-    "topicHint": "Single Fragile Program vs. Independent Resilient Services",
-    "situation": "All of Ola's systems (Cab Matching, Ola Money Wallet, Driver GPS Tracking, and SMS Invoices) are packed into one giant computer program running on one big server (a Monolith). During Monday morning rush hour, a tiny bug causes the SMS Invoice generator to crash. Because everything is bundled into one program, the crash brings down the entire Ola app, stopping all cab dispatching and leaving riders stranded!",
-    "problem": "Should all features run inside one giant program, or be separated into independent microservices?",
-    "simulationType": "scaling_cluster_nodes",
+    "id": 11,
+    "stage": 1,
+    "sno": 11,
+    "topic": "ACID Properties: Atomicity, Consistency, Isolation, and Durability",
+    "concept": "ACID Reliability Guarantees",
+    "title": "Level 11: What Happens When Your Phone Battery Dies Mid-Payment?",
+    "time": "Midnight Airport Ride Settlement",
+    "usersCount": "Trip #99214 — ₹600 Payment",
+    "topicHint": "The 4 Golden Rules That Keep Money and Data Completely Safe",
+    "situation": "A passenger finishes a ride and taps 'Pay ₹600 with Wallet'. Right as the wheel spins, the passenger's phone runs out of battery and turns off completely.",
+    "problem": "If your phone battery suddenly dies in the middle of paying for a ride, what must happen to your money?",
+    "simulationType": "acid_atomic_vault",
     "choices": [
       {
         "id": "A",
-        "text": "Use Microservices: split Cab Matching, Wallet, GPS, and Invoices into independent services that don't crash each other.",
+        "text": "The payment is cancelled completely and your balance stays untouched, with zero money lost.",
         "isOptimal": true,
-        "consequenceText": "Brilliant architecture! With Microservices, each feature runs on its own independent server. If the SMS Invoice service glitches, cab matching and wallet payments continue working 100% smoothly, and engineers can fix the SMS service without restarting the whole app!",
+        "consequenceText": "Exactly right! This is the 'A' in ACID (Atomicity). If the payment cannot finish 100% cleanly, the computer automatically resets the transaction to the beginning. No money disappears into nowhere.",
         "statImpact": {
-          "latency": "25ms",
-          "capacity": "Resilient Fleet",
-          "risk": "Zero Total Outages",
-          "cost": "Well-Organized"
+          "latency": "10ms",
+          "capacity": "ACID Guaranteed",
+          "risk": "Zero Lost Rupee",
+          "cost": "Exact"
         },
         "whatHappened": {
-          "helped": "Isolated failure domains into independent microservices.",
-          "bottleneck": "A monolithic program has one single point of failure; one small bug brings down everything.",
-          "reflectionQuestion": "Why should a receipt printing glitch not stop drivers from picking up passengers?"
+          "helped": "Understood that reliable systems never leave transactions in a broken, half-finished state.",
+          "bottleneck": "Without atomicity, partial updates cause money to vanish or balance mismatches.",
+          "reflectionQuestion": "Why is it better for an interrupted payment to completely cancel rather than half-finish?"
         },
-        "successSummary": "Awesome! You separated the monolithic app into independent, resilient microservices."
+        "successSummary": "ACID protection verified! Interrupted payment rolled back safely with zero lost funds."
       },
       {
         "id": "B",
-        "text": "Keep everything glued together in one giant program and accept that any tiny bug crashes the entire company.",
+        "text": "The money is permanently lost and cannot be returned.",
         "isOptimal": false,
-        "consequenceText": "Whenever any small feature like promo codes or invoice emails has an issue, the entire app crashes for millions of riders across India.",
+        "consequenceText": "Computer databases are designed with safety rules precisely so battery deaths or network drops never erase your money.",
         "statImpact": {
-          "latency": "High Risk",
-          "capacity": "Fragile Monolith",
-          "risk": "Total Outage",
-          "cost": "Frequent Downtime"
+          "latency": "Broken",
+          "capacity": "0",
+          "risk": "Customer Outrage",
+          "cost": "Heavy"
         },
         "whatHappened": {
-          "helped": "Avoided separating services.",
-          "bottleneck": "Tight coupling means all features share the exact same process memory and failure points.",
-          "reflectionQuestion": "If your car air conditioner stops working, should the entire engine turn off?"
+          "helped": "Assumed software crashes destroy money.",
+          "bottleneck": "Unfamiliarity with transaction rollback logs.",
+          "reflectionQuestion": "How do database logs protect account balances even after sudden power cuts?"
         }
       },
       {
         "id": "C",
-        "text": "Delete driver tracking, invoices, and promo codes so the app only has one single button forever.",
+        "text": "Half the money goes to the driver and half vanishes.",
         "isOptimal": false,
-        "consequenceText": "Deleting essential features leaves riders blind without GPS tracking or receipts. Riders switch to other ride-hailing services.",
+        "consequenceText": "There is no such thing as 'half a payment'. Transactions are all-or-nothing; they never split money into thin air.",
         "statImpact": {
-          "latency": "Crippled",
-          "capacity": "Stripped Features",
-          "risk": "Lost Customers",
-          "cost": "Zero Growth"
+          "latency": "Corrupted",
+          "capacity": "0",
+          "risk": "Accounting Disaster",
+          "cost": "Loss"
         },
         "whatHappened": {
-          "helped": "Removed features instead of designing resilient architecture.",
-          "bottleneck": "Modern applications require rich feature sets with reliable architecture.",
-          "reflectionQuestion": "Can a modern ride-hailing app survive without maps, receipts, and live tracking?"
+          "helped": "Thought partial transactions are kept.",
+          "bottleneck": "Violating atomicity.",
+          "reflectionQuestion": "Can a bank transfer be 50% finished?"
         }
       }
     ],
     "discovery": {
-      "badge": "Monolithic vs. Microservices",
-      "tagline": "Choosing between one giant combined program and independent mini-services",
-      "simpleMeaning": "A Monolith is one single giant computer program that contains every feature (booking, billing, driver tracking, receipts). Microservices splits the application into small, independent services that run on separate computers. If one service has an error, the rest of the app stays online!",
-      "pubgExample": "In Ola, the Ride Dispatch service is completely separate from the Promo Code service. If the promo code server gets overloaded during a festival discount, riders can still book cabs and track drivers without interruption.",
-      "analogy": "A Swiss Army Knife vs. a Tool Box: If the knife blade breaks on a Swiss Army knife, the whole tool is ruined. In a tool box, if your screwdriver breaks, your hammer and wrench still work fine.",
+      "badge": "ACID Properties",
+      "tagline": "Atomicity (All or nothing), Consistency (Valid rules), Isolation (No mix-ups), Durability (Saved permanently)",
+      "simpleMeaning": "The four unbreakable rules of bank storage: 1. Atomicity: You can't take half a step; it's all-or-nothing. 2. Consistency: Balances can never be negative. 3. Isolation: Multiple payments don't bump into each other. 4. Durability: Once saved, even lightning striking the building won't erase it.",
+      "olaExample": "When paying ₹600 for an Ola ride, ACID ensures that if the server loses power midway, your ₹600 is safe and reappears correctly on reboot.",
+      "analogy": "A physical vending machine: If the snack gets stuck and doesn't drop, the coin falls back into the coin return slot; it doesn't keep your money.",
       "howItWorks": [
-        "1. Monolith (Simple Start): Easy to build initially, but hard to maintain as teams and features grow.",
-        "2. Independent Deployment: With microservices, the Wallet team can update payments without touching the Map Dispatch code.",
-        "3. Fault Isolation: A crash in SMS receipts does not stop riders from hailing cabs.",
-        "4. Independent Scaling: When 200,000 riders book at 6:00 PM, scale only the Dispatch service without wasting money on the others."
+        "1. Atomicity: Complete every step or reset to the starting point.",
+        "2. Consistency: Ensure all rules (e.g. non-negative wallet) are obeyed.",
+        "3. Isolation: Process simultaneous transactions independently without interference.",
+        "4. Durability: Write changes to disk so they survive sudden power loss."
       ],
-      "whyItMatters": "Allows large engineering teams to build, scale, and update different parts of Ola without risking bringing down the entire platform.",
-      "visualExplanation": "[Monolith: Everything in 1 Box] ──Bug in Invoices──► Entire Ola App Crashes!\n\n[Microservices Fleet]\n[Cab Dispatch] ──Works!──┐\n[Ola Wallet]   ──Works!──┼──► App stays online even if SMS Service glitches!\n[SMS Service]  ──Reboots ┘",
+      "whyItMatters": "ACID properties prevent double charges, negative balances, and missing payments across millions of daily rides.",
+      "visualExplanation": "[Payment Interrupted] ──► [ACID Rollback Triggered] ──► [Balance Untouched: ₹600 Safe!]",
       "contrast": {
-        "termA": "Microservices Architecture",
-        "descA": "Separate services per feature; isolated failures, independent scaling, resilient app.",
-        "termB": "Monolithic Architecture",
-        "descB": "All features bundled in one process; a single bug crashes the entire platform for everyone."
+        "termA": "ACID Compliant",
+        "descA": "Unbreakable guarantees: zero lost money, zero phantom balances.",
+        "termB": "Non-ACID System",
+        "descB": "Network drops or battery deaths can corrupt ledgers and lose funds."
       },
       "teacherNotes": {
-        "concept": "Monolithic Architecture, Microservices, Loose Coupling, Fault Isolation",
-        "experience": "Students learned why modern systems decompose giant applications into independent services.",
-        "realWorld": "Ola, Uber, Netflix, and Amazon transitioned from monoliths to hundreds of microservices for resilience.",
-        "question": "What is the main advantage of scaling individual microservices independently?"
-      },
-      "olaExample": "In Ola, the Ride Dispatch service is completely separate from the Promo Code service. If the promo code server gets overloaded during a festival discount, riders can still book cabs and track drivers without interruption."
+        "realWorld": "Financial core systems rely on ACID guarantees in relational databases like PostgreSQL and Oracle."
+      }
     },
     "knowledgeCheck": {
-      "question": "Why is Microservices architecture useful for Ola's ride booking and receipt generation features?",
+      "question": "What does the 'A' (Atomicity) in ACID guarantee during an Ola wallet payment?",
       "options": [
         {
           "id": "A",
-          "text": "If the receipt service experiences a crash, live ride booking and cab matching continue running normally.",
+          "text": "The transaction happens completely as one step, or rolls back entirely if any error occurs.",
           "isCorrect": true,
-          "explanation": "Correct! Microservices isolate failures so a problem in one service does not take down the rest of the app."
+          "explanation": "Correct! Atomicity means all-or-nothing: no half-finished payments."
         },
         {
           "id": "B",
-          "text": "It gives every passenger a free helicopter ride to work.",
+          "text": "The app plays an automated voice message thanking the passenger.",
           "isCorrect": false,
-          "explanation": "Incorrect. Microservices are an architectural pattern for server software, not a transportation vehicle."
+          "explanation": "Voice messages are audio features, not database transaction guarantees."
         },
         {
           "id": "C",
-          "text": "It forces all cab drivers to turn off their car engines.",
+          "text": "The cab arrives in exactly 60 seconds.",
           "isCorrect": false,
-          "explanation": "Incorrect. Microservices keep digital systems running reliably, they do not affect car engines."
+          "explanation": "Cab arrival time depends on city traffic, not database atomicity."
         }
       ],
-      "hint": "Hint: Think about what happens if one tool in your toolbox breaks—do your other tools keep working?"
+      "hint": "Hint: Think about the 'all-or-nothing' rule."
     }
   },
   {
-    "id": 20,
-    "stage": 4,
-    "sno": 20,
-    "topic": "Authentication and Authorization",
-    "concept": "Authentication and Authorization",
-    "title": "Level 20: Proving Who You Are vs. What You Are Allowed to Do",
-    "time": "Rider Login & Security Gate",
-    "usersCount": "Regular Riders vs Customer Support Admins",
-    "topicHint": "Who You Are (AuthN) vs. What You Can Do (AuthZ)",
-    "situation": "A passenger logs into Ola using their phone number and a 4-digit OTP. They have successfully proven: \"I am Rahul, phone 9876543210.\" Once in the app, Rahul discovers an internal developer URL: 'admin.olacabs.com/issue-refund-10000'. When Rahul clicks it, an unsecure server allows the refund because it thinks: \"Well, Rahul is logged in, so he can do whatever he wants!\"",
-    "problem": "What is the critical difference between verifying WHO someone is and checking WHAT they are allowed to do?",
-    "simulationType": "auth_identity_verification",
+    "id": 12,
+    "stage": 2,
+    "sno": 12,
+    "topic": "Database Replication: Primary-Replica (Master-Slave) Architecture",
+    "concept": "Database Replication & High Availability",
+    "title": "Level 12: When the Main Storage Computer Loses Power",
+    "time": "Heavy Thunderstorm — Mumbai Datacenter",
+    "usersCount": "150,000 Active Trips",
+    "topicHint": "Keeping Identical Copy Computers Ready to Take Over Instantly",
+    "situation": "A lightning storm hits the main datacenter in Mumbai, and the master computer storing all ongoing ride records suddenly shuts off.",
+    "problem": "If the main computer storing all ride records suddenly loses power, how does the Ola app stay online?",
+    "simulationType": "db_replication_cluster",
     "choices": [
       {
         "id": "A",
-        "text": "Authentication verifies identity (Who are you?); Authorization checks permissions (What are you allowed to do?).",
+        "text": "Backup copy computers immediately step in and take over the work.",
         "isOptimal": true,
-        "consequenceText": "Spot on! Authentication proved Rahul is Rahul via OTP. But Authorization stops Rahul from issuing refunds because his role is 'Regular Rider', not 'Ola Finance Admin'. This keeps the app safe from unauthorized actions!",
+        "consequenceText": "Spot on! The primary computer was continuously copying every booking to backup computers in Bangalore. When Mumbai went dark, Bangalore stepped in instantly with zero lost rides.",
         "statImpact": {
-          "latency": "Secure Check",
-          "capacity": "Strict Roles",
-          "risk": "Zero Admin Hacks",
-          "cost": "Protected"
+          "latency": "15ms",
+          "capacity": "Failover in 1.2s",
+          "risk": "Zero Downtime",
+          "cost": "High Availability"
         },
         "whatHappened": {
-          "helped": "Separated identity verification from role-based permission enforcement.",
-          "bottleneck": "Assuming an authenticated user has permission to do everything creates massive security exploits.",
-          "reflectionQuestion": "Why should logging in not automatically grant access to admin controls?"
+          "helped": "Understood the life-saving value of database replication and automatic failover.",
+          "bottleneck": "Relying on one computer without copies creates a fatal single point of failure.",
+          "reflectionQuestion": "Why should database copies be located in different physical cities?"
         },
-        "successSummary": "Awesome! You enforced proper Authorization to protect administrative controls and user wallets."
+        "successSummary": "Failover complete! Backup copy stepped up as leader with zero lost trips."
       },
       {
         "id": "B",
-        "text": "Treat authentication and authorization as the same thing, letting any logged-in rider issue refunds to themselves.",
+        "text": "The app tells all passengers across the country to wait until tomorrow.",
         "isOptimal": false,
-        "consequenceText": "Dishonest users issue millions of rupees in fake refunds to their bank accounts. The company loses all its cash reserves in hours.",
+        "consequenceText": "Shutting down for a full day loses millions in revenue and strands commuters across the country.",
         "statImpact": {
-          "latency": "Compromised",
-          "capacity": "Fraud Rampant",
-          "risk": "Bankruptcy",
-          "cost": "Massive Theft"
+          "latency": "24 Hours",
+          "capacity": "0",
+          "risk": "Business Disaster",
+          "cost": "Massive"
         },
         "whatHappened": {
-          "helped": "Assumed login is all that is required for permissions.",
-          "bottleneck": "Lack of authorization checks allows privilege escalation.",
-          "reflectionQuestion": "Would a bank let any customer walk into the vault just because they have an ATM card?"
+          "helped": "Saw why large scale apps cannot simply stop operating.",
+          "bottleneck": "Unacceptable business downtime.",
+          "reflectionQuestion": "How do companies guarantee 99.99% uptime year-round?"
         }
       },
       {
         "id": "C",
-        "text": "Remove login completely and let anyone use the app without any phone number or password.",
+        "text": "All past ride records are deleted so the computer can restart faster.",
         "isOptimal": false,
-        "consequenceText": "Anyone can impersonate any rider, book cabs under fake names, and steal saved wallet balances. Nobody can use the service safely.",
+        "consequenceText": "Deleting ride records would erase driver earnings and passenger payment receipts, causing legal and financial chaos.",
         "statImpact": {
-          "latency": "Lawless",
-          "capacity": "Stolen Accounts",
-          "risk": "100% Vulnerable",
-          "cost": "App Destroyed"
+          "latency": "Data Lost",
+          "capacity": "0",
+          "risk": "Legal Catastrophe",
+          "cost": "Total"
         },
         "whatHappened": {
-          "helped": "Removed security to make things easy.",
-          "bottleneck": "Online systems require both identity verification and permission control.",
-          "reflectionQuestion": "Why does every real-world service require an account and verification?"
+          "helped": "Recognized that business records must be preserved permanently.",
+          "bottleneck": "Unrecoverable data loss.",
+          "reflectionQuestion": "Why must financial receipts be protected across multiple machines?"
         }
       }
     ],
     "discovery": {
-      "badge": "Authentication & Authorization",
-      "tagline": "Authentication verifies who you are; Authorization decides what you can do",
-      "simpleMeaning": "Authentication (AuthN) asks: 'Who are you?' It verifies your identity using credentials like an OTP, password, or fingerprint. Authorization (AuthZ) asks: 'What permissions do you have?' It checks whether your verified role (e.g., Passenger, Driver, Customer Support, Super Admin) is permitted to perform a specific action.",
-      "pubgExample": "When you enter your OTP, Ola Authenticates you as 'Rider_Rahul'. When Rahul tries to click 'Refund ₹5,000', the server checks Authorization: if you are a Customer Support Manager, it permits the refund; if you are an ordinary rider, it blocks the button with 'Access Denied'.",
-      "analogy": "An airport: Your passport and photo ID Authenticate that you are John. But Authorization checks your boarding pass to see if you can enter the business class lounge, and only authorized pilots can enter the cockpit!",
+      "badge": "Database Replication",
+      "tagline": "Keep exact mirror copies updated continuously so you never face a blackout",
+      "simpleMeaning": "A twin co-pilot: In an airplane, there are two pilots. If the captain suddenly faints, the co-pilot takes the controls immediately. The plane never crashes. Database replication gives you digital co-pilots.",
+      "olaExample": "Ola's primary database in Mumbai writes every ride to replica databases in Bangalore. If Mumbai loses power, Bangalore takes over in 2 seconds.",
+      "analogy": "Photocopying a will: You keep one copy in your home safe and another with your lawyer so a fire doesn't destroy the only record.",
       "howItWorks": [
-        "1. Authentication (AuthN): Rider enters phone number and OTP; server issues a secure session token (JWT).",
-        "2. Identity Established: The system now knows exactly which User ID made the request.",
-        "3. Authorization (AuthZ): When an action is requested, the server checks the user's role and permissions.",
-        "4. Access Decision: If authorized, action completes; if not authorized, server returns HTTP 403 Forbidden."
+        "1. Master Writes: Primary database accepts new bookings and payments.",
+        "2. Live Sync: Changes stream instantly to replica backup machines.",
+        "3. Auto-Promotion: If the primary dies, a replica is automatically promoted to the new master."
       ],
-      "whyItMatters": "Prevents normal riders from accessing developer tools, issuing fake refunds, or tampering with driver earnings.",
-      "visualExplanation": "[Rider Enters OTP] ──► [Authentication (AuthN)] ──► Identity: 'Rider_Rahul'\n                                         │\n[Tries to Issue Refund] ──► [Authorization (AuthZ)] ──► Blocked! (Role: Rider, Not Admin)",
+      "whyItMatters": "Hardware breaks, power cords get unplugged, and storms happen. Replication guarantees the app survives without losing customer trips.",
+      "visualExplanation": "[Primary DB (Mumbai)] ──Sync──► [Replica DB (Bangalore)] ──(Mumbai Dies!)──► [Replica Becomes New Master ✓]",
       "contrast": {
-        "termA": "Authentication (AuthN)",
-        "descA": "Verifies identity ('Who are you?'); uses passwords, OTPs, biometrics, and login tokens.",
-        "termB": "Authorization (AuthZ)",
-        "descB": "Checks permissions ('What can you do?'); enforces roles (Rider vs Driver vs Support Admin)."
+        "termA": "Replicated Cluster",
+        "descA": "Multiple synchronized machines; seamless automatic takeover during failures.",
+        "termB": "Single Machine Setup",
+        "descB": "One machine dies, taking down the entire app for everyone."
       },
       "teacherNotes": {
-        "concept": "Authentication (AuthN), Authorization (AuthZ), RBAC (Role-Based Access Control), Security",
-        "experience": "Students learned the vital distinction between verifying identity and granting permission.",
-        "realWorld": "OAuth 2.0, JWT tokens, and IAM systems handle AuthN and AuthZ across Ola, Google, and AWS.",
-        "question": "If you show your college ID card to enter the campus, is that Authentication or Authorization?"
-      },
-      "olaExample": "When you enter your OTP, Ola Authenticates you as 'Rider_Rahul'. When Rahul tries to click 'Refund ₹5,000', the server checks Authorization: if you are a Customer Support Manager, it permits the refund; if you are an ordinary rider, it blocks the button with 'Access Denied'."
+        "realWorld": "High availability setups use consensus algorithms like Raft to elect a new leader automatically."
+      }
     },
     "knowledgeCheck": {
-      "question": "When Ola checks whether your account has permission to view administrative driver earnings reports, which security step is it performing?",
+      "question": "What is the primary benefit of running a backup replica database for Ola?",
       "options": [
         {
           "id": "A",
-          "text": "Authorization (checking whether your verified account has permission to view internal financial reports).",
+          "text": "The app stays online without losing data if the main storage computer crashes.",
           "isCorrect": true,
-          "explanation": "Correct! Authorization checks permissions to decide what actions an authenticated user is permitted to do."
+          "explanation": "Correct! Replicas provide high availability and prevent catastrophic downtime."
         },
         {
           "id": "B",
-          "text": "Authentication (asking you to enter an OTP for the first time).",
+          "text": "It washes the cabs automatically after every trip.",
           "isCorrect": false,
-          "explanation": "Incorrect. Authentication verifies who you are, while authorization checks your permissions."
+          "explanation": "Software databases manage digital records, not physical car washing."
         },
         {
           "id": "C",
-          "text": "In-cab air conditioning temperature control.",
+          "text": "It replaces all human drivers with flying drones.",
           "isCorrect": false,
-          "explanation": "Incorrect. Car climate control has nothing to do with software access permissions."
+          "explanation": "Replication is a data reliability pattern, not drone technology."
         }
       ],
-      "hint": "Hint: The system already knows who you are; it is checking if you have the PERMISSION to view the report."
+      "hint": "Hint: Think about what happens when the primary machine stops working."
     }
   },
   {
-    "id": 21,
-    "stage": 5,
-    "sno": 21,
-    "topic": "Scalability – Vertical vs. Horizontal Scaling",
-    "concept": "Scalability – Vertical vs. Horizontal Scaling",
-    "title": "Level 21: Monsoon Rain Rush — Adding 20 Servers vs. 1 Expensive Chip",
-    "time": "Heavy Monsoon Storm — Mumbai & Pune",
-    "usersCount": "Surge from 10,000 to 300,000 Ride Requests",
-    "topicHint": "Upgrading 1 Computer vs. Adding a Team of Computers",
-    "situation": "Heavy monsoon rains start in Mumbai. Ride requests suddenly surge from 10,000 to 300,000 in 15 minutes! The main dispatch server computer is running at 99% CPU load and getting red hot. An engineer suggests: \"Let's just keep buying bigger and more expensive RAM and CPU chips for this single computer!\" But the biggest chip on Earth still won't be enough.",
-    "problem": "How should Ola scale its dispatch system to handle massive surges in ride requests?",
+    "id": 13,
+    "stage": 2,
+    "sno": 13,
+    "topic": "Caching Strategies: In-Memory Caching & Cache Eviction (LRU/LFU)",
+    "concept": "Fast Memory Caching",
+    "title": "Level 13: Loading Driver Profiles in 2 Milliseconds",
+    "time": "Morning Rush — 60,000 Profile Views/sec",
+    "usersCount": "60,000 Riders Checking Drivers",
+    "topicHint": "Keeping Popular Information in Ultra-Fast Temporary Memory",
+    "situation": "When a cab is assigned, riders repeatedly check the driver's name, rating, and car photo. Searching the slow spinning hard disk 60,000 times a second is grinding the database to a halt.",
+    "problem": "How can the Ola app show a driver's name and photo instantly without searching through slow storage disks every single time?",
+    "simulationType": "caching_sticky_notepad",
+    "choices": [
+      {
+        "id": "A",
+        "text": "It keeps frequently viewed details in super-fast temporary memory ready to read.",
+        "isOptimal": true,
+        "consequenceText": "Brilliant! Reading from super-fast temporary memory (RAM) takes just 2 milliseconds, compared to 120 milliseconds on a hard disk. 99% of requests are answered instantly without touching the disk.",
+        "statImpact": {
+          "latency": "2ms (vs 120ms)",
+          "capacity": "99% Cache Hit",
+          "risk": "Zero Disk Overload",
+          "cost": "Efficient"
+        },
+        "whatHappened": {
+          "helped": "Understood the tremendous speed boost of in-memory caching.",
+          "bottleneck": "Repeated disk reads saturate input/output channels, making the app crawl.",
+          "reflectionQuestion": "Why is keeping a sticky note on your desk faster than walking to the basement library every time?"
+        },
+        "successSummary": "Cache active! Driver profiles load in 2ms; database disk stays relaxed."
+      },
+      {
+        "id": "B",
+        "text": "It asks the passenger to guess the driver's name first.",
+        "isOptimal": false,
+        "consequenceText": "Making passengers guess names is absurd and makes the app completely unusable.",
+        "statImpact": {
+          "latency": "Awful",
+          "capacity": "0",
+          "risk": "User Rage",
+          "cost": "Lost Users"
+        },
+        "whatHappened": {
+          "helped": "Saw why user guessing is not a software solution.",
+          "bottleneck": "Unacceptable user experience.",
+          "reflectionQuestion": "How should software provide instant answers automatically?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "It downloads every driver picture on the internet onto the passenger's phone.",
+        "isOptimal": false,
+        "consequenceText": "Downloading millions of driver photos would fill up the passenger's phone storage and consume gigabytes of mobile data.",
+        "statImpact": {
+          "latency": "Phone Full",
+          "capacity": "0",
+          "risk": "Storage Full",
+          "cost": "Extreme"
+        },
+        "whatHappened": {
+          "helped": "Recognized that client devices cannot store the entire company's files.",
+          "bottleneck": "Storage exhaustion on mobile phones.",
+          "reflectionQuestion": "Why should servers cache only the active, frequently requested data?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "In-Memory Caching",
+      "tagline": "Keep answers on a digital sticky note instead of walking to the bookshelf",
+      "simpleMeaning": "A sticky note on your computer: If your friend asks for your Wi-Fi password 10 times a day, you don't go look under the router in the hallway each time. You write it on a sticky note right by your keyboard. Caching is that sticky note.",
+      "olaExample": "Ola stores active driver profiles in Redis RAM cache. Fetching takes 2ms instead of 120ms from disk.",
+      "analogy": "Keeping salt on the kitchen counter instead of walking to the grocery store every time you cook.",
+      "howItWorks": [
+        "1. First Request: Server reads from disk, hands data to user, and leaves a copy in fast RAM.",
+        "2. Next 1,000 Requests: Read directly from RAM in 2 milliseconds.",
+        "3. Eviction: When RAM gets full, remove the least recently used records to make room for new ones."
+      ],
+      "whyItMatters": "Caching protects databases from crashing under heavy rush-hour traffic and makes the app feel lightning fast.",
+      "visualExplanation": "[Rider Checks Ramesh Profile] ──► [Fast RAM Cache (2ms ✓)] ──► Instant Response (Bypasses Slow Disk!)",
+      "contrast": {
+        "termA": "RAM Cache (Redis)",
+        "descA": "Ultra-fast memory (2ms), temporary, handles millions of reads effortlessly.",
+        "termB": "Permanent Disk (Database)",
+        "descB": "Safe permanent storage, but 50x slower for repetitive reads."
+      },
+      "teacherNotes": {
+        "realWorld": "Least Recently Used (LRU) cache eviction ensures the most active data remains readily accessible."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "What happens when the fast cache memory runs out of space?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It removes the least recently viewed records to make room for fresh data.",
+          "isCorrect": true,
+          "explanation": "Correct! Cache eviction policies like LRU safely discard stale items."
+        },
+        {
+          "id": "B",
+          "text": "The computer explodes and catches fire.",
+          "isCorrect": false,
+          "explanation": "Computers do not explode when RAM fills up; they execute eviction algorithms."
+        },
+        {
+          "id": "C",
+          "text": "All passengers get charged ₹50 extra.",
+          "isCorrect": false,
+          "explanation": "Memory management has nothing to do with charging extra customer fees."
+        }
+      ],
+      "hint": "Hint: Think about throwing away old papers when your desk gets cluttered."
+    }
+  },
+  {
+    "id": 14,
+    "stage": 2,
+    "sno": 14,
+    "topic": "Content Delivery Networks (CDN): Edge Caching & Geographical PoPs",
+    "concept": "Edge Caching & Geographical CDN",
+    "title": "Level 14: Downloading Car Icons & Map Tiles Across India",
+    "time": "Pan-India Expansion — Delhi, Kolkata, Chennai",
+    "usersCount": "5,000,000 App Downloads Across India",
+    "topicHint": "Placing Content Nearby So It Doesn't Travel Thousands of Kilometers",
+    "situation": "A passenger in Delhi opens the Ola app. The app needs to load 15MB of city map tiles and car pictures. The main company computers are located 2,000 kilometers away in Bangalore.",
+    "problem": "Why should a rider in Delhi download car pictures from a nearby computer in Delhi instead of the main office in Bangalore?",
+    "simulationType": "cdn_edge_kiosks",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Fetching pictures from nearby takes less time and avoids overloading the main office.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! Light signals travel across fiber optic cables. Fetching files from 10km away in Delhi takes only 15ms, compared to 150ms from Bangalore, and keeps the Bangalore datacenter free for live bookings.",
+        "statImpact": {
+          "latency": "15ms (vs 150ms)",
+          "capacity": "Distributed Edge",
+          "risk": "Zero Origin Congestion",
+          "cost": "Bandwidth Saved"
+        },
+        "whatHappened": {
+          "helped": "Understood the physics of network distance and edge caching.",
+          "bottleneck": "Sending every static image request across 2,000km chokes central office bandwidth.",
+          "reflectionQuestion": "Why shouldn't 5 million users all download the same car icon from one single room in Bangalore?"
+        },
+        "successSummary": "Edge delivery verified! Map tiles and vehicle graphics load in 15ms across all cities."
+      },
+      {
+        "id": "B",
+        "text": "Cars in Delhi look completely different from cars in Bangalore.",
+        "isOptimal": false,
+        "consequenceText": "Car pictures and map tiles are identical standard graphics across all cities.",
+        "statImpact": {
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
+        },
+        "whatHappened": {
+          "helped": "Assumed geographic content differences instead of network speed advantages.",
+          "bottleneck": "Missing network physics.",
+          "reflectionQuestion": "Why does physical distance matter when downloading files over the internet?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Pictures are not allowed to travel across state borders over the internet.",
+        "isOptimal": false,
+        "consequenceText": "Internet signals travel freely across state borders; physical distance is the only factor causing network latency.",
+        "statImpact": {
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "False Legal Belief",
+          "cost": "None"
+        },
+        "whatHappened": {
+          "helped": "Invented false border restrictions.",
+          "bottleneck": "Ignoring speed of light latency.",
+          "reflectionQuestion": "How does storing files closer to users reduce loading delay?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Content Delivery Networks (CDN)",
+      "tagline": "Store heavy static files close to users in every city to slash loading times",
+      "simpleMeaning": "Neighborhood book warehouses: If an online bookstore kept all books in one warehouse in London, Indian readers would wait 3 weeks for delivery. Instead, the company keeps small warehouses in Delhi, Mumbai, and Kolkata. Orders arrive in 1 hour.",
+      "olaExample": "Ola puts vehicle icons, map graphics, and promotional banners on edge servers in every major Indian city. Riders download them in 15 milliseconds.",
+      "analogy": "Local newspaper printing presses: Rather than flying papers from one capital, newspapers print in each regional city so morning papers arrive before breakfast.",
+      "howItWorks": [
+        "1. Origin Server: Master graphics live in Bangalore.",
+        "2. Edge Distribution: Caches in Delhi, Mumbai, and Kolkata save copies locally.",
+        "3. Instant Delivery: When a Delhi user taps the app, Delhi's edge machine serves the file immediately."
+      ],
+      "whyItMatters": "CDNs reduce app launch times from 5 seconds to under 1 second and save massive bandwidth bills.",
+      "visualExplanation": "[Delhi Rider] ──► [Delhi Edge CDN (15ms!)] | (Bypasses 2,000km trip to Bangalore!)",
+      "contrast": {
+        "termA": "Local Edge CDN",
+        "descA": "Static pictures served from your local city in 15ms.",
+        "termB": "Single Central Server",
+        "descB": "Every user travels 2,000km across fiber cables, choking central bandwidth."
+      },
+      "teacherNotes": {
+        "realWorld": "CDNs like Cloudflare and Akamai handle the vast majority of worldwide internet static media delivery."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "Which of the following items is BEST suited to be stored on an Edge CDN for the Ola app?",
+      "options": [
+        {
+          "id": "A",
+          "text": "App logo images, car type graphics, and city street map tiles.",
+          "isCorrect": true,
+          "explanation": "Correct! Static, unchanging assets that everyone downloads benefit most from CDN caching."
+        },
+        {
+          "id": "B",
+          "text": "A passenger's private bank PIN number.",
+          "isCorrect": false,
+          "explanation": "Private bank credentials must never be cached on public edge nodes."
+        },
+        {
+          "id": "C",
+          "text": "The live GPS coordinate of a moving car updated this second.",
+          "isCorrect": false,
+          "explanation": "Live moving GPS changes every second and requires direct streaming, not static CDN caching."
+        }
+      ],
+      "hint": "Hint: Think about files that stay the same for months and are shared by all users."
+    }
+  },
+  {
+    "id": 15,
+    "stage": 2,
+    "sno": 15,
+    "topic": "Scaling Paradigms: Horizontal (Scale Out) vs. Vertical (Scale Up)",
+    "concept": "Horizontal vs. Vertical Scaling",
+    "title": "Level 15: Monsoon Rush — More Computers vs. One Giant Chip",
+    "time": "Friday 6:00 PM — Sudden Bangalore Monsoon Rain",
+    "usersCount": "10x Traffic Spike (100,000 Riders)",
+    "topicHint": "Adding Many Normal Machines vs. Buying One Super-Expensive Machine",
+    "situation": "Heavy rain pours over the city. Ride requests explode by 10 times in 5 minutes. The current server is at 98% CPU and about to crash.",
+    "problem": "When sudden rain starts and 10 times more people open Ola, what is the best way to keep the app fast?",
     "simulationType": "scaling_cluster_nodes",
     "choices": [
       {
         "id": "A",
-        "text": "Use Horizontal Scaling: add 20 standard server computers to share the ride booking load as a team.",
+        "text": "Add many normal computers to share the workload together.",
         "isOptimal": true,
-        "consequenceText": "Spot on! Horizontal Scaling (scaling out) means adding more computers to share the work. There is no limit to how many servers you can add, and if one breaks, the other 19 keep cabs booking smoothly!",
+        "consequenceText": "Spot on! This is Horizontal Scaling ('Scaling Out'). Adding 10 affordable cloud servers shares the heavy rain surge effortlessly. If traffic doubles again, simply add 10 more with a single click.",
         "statImpact": {
           "latency": "20ms",
-          "capacity": "300,000 Smooth",
-          "risk": "Zero Single Point of Failure",
-          "cost": "Cost-Effective"
+          "capacity": "Elastic 10x Fleet",
+          "risk": "Zero Downtime",
+          "cost": "Pay-as-you-go"
         },
         "whatHappened": {
-          "helped": "Scaled horizontally by adding standard servers to distribute load.",
-          "bottleneck": "Vertical scaling hits hard physical limits, becomes exponentially expensive, and remains a single point of failure.",
-          "reflectionQuestion": "Why is hiring 10 normal workers safer than hiring one giant bodybuilder who might get sick?"
+          "helped": "Understood the limitless elasticity of horizontal scaling.",
+          "bottleneck": "Upgrading a single computer (Vertical Scaling) is expensive, has strict physical limits, and creates one single point of total failure.",
+          "reflectionQuestion": "Why is hiring 10 delivery riders better than trying to make one rider pedal a bicycle 10 times faster?"
         },
-        "successSummary": "Great decision! You used horizontal scaling to support 300,000 riders without hardware limits."
+        "successSummary": "Elastic scaling achieved! 10 modular servers shared the storm surge effortlessly."
       },
       {
         "id": "B",
-        "text": "Stick to Vertical Scaling: spend ₹50,00,000 trying to find one giant computer until no bigger parts exist and it crashes.",
+        "text": "Buy one super expensive machine and hope it never reaches its limit.",
         "isOptimal": false,
-        "consequenceText": "Single-computer hardware has physical limits. Once you hit the maximum CPU size, you cannot upgrade further. When that single computer crashes, all 300,000 riders lose connection at once.",
+        "consequenceText": "One single machine has physical heat and chip limits. It costs 20x more and if it fails, the entire company goes completely dark.",
         "statImpact": {
-          "latency": "Laggy",
-          "capacity": "Hardware Ceiling Hit",
-          "risk": "Total Single-Point Crash",
-          "cost": "Extremely Expensive"
+          "latency": "Limit Reached",
+          "capacity": "Fixed Ceiling",
+          "risk": "Single Point of Failure",
+          "cost": "Extreme"
         },
         "whatHappened": {
-          "helped": "Upgraded single machine hardware.",
-          "bottleneck": "Vertical scaling is limited by physics and costs far more per unit of compute.",
-          "reflectionQuestion": "What happens when the fastest processor in the world is still too slow for your traffic?"
+          "helped": "Recognized the severe physical and financial limits of vertical scaling.",
+          "bottleneck": "Hardware ceilings and single point of failure.",
+          "reflectionQuestion": "Can one supercomputer handle infinite traffic alone?"
         }
       },
       {
         "id": "C",
-        "text": "Refuse to let new riders enter the app and lock the server at 10,000 riders forever.",
+        "text": "Make passengers wait in a line so only one person can book at a time.",
         "isOptimal": false,
-        "consequenceText": "290,000 stranded riders in the rain get 'Service Unavailable' errors. Riders uninstall Ola and book other cabs.",
+        "consequenceText": "Making 100,000 people wait one-by-one means the last passenger waits 3 days for a cab! Customers will immediately switch to competitors.",
         "statImpact": {
-          "latency": "Locked",
-          "capacity": "Capped at 10k",
-          "risk": "Massive Customer Churn",
-          "cost": "Lost Revenue"
+          "latency": "3 Days",
+          "capacity": "1 User",
+          "risk": "Business Death",
+          "cost": "Zero Revenue"
         },
         "whatHappened": {
-          "helped": "Avoided scaling by rejecting users.",
-          "bottleneck": "Refusing growth destroys business value.",
-          "reflectionQuestion": "How should an online business respond when popularity grows?"
+          "helped": "Saw why serialization destroys business during traffic surges.",
+          "bottleneck": "Single-file queue bottlenecks.",
+          "reflectionQuestion": "Why must modern cloud architectures process requests simultaneously?"
         }
       }
     ],
     "discovery": {
-      "badge": "Vertical vs. Horizontal Scaling",
-      "tagline": "Scaling Up (bigger computer) vs. Scaling Out (more computers working together)",
-      "simpleMeaning": "Scalability is the ability of a system to handle more traffic by adding resources. Vertical Scaling ('Scaling Up') means making one computer more powerful by adding faster CPUs and more RAM. Horizontal Scaling ('Scaling Out') means adding more computers to work together as a team.",
-      "pubgExample": "When rain starts in Mumbai and ride requests jump from 20,000 to 200,000, Ola automatically spins up 30 new cloud servers (Horizontal Scaling) to share the dispatch load evenly.",
-      "analogy": "Moving heavy cargo: Vertical scaling is hiring one bodybuilder (who can still get exhausted or injured). Horizontal scaling is hiring 15 regular movers who easily carry the boxes together.",
+      "badge": "Scaling Paradigms",
+      "tagline": "Scale Up (Make one bigger) vs. Scale Out (Add more machines to share the work)",
+      "simpleMeaning": "Carrying heavy bricks: If you have 1,000 bricks to move, you don't look for an Olympic weightlifter to carry all 1,000 at once (Scale Up). You hire 10 normal workers to carry 100 bricks each (Scale Out). It's cheaper, faster, and if one worker trips, the other 9 keep moving.",
+      "olaExample": "When rain starts in Bangalore, Ola's cloud automatically spins up 15 new server pods to share incoming ride bookings.",
+      "analogy": "A supermarket on festival eve: You open 10 more checkout counters instead of making one cashier scan groceries at 200 mph.",
       "howItWorks": [
-        "1. Vertical Scaling (Scale Up): Fast initially, but hits a hard physical ceiling and becomes very expensive.",
-        "2. Horizontal Scaling (Scale Out): Add dozens of standard servers that share the work.",
-        "3. Auto-Scaling: Add servers automatically when rain starts, and turn them off at night to save money.",
-        "4. High Availability: If 1 out of 30 servers crashes, 29 servers keep running without riders noticing."
+        "1. Traffic Detection: Cloud monitors CPU usage.",
+        "2. Auto-Scale: When CPU exceeds 70%, launch 5 new server instances automatically.",
+        "3. Scale Down: When rain stops and night falls, turn off the extra servers to save money."
       ],
-      "whyItMatters": "Horizontal scaling allows Ola to grow from a small startup in one city to a national platform handling millions of rides daily.",
-      "visualExplanation": "[Vertical Scaling: 1 Giant Server]\n[Bigger CPU + More RAM] ──► Hits physical hardware limit! (Risky)\n\n[Horizontal Scaling: Fleet of Servers]\n[Server 1] + [Server 2] + [Server 3] + [Server 4] ──► Infinite Growth!",
+      "whyItMatters": "Horizontal scaling provides practically unlimited growth with no single point of failure.",
+      "visualExplanation": "[100k Rain Requests] ──► Distributed across [Server 1] + [Server 2] + [Server 3] ──► Smooth 25% CPU Each",
       "contrast": {
         "termA": "Horizontal Scaling (Scale Out)",
-        "descA": "Add more standard computers; virtually unlimited scale, resilient, cost-effective.",
+        "descA": "Adding more affordable machines. Limitless growth, resilient, elastic.",
         "termB": "Vertical Scaling (Scale Up)",
-        "descB": "Make one computer bigger; hits physical hardware limits, expensive, single point of failure."
+        "descB": "Upgrading CPU/RAM on one machine. Expensive, has hard physical ceilings."
       },
       "teacherNotes": {
-        "concept": "Scalability, Vertical Scaling (Scale Up), Horizontal Scaling (Scale Out), Auto-Scaling",
-        "experience": "Students learned why modern distributed architectures scale horizontally by adding nodes.",
-        "realWorld": "Cloud platforms like AWS, GCP, and Azure use horizontal auto-scaling groups for Ola, Swiggy, and Uber.",
-        "question": "What happens if you use vertical scaling and that single big computer loses power?"
-      },
-      "olaExample": "When rain starts in Mumbai and ride requests jump from 20,000 to 200,000, Ola automatically spins up 30 new cloud servers (Horizontal Scaling) to share the dispatch load evenly."
+        "realWorld": "Kubernetes and AWS Auto-Scaling Groups automate horizontal scaling based on live telemetry."
+      }
     },
     "knowledgeCheck": {
-      "question": "Why does Ola prefer Horizontal Scaling (adding more servers) over Vertical Scaling (buying a bigger server)?",
+      "question": "What is the biggest advantage of Horizontal Scaling (adding more computers) over Vertical Scaling?",
       "options": [
         {
           "id": "A",
-          "text": "You can add as many servers as needed without hardware limits, and if one server crashes, the others keep running.",
+          "text": "You can add as many machines as needed and if one crashes, the others keep working.",
           "isCorrect": true,
-          "explanation": "Correct! Horizontal scaling offers unlimited expansion and eliminates the single point of failure."
+          "explanation": "Correct! It provides redundancy and elastic, practically limitless capacity."
         },
         {
           "id": "B",
-          "text": "It makes the physical cab tires last 10 times longer on roads.",
+          "text": "Computers stop using electricity completely.",
           "isCorrect": false,
-          "explanation": "Incorrect. Server scaling manages compute capacity, not physical car tire wear."
+          "explanation": "All computers require electricity to function."
         },
         {
           "id": "C",
-          "text": "It removes the need for drivers to follow traffic signals.",
+          "text": "Cab drivers don't need to put fuel in their cars.",
           "isCorrect": false,
-          "explanation": "Incorrect. Server scaling does not change road traffic laws."
+          "explanation": "Server architecture does not replace physical car fuel."
         }
       ],
-      "hint": "Hint: Think about teamwork—is it safer to rely on 1 person or a team of 10 people sharing the work?"
+      "hint": "Hint: Think about teamwork: many workers sharing the load."
     }
   },
   {
-    "id": 22,
-    "stage": 5,
-    "sno": 22,
-    "topic": "Load Balancing",
-    "concept": "Load Balancing",
-    "title": "Level 22: Distributing 100,000 Riders Evenly Across 10 Servers",
-    "time": "Evening Rush — 100,000 Booking Requests",
-    "usersCount": "100,000 Passengers Queueing Simultaneously",
-    "topicHint": "Traffic Director that Shares Incoming Rides Evenly",
-    "situation": "At 6:00 PM, 100,000 passengers tap 'Confirm Booking' at the exact same minute. Ola has 10 powerful dispatch servers ready. But there is no traffic director! All 100,000 passengers accidentally connect to Server #1, while Servers #2 through #10 sit completely empty with 0 users! Server #1 catches fire and crashes.",
-    "problem": "How can Ola distribute incoming ride requests evenly across all available backend servers?",
+    "id": 16,
+    "stage": 2,
+    "sno": 16,
+    "topic": "Load Balancing: Smart Traffic Routing & Node Health Checks",
+    "concept": "Load Balancing & Traffic Distribution",
+    "title": "Level 16: Dividing 100,000 Riders Evenly Across Servers",
+    "time": "Evening Peak Traffic — 10 Backend Servers",
+    "usersCount": "100,000 Active Connections",
+    "topicHint": "The Smart Traffic Guide That Keeps Servers Calm and Healthy",
+    "situation": "You added 5 new backend servers to handle rush hour. But right now, all 100,000 riders are rushing into Server #1, while Servers 2, 3, 4, and 5 are sitting completely empty.",
+    "problem": "If thousands of people open Ola at the same time, how do we make sure one computer doesn't crash while others sit doing nothing?",
     "simulationType": "load_balancer_traffic",
     "choices": [
       {
         "id": "A",
-        "text": "Place a Load Balancer in front of the servers to distribute incoming riders evenly across all 10 servers (10,000 each).",
+        "text": "A traffic guide distributes incoming users evenly among all healthy computers.",
         "isOptimal": true,
-        "consequenceText": "Perfect solution! The Load Balancer acts as an intelligent traffic police officer. It inspects server health and distributes ride requests smoothly across all 10 servers. Each server comfortably handles 10,000 riders with zero lag!",
+        "consequenceText": "Exactly right! A Load Balancer acts like a smart airport traffic director. It points User 1 to Server A, User 2 to Server B, User 3 to Server C, keeping all servers relaxed at 25% load.",
         "statImpact": {
-          "latency": "15ms Dispatch",
-          "capacity": "100,000 Smooth",
-          "risk": "Zero Server Overload",
-          "cost": "Even Load"
+          "latency": "12ms",
+          "capacity": "Balanced Across Fleet",
+          "risk": "Zero Hotspots",
+          "cost": "Optimal"
         },
         "whatHappened": {
-          "helped": "Used a Load Balancer to distribute traffic evenly.",
-          "bottleneck": "Unbalanced traffic floods one machine while other machines sit idle.",
-          "reflectionQuestion": "Why should an Ola load balancer route ride requests to all open dispatch servers?"
+          "helped": "Understood the critical role of load balancers in distributing incoming traffic.",
+          "bottleneck": "Without traffic distribution, one computer gets crushed while others sit idle.",
+          "reflectionQuestion": "What happens if one of the backend servers becomes sick or dies?"
         },
-        "successSummary": "Brilliant! You placed a load balancer in front of the server fleet to balance traffic evenly."
+        "successSummary": "Traffic balanced! 100,000 requests distributed smoothly; all nodes healthy."
       },
       {
         "id": "B",
-        "text": "Let all 100,000 riders rush directly into Server #1 until it crashes, then tell riders to try again tomorrow.",
+        "text": "The first computer takes everything until it crashes, then the next one starts.",
         "isOptimal": false,
-        "consequenceText": "Server #1 crashes instantly from memory overload. 100,000 riders receive connection errors while 9 other servers sit idle wasting money.",
+        "consequenceText": "Crashing computers one by one causes constant app interruptions, dropped rides, and angry passengers.",
         "statImpact": {
-          "latency": "Crashed",
-          "capacity": "Server 1 Overloaded",
-          "risk": "100% Failure",
-          "cost": "Wasted 9 Idle Servers"
+          "latency": "Cascading Crashes",
+          "capacity": "0",
+          "risk": "Total Outage",
+          "cost": "High"
         },
         "whatHappened": {
-          "helped": "Did not balance incoming connections.",
-          "bottleneck": "A single server cannot handle the entire crowd alone.",
-          "reflectionQuestion": "What happens if 1,000 people try to enter a small shop through a single revolving door at once?"
+          "helped": "Saw why cascading failure is dangerous.",
+          "bottleneck": "Unbalanced overload.",
+          "reflectionQuestion": "Why should traffic be divided continuously from the very first request?"
         }
       },
       {
         "id": "C",
-        "text": "Turn off servers 2 through 10 so riders have no choice but to wait in a 4-hour queue for Server #1.",
+        "text": "Passengers must choose which computer number they want to connect to.",
         "isOptimal": false,
-        "consequenceText": "Turning off healthy servers makes the bottleneck even worse. Riders face a 4-hour queue just to get a 15-minute cab, and delete the app.",
+        "consequenceText": "Passengers have no idea what a server number is; asking users to pick server IDs is terrible design.",
         "statImpact": {
-          "latency": "4-Hour Queue",
-          "capacity": "Crippled Fleet",
-          "risk": "Customer Exodus",
-          "cost": "Unusable"
+          "latency": "Confusing",
+          "capacity": "Low",
+          "risk": "User Drop",
+          "cost": "Poor UX"
         },
         "whatHappened": {
-          "helped": "Reduced total capacity instead of utilizing it.",
-          "bottleneck": "Under-provisioning creates artificial bottlenecks.",
-          "reflectionQuestion": "Why would you shut down healthy servers when traffic is high?"
+          "helped": "Realized that internal infrastructure should be invisible to users.",
+          "bottleneck": "Exposing internal routing to consumers.",
+          "reflectionQuestion": "Should software handle routing automatically behind the scenes?"
         }
       }
     ],
     "discovery": {
       "badge": "Load Balancing",
-      "tagline": "The intelligent traffic cop that distributes incoming requests evenly across servers",
-      "simpleMeaning": "A Load Balancer is a software or hardware device that sits between users and backend servers. It acts like a traffic director, distributing incoming requests across multiple servers so no single server gets overwhelmed while others sit empty.",
-      "pubgExample": "When 100,000 riders book cabs across Delhi, the Load Balancer routes rider 1 to Server A, rider 2 to Server B, rider 3 to Server C, and so on (Round Robin), keeping all servers fast and healthy.",
-      "analogy": "A security guard at a busy bank: Directing people to open cashier counters (Counter 1, Counter 2, Counter 3) so one counter doesn't have 100 people while the other two counters sit idle.",
+      "tagline": "A smart traffic cop distributing incoming requests so no machine gets overwhelmed",
+      "simpleMeaning": "A bank queue manager: When you enter a busy bank, you don't see 50 people crowding one teller window while four other tellers read newspapers. A staff member directs the next person in line to the next available teller. That staff member is the Load Balancer.",
+      "olaExample": "Ola's Load Balancer receives 100,000 booking requests and routes 20,000 requests to each of 5 backend servers evenly.",
+      "analogy": "Toll booth gates on a highway: Traffic divides into 8 open gates so cars don't all pile up behind Gate #1.",
       "howItWorks": [
-        "1. Single Entry Point: All rider apps connect to one clean address (the Load Balancer).",
-        "2. Balancing Algorithms: Uses rules like Round Robin (taking turns) or Least Connections (finding the least busy server).",
-        "3. Health Checks: Constantly checks server health. If Server #4 crashes, the load balancer stops sending requests there.",
-        "4. High Availability: Ensures seamless cab dispatch even during peak festival hours."
+        "1. Single Entry Point: All phones send requests to one public gateway.",
+        "2. Health Checks: Load balancer pings all servers every 5 seconds. If Server 3 is dead, stop sending it traffic.",
+        "3. Distribution Algorithms: Round-Robin (in turns), Least Connections (send to the least busy server)."
       ],
-      "whyItMatters": "Without load balancing, multiple servers cannot work together effectively, and traffic spikes crash individual machines.",
-      "visualExplanation": "                 [100,000 Riders Booking Cabs]\n                               │\n                               ▼\n                       [Load Balancer]\n            ┌──────────────────┼──────────────────┐\n            ▼                  ▼                  ▼\n       [Server 1]         [Server 2]         [Server 3]\n     (10,000 Rides)     (10,000 Rides)     (10,000 Rides)",
+      "whyItMatters": "Load balancing prevents hot-spot crashes and ensures 100% smooth operations during massive traffic spikes.",
+      "visualExplanation": "[100,000 Requests] ──► [LOAD BALANCER] ──► Evenly split across 4 Servers (25k each) ✓",
       "contrast": {
-        "termA": "Load Balanced Fleet",
-        "descA": "Traffic distributed evenly across all healthy servers; optimal performance and zero overload.",
-        "termB": "Direct Server Access",
-        "descB": "Riders connect to one server directly; one server crashes under traffic while others sit idle."
+        "termA": "Load Balanced",
+        "descA": "Traffic shared evenly; dead servers automatically bypassed.",
+        "termB": "Unbalanced",
+        "descB": "One machine overheats and crashes while others remain unused."
       },
       "teacherNotes": {
-        "concept": "Load Balancing, Reverse Proxy, Round Robin, Health Checks, Least Connections",
-        "experience": "Students learned how load balancers act as traffic directors to maximize resource utilization.",
-        "realWorld": "Nginx, HAProxy, AWS ALB (Application Load Balancer), and Cloudflare route trillions of web requests daily.",
-        "question": "What does a load balancer do if one of the backend servers suddenly dies?"
-      },
-      "olaExample": "When 100,000 riders book cabs across Delhi, the Load Balancer routes rider 1 to Server A, rider 2 to Server B, rider 3 to Server C, and so on (Round Robin), keeping all servers fast and healthy."
-    },
-    "knowledgeCheck": {
-      "question": "What is the primary job of a Load Balancer in Ola's booking infrastructure?",
-      "options": [
-        {
-          "id": "A",
-          "text": "To distribute incoming ride requests evenly across multiple backend servers so no single server gets overwhelmed.",
-          "isCorrect": true,
-          "explanation": "Correct! A load balancer distributes traffic evenly across healthy servers to prevent overloads and crashes."
-        },
-        {
-          "id": "B",
-          "text": "To balance the luggage weight inside the cab's trunk.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Load balancing is a server networking concept, not physical car luggage weight."
-        },
-        {
-          "id": "C",
-          "text": "To steer the cab when the driver takes a sharp turn.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Load balancers route network traffic, they do not steer physical cars."
-        }
-      ],
-      "hint": "Hint: Think about a traffic police officer directing cars into different open lanes on a highway."
-    }
-  },
-  {
-    "id": 23,
-    "stage": 5,
-    "sno": 23,
-    "topic": "Caching",
-    "concept": "Caching",
-    "title": "Level 23: Fast Driver Profile Loading in 2ms vs 120ms Disk Reads",
-    "time": "Driver Match Screen — 5,000,000 Daily Lookups",
-    "usersCount": "5,000,000 Rides Matching Drivers",
-    "topicHint": "Ultra-Fast RAM Storage for Frequently Read Data",
-    "situation": "Every time a rider is matched with a cab, the app displays the driver's name, car model, license plate, and 4.8-star rating. Reading this info from the main database hard drive takes 120 milliseconds. When 5 million riders open the app during evening rush, the database hard drives choke under millions of identical read requests, making the app freeze for 10 seconds!",
-    "problem": "How can Ola serve frequently viewed driver profiles in 2 milliseconds instead of hitting slow hard drives every time?",
-    "simulationType": "caching_sticky_notepad",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use an in-memory Cache (like Redis) to store frequently requested driver details in ultra-fast RAM memory.",
-        "isOptimal": true,
-        "consequenceText": "Blazing fast! RAM memory is over 100 times faster than reading from hard drives. The cache serves driver details in just 2 milliseconds, and takes 90% of the read traffic off the database disks!",
-        "statImpact": {
-          "latency": "2ms Instant",
-          "capacity": "5M Lookups Smooth",
-          "risk": "Zero DB Overload",
-          "cost": "Optimized"
-        },
-        "whatHappened": {
-          "helped": "Cached frequently read driver profile data in high-speed RAM.",
-          "bottleneck": "Disk I/O is slow; reading the same data from hard drives millions of times causes severe bottlenecks.",
-          "reflectionQuestion": "Why do you keep your favorite pen on your desk instead of walking to the store room every time you write?"
-        },
-        "successSummary": "Awesome! You introduced in-memory caching to turn 120ms disk reads into 2ms instant responses."
-      },
-      {
-        "id": "B",
-        "text": "Force every single ride match to query the slow hard drives directly, letting the database crash under load.",
-        "isOptimal": false,
-        "consequenceText": "Database hard drives get overwhelmed with millions of disk reads. The app freezes, driver photos show as blank gray boxes, and the database crashes.",
-        "statImpact": {
-          "latency": "10,000ms Freeze",
-          "capacity": "Disk I/O Bottleneck",
-          "risk": "Database Crash",
-          "cost": "Unusable"
-        },
-        "whatHappened": {
-          "helped": "Did not use temporary fast memory.",
-          "bottleneck": "Hard drives have mechanical and physical I/O limits.",
-          "reflectionQuestion": "What happens if 1,000 students ask the teacher the exact same question in 10 seconds instead of checking the board?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Delete driver ratings and car model names completely so there is no data to load on the screen.",
-        "isOptimal": false,
-        "consequenceText": "Passengers refuse to board cabs when they cannot verify the driver's name or car license plate for safety. Trust is ruined.",
-        "statImpact": {
-          "latency": "Bland",
-          "capacity": "No Verification",
-          "risk": "Safety Complaints",
-          "cost": "Lost Trust"
-        },
-        "whatHappened": {
-          "helped": "Removed features to avoid system optimization.",
-          "bottleneck": "User experience and safety must be fast, not degraded.",
-          "reflectionQuestion": "Can a cab app be safe if you hide the driver's identity from riders?"
-        }
+        "realWorld": "Cloud load balancers like AWS ALB/NLB operate at Layer 4 and Layer 7 with built-in SSL termination."
       }
-    ],
-    "discovery": {
-      "badge": "Caching",
-      "tagline": "Storing popular data in super-fast RAM memory for instant lightning retrieval",
-      "simpleMeaning": "A Cache is a temporary high-speed data store kept in computer RAM (Random Access Memory). Because reading from RAM takes less than 2 milliseconds (compared to 100+ milliseconds from disk storage), caching frequently accessed data makes apps feel instant and shields the database from traffic spikes.",
-      "pubgExample": "When your Ola cab is assigned, the driver's photo, car model, and 4.8 rating are served straight from an in-memory Redis cache in 2 milliseconds. The main database disk is only touched if the driver's info changes.",
-      "analogy": "Keeping your favorite textbook right on your study desk (cache) instead of walking downstairs to the school library basement (database) every time you need to look up a formula.",
-      "howItWorks": [
-        "1. Cache Hit: Request arrives -> Check fast RAM -> Data found! Return in 2ms.",
-        "2. Cache Miss: Request arrives -> Check fast RAM -> Not found -> Fetch from slower database disk -> Save copy in Cache -> Return data.",
-        "3. Invalidation (TTL): When a driver updates their phone or rating, the cache updates automatically.",
-        "4. Database Protection: Up to 95% of read queries are handled by the cache, keeping the main database relaxed."
-      ],
-      "whyItMatters": "Caching is the single most effective way to make applications lightning fast and prevent databases from crashing during rush hours.",
-      "visualExplanation": "[Rider Matched with Driver]\n         │\n         ▼\n   [Redis Cache: Fast RAM] ──Found! (Cache Hit)──► 2ms Instant Load!\n         │ (If not found)\n         ▼\n   [Main Database: Disk] ──Fetch & Save Copy in Cache──► 120ms",
-      "contrast": {
-        "termA": "Cached Read (RAM)",
-        "descA": "Data retrieved from ultra-fast memory in 2ms; zero database strain.",
-        "termB": "Direct Disk Read",
-        "descB": "Data read from physical hard drives in 120ms; overloads database disks under heavy traffic."
-      },
-      "teacherNotes": {
-        "concept": "Caching, RAM vs Disk, Cache Hit / Cache Miss, Redis, Memcached, TTL (Time-To-Live)",
-        "experience": "Students learned why RAM caching is orders of magnitude faster than disk lookups.",
-        "realWorld": "Redis and Memcached power caching for Ola, Twitter, Reddit, and YouTube.",
-        "question": "What happens when data is updated in the database? What must happen to the cached copy?"
-      },
-      "olaExample": "When your Ola cab is assigned, the driver's photo, car model, and 4.8 rating are served straight from an in-memory Redis cache in 2 milliseconds. The main database disk is only touched if the driver's info changes."
     },
     "knowledgeCheck": {
-      "question": "How does Caching help the Ola app display driver details in 2 milliseconds instead of lagging?",
+      "question": "What does a Load Balancer do if one of the backend servers suddenly dies?",
       "options": [
         {
           "id": "A",
-          "text": "It keeps frequently viewed driver details in ultra-fast RAM memory for instant delivery.",
+          "text": "It detects the dead server via health checks and routes all new traffic only to healthy servers.",
           "isCorrect": true,
-          "explanation": "Correct! RAM is over 100 times faster than hard disk drives, delivering data in just a few milliseconds."
+          "explanation": "Correct! Automatic health checking ensures dead machines are bypassed instantly."
         },
         {
           "id": "B",
-          "text": "It forces riders to download the entire Ola app again every time a cab arrives.",
+          "text": "It shuts down all other computers in sympathy.",
           "isCorrect": false,
-          "explanation": "Incorrect. Caching speeds up data retrieval, it does not re-download the app."
+          "explanation": "The entire purpose of load balancing is to keep the remaining servers running."
         },
         {
           "id": "C",
-          "text": "It automatically cancels the ride if the driver takes a wrong turn.",
+          "text": "It sends an apology letter to the dead computer's manufacturer.",
           "isCorrect": false,
-          "explanation": "Incorrect. Caching is a data storage technique, not a ride cancellation rule."
+          "explanation": "Load balancers automate technical routing, not postal apologies."
         }
       ],
-      "hint": "Hint: Think about why keeping a book on your desk is faster than walking to the library basement."
+      "hint": "Hint: Think about routing cars away from a blocked highway lane."
     }
   },
   {
-    "id": 24,
-    "stage": 5,
-    "sno": 24,
-    "topic": "Content Delivery Network (CDN)",
-    "concept": "Content Delivery Network (CDN)",
-    "title": "Level 24: Downloading Car Icons & Map Tiles Instantly Across India",
-    "time": "National App Launch — 50 Million Downloads",
-    "usersCount": "50,000,000 Users Downloading Map Tiles & Icons",
-    "topicHint": "Worldwide Edge Servers Delivering Large Files Locally",
-    "situation": "Ola releases a new app update with high-resolution map tiles, 3D car icons (Auto, Mini, Prime, SUV), and driver profile avatars. The main origin storage server is located in Frankfurt, Germany. A rider in Chennai tries to download the map graphics. The heavy images must travel across 8,000 kilometers and dozens of international network cables, taking 15 seconds to load a simple car icon!",
-    "problem": "How can riders all over India download heavy map images, car graphics, and icons in milliseconds?",
-    "simulationType": "cdn_edge_kiosks",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use a Content Delivery Network (CDN) to cache image files on local edge servers located right in Chennai, Mumbai, and Delhi.",
-        "isOptimal": true,
-        "consequenceText": "Lightning fast loading! With a CDN, static images and map tiles are cached on local edge servers near the riders. The Chennai rider downloads the car icons from a local Chennai server in 10 milliseconds with zero lag!",
-        "statImpact": {
-          "latency": "10ms Local Ping",
-          "capacity": "50M Downloads Fast",
-          "risk": "Zero Origin Overload",
-          "cost": "Bandwidth Optimized"
-        },
-        "whatHappened": {
-          "helped": "Cached large static files at local edge locations near end users.",
-          "bottleneck": "Long geographic distances increase latency, packet drops, and transmission time.",
-          "reflectionQuestion": "Why buy milk from a local neighborhood store instead of ordering from a dairy farm 8,000 km away?"
-        },
-        "successSummary": "Brilliant! You deployed a CDN to deliver heavy app assets from local edge servers across the country."
-      },
-      {
-        "id": "B",
-        "text": "Force all 50 million riders in India to download every single image directly from that one server in Germany.",
-        "isOptimal": false,
-        "consequenceText": "50 million users hitting one server in Germany saturates the internet pipes. The server crashes, riders see blank gray squares instead of cars, and complaints explode.",
-        "statImpact": {
-          "latency": "15-Second Blank Screens",
-          "capacity": "Origin Server Fried",
-          "risk": "Global Outage",
-          "cost": "Massive Overload"
-        },
-        "whatHappened": {
-          "helped": "Did not use edge distribution.",
-          "bottleneck": "A single origin server cannot handle global bandwidth demands.",
-          "reflectionQuestion": "Can one local post office deliver packages to the entire planet on the same morning?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Delete all car images, maps, and icons so riders look at a blank black screen forever.",
-        "isOptimal": false,
-        "consequenceText": "A cab booking app without maps or car icons looks broken and unusable. Riders delete the app immediately.",
-        "statImpact": {
-          "latency": "Ugly",
-          "capacity": "No Visuals",
-          "risk": "Customer Abandonment",
-          "cost": "Lost Revenue"
-        },
-        "whatHappened": {
-          "helped": "Gave up on delivering visual content.",
-          "bottleneck": "Content delivery is a solved engineering challenge that should be leveraged.",
-          "reflectionQuestion": "How do modern streaming and mobility companies deliver media daily?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Content Delivery Network (CDN)",
-      "tagline": "A worldwide network of edge servers bringing heavy content close to the user",
-      "simpleMeaning": "A Content Delivery Network (CDN) is a network of servers distributed across different cities (called Edge Servers). When a user downloads static content like map tiles, car icons, banners, or app updates, the CDN serves the file from the geographically closest server, resulting in ultra-fast speeds and low latency.",
-      "pubgExample": "When Ola releases new car graphics, the files are uploaded once to the origin server, and the CDN copies them to edge servers in Chennai, Mumbai, Delhi, and Kolkata. An Indian rider downloads the icons in milliseconds from their own city.",
-      "analogy": "A local neighborhood grocery warehouse: Instead of traveling 1,000 miles to the manufacturer's factory to buy groceries, you walk down the street to your local neighborhood shop that keeps fresh inventory on hand.",
-      "howItWorks": [
-        "1. Origin Server: The company uploads new map graphics and car icons to their origin storage.",
-        "2. Edge Caching: CDN edge servers across hundreds of cities cache copies of the files.",
-        "3. Geo-DNS Routing: When a rider opens the app, the system directs them to the closest physical server.",
-        "4. Offload Origin: The central server is protected from millions of direct image download requests."
-      ],
-      "whyItMatters": "Reduces load times from seconds to milliseconds, saves bandwidth costs, and ensures smooth visuals without crashing central servers.",
-      "visualExplanation": "[Origin Server: Frankfurt, Germany]\n       │ (Copies file once)\n       ▼\n┌──────┴──────────────────────────┐\n▼                                 ▼\n[CDN Edge: Chennai]               [CDN Edge: Mumbai]\n       │ (10ms Local Download)           │ (10ms Local Download)\n       ▼                                 ▼\n[Rider in Chennai: Instant!]      [Rider in Mumbai: Instant!]",
-      "contrast": {
-        "termA": "CDN Edge Delivery",
-        "descA": "Files downloaded from local servers nearby; low latency, lightning fast downloads.",
-        "termB": "Single Origin Server",
-        "descB": "Files travel across oceans; slow downloads, high packet loss, server crashes."
-      },
-      "teacherNotes": {
-        "concept": "Content Delivery Network (CDN), Edge Servers, PoP (Points of Presence), Latency, Bandwidth Offload",
-        "experience": "Students learned how CDNs solve geographic distance latency for large media and static files.",
-        "realWorld": "Cloudflare, Akamai, and AWS CloudFront power media delivery for Ola, Netflix, YouTube, and Swiggy.",
-        "question": "Why is a CDN perfect for map image tiles and car icons, but not for live cab booking matching?"
-      },
-      "olaExample": "When Ola releases new car graphics, the files are uploaded once to the origin server, and the CDN copies them to edge servers in Chennai, Mumbai, Delhi, and Kolkata. An Indian rider downloads the icons in milliseconds from their own city."
-    },
-    "knowledgeCheck": {
-      "question": "Why does Ola use a Content Delivery Network (CDN) for downloading car icons and map tiles?",
-      "options": [
-        {
-          "id": "A",
-          "text": "To deliver heavy files from local edge servers physically close to the rider, making screens load in milliseconds.",
-          "isCorrect": true,
-          "explanation": "Correct! CDNs cache heavy content at edge locations worldwide, drastically cutting distance and download times."
-        },
-        {
-          "id": "B",
-          "text": "To make the physical cab drive without any driver inside.",
-          "isCorrect": false,
-          "explanation": "Incorrect. CDNs deliver media files over computer networks; they do not control physical car steering."
-        },
-        {
-          "id": "C",
-          "text": "To charge riders triple the fare when it rains.",
-          "isCorrect": false,
-          "explanation": "Incorrect. CDNs are for fast file delivery, not surge pricing algorithms."
-        }
-      ],
-      "hint": "Hint: Think about downloading an image from a server in your own city versus a server on the other side of the planet."
-    }
-  },
-  {
-    "id": 25,
-    "stage": 6,
-    "sno": 25,
-    "topic": "Message Queues and Background Processing",
-    "concept": "Message Queues and Background Processing",
-    "title": "Level 25: Generating Trip Invoices Without Freezing the App",
-    "time": "Trip Completion Screen — 'Ride Completed!'",
-    "usersCount": "100,000 Rides Finishing Simultaneously",
-    "topicHint": "Doing Heavy Tasks in the Background Without Making Users Wait",
-    "situation": "Your Ola ride finishes: 'You have reached your destination!' At that exact moment, four heavy tasks must happen: (1) calculate driver commission, (2) generate a PDF invoice, (3) send an email receipt, and (4) send an SMS notification. The current server executes these tasks synchronously, forcing the rider and driver to stare at a frozen loading screen for 20 seconds before they can exit the app!",
-    "problem": "How can Ola let riders and drivers exit the app immediately while finishing heavy invoice tasks in the background?",
-    "simulationType": "message_queues_async",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Use a Message Queue: drop the invoice tasks into a background queue and let riders exit the app immediately.",
-        "isOptimal": true,
-        "consequenceText": "Smooth and fast! The server drops the 'Trip_Completed' event into a Message Queue (like RabbitMQ or Kafka) in 5 milliseconds and immediately unlocks the app. Dedicated background worker servers generate the PDF invoices and send emails smoothly in the background!",
-        "statImpact": {
-          "latency": "5ms App Response",
-          "capacity": "Zero Lag",
-          "risk": "Zero Frozen Screens",
-          "cost": "Asynchronous Workers"
-        },
-        "whatHappened": {
-          "helped": "Decoupled user response from heavy background processing using a message queue.",
-          "bottleneck": "Synchronous processing blocks the user until every slow sub-task finishes.",
-          "reflectionQuestion": "Why does a waiter take your food order ticket to the kitchen and serve the next table instead of cooking the meal himself?"
-        },
-        "successSummary": "Brilliant! You used a message queue for asynchronous background processing to eliminate rider wait times."
-      },
-      {
-        "id": "B",
-        "text": "Keep riders and drivers frozen on the payment screen for 20 seconds until every single email and PDF finishes.",
-        "isOptimal": false,
-        "consequenceText": "Riders hate staring at a frozen screen when they are in a hurry to catch a flight. Many force-close the app, causing corrupted payment states.",
-        "statImpact": {
-          "latency": "20,000ms Delay",
-          "capacity": "Blocked Connections",
-          "risk": "Frustrated Users",
-          "cost": "Poor UX"
-        },
-        "whatHappened": {
-          "helped": "Processed tasks sequentially on the main thread.",
-          "bottleneck": "Synchronous blocking creates terrible user experiences.",
-          "reflectionQuestion": "Would you keep using an app that freezes for half a minute after every ride?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Cancel all trip invoices, receipts, and driver commissions completely so the server has zero work to do.",
-        "isOptimal": false,
-        "consequenceText": "Without invoices, corporate riders cannot claim expenses, and drivers never get their commission records. The business faces legal penalties.",
-        "statImpact": {
-          "latency": "Lawless",
-          "capacity": "No Records",
-          "risk": "Tax Violations",
-          "cost": "Unusable"
-        },
-        "whatHappened": {
-          "helped": "Avoided computing background work by deleting features.",
-          "bottleneck": "Engineering must enable features asynchronously, not remove them.",
-          "reflectionQuestion": "Why are invoices and financial receipts legally required for businesses?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Message Queues & Background Processing",
-      "tagline": "Handing off heavy tasks to a background line so users never have to wait",
-      "simpleMeaning": "A Message Queue is an ordered buffer (like a to-do list line) that holds tasks. Instead of making a user wait for slow jobs (like generating PDF invoices, sending emails, or calculating commissions) to finish, the main server quickly drops a message into the queue and lets the user go. Background worker computers pick up tasks from the queue and finish them asynchronously.",
-      "pubgExample": "When your Ola ride ends, the server drops a 'Generate_Invoice' message into Kafka in 3 milliseconds and immediately shows 'Ride Finished!'. In the background, worker servers format your PDF receipt and email it to you while you walk into your office.",
-      "analogy": "A restaurant order ticket: The waiter takes your food order, clips the paper ticket to the kitchen order line (message queue), and immediately walks to the next customer. The chefs in the kitchen (worker servers) cook the meals in the background.",
-      "howItWorks": [
-        "1. Producer (App Server): Creates a message: 'Process Trip #89421' and pushes it into the queue in 2ms.",
-        "2. Instant Response: The rider's phone screen immediately transitions to the rating screen with zero delay.",
-        "3. Message Queue (RabbitMQ / Kafka): Safely stores tasks in order until processed.",
-        "4. Consumers (Worker Fleet): Background servers pull jobs from the queue and send emails, SMS, and update ledgers."
-      ],
-      "whyItMatters": "Keeps user interfaces fast and responsive, and buffers traffic spikes safely so servers don't crash under load.",
-      "visualExplanation": "[Ride Finishes!] ──Drop Task (2ms)──► [Message Queue: Tasks Waiting in Line]\n       │                                                │\n       ▼                                                ▼\n[Rider Exits App Instantly!]            [Background Worker Computers]\n                                        (Generates PDF, Sends Email)",
-      "contrast": {
-        "termA": "Asynchronous (Message Queue)",
-        "descA": "Task dropped in queue; user gets instant response; workers process in background.",
-        "termB": "Synchronous (Blocking)",
-        "descB": "User waits on frozen screen until all calculations, PDF generation, and emails complete."
-      },
-      "teacherNotes": {
-        "concept": "Message Queues, Asynchronous Processing, Producers/Consumers, Kafka, RabbitMQ, Decoupling",
-        "experience": "Students learned why decoupling time-consuming work improves user experience and system reliability.",
-        "realWorld": "Kafka, RabbitMQ, and AWS SQS power asynchronous workflows at Ola, Uber, and Amazon.",
-        "question": "What happens to the tasks in a message queue if traffic suddenly triples for 10 minutes?"
-      },
-      "olaExample": "When your Ola ride ends, the server drops a 'Generate_Invoice' message into Kafka in 3 milliseconds and immediately shows 'Ride Finished!'. In the background, worker servers format your PDF receipt and email it to you while you walk into your office."
-    },
-    "knowledgeCheck": {
-      "question": "What is the primary benefit of using a Message Queue for Ola trip completion tasks?",
-      "options": [
-        {
-          "id": "A",
-          "text": "Riders can exit the app immediately while heavy invoice and email generation happens safely in the background.",
-          "isCorrect": true,
-          "explanation": "Correct! Message queues decouple tasks, keeping user screens fast while workers process jobs asynchronously."
-        },
-        {
-          "id": "B",
-          "text": "It guarantees that the rider will get a free ride tomorrow.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Message queues handle background server tasks, not promotional ride discounts."
-        },
-        {
-          "id": "C",
-          "text": "It deletes the driver's bank account after every trip.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Message queues manage data processing safely without destroying accounts."
-        }
-      ],
-      "hint": "Hint: Think about being handed a token at a bakery—you can sit down while the bakers bake your cake in the back."
-    }
-  },
-  {
-    "id": 26,
-    "stage": 6,
-    "sno": 26,
-    "topic": "Fault Tolerance and Failure Handling",
-    "concept": "Fault Tolerance and Failure Handling",
-    "title": "Level 26: What Happens When a Sub-System Dies Mid-Trip?",
-    "time": "Evening Peak — Live Ride in Progress",
-    "usersCount": "50,000 Live Trips in Progress",
-    "topicHint": "Keeping the System Running Even When Sub-Components Break",
-    "situation": "You are sitting inside an Ola cab moving down the highway. In the cloud data center, a third-party SMS marketing server crashes, and one secondary database replica disk overheats. A beginner programmer panics and suggests shutting down the entire Ola app and cancelling all 50,000 active trips on the road!",
-    "problem": "How should a robust system behave when individual secondary parts or services fail?",
-    "simulationType": "fault_tolerance_resilience",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Apply Fault Tolerance: isolate the failed SMS service, degrade gracefully, and let live cab rides continue smoothly.",
-        "isOptimal": true,
-        "consequenceText": "Masterful engineering! With Fault Tolerance and Graceful Degradation, core ride dispatch and live GPS tracking continue without interruption. The passenger reaches home safely, and the failed background SMS service reboots automatically behind the scenes!",
-        "statImpact": {
-          "latency": "25ms Smooth Trip",
-          "capacity": "Zero Interruption",
-          "risk": "High Resilience",
-          "cost": "Redundant Design"
-        },
-        "whatHappened": {
-          "helped": "Used graceful degradation and health checks to survive partial failure.",
-          "bottleneck": "Treating any single sub-component failure as fatal ruins the entire application.",
-          "reflectionQuestion": "If a car's radio stops working, should the car engine shut off on the highway?"
-        },
-        "successSummary": "Outstanding! You applied fault tolerance principles so active cab rides finished without interruption."
-      },
-      {
-        "id": "B",
-        "text": "Cancel all 50,000 active cab rides on the highway immediately because one secondary marketing SMS server died.",
-        "isOptimal": false,
-        "consequenceText": "Stranding 50,000 passengers on dark highways causes massive panic, police reports, and media fury. The company faces immediate regulatory bans.",
-        "statImpact": {
-          "latency": "Rides Aborted",
-          "capacity": "Massive Outage",
-          "risk": "Public Disaster",
-          "cost": "Total Brand Ruin"
-        },
-        "whatHappened": {
-          "helped": "Overreacted to a minor sub-system failure.",
-          "bottleneck": "Lack of fault isolation allows non-critical failures to bring down critical workloads.",
-          "reflectionQuestion": "Why should non-critical services never bring down core transportation?"
-        }
-      },
-      {
-        "id": "C",
-        "text": "Ignore all errors, turn off crash monitoring, and pretend computer hardware never breaks.",
-        "isOptimal": false,
-        "consequenceText": "Ignoring errors means broken servers stay broken. Unhandled crashes cascade into other services, eventually leading to a complete system blackout.",
-        "statImpact": {
-          "latency": "Unmonitored",
-          "capacity": "Cascading Outages",
-          "risk": "Total Blackout",
-          "cost": "Uncontrollable Failure"
-        },
-        "whatHappened": {
-          "helped": "Ignored failure handling completely.",
-          "bottleneck": "Uncontained failures cascade across distributed networks.",
-          "reflectionQuestion": "What happens if you ignore a warning light on your car dashboard?"
-        }
-      }
-    ],
-    "discovery": {
-      "badge": "Fault Tolerance & Failure Handling",
-      "tagline": "Designing systems to stay alive and functional even when parts break",
-      "simpleMeaning": "Fault Tolerance is the ability of a system to keep operating smoothly even when individual hardware or software parts fail. Key techniques include Redundancy (backup servers ready to take over), Graceful Degradation (non-essential features turn off while core features keep running), and Circuit Breakers (stopping cascading errors).",
-      "pubgExample": "If Ola's driver review rating service crashes, the app degrades gracefully: riders can still book cabs, track routes, and pay fares 100% smoothly while the review service quietly restarts in the background.",
-      "analogy": "A twin-engine passenger airplane: If one engine experiences a failure mid-flight, the plane does not fall out of the sky; it continues flying safely and lands using the second engine.",
-      "howItWorks": [
-        "1. Expect Failure: Hardware, cables, and disks WILL fail eventually in large systems.",
-        "2. Redundancy: Always have standby backup servers ready to take over in seconds.",
-        "3. Graceful Degradation: If a secondary feature (like promo codes or SMS) fails, preserve core cab booking.",
-        "4. Circuit Breakers: Stop sending requests to a broken service so it has time to recover without crashing others."
-      ],
-      "whyItMatters": "Ensures the app maintains 99.99% uptime so passengers don't get stranded on roads during server glitches.",
-      "visualExplanation": "[Core Cab Dispatch Server] ──► [Smooth Ride Continues! (100% Uptime)]\n                                        │\n[SMS Marketing Server Dies!] ──Degrades Gracefully──► (Skips SMS, but ride completes safely!)",
-      "contrast": {
-        "termA": "Fault Tolerant System",
-        "descA": "Components fail independently; core features remain active; self-healing and redundant.",
-        "termB": "Fragile System",
-        "descB": "One tiny secondary error cascades and crashes the entire application for all users."
-      },
-      "teacherNotes": {
-        "concept": "Fault Tolerance, High Availability, Graceful Degradation, Circuit Breaker, Redundancy",
-        "experience": "Students learned why systems must be architected to survive inevitable component failures.",
-        "realWorld": "Netflix built 'Chaos Monkey' to intentionally terminate production servers to prove fault tolerance.",
-        "question": "What is 'graceful degradation' and how does it protect the core rider experience?"
-      },
-      "olaExample": "If Ola's driver review rating service crashes, the app degrades gracefully: riders can still book cabs, track routes, and pay fares 100% smoothly while the review service quietly restarts in the background."
-    },
-    "knowledgeCheck": {
-      "question": "In Ola, which of the following is an example of Fault Tolerance and Graceful Degradation?",
-      "options": [
-        {
-          "id": "A",
-          "text": "If the promotional discount service crashes, the core ride booking and live GPS tracking continue working smoothly.",
-          "isCorrect": true,
-          "explanation": "Correct! Fault tolerance ensures that a secondary failure does not bring down the core transportation experience."
-        },
-        {
-          "id": "B",
-          "text": "The cab stops on the highway and refuses to move until a new update is downloaded.",
-          "isCorrect": false,
-          "explanation": "Incorrect. That would be catastrophic system failure, the exact opposite of fault tolerance."
-        },
-        {
-          "id": "C",
-          "text": "The app uninstalls itself from your phone if you hit a traffic bump.",
-          "isCorrect": false,
-          "explanation": "Incorrect. Road bumps have nothing to do with software fault tolerance."
-        }
-      ],
-      "hint": "Hint: Think about what happens if a reading light on a plane breaks—does the plane keep flying?"
-    }
-  },
-  {
-    "id": 27,
-    "stage": 6,
-    "sno": 27,
-    "topic": "Rate Limiting",
-    "concept": "Rate Limiting",
-    "title": "Level 27: Stopping Bot Scripts from Spamming 10,000 Fake Bookings",
-    "time": "Morning Rush — Security Alert",
-    "usersCount": "1 Malicious Bot Script vs 500,000 Normal Riders",
-    "topicHint": "Limiting Request Speed to Protect Servers from Spam",
-    "situation": "A malicious attacker writes an automated computer bot script that sends 10,000 fake ride booking requests and OTP requests every single second to Ola's servers. The dispatch servers get so overwhelmed answering the bot's spam that legitimate passengers trying to book cabs get connection timeouts and cannot go to work!",
-    "problem": "How can Ola protect its servers and real passengers from being flooded by spam bots?",
+    "id": 17,
+    "stage": 2,
+    "sno": 17,
+    "topic": "Rate Limiting: Token Bucket Algorithms & Bot Traffic Shaping",
+    "concept": "Rate Limiting & Bot Protection",
+    "title": "Level 17: Stopping Bot Scripts from Flooding the App",
+    "time": "Cyber Defense Alert — Ola Gateway",
+    "usersCount": "1 Malicious Script vs. 100,000 Real Riders",
+    "topicHint": "Protecting System Capacity with Fair Usage Turnstiles",
+    "situation": "A malicious bot script targets the Ola dispatch gateway, sending 5,000 fake cab booking requests every second from a single IP address to crash the servers.",
+    "problem": "What should the Ola app do if a single user tries to book 5,000 rides in one second?",
     "simulationType": "rate_limiter_turnstile",
     "choices": [
       {
         "id": "A",
-        "text": "Apply Rate Limiting: enforce a limit of 10 requests per minute per user/IP; block or throttle excess bot spam.",
+        "text": "Block the flood of requests while letting normal passengers book without delay.",
         "isOptimal": true,
-        "consequenceText": "Security victory! With Rate Limiting, the bot's spam is instantly blocked with HTTP 429 'Too Many Requests'. The bot is neutralized, server CPU drops back to normal, and real passengers enjoy fast, uninterrupted cab booking!",
+        "consequenceText": "Exactly right! This is Rate Limiting. Real humans tap 'Book' once or twice; they don't tap 5,000 times a second. The gateway blocks the flood with 'Too Many Requests' while real riders get cabs smoothly.",
         "statImpact": {
-          "latency": "20ms Normal",
-          "capacity": "Protected Fleet",
-          "risk": "Zero Bot Flooding",
-          "cost": "Spam Throttled"
+          "latency": "1ms Block",
+          "capacity": "Bots Blocked",
+          "risk": "Zero Server Crash",
+          "cost": "Defended"
         },
         "whatHappened": {
-          "helped": "Enforced rate limiting to throttle excessive requests from abusive clients.",
-          "bottleneck": "Unconstrained API endpoints allow a single malicious client to consume all server resources.",
-          "reflectionQuestion": "Why does a bank ATM limit you to 3 incorrect PIN attempts?"
+          "helped": "Understood the critical need for rate limiting to protect public gateways from spam attacks.",
+          "bottleneck": "Without rate limits, a single bad script can overwhelm servers and deny service to everyone.",
+          "reflectionQuestion": "How does a subway turnstile ensure people enter one at a time with a valid token?"
         },
-        "successSummary": "Awesome! You implemented rate limiting to protect dispatch servers from abusive bot attacks."
+        "successSummary": "Gate protected! Malicious flood rejected with HTTP 429; genuine riders served smoothly."
       },
       {
         "id": "B",
-        "text": "Allow the bot to send unlimited requests with no restrictions until server memory fills up and crashes for everyone.",
+        "text": "Accept all 5,000 bookings and send 5,000 cabs to the same house.",
         "isOptimal": false,
-        "consequenceText": "The bot exhausts all server memory and network connections. The booking portal crashes, and 500,000 real riders cannot book cabs.",
+        "consequenceText": "Sending 5,000 cabs to one house creates a colossal traffic jam, wastes driver fuel, and strands real passengers across the city.",
         "statImpact": {
-          "latency": "Crashed",
-          "capacity": "Memory Exhausted",
-          "risk": "Denial of Service",
-          "cost": "Total Blackout"
+          "latency": "Chaos",
+          "capacity": "0",
+          "risk": "Physical Gridlock",
+          "cost": "Disaster"
         },
         "whatHappened": {
-          "helped": "Left endpoints open without limits.",
-          "bottleneck": "Unchecked request volume leads to denial of service.",
-          "reflectionQuestion": "What happens if 10,000 people try to enter a small shop at the exact same second?"
+          "helped": "Recognized that software must detect and reject obvious spam.",
+          "bottleneck": "Unfiltered spam processing.",
+          "reflectionQuestion": "Why should systems validate whether a request volume is physically realistic?"
         }
       },
       {
         "id": "C",
-        "text": "Disconnect all human riders from the app so the server can spend 100% of its power answering the bot.",
+        "text": "Shut down the entire app for all users in the city.",
         "isOptimal": false,
-        "consequenceText": "Banning human riders to serve a spam bot completely defeats the purpose of running a business. All riders leave permanently.",
+        "consequenceText": "Shutting down the app gives the hacker exactly what they wanted: taking down the service for all legitimate users.",
         "statImpact": {
-          "latency": "Absurd",
-          "capacity": "Zero Real Users",
-          "risk": "Business Destroyed",
-          "cost": "Total Failure"
+          "latency": "Total Blackout",
+          "capacity": "0",
+          "risk": "Attacker Wins",
+          "cost": "Massive Loss"
         },
         "whatHappened": {
-          "helped": "Sacrificed users to satisfy an attacker.",
-          "bottleneck": "Systems exist to serve legitimate users, not attackers.",
-          "reflectionQuestion": "Why would an online service prioritize bots over real paying passengers?"
+          "helped": "Saw why defensive systems isolate the abuser instead of penalizing everyone.",
+          "bottleneck": "Excessive collateral damage.",
+          "reflectionQuestion": "Why should security systems block only the offender's IP address?"
         }
       }
     ],
     "discovery": {
       "badge": "Rate Limiting",
-      "tagline": "Controlling the speed of incoming requests to protect servers from spam and attacks",
-      "simpleMeaning": "Rate Limiting means setting a maximum number of requests a user, IP address, or device can make in a given time period (for example, maximum 10 requests per minute). If a script or bot sends requests faster than the limit, the server temporarily blocks them with an HTTP 429 'Too Many Requests' response.",
-      "pubgExample": "If an attacker tries to spam the 'Send OTP' or 'Book Cab' button 5,000 times a minute using a bot, Ola's Rate Limiter allows the first few requests and immediately blocks the rest, protecting the server for real riders.",
-      "analogy": "A security bouncer at a popular club entrance: The bouncer allows 5 people through the door per minute so the dance floor doesn't get dangerously crushed.",
+      "tagline": "Enforce fair usage limits so bad actors cannot overwhelm the system",
+      "simpleMeaning": "A museum ticket turnstile: You can only walk through the turnstile if you insert one token. If someone tries to shove 5,000 people through the door in one second, the metal turnstile locks in place and blocks them. Rate limiting is that digital turnstile.",
+      "olaExample": "Ola limits each user to 2 ride booking requests per minute. If a script sends 5,000/sec, the server immediately rejects them with 'HTTP 429: Too Many Requests'.",
+      "analogy": "Only 3 free samples per customer at an ice cream parlor: It prevents one greedy person from eating all the ice cream before others arrive.",
       "howItWorks": [
-        "1. Set Threshold: Define a safe limit (e.g., 5 booking requests per minute per phone number).",
-        "2. Token Bucket Algorithm: Tracks incoming request tokens in fast memory.",
-        "3. Allow Normal Traffic: Real passengers tapping naturally never hit the limit.",
-        "4. Throttle Abuse: Bots sending hundreds of requests per second are blocked with HTTP 429."
+        "1. Token Bucket: Every user gets a digital bucket with 5 tokens. Each request takes 1 token.",
+        "2. Refill: Tokens refill slowly (e.g., 1 token every 10 seconds).",
+        "3. Reject Excess: If the bucket is empty, reject the extra requests instantly at the door."
       ],
-      "whyItMatters": "Protects systems against Denial of Service (DoS) attacks, brute-force OTP guessing, and runaway bugs that flood servers.",
-      "visualExplanation": "[Real Rider: 1 Req/Min] ─────Allowed!───► [Ola Server: Healthy (20ms)]\n[Bot Script: 5,000 Req/Sec] ──Blocked!───► [Rate Limiter (HTTP 429 Too Many Requests)]",
+      "whyItMatters": "Rate limiting stops Denial-of-Service (DoS) attacks, brute-force password guessing, and ticket-scalping bots.",
+      "visualExplanation": "[Bot: 5,000 req/sec] ──► [RATE LIMITER TURNSTILE] ──► [BLOCKED: 429 Too Many Requests 🛑] | [Human: 1 req/sec] ──► [PASSED ✓]",
       "contrast": {
-        "termA": "Rate Limited API",
-        "descA": "Restricts request frequency per user/IP; shields servers from spam bots and DDoS attacks.",
-        "termB": "Unprotected API",
-        "descB": "Accepts unlimited requests; a single spam script can exhaust server memory and crash the app."
+        "termA": "Rate Limited Gateway",
+        "descA": "Protects resources; ensures fair access for all legitimate humans.",
+        "termB": "Unprotected Gateway",
+        "descB": "One malicious script can crash the entire company for everyone."
       },
       "teacherNotes": {
-        "concept": "Rate Limiting, DoS/DDoS Mitigation, Token Bucket, Leaky Bucket, HTTP 429",
-        "experience": "Students learned why rate limiting is essential to preserve server availability under malicious spam.",
-        "realWorld": "Cloudflare, Ola, Twitter, and payment gateways enforce strict rate limits per IP and API key.",
-        "question": "What is the standard HTTP error status code returned when a rate limit is exceeded?"
-      },
-      "olaExample": "If an attacker tries to spam the 'Send OTP' or 'Book Cab' button 5,000 times a minute using a bot, Ola's Rate Limiter allows the first few requests and immediately blocks the rest, protecting the server for real riders."
+        "realWorld": "Token Bucket and Leaky Bucket algorithms running in Redis provide sub-millisecond rate check speeds."
+      }
     },
     "knowledgeCheck": {
-      "question": "Why does Ola enforce Rate Limiting on ride booking and OTP verification requests?",
+      "question": "What is the standard response given to a computer that sends too many requests too quickly?",
       "options": [
         {
           "id": "A",
-          "text": "To prevent spam bots and malicious scripts from flooding the servers and crashing the app for real riders.",
+          "text": "An error message indicating 'Too Many Requests' so the sender must back off.",
           "isCorrect": true,
-          "explanation": "Correct! Rate limiting caps request volume so malicious scripts cannot overwhelm and crash the backend."
+          "explanation": "Correct! HTTP 429 tells the client they exceeded their allowed rate limit."
         },
         {
           "id": "B",
-          "text": "To limit drivers to driving only 10 kilometers per day.",
+          "text": "A coupon for a free meal.",
           "isCorrect": false,
-          "explanation": "Incorrect. Rate limiting is a server network protection tool, not a limit on car driving distance."
+          "explanation": "Rate limiting punishes spam, not rewards it."
         },
         {
           "id": "C",
-          "text": "To force riders to delete their account after 5 minutes.",
+          "text": "A prompt asking for the driver's favorite color.",
           "isCorrect": false,
-          "explanation": "Incorrect. Rate limiting protects servers so riders can book rides safely."
+          "explanation": "Rate limiting is an automated network protocol protection, not a survey."
         }
       ],
-      "hint": "Hint: Think about why a club bouncer limits how many people can enter at once."
+      "hint": "Hint: Think about telling someone to slow down because they are asking too fast."
     }
   },
   {
-    "id": 28,
-    "stage": 7,
-    "sno": 28,
-    "topic": "Geospatial Search and Indexing",
-    "concept": "Geospatial Search and Indexing",
-    "title": "Level 28: Matching the Nearest Available Cab Within 2 Kilometers",
-    "time": "Live Ride Search — Koramangala 5th Block",
-    "usersCount": "100,000 Moving Cabs in City",
-    "topicHint": "Finding Nearest Locations Fast Using Spatial Grids (Geohash / QuadTree)",
-    "situation": "A rider stands outside a cafe in Bangalore and taps 'Book Cab'. There are 100,000 active cabs driving across the entire state of Karnataka. Calculating mathematical distance (using square roots and latitude/longitude math) between this rider and all 100,000 moving cars takes 8 seconds of heavy CPU calculation on the server, causing dispatch to lag!",
-    "problem": "How can Ola locate the closest available cabs within 2 kilometers in 5 milliseconds without checking all 100,000 cars?",
-    "simulationType": "geospatial_spatial_indexing",
+    "id": 18,
+    "stage": 2,
+    "sno": 18,
+    "topic": "Database Sharding: Horizontal Partitioning across Independent Nodes",
+    "concept": "Database Sharding by Region",
+    "title": "Level 18: Splitting 100 Million Records Across Cities",
+    "time": "Pan-India Data Growth — 100 Million Trips",
+    "usersCount": "100 Million Historical Trip Records",
+    "topicHint": "Dividing Massive Storage Across Independent City Machines",
+    "situation": "Ola now has 100 million trip receipts stored in its database. Searching for a driver's trip in Delhi takes 40 seconds because the database has to scan past millions of records from Bangalore and Mumbai.",
+    "problem": "How can Ola quickly manage 100 million ride records without slowing down a single computer?",
+    "simulationType": "database_sharding_ledgers",
     "choices": [
       {
         "id": "A",
-        "text": "Use Geospatial Indexing (like Geohash or QuadTrees) to divide the city map into grid boxes and search only the rider's local box.",
+        "text": "Divide the records across different computers based on city, like Delhi, Mumbai, and Bangalore.",
         "isOptimal": true,
-        "consequenceText": "Brilliant! Geospatial Indexing divides the world map into numbered grid boxes (like Geohashes or Google S2 cells). Instead of calculating distance to 100,000 cars across the state, the server queries only the 15 cabs inside the rider's local 2km grid box in just 4 milliseconds!",
+        "consequenceText": "Exactly right! This is Database Sharding. By putting Delhi trips in a Delhi database and Mumbai trips in a Mumbai database, each machine only searches its own local records in 2 milliseconds.",
         "statImpact": {
-          "latency": "4ms Instant Match",
-          "capacity": "100,000 Cabs Scaled",
-          "risk": "Zero Dispatch Lag",
-          "cost": "Optimized Routing"
+          "latency": "2ms (vs 40s)",
+          "capacity": "City Shards",
+          "risk": "Zero Monolithic Lag",
+          "cost": "Scalable"
         },
         "whatHappened": {
-          "helped": "Indexed geographic coordinates into spatial grids for instant nearest-neighbor lookups.",
-          "bottleneck": "Calculating trigonometric distances across 100,000 moving points in real time melts server CPUs.",
-          "reflectionQuestion": "Why does a postal system use PIN codes instead of measuring distance between every house?"
+          "helped": "Understood database sharding and horizontal data partitioning.",
+          "bottleneck": "Keeping 100 million records in one giant table makes searches crawl to a halt.",
+          "reflectionQuestion": "Why is it faster to find a student's paper in a class folder rather than in a pile of all papers in the country?"
         },
-        "successSummary": "Masterclass! You used geospatial indexing to match nearby cabs in single-digit milliseconds."
+        "successSummary": "Sharding deployed! City-based partitioning reduced query time from 40 seconds to 2 milliseconds."
       },
       {
         "id": "B",
-        "text": "Calculate distance by measuring distance to every single car in India, including cabs 2,000 km away in Kashmir.",
+        "text": "Put all 100 million records into one giant text file.",
         "isOptimal": false,
-        "consequenceText": "Calculating distance across hundreds of thousands of irrelevant cars freezes the server CPU. Ride searches take 20 seconds, and the server crashes.",
+        "consequenceText": "A 100-million-line text file would take 15 minutes just to open and would crash the computer's memory instantly.",
         "statImpact": {
-          "latency": "20-Second Freeze",
-          "capacity": "CPU Melted",
-          "risk": "Dispatch Crash",
-          "cost": "Massive Compute Waste"
+          "latency": "Freeze",
+          "capacity": "0",
+          "risk": "File Corruption",
+          "cost": "Disaster"
         },
         "whatHappened": {
-          "helped": "Used brute-force distance math without spatial indexing.",
-          "bottleneck": "Linear geometric distance calculations fail at scale.",
-          "reflectionQuestion": "Why would a rider in Bangalore care about cars in Kashmir?"
+          "helped": "Realized that giant unindexed files are unusable at scale.",
+          "bottleneck": "Unscalable flat file storage.",
+          "reflectionQuestion": "How do databases divide work across multiple machines?"
         }
       },
       {
         "id": "C",
-        "text": "Assign a random cab from another state, sending a driver 800 km away to pick up the rider.",
+        "text": "Delete yesterday's rides every morning.",
         "isOptimal": false,
-        "consequenceText": "The app tells the rider: 'Your cab is arriving in 16 hours from Hyderabad.' The passenger cancels in disbelief and uninstalls the app.",
+        "consequenceText": "Deleting ride records means riders lose trip receipts for tax filing and drivers lose proof of earnings.",
         "statImpact": {
-          "latency": "16 Hours ETA",
-          "capacity": "Absurd Dispatch",
-          "risk": "Total Brand Ruin",
-          "cost": "Unusable"
+          "latency": "Loss",
+          "capacity": "0",
+          "risk": "Legal Disaster",
+          "cost": "Massive"
         },
         "whatHappened": {
-          "helped": "Ignored geographic proximity.",
-          "bottleneck": "Ride-hailing requires tight geographical proximity matching.",
-          "reflectionQuestion": "How close should a cab be when assigned to a rider?"
+          "helped": "Recognized that business records must be retained.",
+          "bottleneck": "Unacceptable data destruction.",
+          "reflectionQuestion": "How can systems keep all data while maintaining high search speed?"
         }
       }
     ],
     "discovery": {
-      "badge": "Geospatial Search and Indexing",
-      "tagline": "Organizing geographic coordinates into spatial grids for instant nearby lookups",
-      "simpleMeaning": "Geospatial Indexing is a way of organizing latitude and longitude coordinates into fast lookup structures (like Geohashes, QuadTrees, or Google S2 cells). Instead of calculating distances to every car on Earth, the system divides the world into grid cells so it can find nearest drivers in single-digit milliseconds.",
-      "pubgExample": "When you tap 'Book Auto' in Indiranagar, Ola converts your GPS coordinates into a quick Geohash grid box (e.g. `tdr1v9`). The database checks only the cabs currently located inside that same grid box and assigns driver Ramesh in 3 milliseconds.",
-      "analogy": "Postal PIN Codes: Instead of a postman measuring the physical distance from his office to every house in the country, letters are sorted by Postal PIN Code (e.g., 560034) so only local delivery hubs handle local houses.",
+      "badge": "Database Sharding",
+      "tagline": "Divide giant tables into smaller independent pieces spread across multiple servers",
+      "simpleMeaning": "A library with multiple floors: If all 100,000 books were dumped in one giant pile in the lobby, finding a book would take hours. Instead, Floor 1 holds History, Floor 2 holds Science, and Floor 3 holds Fiction. You go directly to the right floor in seconds.",
+      "olaExample": "Ola shards ride databases by City ID. Delhi queries go to the Delhi database cluster; Bangalore queries go to the Bangalore cluster.",
+      "analogy": "Phone books: Instead of one massive phonebook for all of India, every city has its own local phonebook.",
       "howItWorks": [
-        "1. Spatial Grid: The Earth's surface is divided into a hierarchical grid of cells (like Geohash strings).",
-        "2. Fast Prefix Matching: Nearby locations share the exact same starting prefix characters (e.g., `tdr1v*`).",
-        "3. Instant Nearest Neighbor: The system queries only cabs inside the rider's immediate and 8 adjacent neighbor grid cells.",
-        "4. Single-Digit Milliseconds: Dispatches the closest cab in 4 milliseconds, keeping battery usage low and response instant."
+        "1. Shard Key: Pick an attribute to divide by (e.g. `City_ID`).",
+        "2. Route Query: If a rider is in Mumbai, the app router directs the query straight to the Mumbai Shard.",
+        "3. Small & Fast: Each database only handles a fraction of the total data, keeping lookups lightning-fast."
       ],
-      "whyItMatters": "Powers proximity matching in ride-hailing apps (Ola, Uber), food delivery (Swiggy, Zomato), quick commerce (Blinkit, Zepto), and maps.",
-      "visualExplanation": "[Rider at Lat 12.97, Long 77.59] ──► [Maps to Geohash: 'tdr1v']\n                                               │\n┌──────────────────────────────────────────────┴──────────────────────────────────────────────┐\n▼                                                                                             ▼\n[Search inside 'tdr1v' Grid: 12 Local Cabs (4ms)]                              [Skip 99,988 Cabs Elsewhere!]\nNearest Cab Found: Driver Ramesh (3 Mins Away!)",
+      "whyItMatters": "Sharding allows companies to grow to billions of records without hitting hardware memory ceilings.",
+      "visualExplanation": "[Query: Delhi Ride] ──► [Router Checks City] ──► Direct to [Delhi Shard (2ms!)] (Ignores Mumbai & Bangalore)",
       "contrast": {
-        "termA": "Geospatially Indexed Search",
-        "descA": "Divides map into spatial grid cells; nearest cabs found in 4 milliseconds; low CPU usage.",
-        "termB": "Brute-Force Coordinate Math",
-        "descB": "Calculates trigonometric distance across 100,000 cars; melts CPU and freezes booking."
+        "termA": "Sharded Database",
+        "descA": "Data split across multiple servers; queries route directly to the specific slice.",
+        "termB": "Giant Single Database",
+        "descB": "One huge disk tries to hold all data in the world, eventually choking and slowing down."
       },
       "teacherNotes": {
-        "concept": "Geospatial Indexing, Geohash, QuadTrees, Google S2, Spatial Databases (PostGIS, Redis GEO)",
-        "experience": "Students learned how spatial indexes solve location-based search without brute-force math.",
-        "realWorld": "Ola, Uber, and Swiggy rely on Redis GEO and Google S2 to match millions of drivers and orders every second.",
-        "question": "Why is dividing a map into grid cells faster than calculating distance to every single coordinate?"
-      },
-      "olaExample": "When you tap 'Book Auto' in Indiranagar, Ola converts your GPS coordinates into a quick Geohash grid box (e.g. `tdr1v9`). The database checks only the cabs currently located inside that same grid box and assigns driver Ramesh in 3 milliseconds."
+        "realWorld": "Consistent hashing and virtual nodes prevent uneven data hotspotting across shards."
+      }
     },
     "knowledgeCheck": {
-      "question": "How does Geospatial Indexing help the Ola app assign the closest cab in just 4 milliseconds?",
+      "question": "What is the key used to decide which database machine stores a particular ride record called?",
       "options": [
         {
           "id": "A",
-          "text": "It divides the map into spatial grid boxes so the server only searches cabs inside the rider's local neighborhood grid.",
+          "text": "The Shard Key (such as City ID or User ID).",
           "isCorrect": true,
-          "explanation": "Correct! Geospatial indexing bounds queries to local grid boxes, finding nearest drivers in milliseconds."
+          "explanation": "Correct! The shard key determines how data is partitioned across independent nodes."
         },
         {
           "id": "B",
-          "text": "It teleports the cab through a magical wormhole into the rider's living room.",
+          "text": "The car's physical ignition key.",
           "isCorrect": false,
-          "explanation": "Incorrect. Geospatial indexing routes data over servers; it does not teleport physical objects."
+          "explanation": "Car ignition keys start engines; database shard keys partition software records."
         },
         {
           "id": "C",
-          "text": "It forces all drivers to park their cars and sleep.",
+          "text": "The driver's shoe size.",
           "isCorrect": false,
-          "explanation": "Incorrect. Geospatial indexing helps active drivers get ride assignments quickly."
+          "explanation": "Shoe size is irrelevant to database architecture."
         }
       ],
-      "hint": "Hint: Think about sorting packages by postal PIN codes instead of measuring distance to every house in the country."
+      "hint": "Hint: Think about the attribute used to split the data (like city or region)."
+    }
+  },
+  {
+    "id": 19,
+    "stage": 2,
+    "sno": 19,
+    "topic": "CAP Theorem: Consistency, Availability, and Partition Tolerance",
+    "concept": "CAP Theorem Trade-offs",
+    "title": "Level 19: When the Telecom Cable Between Cities Breaks",
+    "time": "Underground Fiber Cut — Highway Construction",
+    "usersCount": "Delhi Cluster vs. Bangalore Cluster",
+    "topicHint": "Choosing Between 100% Identical Data vs. Keeping the App Running",
+    "situation": "A road construction crew accidentally severs the underground optical fiber line connecting Ola's Delhi and Bangalore datacenters. The two regional servers can no longer talk to each other.",
+    "problem": "If the internet line between two city offices breaks, what choice must the app make?",
+    "simulationType": "cap_network_partition",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Either keep serving rides locally with delayed updates, or pause booking until the line is repaired.",
+        "isOptimal": true,
+        "consequenceText": "Exactly right! This is the CAP Theorem. When a network partition happens, you MUST choose between Availability (keep booking cabs locally in Delhi and Bangalore) OR Consistency (pause bookings so data stays 100% in sync). You cannot have both at once during a cut.",
+        "statImpact": {
+          "latency": "Local 10ms",
+          "capacity": "AP Available",
+          "risk": "Sync Delayed",
+          "cost": "Resilient"
+        },
+        "whatHappened": {
+          "helped": "Understood the fundamental CAP Theorem trade-off during network partitions.",
+          "bottleneck": "Believing a distributed system can maintain both perfect real-time sync and 100% uptime when the physical wire is cut.",
+          "reflectionQuestion": "Why does a ride app prefer keeping cabs moving locally rather than freezing all cars across the country?"
+        },
+        "successSummary": "CAP trade-off made! Availability chosen: local riders continue booking cabs while fiber is repaired."
+      },
+      {
+        "id": "B",
+        "text": "Turn off every mobile phone in the country.",
+        "isOptimal": false,
+        "consequenceText": "Turning off user phones is impossible and would destroy customer trust completely.",
+        "statImpact": {
+          "latency": "Outage",
+          "capacity": "0",
+          "risk": "Absurd",
+          "cost": "Total"
+        },
+        "whatHappened": {
+          "helped": "Saw why systems must adapt gracefully rather than crashing user hardware.",
+          "bottleneck": "Unrealistic intervention.",
+          "reflectionQuestion": "How should software behave when internet connections between cities drop?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "Make all cab rides free until the line is fixed.",
+        "isOptimal": false,
+        "consequenceText": "Giving away millions in free rides bankrupts the company; CAP is about data synchronization, not pricing promotions.",
+        "statImpact": {
+          "latency": "Free Fall",
+          "capacity": "Bankrupt",
+          "risk": "Financial Ruin",
+          "cost": "Total Loss"
+        },
+        "whatHappened": {
+          "helped": "Confused distributed consensus with promotional giveaways.",
+          "bottleneck": "Ignoring the technical trade-off.",
+          "reflectionQuestion": "What is the real dilemma when two computers lose communication?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "CAP Theorem",
+      "tagline": "Consistency (Everyone sees identical data) vs. Availability (Everyone gets an answer)",
+      "simpleMeaning": "Two bank branches during a phone blackout: A traveler wants to withdraw money in Delhi, but the phone line to their home branch in Bangalore is cut. Does the Delhi teller (1) Give them money to be helpful (Availability), risking they might spend more than they have, or (2) Refuse the withdrawal until the line is fixed to protect exact numbers (Consistency)? You can't do both.",
+      "olaExample": "Ola picks Availability (AP): Riders in Delhi can still book local Delhi cabs even if the line to Bangalore is down. The systems sync up once the fiber is reconnected.",
+      "analogy": "Writing letters during a snowstorm: You keep doing your daily work locally even if the mail carrier cannot reach the next village today.",
+      "howItWorks": [
+        "1. Partition Happens (P): Underground fiber cut disconnects two server regions.",
+        "2. Choice A (CP): Block bookings until servers can talk. 100% consistent, but app stops for riders.",
+        "3. Choice B (AP): Keep booking cabs locally. App stays running, and data syncs up later once the wire is fixed."
+      ],
+      "whyItMatters": "Understanding CAP ensures architects design resilient systems that stay operational even when network cables break.",
+      "visualExplanation": "[FIBER CABLE CUT ⚡] ──► Pick: [AP: Keep Cabs Moving Locally ✓] OR [CP: Freeze App Nationwide Until Fixed]",
+      "contrast": {
+        "termA": "Availability (AP)",
+        "descA": "Keep the app working for users, accepting that sync will happen a bit later.",
+        "termB": "Consistency (CP)",
+        "descB": "Block requests until every computer in the world confirms the exact same number."
+      },
+      "teacherNotes": {
+        "realWorld": "Eric Brewer's CAP Theorem proves that no distributed system can achieve both C and A in the presence of P."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "Why does a ride-hailing app like Ola generally prioritize Availability (AP) during a network partition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because stranding passengers in the rain is worse than letting local servers sync their ride records an hour later.",
+          "isCorrect": true,
+          "explanation": "Correct! Keeping cabs moving locally provides the best real-world user safety and service continuity."
+        },
+        {
+          "id": "B",
+          "text": "Because passengers love when the app shows a white error screen.",
+          "isCorrect": false,
+          "explanation": "White error screens lead to angry passengers and lost revenue."
+        },
+        {
+          "id": "C",
+          "text": "Because fiber optic cables cannot be repaired by humans.",
+          "isCorrect": false,
+          "explanation": "Cables are repaired all the time by telecom technicians."
+        }
+      ],
+      "hint": "Hint: Think about whether passengers need to get home safely during bad weather."
+    }
+  },
+  {
+    "id": 20,
+    "stage": 2,
+    "sno": 20,
+    "topic": "BASE: Basically Available, Soft State, Eventual Consistency",
+    "concept": "Eventual Consistency in Real-Time Maps",
+    "title": "Level 20: Why Car Icons Can Be Half a Second Behind",
+    "time": "Live Map Tracking — Indiranagar 100 Feet Road",
+    "usersCount": "50,000 Live Animated Maps",
+    "topicHint": "Keeping the Screen Fast and Smooth Even if Data Catches Up Shortly After",
+    "situation": "A rider watches little yellow cab icons glide across their map screen. A junior engineer worries: 'Wait! The cab icon on the map is 300 milliseconds behind the physical car's exact tire position on the asphalt!'",
+    "problem": "When looking at cabs on your map, why is it okay if a car's icon is half a second behind where the car is on the road?",
+    "simulationType": "base_eventual_consistency",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The app stays fast and smooth, and the position catches up in a tiny fraction of a second anyway.",
+        "isOptimal": true,
+        "consequenceText": "Exactly right! This is Eventual Consistency (the 'E' in BASE). For moving cars, having the icon catch up in 300 milliseconds is completely fine for human eyes. Demanding 100% microsecond perfection would freeze the phone screen.",
+        "statImpact": {
+          "latency": "300ms Smooth",
+          "capacity": "50k Live Maps",
+          "risk": "Zero Freeze",
+          "cost": "Lightweight"
+        },
+        "whatHappened": {
+          "helped": "Understood why eventual consistency is perfect for streaming location updates.",
+          "bottleneck": "Demanding instant global synchronization for moving cars freezes phones with network lag.",
+          "reflectionQuestion": "Does a passenger waiting for a pickup notice if the car icon is 0.3 seconds behind reality?"
+        },
+        "successSummary": "Eventual consistency verified! Screen stays smooth; car position syncs up fractions of a second later."
+      },
+      {
+        "id": "B",
+        "text": "Drivers prefer hiding from passengers on the map.",
+        "isOptimal": false,
+        "consequenceText": "Drivers want passengers to find them quickly; small latency is a natural network reality, not driver hiding.",
+        "statImpact": {
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Confusion",
+          "cost": "None"
+        },
+        "whatHappened": {
+          "helped": "Guessed personal motives instead of network physics.",
+          "bottleneck": "Missing streaming mechanics.",
+          "reflectionQuestion": "Why does cellular data transmission take a fraction of a second to travel through the air?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "City roads change their names every few seconds.",
+        "isOptimal": false,
+        "consequenceText": "Street names do not change every second; network transmission delay is the only reason for the tiny time difference.",
+        "statImpact": {
+          "latency": "Irrelevant",
+          "capacity": "0",
+          "risk": "Absurd",
+          "cost": "None"
+        },
+        "whatHappened": {
+          "helped": "Invented false geographic claims.",
+          "bottleneck": "Overlooking signal transmission delays.",
+          "reflectionQuestion": "How does eventual consistency keep animations silky smooth?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "BASE & Eventual Consistency",
+      "tagline": "Fast, smooth, and usable right now — data will catch up in a split second",
+      "simpleMeaning": "Watching live sports on TV: When your favorite team scores a goal, the TV broadcast shows it about 2 seconds after the player actually kicked the ball in the stadium. You still enjoy the game completely. Demanding 0.0000-second perfection would cause the video to buffer and stutter.",
+      "olaExample": "Ola updates driver map markers using eventual consistency. The car icon glides smoothly, syncing to the exact GPS spot in fractions of a second.",
+      "analogy": "Social media likes: When a celebrity posts a photo, seeing 10,000 likes vs 10,005 likes doesn't matter; the count catches up eventually.",
+      "howItWorks": [
+        "1. Basically Available: The app responds immediately without making the user stare at a spinning circle.",
+        "2. Soft State: Data is in motion and updating continuously.",
+        "3. Eventual Consistency: Within a few hundred milliseconds, all screens catch up to the latest position."
+      ],
+      "whyItMatters": "Eventual consistency makes apps feel instantaneous, responsive, and fluid under massive user volume.",
+      "visualExplanation": "[Cab Moves on Road] ──(300ms Transit)──► [Icon Glides Smoothly on Phone Map ✓] ──► (Eventual Sync!)",
+      "contrast": {
+        "termA": "Eventual Consistency (BASE)",
+        "descA": "Smooth, instant response; exact numbers settle a fraction of a second later.",
+        "termB": "Immediate Strict Consistency (ACID)",
+        "descB": "Locks everything until 100% verified; required for money, but too slow for moving car animations."
+      },
+      "teacherNotes": {
+        "realWorld": "NoSQL stores like Cassandra and DynamoDB leverage eventual consistency to deliver extreme write throughput."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "For which of the following features is Eventual Consistency totally acceptable in the Ola app?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Showing the live moving car icon gliding on the passenger's map screen.",
+          "isCorrect": true,
+          "explanation": "Correct! A split-second delay in visual icon tracking is completely harmless."
+        },
+        {
+          "id": "B",
+          "text": "Deducting money from a passenger's bank account.",
+          "isCorrect": false,
+          "explanation": "Bank balance changes must have strict, immediate consistency (ACID), never guessing."
+        },
+        {
+          "id": "C",
+          "text": "Verifying if a passenger's one-time password (OTP) is correct.",
+          "isCorrect": false,
+          "explanation": "OTP verification requires immediate strict accuracy to prevent unauthorized logins."
+        }
+      ],
+      "hint": "Hint: Think about visual updates where being 0.3 seconds behind causes no harm."
+    }
+  },
+  {
+    "id": 21,
+    "stage": 2,
+    "sno": 21,
+    "topic": "Fault Tolerance & Resilience: Redundancy, Recovery, Graceful Degradation",
+    "concept": "Fault Tolerance & Circuit Breakers",
+    "title": "Level 21: Surviving Sub-System Outages Mid-Trip",
+    "time": "Peak Traffic — 3rd Party Partner Outage",
+    "usersCount": "80,000 Live Rides in Progress",
+    "topicHint": "Quarantining Broken Secondary Services so Core Cab Bookings Keep Rolling",
+    "situation": "A third-party external company that sends promotional marketing SMS texts suffers a server fire and stops responding completely.",
+    "problem": "If the computer that sends promotional text messages stops working, what should happen to cab bookings?",
+    "simulationType": "fault_tolerance_resilience",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Cab bookings should keep working normally, ignoring the broken text message system.",
+        "isOptimal": true,
+        "consequenceText": "Exactly right! This is Graceful Degradation. When non-essential features fail, the system flips a digital circuit breaker to quarantine the problem. Passengers can still book and ride cabs with zero interruption.",
+        "statImpact": {
+          "latency": "12ms",
+          "capacity": "Core Cab Booking 100%",
+          "risk": "Zero Cascade",
+          "cost": "Resilient"
+        },
+        "whatHappened": {
+          "helped": "Understood failure isolation and graceful degradation.",
+          "bottleneck": "Letting a secondary failing feature freeze the core ride dispatch engine.",
+          "reflectionQuestion": "Why should a car's radio breaking not cause the steering wheel and brakes to lock up?"
+        },
+        "successSummary": "Fault isolated! Circuit breaker opened; broken marketing server quarantined while rides roll smoothly."
+      },
+      {
+        "id": "B",
+        "text": "The whole app should shut down so no one can book a cab.",
+        "isOptimal": false,
+        "consequenceText": "Shutting down the entire ride service because promotional coupons can't send is terrible engineering and costs millions.",
+        "statImpact": {
+          "latency": "Down",
+          "capacity": "0",
+          "risk": "Total Collapse",
+          "cost": "High Loss"
+        },
+        "whatHappened": {
+          "helped": "Saw why secondary bugs should never kill the main application.",
+          "bottleneck": "Tight coupling and cascading failure.",
+          "reflectionQuestion": "How do circuit breakers protect core services from external outages?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "All cabs should stop moving in the middle of the road.",
+        "isOptimal": false,
+        "consequenceText": "Stopping physical cars on highways would cause massive road accidents; software bugs must never endanger real-world safety.",
+        "statImpact": {
+          "latency": "Emergency",
+          "capacity": "0",
+          "risk": "Life Threat",
+          "cost": "Extreme"
+        },
+        "whatHappened": {
+          "helped": "Recognized physical safety boundaries in system design.",
+          "bottleneck": "Unsafe system behavior.",
+          "reflectionQuestion": "How does graceful degradation guarantee safety?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Fault Tolerance & Resilience",
+      "tagline": "When one secondary part breaks, isolate it so the main engine keeps running",
+      "simpleMeaning": "Car electrical fuses: If the radio in your car blows a fuse, your headlights, steering wheel, and engine keep working 100% normally. You don't crash on the highway because of a broken radio. Circuit breakers isolate the fault.",
+      "olaExample": "If the third-party SMS coupon provider goes down, Ola's circuit breaker trips open. Cab bookings and GPS matching continue with zero lag.",
+      "analogy": "A submarine with watertight bulkheads: If one compartment springs a leak, steel doors seal it off so the rest of the ship stays afloat.",
+      "howItWorks": [
+        "1. Failure Detection: The system notices the SMS server timing out repeatedly.",
+        "2. Circuit Breaker Trips: Stop calling the broken SMS service immediately.",
+        "3. Graceful Fallback: Continue booking cabs normally; re-test the SMS service quietly in the background."
+      ],
+      "whyItMatters": "Fault tolerance prevents minor partner glitches from causing catastrophic company-wide blackouts.",
+      "visualExplanation": "[SMS Service Dies! 🔥] ──► [CIRCUIT BREAKER OPENS ⚡] ──► [Core Cab Dispatch Stays 100% Active ✓]",
+      "contrast": {
+        "termA": "Fault Tolerant (Resilient)",
+        "descA": "Isolates failures; secondary glitches never stop primary customer features.",
+        "termB": "Brittle System",
+        "descB": "One tiny broken button causes the entire mobile app to freeze and crash."
+      },
+      "teacherNotes": {
+        "realWorld": "Netflix Hystrix and Resilience4j popularized the Circuit Breaker pattern in microservice ecosystems."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "What is the primary purpose of a software Circuit Breaker in the Ola backend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To isolate a failing sub-service so it doesn't drag down and crash the core cab booking system.",
+          "isCorrect": true,
+          "explanation": "Correct! It stops calls to failing components to prevent cascading application crashes."
+        },
+        {
+          "id": "B",
+          "text": "To turn off the headlights of all yellow cabs at midnight.",
+          "isCorrect": false,
+          "explanation": "Automotive lighting is controlled by car drivers, not backend software circuit breakers."
+        },
+        {
+          "id": "C",
+          "text": "To give free promo codes to passengers.",
+          "isCorrect": false,
+          "explanation": "Circuit breakers handle failure resilience, not marketing discounts."
+        }
+      ],
+      "hint": "Hint: Think about electrical fuses protecting your house from a short circuit."
+    }
+  },
+  {
+    "id": 22,
+    "stage": 2,
+    "sno": 22,
+    "topic": "Stream Processing & WebSockets: Real-Time Pipelines, Persistent Two-Way Communication",
+    "concept": "Real-Time Streaming & WebSockets",
+    "title": "Level 22: Watching Your Cab Glide Smoothly on the Map",
+    "time": "Active Trip Telemetry — Driver Approaching",
+    "usersCount": "100,000 Live Moving Cabs",
+    "topicHint": "Keeping an Open Two-Way Line for Live Continuous Movement",
+    "situation": "A passenger stands outside an office waiting for their booked cab. On the phone screen, the little yellow cab glides smoothly down the road toward the pickup point in real time.",
+    "problem": "How does your phone show a moving cab gliding smoothly across the map without you having to tap refresh every second?",
+    "simulationType": "stream_websockets",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The driver's phone keeps an open line with the computer to send new positions continuously.",
+        "isOptimal": true,
+        "consequenceText": "Spot on! This is persistent two-way communication (WebSockets). Instead of hanging up and redialing every second, the phone keeps an open connection, streaming coordinates smoothly like a live walkie-talkie.",
+        "statImpact": {
+          "latency": "5ms Stream",
+          "capacity": "100k Live Streams",
+          "risk": "Zero Refresh Needed",
+          "cost": "Lightweight"
+        },
+        "whatHappened": {
+          "helped": "Understood persistent two-way streaming vs repeated polling.",
+          "bottleneck": "Re-establishing full connections every second causes massive battery drain and server overhead.",
+          "reflectionQuestion": "Why is keeping a walkie-talkie channel open better than dialing a new phone call for every single sentence?"
+        },
+        "successSummary": "Streaming connection verified! Cab coordinates flow continuously with zero manual refreshes."
+      },
+      {
+        "id": "B",
+        "text": "The phone guesses where the car is by looking at the weather forecast.",
+        "isOptimal": false,
+        "consequenceText": "Weather reports tell you about rain and clouds; they have zero information about where a specific cab is driving.",
+        "statImpact": {
+          "latency": "Blind Guess",
+          "capacity": "0",
+          "risk": "Wrong Location",
+          "cost": "None"
+        },
+        "whatHappened": {
+          "helped": "Saw why vehicle tracking requires live telemetry, not environmental guesses.",
+          "bottleneck": "Using irrelevant data sources.",
+          "reflectionQuestion": "How does GPS hardware determine actual vehicle position?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "The driver calls the passenger every 5 seconds to say where they are.",
+        "isOptimal": false,
+        "consequenceText": "Calling every 5 seconds while driving is illegal, dangerous, and physically impossible for drivers to do.",
+        "statImpact": {
+          "latency": "Hazardous",
+          "capacity": "0",
+          "risk": "Accident Risk",
+          "cost": "Illegal"
+        },
+        "whatHappened": {
+          "helped": "Recognized the need for automated background digital telemetry.",
+          "bottleneck": "Manual human distraction.",
+          "reflectionQuestion": "How do background digital streams automate telemetry invisibly?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Real-Time Streaming & WebSockets",
+      "tagline": "Keep a live, open channel so data flows continuously in real time",
+      "simpleMeaning": "A phone call vs. sending letters: If you send a postal letter every time you take a step, updates take days. If you keep an open phone call running on speaker, the other person hears your steps in real time. WebSockets is that open speakerphone line.",
+      "olaExample": "The Ola driver app keeps a WebSocket connection open to Ola servers, streaming latitude and longitude coordinates every 2 seconds.",
+      "analogy": "A garden water hose: Once the valve is open, water flows continuously without you having to turn the tap on and off every second.",
+      "howItWorks": [
+        "1. Handshake: Phone and server establish an open persistent socket connection.",
+        "2. Live Stream: Driver app pushes small GPS coordinate packets continuously.",
+        "3. Instant Broadcast: Server pushes the coordinate straight to the passenger's screen in 5 milliseconds."
+      ],
+      "whyItMatters": "Persistent streams eliminate network connection overhead and deliver smooth, real-time live map animations.",
+      "visualExplanation": "[Driver Phone] ──(Live Open Socket Stream: Lat/Long)──► [Ola Gateway] ──► [Passenger Map Glides ✓]",
+      "contrast": {
+        "termA": "Persistent Stream (WebSockets)",
+        "descA": "Single open connection; coordinates push instantly with microsecond latency.",
+        "termB": "Repeated Polling (HTTP)",
+        "descB": "Tears down and rebuilds a new connection every second, wasting data and battery."
+      },
+      "teacherNotes": {
+        "realWorld": "Real-time transport systems combine WebSockets with pub/sub event brokers like Apache Kafka."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "Why are WebSockets preferred over standard web requests for live cab tracking on a map?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They maintain a continuous open line so location updates flow instantly without reconnecting each time.",
+          "isCorrect": true,
+          "explanation": "Correct! WebSockets avoid the heavy overhead of creating new connections every second."
+        },
+        {
+          "id": "B",
+          "text": "They make the cab driver play music through the phone speaker.",
+          "isCorrect": false,
+          "explanation": "WebSockets are a networking transport protocol, not an audio music player."
+        },
+        {
+          "id": "C",
+          "text": "They clean the passenger's phone screen automatically.",
+          "isCorrect": false,
+          "explanation": "WebSockets manage digital data packets, not physical screen cleaning."
+        }
+      ],
+      "hint": "Hint: Think about keeping an open line versus dialing a new phone number every second."
+    }
+  },
+  {
+    "id": 23,
+    "stage": 2,
+    "sno": 23,
+    "topic": "Geospatial Search: Coordinates, Proximity Queries, Spatial Indexing",
+    "concept": "Geospatial Search & Proximity Queries",
+    "title": "Level 23: Finding the 3 Nearest Cabs in 2 Seconds",
+    "time": "Pickup Request — Indiranagar 100 Feet Road",
+    "usersCount": "50,000 Cabs in City",
+    "topicHint": "Searching Inside Local Neighborhood Map Boxes Instead of Scanning the Whole Country",
+    "situation": "A passenger taps 'Book Cab' at Indiranagar. There are 50,000 cabs in the city and 500,000 across India. The app needs to find the 3 closest available drivers in under 2 seconds.",
+    "problem": "When you open the Ola app, how does it find the 3 closest cabs near you in just a couple of seconds?",
+    "simulationType": "geospatial_spatial_indexing",
+    "choices": [
+      {
+        "id": "A",
+        "text": "It only checks cabs inside your neighborhood box instead of scanning every car in the whole country.",
+        "isOptimal": true,
+        "consequenceText": "Exactly right! This is Spatial Indexing. The map is divided into little grid boxes (like city postal pin codes). The computer only searches the box you are standing in and the 8 surrounding boxes, matching 3 nearby cabs in 4 milliseconds!",
+        "statImpact": {
+          "latency": "4ms (vs 45s)",
+          "capacity": "Spatial Quad-Tree",
+          "risk": "Zero Delay",
+          "cost": "Instant Match"
+        },
+        "whatHappened": {
+          "helped": "Understood geospatial indexing and bounding-box proximity searches.",
+          "bottleneck": "Calculating geometric distance to all 500,000 cars in the country one by one takes 45 seconds and drains computer power.",
+          "reflectionQuestion": "Why is it faster to search for a book in one specific bookshelf rather than inspecting every book in the entire city library?"
+        },
+        "successSummary": "Nearest cabs matched! Spatial indexing found 3 drivers within 800m in just 4 milliseconds."
+      },
+      {
+        "id": "B",
+        "text": "It calculates the distance to all 500,000 cars in India one by one.",
+        "isOptimal": false,
+        "consequenceText": "Calculating mathematical distance to 500,000 cars one-by-one for every single search takes over 45 seconds and melts database processors.",
+        "statImpact": {
+          "latency": "45s Crawl",
+          "capacity": "Overloaded",
+          "risk": "CPU Collapse",
+          "cost": "Massive"
+        },
+        "whatHappened": {
+          "helped": "Saw why brute-force distance calculation fails at scale.",
+          "bottleneck": "Full-table scanning across global coordinates.",
+          "reflectionQuestion": "Why does a passenger in Bangalore never care about a cab driving in Delhi?"
+        }
+      },
+      {
+        "id": "C",
+        "text": "It assigns a random cab from anywhere in the country.",
+        "isOptimal": false,
+        "consequenceText": "Assigning a random cab could match a passenger in Bangalore with a driver 2,000km away in Delhi, taking 3 days to arrive!",
+        "statImpact": {
+          "latency": "3 Days Arrival",
+          "capacity": "0",
+          "risk": "Useless Match",
+          "cost": "Disaster"
+        },
+        "whatHappened": {
+          "helped": "Recognized that proximity matching must be geographically accurate.",
+          "bottleneck": "Ignoring spatial coordinates.",
+          "reflectionQuestion": "Why is proximity the core requirement for taxi dispatch?"
+        }
+      }
+    ],
+    "discovery": {
+      "badge": "Geospatial Indexing",
+      "tagline": "Carve the map into spatial grid cells to match nearby drivers in milliseconds",
+      "simpleMeaning": "Postal Pin Codes: If someone asks where you live, they don't search through 1.4 billion people one by one. They look at your postal pin code (e.g. 560038), which instantly narrows the search to a small neighborhood. Geospatial indexing is a digital pin code system for maps.",
+      "olaExample": "Ola divides the earth into hexagonal cells using spatial algorithms (like Uber H3 or Geohash). A pickup in Indiranagar only checks drivers inside Cell #88618925 and adjacent cells.",
+      "analogy": "Chessboard squares: If your piece is on square E4, you only check adjacent squares (E5, D4, F4), not all 64 squares on the board.",
+      "howItWorks": [
+        "1. Spatial Grid: The world map is partitioned into indexed cells (e.g., 500-meter hexagons).",
+        "2. Driver Hashing: Every car coordinate maps to a specific cell ID in memory.",
+        "3. Proximity Query: Find drivers whose cell ID matches the passenger's cell or the 6 adjacent cells in 4 milliseconds."
+      ],
+      "whyItMatters": "Geospatial indexing allows apps to match millions of riders with nearby drivers in milliseconds without brute-force math.",
+      "visualExplanation": "[Rider at Indiranagar] ──► [Search Cell #560038 (2km radius)] ──► [3 Cabs Matched in 4ms ✓] (Ignores 499,997 cars far away!)",
+      "contrast": {
+        "termA": "Geospatial Index (H3/Geohash)",
+        "descA": "Divides map into grid cells; searches only the local neighborhood in 4ms.",
+        "termB": "Brute-Force Calculation",
+        "descB": "Calculates math distance to all 500,000 cars in the nation, taking 45 seconds."
+      },
+      "teacherNotes": {
+        "realWorld": "Mobility companies use Uber H3 hexagonal hierarchical spatial indexes and Redis GEO commands."
+      }
+    },
+    "knowledgeCheck": {
+      "question": "How does spatial indexing help the Ola app find nearby drivers so quickly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It cuts the map into small grid cells and only checks cars in your immediate local cell.",
+          "isCorrect": true,
+          "explanation": "Correct! It filters out 99.9% of distant cars instantly, searching only the local grid."
+        },
+        {
+          "id": "B",
+          "text": "It paints all nearby cabs bright green so they show up brighter on the phone screen.",
+          "isCorrect": false,
+          "explanation": "Spatial indexing is mathematical spatial partitioning, not car painting."
+        },
+        {
+          "id": "C",
+          "text": "It makes the driver honk their car horn three times.",
+          "isCorrect": false,
+          "explanation": "Honking horns is physical sound, not software database indexing."
+        }
+      ],
+      "hint": "Hint: Think about searching within your neighborhood postal code box."
     }
   }
 ];
 
-// Expose globally for browser usage
+// Browser and Node.js environment exports
 if (typeof window !== 'undefined') {
   window.GAME_STAGES = STAGES;
   window.GAME_LEVELS = LEVELS;
@@ -3463,7 +2700,6 @@ if (typeof window !== 'undefined') {
   window.LEVELS = LEVELS;
 }
 
-// Expose to Node.js environments if running server-side
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { STAGES, LEVELS, GAME_STAGES: STAGES, GAME_LEVELS: LEVELS };
+  module.exports = { STAGES, LEVELS };
 }

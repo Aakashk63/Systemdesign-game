@@ -163,11 +163,11 @@ class GameController {
   updateTopBar(level) {
     const stage = window.GAME_STAGES?.find(s => s.id === level.stage);
     this.setElementText('stage-badge-text', stage ? stage.name.toUpperCase() : 'MODULE 1: SYSTEM DESIGN FUNDAMENTALS');
-    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
+    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 23;
     this.setElementText('level-indicator-text', `Topic ${level.id} / ${totalLevels}`);
     this.setElementText('xp-count-val', `${this.xp}`);
 
-    // Stepper dots for all 28 topics
+    // Stepper dots for all 23 topics
     const stepperContainer = document.getElementById('stage-stepper-dots');
     if (stepperContainer && window.GAME_LEVELS) {
       stepperContainer.innerHTML = window.GAME_LEVELS.map((lvl, idx) => {
@@ -572,13 +572,13 @@ class GameController {
   }
 
   unlockNextLevelButton(level) {
-    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 28;
+    const totalLevels = window.GAME_LEVELS ? window.GAME_LEVELS.length : 23;
     const nextBtn = document.getElementById('btn-continue-next-level');
     if (nextBtn) {
       nextBtn.disabled = false;
       nextBtn.classList.remove('btn-locked');
       if (level.id >= totalLevels) {
-        nextBtn.innerHTML = `Complete All 28 Topics & View Certificate 🏆 →`;
+        nextBtn.innerHTML = `Complete All 23 Topics & View Certificate 🏆 →`;
       } else {
         nextBtn.innerHTML = `Unlock Next Topic (Topic ${level.id + 1}) → 🚀`;
       }
@@ -612,7 +612,7 @@ class GameController {
 
     const maxLevelIdx = window.GAME_LEVELS ? window.GAME_LEVELS.length - 1 : 27;
     if (this.currentLevelIndex >= maxLevelIdx) {
-      // Completed all 28 topics!
+      // Completed all 23 topics!
       this.showVictoryScreen();
       return;
     }
@@ -772,7 +772,7 @@ function initGame() {
   if (!window.game) {
     try {
       window.game = new GameController();
-      console.log('System Design Learning Game (Ola Cab Edition, 28 Topics) Initialized!');
+      console.log('System Design Learning Game (Ola Cab Edition, 23 Topics) Initialized!');
     } catch (e) {
       console.error('Failed to initialize GameController:', e);
     }

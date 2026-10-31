@@ -1046,6 +1046,70 @@ var DioramaEngine;
       });
     },
 
+
+    // =========================================================================
+    // LEVEL 20: BASE & EVENTUAL CONSISTENCY (LIVE MAP TELEMETRY)
+    // =========================================================================
+    renderBaseEventualConsistencyScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Moving Cab streaming coordinates
+        this.renderOlaCab(220, 190, 'SE', 'moving', 'Moving Cab (Actual GPS)') +
+        // Wave showing 300ms transit delay
+        '<path d="M260,190 Q340,150 420,180" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3" filter="url(#glowCyan)"><animate attributeName="stroke-dashoffset" values="14;0" dur="1s" repeatCount="indefinite"/></path>' +
+        // Rider phone showing icon
+        this.renderPhoneClient(450, 190, 'Rider Map (300ms Eventual Sync)', 'ready') +
+        // Status HUD
+        '<g transform="translate(320, 80)">' +
+          '<rect x="-70" y="-14" width="140" height="28" rx="5" fill="#0f172a" stroke="#22c55e" stroke-width="1.2"/>' +
+          '<text x="0" y="4" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="#4ade80">EVENTUAL SYNC: 300MS LAG (SMOOTH)</text>' +
+        '</g>';
+
+      return this.wrapScene({
+        theme: 'night',
+        badgeText: isOptimal ? 'BASE EVENTUAL CONSISTENCY ACTIVE' : 'EVENTUAL CONSISTENCY MAP TRACKING',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Map Sync: 300ms Latency • UI Smooth & Responsive' : 'Locking UI for Exact Microsecond GPS',
+        footerIcon: '⏱️',
+        footerTitle: isOptimal ? 'Fluid User Experience with Eventual Consistency' : 'Consistency Trade-off',
+        footerDesc: isOptimal ? 'The cab icon catches up fractions of a second later, keeping the phone animation silky smooth without stutter.' : 'Demanding absolute zero-latency synchronization locks the screen and drains phone batteries.',
+        svgContent
+      });
+    },
+
+    // =========================================================================
+    // LEVEL 22: STREAM PROCESSING & WEBSOCKETS (PERSISTENT TWO-WAY TELEMETRY)
+    // =========================================================================
+    renderStreamWebSocketsScene(choice) {
+      const isOptimal = Boolean(choice && choice.isOptimal);
+
+      const svgContent = 
+        this.renderCityRoadGrid(12, 8, 320, 100, 'city') +
+        // Moving driver cab
+        this.renderOlaCab(170, 210, 'SE', 'moving', 'Driver App (Live GPS)') +
+        // Two-way continuous stream pipe
+        '<g transform="translate(320, 170)">' +
+          '<rect x="-60" y="-20" width="120" height="40" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1.8" filter="url(#glowGreen)"/>' +
+          '<text x="0" y="-6" text-anchor="middle" font-size="7.5" font-family="sans-serif" font-weight="900" fill="#4ade80">⚡ WEBSOCKET PIPELINE</text>' +
+          '<text x="0" y="8" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill="#93c5fd">Persistent Open Stream (5ms)</text>' +
+        '</g>' +
+        // Rider phone receiving coordinates
+        this.renderPhoneClient(470, 200, 'Rider Screen (Gliding Icon)', 'ready');
+
+      return this.wrapScene({
+        theme: 'night',
+        badgeText: isOptimal ? 'PERSISTENT WEBSOCKET STREAM ACTIVE' : 'REAL-TIME STREAMING TELEMETRY',
+        badgeType: isOptimal ? 'solution' : 'problem',
+        telemetryText: isOptimal ? 'Open Two-Way Socket • Latency: 5ms' : 'Repeated HTTP Polling (High Overhead)',
+        footerIcon: '📡',
+        footerTitle: isOptimal ? 'Continuous Live Coordinates Flow' : 'Real-Time Pipeline',
+        footerDesc: isOptimal ? 'An open two-way connection streams driver coordinates continuously to the passenger screen without manual page refreshes.' : 'Reconnecting every second creates heavy overhead, drains battery, and stutters.',
+        svgContent
+      });
+    },
+
     // =========================================================================
     // MAIN DISPATCHER: MAPS ALL SIMULATION TYPES TO SCENES
     // =========================================================================
@@ -1107,6 +1171,10 @@ var DioramaEngine;
           return this.renderRateLimiterTurnstileScene(choiceMade);
         case 'geospatial_spatial_indexing':
           return this.renderGeospatialSpatialIndexingScene(choiceMade);
+        case 'base_eventual_consistency':
+          return this.renderBaseEventualConsistencyScene(choiceMade);
+        case 'stream_websockets':
+          return this.renderStreamWebSocketsScene(choiceMade);
         default:
           return this.renderOlaRushHourScene(choiceMade);
       }

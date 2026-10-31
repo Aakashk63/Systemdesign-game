@@ -1,10 +1,10 @@
-# 🚕 RideQuest – Ola App System Design Learning Game
+# 🚕 RideQuest – Ola App System Design Architecture Game
 
 > **"Learn System Design through real-world Ola cab booking scenarios."**
 
-**RideQuest** is an interactive, scenario-based educational 3D game designed for **first-year students and beginners** to learn System Design through real-world **Ola App (Ride-Hailing & Mobility Cloud)** engineering challenges: rush hour concurrency, Bangalore monsoon surges, GPS driver tracking, SQL vs. NoSQL storage, database sharding, load balancing, caching, rate limiting, and geospatial indexing.
+**RideQuest** is an interactive, scenario-based educational 3D game designed for **first-year students and beginners** to learn System Design through real-world **Ola App (Ride-Hailing & Mobility Cloud)** engineering challenges.
 
-Featuring procedural 3D isometric city dioramas with yellow Ola cabs, animated simulations, simple plain English, and 3-choice MCQs.
+Featuring procedural 3D isometric city dioramas with yellow Ola cabs, animated simulations, simple everyday English (no technical jargon in questions), and 3-choice interactive scenarios.
 
 ---
 
@@ -20,49 +20,34 @@ This repository is pre-configured for instant zero-configuration deployment on *
 
 ---
 
-## 🎮 Strict 28-Topic Curriculum (7 Modules)
+## 🎮 Complete 23-Topic Curriculum (Day 1 & Day 2)
 
-### Module 1: System Design Fundamentals
-* **Topic 1:** Introduction to System Design — *50,000 People Book Cabs at 6:00 PM*
-* **Topic 2:** Functional and Non-Functional Requirements — *What the App Does vs. How Fast It Runs*
-* **Topic 3:** Client–Server Architecture — *How Your Phone Talks to the Ola Cloud Server*
-* **Topic 4:** Frontend, Backend, and Database — *The Screen, the Brain, and the Memory*
-* **Topic 5:** Basic System Architecture — *Connecting the Full Ola Dispatch System*
+### Day 1: System & Data Foundations (Topics 1 – 11)
+* **Topic 1:** *Requirements Engineering*: Functional vs. Non-Functional Requirements (FR & NFR)
+* **Topic 2:** *Client–Server Architecture*: Decoupling Requesters from Central Data Stores
+* **Topic 3:** *Networking Fundamentals*: IP Addresses, DNS, and Ports
+* **Topic 4:** Networking Protocols: TCP vs. UDP and HTTP vs. HTTPS
+* **Topic 5:** API Design & RESTful Architecture: Standardized Communication Contracts
+* **Topic 6:** Authentication (AuthN) & Token-Based Sessions: Cryptographic Identity Verification
+* **Topic 7:** Authorization (AuthZ) & Access Control Models: Role-Based Access Control & Principle of Least Privilege
+* **Topic 8:** Relational Database Design (RDBMS) & ACID Guarantees: Transactional Integrity
+* **Topic 9:** Database Architecture: Relational vs. Non-Relational (SQL vs. NoSQL Paradigm)
+* **Topic 10:** OLTP vs. OLAP: Fast Transactional Processing vs. Deep Analytical Processing
+* **Topic 11:** ACID Properties: Atomicity, Consistency, Isolation, and Durability
 
-### Module 2: Networking and Communication
-* **Topic 6:** Networking Fundamentals: IP Addresses, DNS, and Ports — *Finding the Ola Cloud Server in Bangalore*
-* **Topic 7:** HTTP vs. HTTPS — *Protecting Credit Cards & Ola Money with Encryption*
-* **Topic 8:** APIs and JSON — *The Universal Language Between Phone and Server*
-* **Topic 9:** API Design: REST and RESTful Architecture — *Standard Rules for Booking, Tracking, and Cancelling*
-
-### Module 3: Database Fundamentals
-* **Topic 10:** Database Fundamentals: SQL vs. NoSQL — *Rider Wallet Balances vs. Live Driver GPS Telemetry*
-* **Topic 11:** Relational Database Design — *Linking Drivers, Cabs, Riders, and Trips*
-* **Topic 12:** ACID Properties — *Paying ₹350 for a Ride with Ola Money (Zero Lost Money)*
-* **Topic 13:** Database Indexing — *Finding a Driver by Mobile Number in 2 Milliseconds*
-* **Topic 14:** Database Replication — *What if the Main Database Server Loses Power?*
-* **Topic 15:** Database Partitioning — *Splitting 50 Million Trip Receipts by Month & Year*
-* **Topic 16:** Database Sharding — *Distributing Driver Data Across City Database Servers*
-* **Topic 17:** CAP Theorem — *When the Telecom Cable Between Delhi and Bangalore Breaks*
-* **Topic 18:** OLTP vs. OLAP — *Live Ride Dispatch vs. Studying 10 Million Past Trips*
-
-### Module 4: Application Architecture
-* **Topic 19:** Monolithic vs. Microservices Architecture — *All Features in One Program vs. Separate Services*
-* **Topic 20:** Authentication and Authorization — *Proving Who You Are vs. What You Are Allowed to Do*
-
-### Module 5: Scalability and Performance
-* **Topic 21:** Scalability: Vertical vs. Horizontal Scaling — *Monsoon Rain Rush: Adding 20 Servers vs. 1 Expensive Chip*
-* **Topic 22:** Load Balancing — *Distributing 100,000 Riders Evenly Across 10 Servers*
-* **Topic 23:** Caching — *Fast Driver Profile Loading in 2ms vs 120ms Disk Reads*
-* **Topic 24:** Content Delivery Network (CDN) — *Downloading Car Icons & Map Tiles Instantly Across India*
-
-### Module 6: Asynchronous Processing and Reliability
-* **Topic 25:** Message Queues and Background Processing — *Generating Trip Invoices Without Freezing the App*
-* **Topic 26:** Fault Tolerance and Failure Handling — *What Happens When a Sub-System Dies Mid-Trip?*
-* **Topic 27:** Rate Limiting — *Stopping Bot Scripts from Spamming 10,000 Fake Bookings*
-
-### Module 7: Advanced System Design
-* **Topic 28:** Geospatial Search and Indexing — *Matching the Nearest Available Cab Within 2 Kilometers*
+### Day 2: Distributed Systems & Scale (Topics 12 – 23)
+* **Topic 12:** Database Replication: Primary-Replica (Master-Slave) Architecture
+* **Topic 13:** Caching Strategies: In-Memory Caching & Cache Eviction (LRU/LFU)
+* **Topic 14:** Content Delivery Networks (CDN): Edge Caching & Geographical PoPs
+* **Topic 15:** Scaling Paradigms: Horizontal (Scale Out) vs. Vertical (Scale Up)
+* **Topic 16:** Load Balancing: Smart Traffic Routing & Node Health Checks
+* **Topic 17:** Rate Limiting: Token Bucket Algorithms & Bot Traffic Shaping
+* **Topic 18:** Database Sharding: Horizontal Partitioning across Independent Nodes
+* **Topic 19:** CAP Theorem: Consistency, Availability, and Partition Tolerance
+* **Topic 20:** BASE: Basically Available, Soft State, Eventual Consistency
+* **Topic 21:** Fault Tolerance & Resilience: Redundancy, Recovery, Graceful Degradation
+* **Topic 22:** Stream Processing & WebSockets: Real-Time Pipelines, Persistent Two-Way Communication
+* **Topic 23:** Geospatial Search: Coordinates, Proximity Queries, Spatial Indexing
 
 ---
 
